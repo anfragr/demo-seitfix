@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gasthaus zur Alten Press | Steirisches Wirtshaus von 1663 in Graz</title>
+<meta name="description" content="Gasthaus zur Alten Press, Griesgasse 8, 8020 Graz. Steirische Küche im Bürgerhaus von 1663, Mittagstisch ab 12 Euro, vegetarische und vegane Gerichte, Gastgarten.">
+<meta name="theme-color" content="#2b2a27">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Gasthaus zur Alten Press | Steirisches Wirtshaus von 1663 in Graz">
+<meta property="og:description" content="Hinter dem Hotel Wiesler, nahe dem Kunsthaus. Gewölbe, alter Steinboden, steirische Küche mit vegetarischen und veganen Gerichten.">
+<meta property="og:image" content="assets/img/fassade.webp">
+<meta property="og:site_name" content="Gasthaus zur Alten Press">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232b2a27'/%3E%3Ctext x='16' y='21' font-family='Georgia,serif' font-size='11' fill='%23f3f1ec' text-anchor='middle'%3E1663%3C/text%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, es wird kein fremder Server aufgerufen. */
+@font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/spectral-400.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/spectral-600.woff2') format('woff2')}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/work-sans-500.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#3a3833;
+  --farbe-akzent:#8c2f28;
+  --farbe-text:#2b2a26;
+  --farbe-flaeche:#f3f1ec;
+  --farbe-flaeche-2:#e7e3da;
+  --farbe-dunkel:#2b2a27;
+  --farbe-linie:#cfc9bd;
+  --farbe-gedaempft:#5c5850;
+  --abstand-s:.6rem;
+  --abstand-m:1.35rem;
+  --abstand-l:3rem;
+  --abstand-xl:6rem;
+  --schrift-titel:'Spectral',Georgia,'Times New Roman',serif;
+  --schrift-text:'Spectral',Georgia,'Times New Roman',serif;
+  --schrift-marke:'Work Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  /* Der eine typografische Höhepunkt der Seite ist die Jahreszahl. */
+  --schrift-riesig:clamp(5rem,15vw,15rem);
+  --breite:1060px;
+  --schmal:640px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-size:1.125rem;line-height:1.72;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:600;line-height:1.18;margin:0 0 var(--abstand-m)}
+h1{font-size:clamp(2.6rem,6.5vw,6rem);line-height:.98;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,3.6vw,2.2rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-akzent)}
+:focus-visible{outline:3px solid var(--farbe-akzent);outline-offset:3px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.spalte{max-width:var(--schmal);margin:0 auto}
+.klein{font-size:1rem;color:var(--farbe-gedaempft)}
+.marke{font-family:var(--schrift-marke);font-weight:500;font-size:.75rem;letter-spacing:.24em;text-transform:uppercase;color:var(--farbe-akzent);margin:0 0 .8rem}
+
+/* Demo-Balken */
+.demobalken{position:sticky;top:0;z-index:60;background:#1e1d1b;color:#c9c4ba;font-family:var(--schrift-marke);font-size:.78rem;line-height:1.4;padding:.5rem 1.25rem;text-align:center}
+.demobalken a{color:#d9a09a;text-underline-offset:3px}
+
+/* Kopf */
+.kopf{background:var(--farbe-flaeche);border-bottom:1px solid var(--farbe-linie)}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem 1.5rem;padding-top:.8rem;padding-bottom:.8rem}
+.wortmarke{font-family:var(--schrift-titel);font-weight:600;font-size:1.2rem;color:var(--farbe-text);text-decoration:none;margin-right:auto;line-height:1.15}
+.wortmarke span{display:block;font-family:var(--schrift-marke);font-weight:500;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--farbe-gedaempft);margin-top:.2rem}
+.hauptnav{width:100%;order:3}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0 1.4rem;margin:0;padding:0;border-top:1px solid var(--farbe-linie)}
+.hauptnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:46px;font-family:var(--schrift-marke);font-weight:500;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--farbe-text);text-decoration:none}
+.hauptnav a:hover{color:var(--farbe-akzent)}
+.nav-inaktiv{opacity:.4;cursor:not-allowed}
+.nav-hinweis{margin:0;font-family:var(--schrift-marke);font-size:.85rem;color:var(--farbe-akzent);max-height:0;overflow:hidden;transition:max-height .2s ease}
+.nav-hinweis.sichtbar{max-height:3rem;padding-bottom:.5rem}
+.tel-kopf{font-family:var(--schrift-marke);font-weight:500;font-size:.95rem;color:var(--farbe-akzent);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+
+/* Knöpfe */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.6rem;border:1px solid transparent;border-radius:2px;font-family:var(--schrift-marke);font-weight:500;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.knopf-voll{background:var(--farbe-akzent);color:#fdf6f5}
+.knopf-voll:hover{background:#73251f}
+.knopf-linie{background:transparent;color:var(--farbe-text);border-color:var(--farbe-linie)}
+.knopf-linie:hover{border-color:var(--farbe-text)}
+.knopf-dunkel{background:var(--farbe-dunkel);color:#f3f1ec}
+.knopf-dunkel:hover{background:#454239}
+
+/* Hero, mittig gesetzt, die Jahreszahl trägt ihn */
+.hero{padding:var(--abstand-xl) 0 var(--abstand-l);text-align:center}
+.jahr{
+  font-family:var(--schrift-titel);font-weight:400;
+  font-size:clamp(4.5rem,17vw,10rem);line-height:.85;
+  color:var(--farbe-primaer);opacity:.16;letter-spacing:.02em;
+  margin:0 0 -.35em;
+}
+.hero h1{margin-bottom:.9rem;position:relative}
+.hero .leit{max-width:46ch;margin-left:auto;margin-right:auto}
+.status{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:.1rem .8rem;align-items:baseline;border-top:1px solid var(--farbe-linie);border-bottom:1px solid var(--farbe-linie);padding:.8rem 1.4rem;margin:var(--abstand-m) 0}
+.status b{font-weight:600;font-size:1.15rem}
+.status .zusatz{color:var(--farbe-gedaempft);font-size:1rem}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.bildband img{width:100%;max-height:46vh;object-fit:cover}
+.bildband figcaption{font-family:var(--schrift-marke);font-size:.8rem;letter-spacing:.06em;color:var(--farbe-gedaempft);padding:.6rem 1.25rem 0;text-align:center}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.sektion-kopf{margin-bottom:var(--abstand-l)}
+.sektion-kopf p:last-child{margin-bottom:0}
+.gedeckt{background:var(--farbe-flaeche-2)}
+.dunkel{background:var(--farbe-dunkel);color:#eae7e0}
+.dunkel h2,.dunkel h3{color:#fff}
+.dunkel .marke{color:#d9a09a}
+.dunkel a{color:#d9a09a}
+figure{margin:0}
+figcaption{font-family:var(--schrift-marke);font-size:.85rem;color:var(--farbe-gedaempft);padding-top:.6rem}
+.zitat{font-family:var(--schrift-titel);font-weight:400;font-style:italic;font-size:1.5rem;line-height:1.42;text-align:center;max-width:24ch;margin:var(--abstand-l) auto 0}
+.zweispalt{display:grid;gap:var(--abstand-l)}
+.bildpaar{display:grid;gap:1.2rem;margin-top:var(--abstand-l)}
+
+/* Speisen */
+.karte{list-style:none;margin:0;padding:0}
+.karte li{display:grid;grid-template-columns:1fr auto;gap:.2rem 1.5rem;padding:.8rem 0;border-bottom:1px solid var(--farbe-linie);align-items:baseline}
+.karte .preis{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.karte .beilage{grid-column:1 / -1;font-family:var(--schrift-marke);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--farbe-gedaempft);order:-1}
+.karte .notiz{grid-column:1;font-size:.95rem;color:var(--farbe-gedaempft);font-style:italic}
+.kennung{
+  display:inline-block;font-family:var(--schrift-marke);font-weight:500;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid var(--farbe-akzent);color:var(--farbe-akzent);
+  padding:.05rem .45rem;border-radius:2px;margin-left:.5rem;vertical-align:.12em;
+}
+.dunkel .kennung{border-color:#d9a09a;color:#d9a09a}
+.gruppen{display:grid;gap:var(--abstand-l)}
+.gruppen h3{border-bottom:2px solid var(--farbe-primaer);padding-bottom:.4rem}
+
+/* Lieferanten */
+.lieferanten{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.lieferanten li{display:flex;justify-content:space-between;gap:1.5rem;padding:.7rem 0;border-bottom:1px solid var(--farbe-linie)}
+.lieferanten span:last-child{text-align:right;color:var(--farbe-gedaempft)}
+
+/* Räume */
+.raeume{list-style:none;margin:0;padding:0}
+.raeume li{padding:1.2rem 0;border-top:1px solid var(--farbe-linie)}
+.raeume li:last-child{border-bottom:1px solid var(--farbe-linie)}
+.raeume h3{margin-bottom:.3rem}
+.raeume p{margin:0}
+
+/* Öffnungszeiten */
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left}
+.zeittabelle caption{text-align:left;padding-bottom:.8rem;color:var(--farbe-gedaempft);font-size:1rem}
+.zeittabelle th,.zeittabelle td{padding:.75rem .5rem;border-bottom:1px solid var(--farbe-linie)}
+.zeittabelle thead th{font-family:var(--schrift-marke);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--farbe-gedaempft);font-weight:500}
+.zeittabelle th[scope=row]{font-weight:600}
+.zeittabelle tr.heute{background:#fff;box-shadow:inset 3px 0 0 var(--farbe-akzent)}
+.zeittabelle tr.heute th[scope=row]{color:var(--farbe-akzent)}
+.ruhe{color:var(--farbe-gedaempft)}
+
+/* Formular */
+.formular{display:grid;gap:1.1rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-family:var(--schrift-marke);font-weight:500;font-size:.85rem;letter-spacing:.06em;margin-bottom:.35rem}
+.feld input,.feld select,.feld textarea{font-family:var(--schrift-text);font-size:1.05rem;color:var(--farbe-text);background:#fff;border:1px solid var(--farbe-linie);border-radius:2px;padding:.6rem .7rem;min-height:48px;width:100%}
+.feld textarea{min-height:100px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-akzent)}
+.fehler{color:#8c2f28;font-size:.95rem;margin-top:.3rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#8c2f28}
+.bestaetigung{border:1px solid var(--farbe-akzent);background:#fff;padding:1rem 1.1rem;border-radius:2px;margin-top:1.2rem}
+.bestaetigung[hidden]{display:none}
+
+/* Kontakt */
+address{font-style:normal}
+.datenzeile{display:grid;gap:.15rem;padding:.8rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-family:var(--schrift-marke);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--farbe-gedaempft)}
+.datenzeile dd{margin:0}
+
+/* Seitfix */
+.seitfix{background:#1c1c1e;color:#e9e9ea;font-family:var(--schrift-marke)}
+.seitfix h2{font-family:var(--schrift-marke);font-weight:500;font-size:clamp(1.3rem,3.2vw,1.8rem);color:#fff}
+.seitfix p{font-family:var(--schrift-marke);font-size:1rem;line-height:1.65}
+.seitfix a{color:#9fd0c4}
+.seitfix .marke{color:#9fd0c4}
+.seitfix :focus-visible{outline-color:#9fd0c4}
+.preisliste{list-style:none;margin:var(--abstand-m) 0;padding:0;max-width:34rem}
+.preisliste li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid #333;font-size:1rem}
+.preisliste .betrag{white-space:nowrap;color:#fff;font-weight:500}
+.seitfix .knopf-seitfix{background:#9fd0c4;color:#12211d;text-decoration:none}
+.seitfix .knopf-seitfix:hover{background:#b6ded4}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:#c2beb5;padding:var(--abstand-l) 0;font-size:1rem}
+.fuss a{color:#d9a09a}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-weight:600;font-size:1.1rem}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;background:var(--farbe-flaeche);border-top:1px solid var(--farbe-linie)}
+.mobilleiste a{display:flex;align-items:center;justify-content:center;min-height:56px;font-family:var(--schrift-marke);font-weight:500;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--farbe-text)}
+.mobilleiste a:last-child{background:var(--farbe-akzent);color:#fdf6f5}
+body{padding-bottom:56px}
+
+@media (min-width:640px){
+  .bildpaar{grid-template-columns:1fr 1fr}
+  .datenzeile{grid-template-columns:8rem 1fr;gap:1rem;align-items:baseline}
+  .lieferanten{grid-template-columns:1fr 1fr;column-gap:var(--abstand-l)}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:var(--balkenhoehe,2rem);z-index:50}
+  .kopf-innen{padding-top:1rem;padding-bottom:.2rem}
+  .hauptnav ul{gap:0 1.8rem}
+  .gruppen{grid-template-columns:1fr 1fr;gap:var(--abstand-l) var(--abstand-xl)}
+  .zweispalt{grid-template-columns:1fr 1fr;gap:var(--abstand-xl);align-items:center}
+  .zweispalt-schmal{grid-template-columns:1.35fr .65fr;align-items:start}
+  .formular{grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem}
+  .feld-breit{grid-column:1 / -1}
+  .fuss-raster{grid-template-columns:1.3fr 1fr 1fr}
+}
+@media (min-width:1200px){:root{--abstand-xl:7rem}}
+
+/* Signature: die Jahreszahl trägt den Hero, das Steinbodenfoto läuft randlos daneben */
+.hero{padding:0;text-align:left}
+.hero-raster{display:grid;gap:0;align-items:stretch}
+.hero-text{padding:var(--abstand-xl) 1.25rem}
+.hero .jahrgross{
+  display:block;font-family:var(--schrift-titel);font-weight:400;
+  font-size:var(--schrift-riesig);line-height:.8;color:var(--farbe-akzent);
+  letter-spacing:-.02em;margin:0 0 .35em;
+}
+.hero h1{margin-bottom:.7rem}
+.hero .leit{max-width:34ch;margin-left:0;margin-right:auto}
+.hero .status{justify-content:flex-start;margin-left:0;margin-right:auto}
+.hero-knoepfe{justify-content:flex-start}
+.hero-bild-gross{margin:0;min-height:26rem}
+.hero-bild-gross img{width:100%;height:100%;min-height:26rem;object-fit:cover}
+@media (min-width:900px){
+  .hero-raster{grid-template-columns:1.02fr .98fr;min-height:88vh}
+  .hero-text{padding:var(--abstand-xl) 3.5rem var(--abstand-xl) 0;display:flex;flex-direction:column;justify-content:center}
+  .hero .rand{max-width:none;padding-left:max(1.5rem,calc((100% - var(--breite)) / 2 + 1.5rem));padding-right:0}
+  .hero-bild-gross,.hero-bild-gross img{min-height:88vh}
+}
+
+/* ------------------------------------------------------------------
+   Ausbau: Verkaufswerkzeug und Wow-Hebel
+   ------------------------------------------------------------------ */
+.hauptnav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hauptnav ul::-webkit-scrollbar{display:none}
+.hauptnav li{flex:0 0 auto}
+.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
+.nav-hinweis{line-height:1.5;max-height:0}
+.nav-hinweis.sichtbar{max-height:9rem;padding-bottom:.8rem}
+.nav-hinweis b{font-weight:700}
+
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Seitfix: Seitenliste und Angebot */
+.seitfix-raster{display:grid;gap:var(--abstand-l)}
+.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
+.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}
+.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
+.seitenliste b{display:block;color:#fff}
+.seitenliste span{color:#b6b6b8;font-size:.95rem}
+.angebot{border:1px solid #3a3a3c;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
+.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#fff;line-height:1;display:block;margin-bottom:.3rem}
+.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
+.angebot li{padding:.4rem 0;border-top:1px solid #333;font-size:.98rem;color:#c9c9cb}
+.seitfix h3{color:#fff}
+@media (min-width:900px){
+  .seitfix-raster{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
+}
+
+/* Sammelkorrektur, zentral angehaengt. */
+.seitenliste li>b,.seitenliste li>span{grid-column:2}
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){
+  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+@media (max-width:639px){
+  .hauptnav ul{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobalken">
+  Unverbindliche Demo für das Gasthaus zur Alten Press. Erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="#oben">Gasthaus zur Alten Press<span>Griesgasse 8, Graz</span></a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#haus">Das Haus</a></li>
+        <li><a href="#mittag">Mittagstisch</a></li>
+        <li><a href="#karte">Karte</a></li>
+        <li><a href="#zeiten">Zeiten</a></li>
+        <li><a href="#reservierung">Reservieren</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit der ganzen Karte, dem Mittagstisch und allen Preisen.">Speisekarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite nur für die pflanzlichen Gerichte, die sonst in der Karte untergehen.">Vegetarisch und Vegan</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Gastzimmer, Kaminstüberl bis 35 Personen und den Gruppenmenüs.">Räume und Feiern</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit 1663, den zwei Häusern, dem Baumeister Joseph Huber und dem Gewölbe.">Geschichte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Anfahrt, Lieferservice und allen Kontaktdaten.">Kontakt</span></li>
+      </ul>
+      <p class="nav-hinweis" id="navHinweis" role="status"></p>
+    </nav>
+    <a class="tel-kopf" href="tel:+43316719770">+43 316 71 97 70</a>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero" aria-labelledby="titel">
+    <div class="rand hero-raster">
+      <div class="hero-text">
+        <p class="marke">Griesgasse 8, mitten in Graz</p>
+        <span class="jahrgross">1663</span>
+        <h1 id="titel">Gasthaus zur Alten Press</h1>
+        <p class="leit">So lange steht das Haus schon in der Griesgasse. Gewölbe, dicke Mauern, alter Steinboden, und eine Küche, die auch ohne Fleisch auskommt.</p>
+        <p class="status" id="statusHero">
+          <b id="statusText">Öffnungszeiten werden geladen</b>
+          <span class="zusatz" id="statusZusatz"></span>
+        </p>
+        <div class="hero-knoepfe">
+          <a class="knopf knopf-voll" href="#reservierung">Tisch reservieren</a>
+          <a class="knopf knopf-linie" href="tel:+43316719770">+43 316 71 97 70</a>
+        </div>
+      </div>
+      <figure class="hero-bild-gross">
+        <img src="assets/img/steinboden.webp" width="1400" height="654" loading="eager" fetchpriority="high"
+             alt="Wirtsstube mit hellen Holztischen und Bänken auf altem Steinplattenboden unter dem Gewölbe">
+      </figure>
+    </div>
+  </section>
+
+  <section id="haus" aria-labelledby="hausTitel">
+    <div class="rand spalte">
+      <p class="marke">Das Haus</p>
+      <h2 id="hausTitel">Holz, Stein und ein bisschen Kitsch</h2>
+      <p>Die Gaststube schmiegt sich in ein altes Grazer Bürgerhaus. Was die Baustruktur vorgibt, bleibt sichtbar: Gewölbe, dicke Mauern, kleine Fenster. Dazu Holz, Stein und rustikales Dekor.</p>
+      <p>Geführt wird das Haus von Küchenchef und Inhaber Dieter Skrobanek. Die Familie hat die Alte Press vor über fünfzehn Jahren übernommen und hält den alten Steinboden seither instand.</p>
+      <p>Gekocht wird mit regionalen Produkten. Die Lieferanten stehen weiter unten mit Namen.</p>
+      <blockquote class="zitat">Ein Gasthaus, das man erlebt haben muss!</blockquote>
+    </div>
+    <div class="rand bildpaar">
+      <figure>
+        <img src="assets/img/gaststube.webp" width="1200" height="562" loading="lazy"
+             alt="Gaststube mit roten Tischdecken, Holzdecke und Blumenschmuck an den Wänden">
+      </figure>
+      <figure>
+        <img src="assets/img/steinboden.webp" width="1200" height="561" loading="lazy"
+             alt="Wirtsstube mit hellen Holztischen und Bänken auf altem Steinplattenboden">
+        <figcaption>Der alte Steinboden ist erhalten geblieben.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="mittag" class="gedeckt" aria-labelledby="mittagTitel">
+    <div class="rand spalte">
+      <div class="sektion-kopf">
+        <p class="marke">Montag bis Freitag</p>
+        <h2 id="mittagTitel">Mittagstisch</h2>
+        <p>Zehn Gerichte, jede Woche neu zusammengestellt, jeden Tag auch ein vegetarisches. Zu jedem Gericht gehört eine Tagessuppe oder ein Salat.</p>
+      </div>
+      <ul class="karte">
+        <li><span>Pariser Schnitzerl vom Schwein, dazu Risi Pisi</span><span class="preis">12,60</span></li>
+        <li><span>Geröstete Kräuternockerl mit Kräuterdip und grünem Salat<span class="kennung">vegetarisch</span></span><span class="preis">12,00</span></li>
+        <li><span>Faschierte Laibchen mit Röstzwiebel, dazu Erdäpfel-Majoranpüree</span><span class="preis">12,60</span></li>
+        <li><span>Gebackene Champignons, Sauce tartare, grüner Salat<span class="kennung">vegetarisch</span></span><span class="preis">12,00</span></li>
+        <li><span>Roulade vom Steirerhendl mit Vulcanoschinken, Erdäpfelpüree und Madeirasauce</span><span class="preis">12,60</span></li>
+        <li><span>Schafkäse im Speckmantel gebraten, Blattsalat, Kräuterdip</span><span class="preis">12,00</span></li>
+        <li><span>Rindsbraten vom Jungstier, Schilchersauce, Marktgemüse und Hörnchen</span><span class="preis">12,60</span></li>
+        <li><span>Risotto mit Kurkuma, Äpfeln, Walnüssen und Asmonte<span class="kennung">vegetarisch</span></span><span class="preis">12,00</span></li>
+        <li><span>Gebackenes Welsfilet mit rotem Zwiebel, dazu Erdäpfelsalat und Kernöl</span><span class="preis">12,60</span></li>
+        <li><span>Berenwurstl, Zwiebelsenf, Pommes und grüner Salat</span><span class="preis">12,00</span></li>
+      </ul>
+      <p class="klein" style="margin-top:var(--abstand-m)">Alle Preise in Euro. Der Mittagstisch wechselt wöchentlich.</p>
+    </div>
+  </section>
+
+  <section id="karte" aria-labelledby="karteTitel">
+    <div class="rand">
+      <div class="sektion-kopf spalte" style="text-align:center">
+        <p class="marke">Auszug aus der Karte</p>
+        <h2 id="karteTitel">À la carte</h2>
+        <p>Feine steirische Küche, dazu Eigenwilliges. Die vollständige Karte liegt im Haus auf.</p>
+      </div>
+      <div class="gruppen">
+        <div>
+          <h3>Vorspeisen und Suppen</h3>
+          <ul class="karte">
+            <li><span>Klares Rindssupperl, wahlweise mit Frittaten, Fleischstrudel oder Leberknödel</span><span class="preis">6,30</span></li>
+            <li><span>Erdäpfelsuppe mit Eierschwammerl, Kräutern, Gemüse und Erdäpfelstroh</span><span class="preis">7,10</span></li>
+            <li><span>Steirische Flecksuppe vom Jungstier</span><span class="preis">8,10</span></li>
+            <li><span>Steirischer Vorspeisenteller mit Vulcanoschinken und Biokäse der Firma Deutschmann</span><span class="preis">15,90</span></li>
+            <li>
+              <span>Chili-Beef-Tatare vom Jungstier mit Sprossen, Basilikum, Kirschparadeiser, Butter und Toastbrot</span>
+              <span class="preis">21,10</span>
+              <span class="notiz">Das Lieblingsgericht der Chefin.</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Hauptspeisen</h3>
+          <ul class="karte">
+            <li><span>Rindsgulasch vom Jungstier</span><span class="preis">16,60</span></li>
+            <li><span>Lammbratwürstl, Schilcherweinkraut und Braterdäpfel</span><span class="preis">19,90</span></li>
+            <li><span>Wienerschnitzerl vom Schwein mit Petersilerdäpfeln</span><span class="preis">19,90</span></li>
+            <li><span>Kalbsbeuscherl, handgeputzt, mit Schilcher und Serviettenknödeln</span><span class="preis">19,90</span></li>
+            <li>
+              <span>Schopfbratl mit Kümmel-Schwarzbiersauce, Schilcherweinkraut und Serviettenknödeln</span>
+              <span class="preis">20,10</span>
+              <span class="notiz">Das Lieblingsgericht des Chefs.</span>
+            </li>
+            <li><span>Bauerncordon bleu vom Schwein mit Topfen, Burgunderschinken, Gartenkräutern und Steirerkas, dazu Butterreis</span><span class="preis">21,90</span></li>
+            <li><span>In dunklem Bier geschmorte Wangerl vom Schwein, Dijon-Senfsauce, Erdäpfel-Bärlauchpüree, Lauch und frischer Chili</span><span class="preis">22,50</span></li>
+            <li><span>Bachforellenfilet, gebraten in hausgemachtem Rosmarin-Kräuteröl</span><span class="preis">22,50</span></li>
+            <li><span>Gedämpfter Tafelspitz vom Jungstier, Apfelkren, geräuchertes Meersalz, Cremespinat und Braterdäpfel</span><span class="preis">30,90</span></li>
+            <li><span>Schwammerlrostbraten vom steirischen Jungstier, geschmort</span><span class="preis">38,10</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bildpaar">
+        <figure>
+          <img src="assets/img/wild.webp" width="713" height="723" loading="lazy"
+               alt="Dunkles Fleisch mit Sauce, Preiselbeeren und Birnenspalten auf weißem Teller">
+        </figure>
+        <figure>
+          <img src="assets/img/gedeck.webp" width="1000" height="469" loading="lazy"
+               alt="Gedeckter Holztisch mit Besteckbecher, roter Rose und Salz- und Pfefferstreuer">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="pflanzlich" class="dunkel" aria-labelledby="pflanzlichTitel">
+    <div class="rand spalte">
+      <div class="sektion-kopf">
+        <p class="marke">Ohne Fleisch</p>
+        <h2 id="pflanzlichTitel">Vegetarisch und vegan</h2>
+        <p>Pflanzliche Gerichte stehen nicht als Beilage in einer Ecke der Karte, sondern als eigener Gang. Zwei davon sind vegan oder auf Wunsch vegan.</p>
+      </div>
+      <ul class="karte" style="border-color:rgba(255,255,255,.2)">
+        <li><span>Geröstete Semmelknödeln mit Ei und grünem Salat, Kernöl</span><span class="preis">17,30</span></li>
+        <li><span>Geröstete Kräuterspätzle mit Ei und grünem Salat, Kernöl</span><span class="preis">17,30</span></li>
+        <li><span>Gebratene Topfen-Hirselaibchen mit rotem Kokoscurry, Erdäpfel-Kräuterpüree und frischem Chili</span><span class="preis">17,30</span></li>
+        <li><span>Polentaschnitten mit Cremespinat, dazu grüner Salat</span><span class="preis">17,30</span></li>
+        <li><span>Brokkoli-Haferflockenlaibchen mit roten Linsen in rotem Kokoscurry<span class="kennung">vegan</span></span><span class="preis">17,30</span></li>
+        <li><span>Langsam gerührtes Risotto mit Eierschwammerl, Welschriesling, Kirschparadeiser und Basilikumpesto<span class="kennung">auf Wunsch vegan</span></span><span class="preis">19,50</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="raeume" aria-labelledby="raeumeTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Platz und Anlässe</p>
+        <h2 id="raeumeTitel">Räume</h2>
+        <ul class="raeume">
+          <li>
+            <h3>Gastzimmer</h3>
+            <p>Vierzig Plätze im urgemütlich eingerichteten Gastzimmer.</p>
+          </li>
+          <li>
+            <h3>Kaminstüberl</h3>
+            <p>Bis 35 Personen, für geschlossene Veranstaltungen. Geburtstag, Sponsion, Weihnachtsfeier oder Firmenevent. Wenn nichts gefeiert wird, dient es auch als Seminarraum mitten in der Stadt. Für Gruppen gibt es eigene Menüvorschläge.</p>
+          </li>
+          <li>
+            <h3>Gastgarten</h3>
+            <p>Sitzplätze im Freien vor dem Haus, an der Griesgasse.</p>
+          </li>
+          <li>
+            <h3>Lieferservice</h3>
+            <p>Die Speisen kommen über Velofood auch nach Hause.</p>
+          </li>
+        </ul>
+      </div>
+      <figure>
+        <img src="assets/img/gastgarten.webp" width="540" height="364" loading="lazy"
+             alt="Gelbe und weiße Stühle an kleinen Tischen vor der Hauswand, daneben beschriebene Tafeln">
+        <figcaption>Vor dem Haus an der Griesgasse.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="geschichte" class="gedeckt" aria-labelledby="geschichteTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Seit 1663</p>
+        <h2 id="geschichteTitel">Zwei Häuser, ein Wirtshaus</h2>
+        <p>Die Alte Press bestand ursprünglich aus zwei Häusern. Das erste Mal erwähnt werden sie 1663, danach wieder 1701. Um 1700 kaufte die Eisenhändlerfamilie Gamilscheg eines der beiden, um 1785 wurden sie vereint und um 1800 bekam die Fassade ein einheitliches Gesicht.</p>
+        <p>Portal und Stiegenhaus gestaltete der Baumeister Joseph Huber zwischen 1760 und 1770. 1824 wurde die Griesgasse verbreitert, deshalb hat die Front bis heute einen Knick. Über dem Portal sitzt eine Sandsteinreliefgruppe mit einer Madonna und Kind.</p>
+        <p>Vom Erdgeschoss bis in die Hoftrakte zieht sich Tonnen- und Kreuzgratgewölbe. Der Steinboden, über den heute die Gäste gehen, lag früher auch in den Gängen der Obergeschosse.</p>
+      </div>
+      <div class="bildpaar" style="margin-top:0;grid-template-columns:1fr">
+        <figure>
+          <img src="assets/img/historisch.webp" width="540" height="364" loading="lazy"
+               alt="Historische Schwarzweißaufnahme der Hausfront in der Griesgasse">
+          <figcaption>Das Haus in einer alten Aufnahme.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/familie.webp" width="1000" height="666" loading="lazy"
+               alt="Die Wirtsfamilie zu viert in Tracht, die Kinder in der Mitte">
+          <figcaption>Die Familie führt das Haus seit über fünfzehn Jahren.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="lieferanten" aria-labelledby="lieferantenTitel">
+    <div class="rand spalte">
+      <div class="sektion-kopf">
+        <p class="marke">Woher es kommt</p>
+        <h2 id="lieferantenTitel">Regionale Lieferanten</h2>
+      </div>
+      <ul class="lieferanten">
+        <li><span>Rind</span><span>Metro Graz und Karnerta Graz</span></li>
+        <li><span>Kalb und Lamm</span><span>Karnerta, Graz</span></li>
+        <li><span>Eier</span><span>Landwirtschaft Teißl, Heimschuh</span></li>
+        <li><span>Biokäse</span><span>Firma Deutschmann, Frauenthal</span></li>
+        <li><span>Milchprodukte</span><span>Österreich, AMA-Gütesiegel</span></li>
+        <li><span>Erdäpfel</span><span>Österreichische Landwirtschaft</span></li>
+        <li><span>Äpfel</span><span>Firma Sehorsch</span></li>
+        <li><span>Schilcher</span><span>Weingut Markus Klug</span></li>
+        <li><span>Kernöl</span><span>Firma Esterer, Kalsdorf</span></li>
+      </ul>
+      <div class="bildpaar" style="grid-template-columns:1fr">
+        <figure>
+          <img src="assets/img/weinregal.webp" width="1000" height="508" loading="lazy"
+               alt="Holzregal mit Weinflaschen neben Tischen und Stühlen im Gastraum">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="zeiten" aria-labelledby="zeitenTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Wann offen ist</p>
+        <h2 id="zeitenTitel">Öffnungszeiten</h2>
+        <table class="zeittabelle" id="zeittabelle">
+          <caption>Der heutige Tag ist hervorgehoben. Die Zeiten stehen als data-Attribute in der Tabelle und lassen sich dort ändern.</caption>
+          <thead>
+            <tr><th scope="col">Tag</th><th scope="col">Geöffnet</th></tr>
+          </thead>
+          <tbody>
+            <tr data-tag="1" data-offen="11:30-23:00" data-kueche="11:30-23:00"><th scope="row">Montag</th><td>11:30 bis 23:00</td></tr>
+            <tr data-tag="2" data-offen="11:30-23:00" data-kueche="11:30-23:00"><th scope="row">Dienstag</th><td>11:30 bis 23:00</td></tr>
+            <tr data-tag="3" data-offen="11:30-23:00" data-kueche="11:30-23:00"><th scope="row">Mittwoch</th><td>11:30 bis 23:00</td></tr>
+            <tr data-tag="4" data-offen="11:30-23:00" data-kueche="11:30-23:00"><th scope="row">Donnerstag</th><td>11:30 bis 23:00</td></tr>
+            <tr data-tag="5" data-offen="11:30-23:00" data-kueche="11:30-23:00"><th scope="row">Freitag</th><td>11:30 bis 23:00</td></tr>
+            <tr data-tag="6" data-offen="11:30-15:00" data-kueche="11:30-15:00"><th scope="row">Samstag</th><td>11:30 bis 15:00</td></tr>
+            <tr data-tag="0"><th scope="row">Sonntag, Feiertag</th><td class="ruhe">Geschlossen</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Mittagstisch</h3>
+        <p>Von Montag bis Freitag. Danach geht es mit der Karte weiter, bis 23 Uhr.</p>
+        <h3>Samstag</h3>
+        <p>Nur zu Mittag geöffnet, um 15 Uhr ist Schluss.</p>
+        <h3>Sonntag und Feiertage</h3>
+        <p>Geschlossen. An diesen Tagen liefert auch Velofood nicht.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservierung" class="gedeckt" aria-labelledby="resTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Tisch bestellen</p>
+        <h2 id="resTitel">Reservierung</h2>
+        <p>Sonntage und Feiertage sind gesperrt, die Uhrzeiten kommen aus den Öffnungszeiten des gewählten Tages.</p>
+        <form class="formular" id="resForm" novalidate>
+          <div class="feld">
+            <label for="resName">Name</label>
+            <input type="text" id="resName" name="name" required autocomplete="name" aria-describedby="fehlerName">
+            <p class="fehler" id="fehlerName"></p>
+          </div>
+          <div class="feld">
+            <label for="resTelefon">Telefon</label>
+            <input type="tel" id="resTelefon" name="telefon" required autocomplete="tel" aria-describedby="fehlerTelefon">
+            <p class="fehler" id="fehlerTelefon"></p>
+          </div>
+          <div class="feld">
+            <label for="resMail">E-Mail</label>
+            <input type="email" id="resMail" name="mail" required autocomplete="email" aria-describedby="fehlerMail">
+            <p class="fehler" id="fehlerMail"></p>
+          </div>
+          <div class="feld">
+            <label for="resPersonen">Anzahl Personen</label>
+            <input type="number" id="resPersonen" name="personen" min="1" max="40" value="2" required aria-describedby="fehlerPersonen">
+            <p class="fehler" id="fehlerPersonen"></p>
+          </div>
+          <div class="feld">
+            <label for="resDatum">Datum</label>
+            <input type="date" id="resDatum" name="datum" required aria-describedby="fehlerDatum">
+            <p class="fehler" id="fehlerDatum"></p>
+          </div>
+          <div class="feld">
+            <label for="resZeit">Uhrzeit</label>
+            <select id="resZeit" name="zeit" required aria-describedby="fehlerZeit">
+              <option value="">Bitte zuerst ein Datum wählen</option>
+            </select>
+            <p class="fehler" id="fehlerZeit"></p>
+          </div>
+          <div class="feld feld-breit">
+            <label for="resNotiz">Anmerkung (optional)</label>
+            <textarea id="resNotiz" name="notiz" rows="3" placeholder="Unverträglichkeiten, Kaminstüberl, Platz im Freien"></textarea>
+          </div>
+          <div class="feld-breit">
+            <button type="submit" class="knopf knopf-dunkel">Reservierung per E-Mail senden</button>
+          </div>
+        </form>
+        <div class="bestaetigung" id="resBestaetigung" role="status" hidden>
+          <p style="margin:0"><strong>Ihr Mailprogramm wurde geöffnet.</strong> Die Reservierung geht erst ein, wenn Sie die vorbereitete Nachricht auch absenden. Öffnet sich kein Fenster, rufen Sie bitte unter <a href="tel:+43316719770">+43 316 71 97 70</a> an.</p>
+        </div>
+        <p class="klein" style="margin-top:1.2rem">Lieber telefonisch? <a href="tel:+43316719770">+43 316 71 97 70</a>, Montag bis Freitag ab 11:30 Uhr.</p>
+        <p class="klein">Es werden keine Daten gespeichert und keine Daten weitergegeben. Ihre Angaben gehen ausschließlich per E-Mail an das Gasthaus.</p>
+      </div>
+      <figure>
+        <img src="assets/img/steinboden.webp" width="1200" height="561" loading="lazy"
+             alt="Freie Tische und Bänke in der Wirtsstube auf dem alten Steinboden">
+      </figure>
+    </div>
+  </section>
+
+  <section id="kontakt" aria-labelledby="kontaktTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Kontakt</p>
+        <h2 id="kontaktTitel">So finden Sie uns</h2>
+        <address>
+          <dl style="margin:0">
+            <div class="datenzeile">
+              <dt>Adresse</dt>
+              <dd>Griesgasse 8<br>8020 Graz<br>
+                <a href="https://www.openstreetmap.org/search?query=Griesgasse%208%2C%208020%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+              </dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Telefon</dt>
+              <dd><a href="tel:+43316719770">+43 316 71 97 70</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>E-Mail</dt>
+              <dd><a href="mailto:office@zuraltenpress.at">office@zuraltenpress.at</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Küchenchef</dt>
+              <dd>Dieter Skrobanek</dd>
+            </div>
+          </dl>
+        </address>
+      </div>
+      <div>
+        <h3>Lage</h3>
+        <p>Hinter dem Hotel Wiesler, einen Steinwurf vom Kunsthaus entfernt, mitten in Graz.</p>
+        <h3>Auszeichnungen</h3>
+        <p>Genuss Wirt, Genuss Region, Kulinarisches Erbe und Gute steirische Gaststätte.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seitfix" aria-labelledby="seitfixTitel">
+    <div class="rand">
+      <p class="marke">In eigener Sache</p>
+      <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für die Alte Press gebaut.</h2>
+      <div class="seitfix-raster">
+        <div>
+          <div style="max-width:56ch">
+            <p>Auf Ihrer jetzigen Seite steht vieles doppelt: Die Küche wird auf der Startseite, auf der Speisekarte und auf Über uns jeweils neu beschrieben, und die Geschichte des Hauses füllt drei lange Absätze über Kordongesimse und Parapetfelder. Hier steht alles einmal, in der Reihenfolge, in der ein Gast danach sucht.</p>
+            <p>Und das Alter des Hauses ist Ihr stärkstes Argument. Im Original steht 1663 in einem Nebensatz. Hier ist die Jahreszahl das erste, was jemand sieht, direkt neben dem Steinboden, den es seit damals gibt.</p>
+          </div>
+
+          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
+          <ul class="seitenliste">
+            <li><b>Speisekarte</b><span>Die ganze Karte, der Mittagstisch und alle Preise.</span></li>
+            <li><b>Vegetarisch und Vegan</b><span>Nur die pflanzlichen Gerichte, die sonst in der Karte untergehen.</span></li>
+            <li><b>Räume und Feiern</b><span>Gastzimmer, Kaminstüberl bis 35 Personen und die Gruppenmenüs.</span></li>
+            <li><b>Geschichte</b><span>1663, die zwei Häuser, der Baumeister Joseph Huber und das Gewölbe.</span></li>
+            <li><b>Kontakt</b><span>Anfahrt, Lieferservice über Velofood und alle Kontaktdaten.</span></li>
+          </ul>
+          <p class="klein" style="color:#b6b6b8">Mit dieser Startseite sind das sechs Seiten, fertig aufgesetzt.</p>
+        </div>
+
+        <div>
+          <div class="angebot">
+            <span class="zahl">1000 Euro</span>
+            <p style="margin:0;color:#c9c9cb">einmalig für die komplette Website mit allen sechs Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
+            <ul>
+              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
+              <li>Eine Korrekturrunde ist enthalten.</li>
+              <li>Die Website gehört Ihnen.</li>
+              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
+            </ul>
+          </div>
+          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Gasthaus zur Alten Press</strong>
+      <p style="margin:.4rem 0 0">Griesgasse 8, 8020 Graz<br>
+        <a href="tel:+43316719770">+43 316 71 97 70</a><br>
+        <a href="mailto:office@zuraltenpress.at">office@zuraltenpress.at</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Montag bis Freitag 11:30 bis 23:00 Uhr<br>
+        Samstag 11:30 bis 15:00 Uhr<br>
+        Sonntag und Feiertage geschlossen</p>
+    </div>
+    <div>
+      <p style="margin:0">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen beim Gasthaus zur Alten Press. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316719770">Anrufen</a>
+  <a href="#reservierung">Reservieren</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Gasthaus zur Alten Press",
+  "url":"https://zuraltenpress.at/",
+  "telephone":"+43316719770",
+  "email":"office@zuraltenpress.at",
+  "servesCuisine":["Steirisch","Österreichisch","Vegetarisch","Vegan"],
+  "image":"assets/img/fassade.webp",
+  "priceRange":"12,00 bis 38,10 Euro",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Griesgasse 8",
+    "postalCode":"8020",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"11:30","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"11:30","closes":"15:00"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Platzhalter. Hier stehen die drei Adressen, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var RESERVIERUNG_EMPFAENGER = 'hallo@seitfix.at';  // nach Auftrag: Adresse des Betriebs
+  var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
+  var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
+
+  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
+  var PAKETPREIS = '1000 Euro';
+
+  var BETRIEB = 'Gasthaus zur Alten Press';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen. Die
+     beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+     FEIERTAG_REGEL: 'geschlossen' | 'wie sonntag' | 'offen' | 'unbekannt'
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'geschlossen';
+  var FEIERTAG_TELEFON = '+43 316 71 97 70';
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tg = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tg);
+  }
+  function ftPlus(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function ftKey(d) { return (d.getMonth() + 1) + '-' + d.getDate(); }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = ftKey(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var bew = [[ftPlus(o,1),'Ostermontag'],[ftPlus(o,39),'Christi Himmelfahrt'],
+               [ftPlus(o,50),'Pfingstmontag'],[ftPlus(o,60),'Fronleichnam']];
+    for (var i = 0; i < bew.length; i++) { if (ftKey(bew[i][0]) === k) { return bew[i][1]; } }
+    return null;
+  }
+
+  document.documentElement.classList.add('js');
+
+  var balken = document.querySelector('.demobalken');
+  function balkenMessen() {
+    document.documentElement.style.setProperty('--balkenhoehe', balken.offsetHeight + 'px');
+  }
+  balkenMessen();
+  window.addEventListener('resize', balkenMessen);
+
+  /* ---------- Öffnungszeiten aus der Tabelle lesen ---------- */
+  var zeiten = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#zeittabelle tbody tr'), function (tr) {
+    zeiten[Number(tr.getAttribute('data-tag'))] = {
+      zeile: tr,
+      offen: spanne(tr.getAttribute('data-offen')),
+      kueche: spanne(tr.getAttribute('data-kueche'))
+    };
+  });
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return { von: minuten(t[0]), bis: t[1] ? minuten(t[1]) : null, vonText: t[0], bisText: t[1] || '' };
+  }
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function alsText(m) {
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function naechsterOffenerTag(ab) {
+    for (var i = 1; i <= 7; i++) {
+      var t = (ab + i) % 7;
+      if (zeiten[t] && zeiten[t].offen) { return t; }
+    }
+    return null;
+  }
+
+  function statusSetzen() {
+    var jetzt = new Date();
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+    if (heute && heute.zeile) { heute.zeile.classList.add('heute'); }
+
+    var ftName = feiertagName(jetzt);
+    if (ftName) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + ftName + ', wir haben geschlossen';
+        var ftNext = null;
+        for (var ftI = 1; ftI <= 9 && ftNext === null; ftI++) {
+          var ftT = (tag + ftI) % 7;
+          if (zeiten[ftT] && zeiten[ftT].offen && !feiertagName(ftPlus(jetzt, ftI))) { ftNext = ftT; }
+        }
+        if (zusatz) {
+          zusatz.textContent = ftNext === null ? '' :
+            'Wieder geöffnet am ' + TAGNAMEN[ftNext] + ' ab ' + zeiten[ftNext].offen.vonText + ' Uhr';
+        }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + ftName;
+        if (zusatz) { zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON; }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute geschlossen';
+      zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = 'Bis ' + heute.offen.bisText + ' Uhr';
+      return;
+    }
+    if (min < heute.offen.bis) {
+      text.textContent = 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      zusatz.textContent = tag >= 1 && tag <= 5 ? 'Mittagstisch von 11:30 bis 15:00 Uhr' : '';
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+  }
+  statusSetzen();
+
+  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
+     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  var hinweis = document.getElementById('navHinweis');
+  var hinweisUhr = null;
+  function hinweisZeigen(el) {
+    hinweis.innerHTML = '';
+    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
+    hinweis.appendChild(b);
+    hinweis.classList.add('sichtbar');
+    window.clearTimeout(hinweisUhr);
+    hinweisUhr = window.setTimeout(function () {
+      hinweis.classList.remove('sichtbar');
+      hinweis.textContent = '';
+    }, 6000);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    el.addEventListener('click', function () { hinweisZeigen(el); });
+    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+    });
+  });
+
+  /* ---------- Seitfix-Anfrage ---------- */
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    var rumpf = 'Guten Tag,\n\nich habe die Demoseite für ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n';
+    if (SEITFIX_TELEFON) { rumpf += 'Bitte melden Sie sich telefonisch oder per Mail.\n\n'; }
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent(rumpf));
+  }
+
+  /* ---------- Reservierungsformular ---------- */
+  var form = document.getElementById('resForm');
+  if (!form) { return; }
+  var datumFeld = document.getElementById('resDatum');
+  var zeitFeld = document.getElementById('resZeit');
+  var bestaetigung = document.getElementById('resBestaetigung');
+
+  var heuteISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  datumFeld.setAttribute('min', heuteISO);
+  var spaet = new Date();
+  spaet.setFullYear(spaet.getFullYear() + 1);
+  datumFeld.setAttribute('max', spaet.toISOString().slice(0, 10));
+
+  function tagAusISO(iso) {
+    var t = iso.split('-');
+    return new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2])).getDay();
+  }
+  function neueOption(wert, beschriftung) {
+    var o = document.createElement('option');
+    o.value = wert;
+    o.textContent = beschriftung;
+    return o;
+  }
+  function zeitenFuellen() {
+    var iso = datumFeld.value;
+    zeitFeld.innerHTML = '';
+    if (!iso) {
+      zeitFeld.appendChild(neueOption('', 'Bitte zuerst ein Datum wählen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    var tag = tagAusISO(iso);
+    var e = zeiten[tag];
+    if (!e || !e.kueche) {
+      zeitFeld.appendChild(neueOption('', 'Am ' + TAGNAMEN[tag] + ' geschlossen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    zeitFeld.disabled = false;
+    zeitFeld.appendChild(neueOption('', 'Bitte wählen'));
+    for (var m = e.kueche.von; m <= e.kueche.bis - 30; m += 30) {
+      zeitFeld.appendChild(neueOption(alsText(m), alsText(m) + ' Uhr'));
+    }
+  }
+  datumFeld.addEventListener('change', function () {
+    zeitenFuellen();
+    pruefe(datumFeld, 'fehlerDatum');
+  });
+  zeitenFuellen();
+
+  var meldungen = {
+    resName: 'Bitte tragen Sie einen Namen ein.',
+    resTelefon: 'Bitte tragen Sie eine Telefonnummer ein, unter der wir Sie erreichen.',
+    resMail: 'Bitte tragen Sie eine gültige E-Mail-Adresse ein.',
+    resPersonen: 'Bitte geben Sie an, für wie viele Personen der Tisch sein soll.',
+    resDatum: 'Bitte wählen Sie ein Datum.',
+    resZeit: 'Bitte wählen Sie eine Uhrzeit.'
+  };
+
+  function pruefe(feld, fehlerId) {
+    var box = document.getElementById(fehlerId);
+    var huelle = feld.closest('.feld');
+    var text = '';
+    if (!feld.value) {
+      text = meldungen[feld.id];
+    } else if (feld.id === 'resMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(feld.value)) {
+      text = meldungen.resMail;
+    } else if (feld.id === 'resTelefon' && feld.value.replace(/[^0-9]/g, '').length < 6) {
+      text = 'Diese Telefonnummer sieht zu kurz aus.';
+    } else if (feld.id === 'resDatum') {
+      if (feld.value < heuteISO) {
+        text = 'Dieses Datum liegt in der Vergangenheit.';
+      } else {
+        var e = zeiten[tagAusISO(feld.value)];
+        if (!e || !e.offen) {
+          text = 'Am ' + TAGNAMEN[tagAusISO(feld.value)] + ' ist geschlossen. Bitte wählen Sie einen anderen Tag.';
+        }
+      }
+    } else if (feld.id === 'resPersonen' && (Number(feld.value) < 1 || Number(feld.value) > 40)) {
+      text = 'Bitte eine Zahl zwischen 1 und 40. Für größere Runden rufen Sie bitte an.';
+    }
+    box.textContent = text;
+    if (huelle) { huelle.classList.toggle('ungueltig', Boolean(text)); }
+    return !text;
+  }
+
+  Object.keys(meldungen).forEach(function (id) {
+    var feld = document.getElementById(id);
+    feld.addEventListener('blur', function () { pruefe(feld, 'fehler' + id.slice(3)); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    bestaetigung.hidden = true;
+    var alleGut = true, erstes = null;
+    Object.keys(meldungen).forEach(function (id) {
+      var feld = document.getElementById(id);
+      if (!pruefe(feld, 'fehler' + id.slice(3))) {
+        alleGut = false;
+        if (!erstes) { erstes = feld; }
+      }
+    });
+    if (!alleGut) { if (erstes) { erstes.focus(); } return; }
+
+    var d = datumFeld.value.split('-');
+    var koerper = [
+      'Reservierungswunsch über die Website',
+      '',
+      'Name:      ' + document.getElementById('resName').value,
+      'Telefon:   ' + document.getElementById('resTelefon').value,
+      'E-Mail:    ' + document.getElementById('resMail').value,
+      'Datum:     ' + d[2] + '.' + d[1] + '.' + d[0] + ' (' + TAGNAMEN[tagAusISO(datumFeld.value)] + ')',
+      'Uhrzeit:   ' + zeitFeld.value + ' Uhr',
+      'Personen:  ' + document.getElementById('resPersonen').value,
+      '',
+      'Anmerkung: ' + (document.getElementById('resNotiz').value || 'keine'),
+      '',
+      'Gesendet über die Website von ' + BETRIEB + '.'
+    ].join('\n');
+
+    window.location.href = 'mailto:' + RESERVIERUNG_EMPFAENGER +
+      '?subject=' + encodeURIComponent('Tischreservierung ' + BETRIEB) +
+      '&body=' + encodeURIComponent(koerper);
+    bestaetigung.hidden = false;
+  });
+}());
+</script>
+</body>
+</html>

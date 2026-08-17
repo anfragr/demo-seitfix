@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gasthaus Grabenhof | Gutbürgerliche Küche in Graz Geidorf</title>
+<meta name="description" content="Gasthaus Grabenhof, Grabenstraße 40, 8010 Graz. Gutbürgerliche Küche, ruhiger Gastgarten im Innenhof, Räume für bis zu 40 Personen. Von Mai bis Oktober Montag bis Freitag geöffnet.">
+<meta name="theme-color" content="#4a5a44">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Gasthaus Grabenhof | Gutbürgerliche Küche in Graz Geidorf">
+<meta property="og:description" content="Gastgarten im Innenhof, wöchentlich wechselnder Menüplan, Themenwochen. Geführt von Brigitta und Wolfgang Baumgartner.">
+<meta property="og:image" content="assets/img/innenhof.webp">
+<meta property="og:site_name" content="Gasthaus Grabenhof">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23fdfcf9'/%3E%3Crect x='2' y='2' width='28' height='28' rx='4' fill='none' stroke='%234a5a44' stroke-width='2'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='16' fill='%234a5a44' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, es wird kein fremder Server aufgerufen. */
+@font-face{font-family:'Lora';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/lora-500.woff2') format('woff2')}
+@font-face{font-family:'Lora';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/lora-600.woff2') format('woff2')}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/mulish-400.woff2') format('woff2')}
+@font-face{font-family:'Mulish';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/mulish-600.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#4a5a44;
+  --farbe-akzent:#93a583;
+  --farbe-text:#2f322c;
+  --farbe-flaeche:#fdfcf9;
+  --farbe-flaeche-2:#eee9dd;
+  --farbe-dunkel:#333a2f;
+  --farbe-linie:#dcd7c8;
+  --farbe-gedaempft:#5f6359;
+  --abstand-s:.6rem;
+  --abstand-m:1.4rem;
+  --abstand-l:3.2rem;
+  --abstand-xl:6rem;
+  --schrift-titel:'Lora',Georgia,'Times New Roman',serif;
+  --schrift-text:'Mulish',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  /* Der eine typografische Höhepunkt der Seite. */
+  --schrift-riesig:clamp(3rem,8vw,7.5rem);
+  --breite:1120px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-size:1.0625rem;line-height:1.8;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:600;line-height:1.22;margin:0 0 var(--abstand-m)}
+h1{font-size:var(--schrift-riesig);line-height:.97;letter-spacing:-.02em}
+h2{font-size:clamp(1.55rem,3.6vw,2.15rem)}
+h3{font-size:1.15rem}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-primaer)}
+:focus-visible{outline:3px solid var(--farbe-primaer);outline-offset:3px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.spalte{max-width:60ch}
+.klein{font-size:.95rem;color:var(--farbe-gedaempft);line-height:1.65}
+.marke{font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--farbe-primaer);margin:0 0 .8rem;font-weight:600}
+
+/* Demo-Balken */
+.demobalken{position:sticky;top:0;z-index:60;background:#2a2f26;color:#ccd2c4;font-size:.8125rem;line-height:1.4;padding:.5rem 1.25rem;text-align:center}
+.demobalken a{color:#b9cba7;text-underline-offset:3px}
+
+/* Kopf */
+.kopf{background:var(--farbe-flaeche);border-bottom:1px solid var(--farbe-linie)}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem 1.5rem;padding-top:.8rem;padding-bottom:.3rem}
+.wortmarke{font-family:var(--schrift-titel);font-weight:600;font-size:1.25rem;color:var(--farbe-primaer);text-decoration:none;margin-right:auto;line-height:1.2}
+.wortmarke span{display:block;font-family:var(--schrift-text);font-weight:400;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--farbe-gedaempft);margin-top:.1rem}
+.hauptnav{width:100%;order:3}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0 1.6rem;margin:0;padding:0}
+.hauptnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:46px;font-size:.95rem;color:var(--farbe-text);text-decoration:none}
+.hauptnav a:hover{color:var(--farbe-primaer);box-shadow:inset 0 -2px 0 var(--farbe-akzent)}
+.nav-inaktiv{opacity:.42;cursor:not-allowed}
+.nav-hinweis{margin:0;font-size:.9rem;color:var(--farbe-primaer);max-height:0;overflow:hidden;transition:max-height .2s ease}
+.nav-hinweis.sichtbar{max-height:3rem;padding-bottom:.5rem}
+.tel-kopf{font-size:.95rem;font-weight:600;color:var(--farbe-primaer);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+
+/* Knöpfe */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.7rem 1.5rem;border:1px solid transparent;border-radius:4px;font-family:var(--schrift-text);font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer}
+.knopf-voll{background:var(--farbe-primaer);color:#fbfaf6}
+.knopf-voll:hover{background:#3b4936}
+.knopf-linie{background:transparent;color:var(--farbe-primaer);border-color:var(--farbe-akzent)}
+.knopf-linie:hover{border-color:var(--farbe-primaer)}
+
+/* Hero: Bild über die volle Breite, davor eine ruhige Sandsteinkarte */
+.hero{position:relative;padding:0}
+.hero-bild img{width:100%;height:88vh;min-height:26rem;object-fit:cover}
+.hero-karte{background:var(--farbe-flaeche-2);padding:var(--abstand-l) 1.25rem}
+.hero-karte h1{margin-bottom:.7rem}
+.hero-karte .leit{max-width:42ch}
+.status{display:flex;flex-wrap:wrap;gap:.1rem 1rem;align-items:baseline;border-top:1px solid var(--farbe-linie);padding-top:1rem;margin:var(--abstand-m) 0}
+.status b{font-family:var(--schrift-titel);font-weight:600;font-size:1.15rem}
+.status .zusatz{color:var(--farbe-gedaempft);font-size:.95rem}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:.7rem}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.sektion-kopf{margin-bottom:var(--abstand-l);max-width:60ch}
+.sektion-kopf p:last-child{margin-bottom:0}
+.gedeckt{background:var(--farbe-flaeche-2)}
+figure{margin:0}
+figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem;line-height:1.5}
+.zweispalt{display:grid;gap:var(--abstand-l)}
+
+/* Öffnungszeiten in zwei Halbjahren */
+.saisonen{display:grid;gap:var(--abstand-l)}
+.saison{border:1px solid var(--farbe-linie);border-radius:4px;padding:1.6rem 1.4rem;background:var(--farbe-flaeche)}
+.saison.aktiv{border-color:var(--farbe-primaer);border-width:2px;padding:calc(1.6rem - 1px) calc(1.4rem - 1px)}
+.saison h3{margin-bottom:.2rem}
+.saison-fahne{display:inline-block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;background:var(--farbe-primaer);color:#fbfaf6;padding:.15rem .55rem;border-radius:3px;margin-bottom:.9rem}
+.saison-fahne.still{background:transparent;color:var(--farbe-gedaempft);border:1px solid var(--farbe-linie)}
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left;margin-top:.6rem}
+.zeittabelle th,.zeittabelle td{padding:.6rem .3rem;border-bottom:1px solid var(--farbe-linie)}
+.zeittabelle th[scope=row]{font-weight:600;font-size:1rem}
+.zeittabelle td{text-align:right}
+.zeittabelle tr:last-child th,.zeittabelle tr:last-child td{border-bottom:0}
+.zeittabelle tr.heute{background:var(--farbe-flaeche-2)}
+.zeittabelle tr.heute th[scope=row]{color:var(--farbe-primaer)}
+.ruhe{color:var(--farbe-gedaempft)}
+
+/* Themenwochen */
+.themen{list-style:none;margin:0;padding:0}
+.themen li{padding:1.1rem 0;border-bottom:1px solid var(--farbe-linie);display:grid;gap:.2rem}
+.themen li:first-child{border-top:1px solid var(--farbe-linie)}
+.themen b{font-family:var(--schrift-titel);font-weight:600;font-size:1.1rem}
+.termin{border-left:3px solid var(--farbe-primaer);padding:.2rem 0 .2rem 1.2rem;margin:var(--abstand-l) 0 0}
+.termin .datum{display:block;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-primaer);font-weight:600}
+.termin b{font-family:var(--schrift-titel);font-weight:600;font-size:1.25rem;display:block;margin:.15rem 0}
+
+/* Merkmale */
+.merkmale{list-style:none;margin:var(--abstand-m) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.merkmale li{border:1px solid var(--farbe-linie);border-radius:4px;padding:.3rem .85rem;font-size:.95rem}
+
+/* Galerie */
+.galerie{display:grid;gap:1rem;margin-top:var(--abstand-l)}
+
+/* Formular */
+.formular{display:grid;gap:1.1rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.feld input,.feld select,.feld textarea{font-family:var(--schrift-text);font-size:1rem;color:var(--farbe-text);background:#fff;border:1px solid var(--farbe-linie);border-radius:4px;padding:.6rem .7rem;min-height:48px;width:100%}
+.feld textarea{min-height:100px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-primaer)}
+.fehler{color:#8a231a;font-size:.9rem;margin-top:.3rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#8a231a}
+.bestaetigung{border:1px solid var(--farbe-primaer);background:#fff;padding:1rem 1.1rem;border-radius:4px;margin-top:1.2rem}
+.bestaetigung[hidden]{display:none}
+
+/* Kontakt */
+address{font-style:normal}
+.datenzeile{display:grid;gap:.1rem;padding:.8rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-gedaempft)}
+.datenzeile dd{margin:0}
+
+/* Seitfix */
+.seitfix{background:#1c1c1e;color:#e9e9ea}
+.seitfix h2{font-family:var(--schrift-text);font-weight:600;font-size:clamp(1.3rem,3.2vw,1.85rem);color:#fff}
+.seitfix a{color:#9fd0c4}
+.seitfix .marke{color:#9fd0c4}
+.seitfix :focus-visible{outline-color:#9fd0c4}
+.preisliste{list-style:none;margin:var(--abstand-m) 0;padding:0;max-width:34rem}
+.preisliste li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid #333}
+.preisliste .betrag{white-space:nowrap;color:#fff;font-weight:600}
+.seitfix .knopf-seitfix{background:#9fd0c4;color:#12211d;text-decoration:none}
+.seitfix .knopf-seitfix:hover{background:#b6ded4}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:#c6cbc0;padding:var(--abstand-l) 0;font-size:.95rem}
+.fuss a{color:#b9cba7}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-weight:600;font-size:1.1rem}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;background:var(--farbe-flaeche);border-top:1px solid var(--farbe-linie)}
+.mobilleiste a{display:flex;align-items:center;justify-content:center;min-height:56px;font-weight:600;text-decoration:none;color:var(--farbe-primaer)}
+.mobilleiste a:last-child{background:var(--farbe-primaer);color:#fbfaf6}
+body{padding-bottom:56px}
+
+@media (min-width:640px){
+  .saisonen{grid-template-columns:1fr 1fr}
+  .galerie{grid-template-columns:repeat(3,1fr)}
+  .datenzeile{grid-template-columns:8rem 1fr;gap:1rem;align-items:baseline}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:var(--balkenhoehe,2rem);z-index:50}
+  .hero{display:grid;grid-template-columns:1fr;position:relative}
+  .hero-bild img{height:88vh;min-height:34rem}
+  .hero-karte{
+    position:absolute;left:calc((100% - var(--breite)) / 2 + 1.25rem);bottom:-3.5rem;
+    width:min(40rem,56%);padding:3rem 2.8rem;border-radius:4px;
+    box-shadow:0 2px 14px rgba(47,50,44,.12);
+  }
+  .nach-hero{padding-top:calc(var(--abstand-xl) + 3.5rem)}
+  .zweispalt{grid-template-columns:1fr 1fr;gap:var(--abstand-xl);align-items:start}
+  .zweispalt-schmal{grid-template-columns:1.35fr .65fr}
+  .formular{grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem}
+  .feld-breit{grid-column:1 / -1}
+  .fuss-raster{grid-template-columns:1.3fr 1fr 1fr}
+}
+@media (min-width:1200px){:root{--abstand-xl:7rem}}
+
+/* Signature: das Jahr als Band, damit die zwei Halbjahre auf einen Blick klar sind */
+.jahresband{list-style:none;margin:var(--abstand-l) 0 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:2px}
+.jahresband li{
+  background:var(--farbe-flaeche);border:1px solid var(--farbe-linie);
+  padding:.9rem .2rem;text-align:center;line-height:1.25;min-width:0;
+}
+/* Auf schmalen Geräten trägt die Farbe die Aussage, die Legende steht darunter. */
+.jahresband .zustand{display:none}
+.jahresband .monat{display:block;font-family:var(--schrift-titel);font-weight:600;font-size:1.1rem}
+.jahresband .zustand{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--farbe-gedaempft);margin-top:.25rem}
+.jahresband li.offen{background:var(--farbe-primaer);border-color:var(--farbe-primaer)}
+.jahresband li.offen .monat{color:#fbfaf6}
+.jahresband li.offen .zustand{color:#d3ddcd}
+.jahresband li.jetzt{box-shadow:inset 0 -4px 0 #93a583}
+.bandlegende{display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;margin:1rem 0 0;padding:0;list-style:none;font-size:.95rem;color:var(--farbe-gedaempft)}
+@media (min-width:640px){
+  .jahresband{grid-template-columns:repeat(12,1fr)}
+  .jahresband .zustand{display:block}
+}
+
+/* ------------------------------------------------------------------
+   Ausbau: Verkaufswerkzeug und Wow-Hebel
+   ------------------------------------------------------------------ */
+.hauptnav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hauptnav ul::-webkit-scrollbar{display:none}
+.hauptnav li{flex:0 0 auto}
+.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
+.nav-hinweis{line-height:1.5;max-height:0}
+.nav-hinweis.sichtbar{max-height:9rem;padding-bottom:.8rem}
+.nav-hinweis b{font-weight:700}
+
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Seitfix: Seitenliste und Angebot */
+.seitfix-raster{display:grid;gap:var(--abstand-l)}
+.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
+.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}
+.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
+.seitenliste b{display:block;color:#fff}
+.seitenliste span{color:#b6b6b8;font-size:.95rem}
+.angebot{border:1px solid #3a3a3c;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
+.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#fff;line-height:1;display:block;margin-bottom:.3rem}
+.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
+.angebot li{padding:.4rem 0;border-top:1px solid #333;font-size:.98rem;color:#c9c9cb}
+.seitfix h3{color:#fff}
+@media (min-width:900px){
+  .seitfix-raster{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
+}
+
+/* Sammelkorrektur, zentral angehaengt. */
+.seitenliste li>b,.seitenliste li>span{grid-column:2}
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){.saison-fahne{font-size:.75rem}}
+@media (max-width:639px){
+  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+@media (max-width:639px){
+  .hauptnav ul{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobalken">
+  Unverbindliche Demo für das Gasthaus Grabenhof. Erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="#oben">Gasthaus Grabenhof<span>Grabenstraße 40, Graz Geidorf</span></a>
+    <a class="tel-kopf" href="tel:+43316686618">+43 316 686618</a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#zeiten">Öffnungszeiten</a></li>
+        <li><a href="#innenhof">Innenhof</a></li>
+        <li><a href="#reservierung">Reservieren</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit dem Gastraum, dem Innenhof und dem Raum für bis zu 40 Personen.">Räume</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit den Themenwochen und den Abenden wie dem Griechischen Abend.">Veranstaltungen</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Anfahrt, Parken und allen Kontaktdaten.">Kontakt</span></li>
+      </ul>
+      <p class="nav-hinweis" id="navHinweis" role="status"></p>
+    </nav>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero" aria-labelledby="titel">
+    <figure class="hero-bild">
+      <img src="assets/img/innenhof.webp" width="1400" height="820" loading="eager" fetchpriority="high"
+           alt="Gastgarten im Innenhof mit Sonnenschirm, gedeckten Tischen und bunten Lampions zwischen Bäumen">
+    </figure>
+    <div class="hero-karte">
+      <p class="marke">Geidorf, Graz</p>
+      <h1 id="titel">Gasthaus Grabenhof</h1>
+      <p class="leit">Gutbürgerliche Küche bei Brigitta und Wolfgang Baumgartner. Drinnen die Stube, draußen der ruhige Gastgarten im Innenhof.</p>
+      <p class="status" id="statusHero">
+        <b id="statusText">Öffnungszeiten werden geladen</b>
+        <span class="zusatz" id="statusZusatz"></span>
+      </p>
+      <div class="hero-knoepfe">
+        <a class="knopf knopf-voll" href="#reservierung">Tisch reservieren</a>
+        <a class="knopf knopf-linie" href="tel:+43316686618">+43 316 686618</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="zeiten" class="nach-hero" aria-labelledby="zeitenTitel">
+    <div class="rand">
+      <div class="sektion-kopf">
+        <p class="marke">Zwei Halbjahre</p>
+        <h2 id="zeitenTitel">Öffnungszeiten</h2>
+        <p>Der Grabenhof hat im Sommerhalbjahr andere Ruhetage als im Winterhalbjahr. Welche Zeiten gerade gelten, steht hier markiert.</p>
+      </div>
+      <ul class="jahresband" id="jahresband">
+        <li data-monat="0"><span class="monat">J</span><span class="zustand">Anfrage</span></li>
+        <li data-monat="1"><span class="monat">F</span><span class="zustand">Anfrage</span></li>
+        <li data-monat="2"><span class="monat">M</span><span class="zustand">Anfrage</span></li>
+        <li data-monat="3"><span class="monat">A</span><span class="zustand">Anfrage</span></li>
+        <li data-monat="4" class="offen"><span class="monat">M</span><span class="zustand">offen</span></li>
+        <li data-monat="5" class="offen"><span class="monat">J</span><span class="zustand">offen</span></li>
+        <li data-monat="6" class="offen"><span class="monat">J</span><span class="zustand">offen</span></li>
+        <li data-monat="7" class="offen"><span class="monat">A</span><span class="zustand">offen</span></li>
+        <li data-monat="8" class="offen"><span class="monat">S</span><span class="zustand">offen</span></li>
+        <li data-monat="9" class="offen"><span class="monat">O</span><span class="zustand">offen</span></li>
+        <li data-monat="10"><span class="monat">N</span><span class="zustand">Anfrage</span></li>
+        <li data-monat="11"><span class="monat">D</span><span class="zustand">Anfrage</span></li>
+      </ul>
+      <ul class="bandlegende">
+        <li>Grün: Mai bis Oktober, Montag bis Freitag 10 bis 22 Uhr.</li>
+        <li>Weiß: November bis April, Zeiten bitte telefonisch erfragen.</li>
+      </ul>
+
+      <div class="saisonen">
+        <div class="saison" id="saisonSommer" data-saison="sommer">
+          <p class="saison-fahne" id="fahneSommer">Mai bis Oktober</p>
+          <h3>Montag bis Freitag geöffnet</h3>
+          <p class="klein" style="margin:.4rem 0 0">Samstag und Sonntag Ruhetag, dafür ist der Montag offen.</p>
+          <table class="zeittabelle" id="zeittabelleSommer">
+            <tbody>
+              <tr data-tag="1" data-offen="10:00-22:00" data-kueche="10:00-22:00"><th scope="row">Montag</th><td>10:00 bis 22:00</td></tr>
+              <tr data-tag="2" data-offen="10:00-22:00" data-kueche="10:00-22:00"><th scope="row">Dienstag</th><td>10:00 bis 22:00</td></tr>
+              <tr data-tag="3" data-offen="10:00-22:00" data-kueche="10:00-22:00"><th scope="row">Mittwoch</th><td>10:00 bis 22:00</td></tr>
+              <tr data-tag="4" data-offen="10:00-22:00" data-kueche="10:00-22:00"><th scope="row">Donnerstag</th><td>10:00 bis 22:00</td></tr>
+              <tr data-tag="5" data-offen="10:00-22:00" data-kueche="10:00-22:00"><th scope="row">Freitag</th><td>10:00 bis 22:00</td></tr>
+              <tr data-tag="6"><th scope="row">Samstag</th><td class="ruhe">Ruhetag</td></tr>
+              <tr data-tag="0"><th scope="row">Sonntag</th><td class="ruhe">Ruhetag</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="saison" id="saisonWinter" data-saison="winter">
+          <p class="saison-fahne still" id="fahneWinter">November bis April</p>
+          <h3>Zeiten bitte telefonisch erfragen</h3>
+          <p class="klein" style="margin:.4rem 0 0">Für das Winterhalbjahr sind auf der Seite des Betriebs keine Zeiten veröffentlicht. Belegt ist nur, dass die Ruhetage dann anders liegen als von Mai bis Oktober.</p>
+          <p style="margin-top:1.4rem"><a class="knopf knopf-linie" href="tel:+43316686618">Zeiten erfragen</a></p>
+        </div>
+      </div>
+      <p class="klein" style="margin-top:var(--abstand-m)">Die Zeiten stehen als data-Attribute in der Tabelle und lassen sich dort ändern, ohne den Rest der Seite anzufassen.</p>
+    </div>
+  </section>
+
+  <section id="haus" class="gedeckt" aria-labelledby="hausTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Das Haus</p>
+        <h2 id="hausTitel">Ein Wirtshaus in Geidorf</h2>
+        <blockquote style="margin:0 0 var(--abstand-m);font-family:var(--schrift-titel);font-size:1.2rem;line-height:1.6;border-left:3px solid var(--farbe-akzent);padding-left:1.2rem">
+          Genießen Sie unsere gutbürgerliche Küche in einem gemütlichen Ambiente, das Sie sowohl im Innenbereich als auch in unserem ruhigen Gastgarten im Innenhof willkommen heißt.
+        </blockquote>
+        <p>Geführt wird das Haus von Brigitta und Wolfgang Baumgartner. Drinnen stehen Tische in der Stube und eine Eckbank, draußen liegt der Innenhof.</p>
+        <p>Für Feiern gibt es Räumlichkeiten für bis zu 40 Personen.</p>
+        <ul class="merkmale">
+          <li>Kinderfreundlich</li>
+          <li>Rauchfrei</li>
+          <li>Gastgarten im Innenhof</li>
+          <li>Veranstaltungen bis 40 Personen</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="assets/img/gastraum.webp" width="700" height="933" loading="lazy"
+             alt="Gaststube mit eingedeckten Tischen, roten Läufern und Holzstühlen">
+        <figcaption>Die Stube im Inneren.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="kueche" aria-labelledby="kuecheTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Küche</p>
+        <h2 id="kuecheTitel">Menüplan und Themenwochen</h2>
+        <p>Jede Woche gibt es einen neuen Menüplan aus der bürgerlichen Küche, gekocht mit frischen und saisonalen Zutaten. Dazu kommen regelmäßig Themenwochen.</p>
+        <ul class="themen">
+          <li><b>Steirische Schmankerln</b><span class="klein">Was die Region hergibt, klassisch zubereitet.</span></li>
+          <li><b>Mediterrane Küche</b><span class="klein">Eine Woche lang Gerichte vom Mittelmeer.</span></li>
+          <li><b>Internationale Spezialitäten</b><span class="klein">Wechselnde Länderküchen.</span></li>
+        </ul>
+        <div class="termin" id="terminBlock" hidden>
+          <span class="datum" id="terminDatum"></span>
+          <b id="terminTitel"></b>
+          <span class="klein" id="terminZeit"></span>
+        </div>
+        <p class="klein" style="margin-top:var(--abstand-m)">Der aktuelle Menüplan liegt im Haus auf und lässt sich telefonisch erfragen.</p>
+      </div>
+      <figure>
+        <img src="assets/img/gastraum-abend.webp" width="700" height="933" loading="lazy"
+             alt="Gaststube am Abend, warmes Licht von Wandlampen über den gedeckten Tischen">
+      </figure>
+    </div>
+  </section>
+
+  <section id="innenhof" class="gedeckt" aria-labelledby="innenhofTitel">
+    <div class="rand">
+      <div class="sektion-kopf">
+        <p class="marke">Draußen sitzen</p>
+        <h2 id="innenhofTitel">Der Innenhof</h2>
+        <p>Der Gastgarten liegt im Hof hinter dem Haus, zwischen Bäumen und Sträuchern. Von der Grabenstraße hört man dort wenig.</p>
+      </div>
+      <div class="galerie">
+        <figure>
+          <img src="assets/img/gastgarten.webp" width="600" height="800" loading="lazy"
+               alt="Tische mit Blumen im Innenhof, dahinter ein Baum und die Hauswand">
+        </figure>
+        <figure>
+          <img src="assets/img/innenhof-tische.webp" width="600" height="800" loading="lazy"
+               alt="Klapptische und bunte Sessel im Hof unter einem großen Sonnenschirm">
+        </figure>
+        <figure>
+          <img src="assets/img/eckbank.webp" width="600" height="800" loading="lazy"
+               alt="Runder Tisch mit gepolsterter Eckbank unter einer Hängelampe">
+          <figcaption>Die Eckbank im Gastraum.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservierung" aria-labelledby="resTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Tisch bestellen</p>
+        <h2 id="resTitel">Reservierung</h2>
+        <p>Ruhetage sind gesperrt. Fällt Ihr Wunschtermin ins Winterhalbjahr, für das keine Zeiten veröffentlicht sind, bittet das Formular um einen Anruf.</p>
+        <form class="formular" id="resForm" novalidate>
+          <div class="feld">
+            <label for="resName">Name</label>
+            <input type="text" id="resName" name="name" required autocomplete="name" aria-describedby="fehlerName">
+            <p class="fehler" id="fehlerName"></p>
+          </div>
+          <div class="feld">
+            <label for="resTelefon">Telefon</label>
+            <input type="tel" id="resTelefon" name="telefon" required autocomplete="tel" aria-describedby="fehlerTelefon">
+            <p class="fehler" id="fehlerTelefon"></p>
+          </div>
+          <div class="feld">
+            <label for="resMail">E-Mail</label>
+            <input type="email" id="resMail" name="mail" required autocomplete="email" aria-describedby="fehlerMail">
+            <p class="fehler" id="fehlerMail"></p>
+          </div>
+          <div class="feld">
+            <label for="resPersonen">Anzahl Personen</label>
+            <input type="number" id="resPersonen" name="personen" min="1" max="40" value="2" required aria-describedby="fehlerPersonen">
+            <p class="fehler" id="fehlerPersonen"></p>
+          </div>
+          <div class="feld">
+            <label for="resDatum">Datum</label>
+            <input type="date" id="resDatum" name="datum" required aria-describedby="fehlerDatum">
+            <p class="fehler" id="fehlerDatum"></p>
+          </div>
+          <div class="feld">
+            <label for="resZeit">Uhrzeit</label>
+            <select id="resZeit" name="zeit" required aria-describedby="fehlerZeit">
+              <option value="">Bitte zuerst ein Datum wählen</option>
+            </select>
+            <p class="fehler" id="fehlerZeit"></p>
+          </div>
+          <div class="feld feld-breit">
+            <label for="resNotiz">Anmerkung (optional)</label>
+            <textarea id="resNotiz" name="notiz" rows="3" placeholder="Platz im Innenhof, Kinderstuhl, Feier"></textarea>
+          </div>
+          <div class="feld-breit">
+            <button type="submit" class="knopf knopf-voll">Reservierung per E-Mail senden</button>
+          </div>
+        </form>
+        <div class="bestaetigung" id="resBestaetigung" role="status" hidden>
+          <p style="margin:0"><strong>Ihr Mailprogramm wurde geöffnet.</strong> Die Reservierung geht erst ein, wenn Sie die vorbereitete Nachricht auch absenden. Öffnet sich kein Fenster, rufen Sie bitte unter <a href="tel:+43316686618">+43 316 686618</a> an.</p>
+        </div>
+        <p class="klein" style="margin-top:1.2rem">Lieber telefonisch? <a href="tel:+43316686618">+43 316 686618</a> oder <a href="tel:+436641450421">+43 664 1450421</a>.</p>
+        <p class="klein">Es werden keine Daten gespeichert und keine Daten weitergegeben. Ihre Angaben gehen ausschließlich per E-Mail an das Gasthaus.</p>
+      </div>
+      <figure>
+        <img src="assets/img/fassade.webp" width="700" height="933" loading="lazy"
+             alt="Hauseingang mit grünem Wirtshausschild und einem Stehtisch auf dem Gehsteig">
+        <figcaption>Der Eingang an der Grabenstraße.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="kontakt" class="gedeckt" aria-labelledby="kontaktTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Kontakt</p>
+        <h2 id="kontaktTitel">So finden Sie uns</h2>
+        <address>
+          <dl style="margin:0">
+            <div class="datenzeile">
+              <dt>Adresse</dt>
+              <dd>Grabenstraße 40<br>8010 Graz, Bezirk Geidorf<br>
+                <a href="https://www.openstreetmap.org/search?query=Grabenstra%C3%9Fe%2040%2C%208010%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+              </dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Telefon</dt>
+              <dd><a href="tel:+43316686618">+43 316 686618</a><br>
+                <a href="tel:+436641450421">+43 664 1450421</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>E-Mail</dt>
+              <dd><a href="mailto:grabenhof40@hotmail.com">grabenhof40@hotmail.com</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Wirtsleute</dt>
+              <dd>Brigitta und Wolfgang Baumgartner</dd>
+            </div>
+          </dl>
+        </address>
+      </div>
+      <div>
+        <h3>Lage</h3>
+        <p>Im Bezirk Geidorf, nördlich der Grazer Innenstadt. Der Gastgarten liegt im Innenhof und ist von der Straße aus nicht einsehbar.</p>
+        <h3>Für Feiern</h3>
+        <p>Räume für bis zu 40 Personen. Termine und Ablauf am besten telefonisch besprechen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seitfix" aria-labelledby="seitfixTitel">
+    <div class="rand">
+      <p class="marke">In eigener Sache</p>
+      <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für den Grabenhof gebaut.</h2>
+      <div class="seitfix-raster">
+        <div>
+          <div style="max-width:56ch">
+            <p>Der schwierigste Punkt auf Ihrer jetzigen Seite sind die Öffnungszeiten. In einem Absatz steht, dass von Mai bis Oktober Samstag und Sonntag Ruhetag ist, daneben im Kasten steht "Ab 03.05.2025", und was von November bis April gilt, erfährt man gar nicht. Hier steht das ganze Jahr als Band, der laufende Monat ist markiert.</p>
+            <p>Dazu fehlen auf Ihrer Seite die Adresse und die E-Mail-Adresse. Die Grabenstraße 40 steht derzeit nur eingebrannt in einem Aktionsbild, das kein Suchdienst lesen kann. Hier steht sie als Text, samt Kartenlink und Reservierungsformular.</p>
+          </div>
+
+          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
+          <ul class="seitenliste">
+            <li><b>Räume</b><span>Gastraum, Innenhof und der Raum für bis zu 40 Personen.</span></li>
+            <li><b>Veranstaltungen</b><span>Themenwochen und Abende, mit Terminen, die Sie selbst pflegen.</span></li>
+            <li><b>Kontakt</b><span>Anfahrt, Parken und alle Kontaktdaten auf einen Blick.</span></li>
+          </ul>
+          <p class="klein" style="color:#b6b6b8">Mit dieser Startseite sind das vier Seiten, fertig aufgesetzt.</p>
+        </div>
+
+        <div>
+          <div class="angebot">
+            <span class="zahl">1000 Euro</span>
+            <p style="margin:0;color:#c9c9cb">einmalig für die komplette Website mit allen vier Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
+            <ul>
+              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
+              <li>Eine Korrekturrunde ist enthalten.</li>
+              <li>Die Website gehört Ihnen.</li>
+              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
+            </ul>
+          </div>
+          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Gasthaus Grabenhof</strong>
+      <p style="margin:.4rem 0 0">Grabenstraße 40, 8010 Graz<br>
+        <a href="tel:+43316686618">+43 316 686618</a><br>
+        <a href="mailto:grabenhof40@hotmail.com">grabenhof40@hotmail.com</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Mai bis Oktober<br>
+        Montag bis Freitag 10 bis 22 Uhr<br>
+        Samstag und Sonntag Ruhetag</p>
+    </div>
+    <div>
+      <p style="margin:0">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen beim Gasthaus Grabenhof. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316686618">Anrufen</a>
+  <a href="#reservierung">Reservieren</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Gasthaus Grabenhof",
+  "url":"https://grabenhof.com/",
+  "telephone":"+43316686618",
+  "email":"grabenhof40@hotmail.com",
+  "servesCuisine":["Österreichisch","Steirisch"],
+  "image":"assets/img/innenhof.webp",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Grabenstraße 40",
+    "postalCode":"8010",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"22:00","validFrom":"2026-05-01","validThrough":"2026-10-31"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Platzhalter. Hier stehen die drei Adressen, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var RESERVIERUNG_EMPFAENGER = 'hallo@seitfix.at';  // nach Auftrag: Adresse des Betriebs
+  var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
+  var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
+
+  /* Datierter Termin. Ist er vorbei, blendet die Seite den Block selbst aus.
+     Für den nächsten Abend einfach die drei Werte tauschen. */
+  var TERMIN_DATUM = '2026-08-22';
+  var TERMIN_TITEL = 'Griechischer Abend';
+  var TERMIN_ZEIT  = 'ab 17 Uhr im Grabenhof';
+
+  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
+  var PAKETPREIS = '1000 Euro';
+
+  var BETRIEB = 'Gasthaus Grabenhof';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen. Die
+     beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+     FEIERTAG_REGEL: 'geschlossen' | 'wie sonntag' | 'offen' | 'unbekannt'
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'unbekannt';
+  var FEIERTAG_TELEFON = '+43 316 686618';
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tg = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tg);
+  }
+  function ftPlus(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function ftKey(d) { return (d.getMonth() + 1) + '-' + d.getDate(); }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = ftKey(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var bew = [[ftPlus(o,1),'Ostermontag'],[ftPlus(o,39),'Christi Himmelfahrt'],
+               [ftPlus(o,50),'Pfingstmontag'],[ftPlus(o,60),'Fronleichnam']];
+    for (var i = 0; i < bew.length; i++) { if (ftKey(bew[i][0]) === k) { return bew[i][1]; } }
+    return null;
+  }
+
+  document.documentElement.classList.add('js');
+
+  var balken = document.querySelector('.demobalken');
+  function balkenMessen() {
+    document.documentElement.style.setProperty('--balkenhoehe', balken.offsetHeight + 'px');
+  }
+  balkenMessen();
+  window.addEventListener('resize', balkenMessen);
+
+  /* ---------- Sommerhalbjahr: Mai bis einschließlich Oktober ---------- */
+  function istSommer(datum) {
+    var m = datum.getMonth();
+    return m >= 4 && m <= 9;
+  }
+
+  /* ---------- Öffnungszeiten des Sommerhalbjahrs aus der Tabelle lesen ---------- */
+  var zeiten = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#zeittabelleSommer tbody tr'), function (tr) {
+    zeiten[Number(tr.getAttribute('data-tag'))] = {
+      zeile: tr,
+      offen: spanne(tr.getAttribute('data-offen')),
+      kueche: spanne(tr.getAttribute('data-kueche'))
+    };
+  });
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return { von: minuten(t[0]), bis: minuten(t[1]), vonText: t[0], bisText: t[1] };
+  }
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function alsText(m) {
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function naechsterOffenerTag(ab) {
+    for (var i = 1; i <= 7; i++) {
+      var t = (ab + i) % 7;
+      if (zeiten[t] && zeiten[t].offen) { return t; }
+    }
+    return null;
+  }
+
+  /* ---------- Halbjahr markieren und Status setzen ---------- */
+  function statusSetzen() {
+    var jetzt = new Date();
+    var sommer = istSommer(jetzt);
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+
+    var kastenSommer = document.getElementById('saisonSommer');
+    var kastenWinter = document.getElementById('saisonWinter');
+    var fahneSommer = document.getElementById('fahneSommer');
+    var fahneWinter = document.getElementById('fahneWinter');
+
+    kastenSommer.classList.toggle('aktiv', sommer);
+    kastenWinter.classList.toggle('aktiv', !sommer);
+    fahneSommer.classList.toggle('still', !sommer);
+    fahneWinter.classList.toggle('still', sommer);
+    fahneSommer.textContent = sommer ? 'Mai bis Oktober, gilt jetzt' : 'Mai bis Oktober';
+    fahneWinter.textContent = sommer ? 'November bis April' : 'November bis April, gilt jetzt';
+
+    if (!sommer) {
+      text.textContent = 'Zeiten im Winterhalbjahr nicht veröffentlicht';
+      zusatz.textContent = 'Bitte kurz anrufen, dann wissen Sie es genau';
+      return;
+    }
+
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    if (heute && heute.zeile) { heute.zeile.classList.add('heute'); }
+
+    var ftName = feiertagName(jetzt);
+    if (ftName) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + ftName + ', wir haben geschlossen';
+        var ftNext = null;
+        for (var ftI = 1; ftI <= 9 && ftNext === null; ftI++) {
+          var ftT = (tag + ftI) % 7;
+          if (zeiten[ftT] && zeiten[ftT].offen && !feiertagName(ftPlus(jetzt, ftI))) { ftNext = ftT; }
+        }
+        if (zusatz) {
+          zusatz.textContent = ftNext === null ? '' :
+            'Wieder geöffnet am ' + TAGNAMEN[ftNext] + ' ab ' + zeiten[ftNext].offen.vonText + ' Uhr';
+        }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + ftName;
+        if (zusatz) { zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON; }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute Ruhetag';
+      zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = 'Geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      return;
+    }
+    if (min < heute.offen.bis) {
+      text.textContent = 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      zusatz.textContent = 'Montag bis Freitag durchgehend';
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+  }
+  /* Den laufenden Monat im Jahresband markieren. */
+  var monatJetzt = new Date().getMonth();
+  var bandPunkt = document.querySelector('#jahresband li[data-monat="' + monatJetzt + '"]');
+  if (bandPunkt) { bandPunkt.classList.add('jetzt'); }
+
+  /* Termin ausgeben, solange er in der Zukunft liegt. */
+  (function () {
+    var block = document.getElementById('terminBlock');
+    if (!block || !TERMIN_DATUM) { return; }
+    var heute = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    if (TERMIN_DATUM < heute) { return; }
+    var t = TERMIN_DATUM.split('-');
+    var d = new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2]));
+    var MONATE = ['Jänner','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    document.getElementById('terminDatum').textContent =
+      TAGNAMEN[d.getDay()] + ', ' + Number(t[2]) + '. ' + MONATE[Number(t[1]) - 1] + ' ' + t[0];
+    document.getElementById('terminTitel').textContent = TERMIN_TITEL;
+    document.getElementById('terminZeit').textContent =
+      TERMIN_ZEIT + '. Der Samstag ist von Mai bis Oktober sonst Ruhetag.';
+    block.hidden = false;
+  }());
+
+  statusSetzen();
+
+  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
+     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  var hinweis = document.getElementById('navHinweis');
+  var hinweisUhr = null;
+  function hinweisZeigen(el) {
+    hinweis.innerHTML = '';
+    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
+    hinweis.appendChild(b);
+    hinweis.classList.add('sichtbar');
+    window.clearTimeout(hinweisUhr);
+    hinweisUhr = window.setTimeout(function () {
+      hinweis.classList.remove('sichtbar');
+      hinweis.textContent = '';
+    }, 6000);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    el.addEventListener('click', function () { hinweisZeigen(el); });
+    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+    });
+  });
+
+  /* ---------- Seitfix-Anfrage ---------- */
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    var rumpf = 'Guten Tag,\n\nich habe die Demoseite für ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n';
+    if (SEITFIX_TELEFON) { rumpf += 'Bitte melden Sie sich telefonisch oder per Mail.\n\n'; }
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent(rumpf));
+  }
+
+  /* ---------- Reservierungsformular ---------- */
+  var form = document.getElementById('resForm');
+  if (!form) { return; }
+  var datumFeld = document.getElementById('resDatum');
+  var zeitFeld = document.getElementById('resZeit');
+  var bestaetigung = document.getElementById('resBestaetigung');
+
+  var heuteISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  datumFeld.setAttribute('min', heuteISO);
+  var spaet = new Date();
+  spaet.setFullYear(spaet.getFullYear() + 1);
+  datumFeld.setAttribute('max', spaet.toISOString().slice(0, 10));
+
+  function datumAusISO(iso) {
+    var t = iso.split('-');
+    return new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2]));
+  }
+  function neueOption(wert, beschriftung) {
+    var o = document.createElement('option');
+    o.value = wert;
+    o.textContent = beschriftung;
+    return o;
+  }
+  function zeitenFuellen() {
+    var iso = datumFeld.value;
+    zeitFeld.innerHTML = '';
+    if (!iso) {
+      zeitFeld.appendChild(neueOption('', 'Bitte zuerst ein Datum wählen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    var d = datumAusISO(iso);
+    if (!istSommer(d)) {
+      zeitFeld.appendChild(neueOption('nach Absprache', 'Nach Absprache, bitte anrufen'));
+      zeitFeld.disabled = false;
+      zeitFeld.value = 'nach Absprache';
+      return;
+    }
+    var e = zeiten[d.getDay()];
+    if (!e || !e.kueche) {
+      zeitFeld.appendChild(neueOption('', TAGNAMEN[d.getDay()] + ' ist Ruhetag'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    zeitFeld.disabled = false;
+    zeitFeld.appendChild(neueOption('', 'Bitte wählen'));
+    for (var m = e.kueche.von; m <= e.kueche.bis - 30; m += 30) {
+      zeitFeld.appendChild(neueOption(alsText(m), alsText(m) + ' Uhr'));
+    }
+  }
+  datumFeld.addEventListener('change', function () {
+    zeitenFuellen();
+    pruefe(datumFeld, 'fehlerDatum');
+  });
+  zeitenFuellen();
+
+  var meldungen = {
+    resName: 'Bitte tragen Sie einen Namen ein.',
+    resTelefon: 'Bitte tragen Sie eine Telefonnummer ein, unter der wir Sie erreichen.',
+    resMail: 'Bitte tragen Sie eine gültige E-Mail-Adresse ein.',
+    resPersonen: 'Bitte geben Sie an, für wie viele Personen der Tisch sein soll.',
+    resDatum: 'Bitte wählen Sie ein Datum.',
+    resZeit: 'Bitte wählen Sie eine Uhrzeit.'
+  };
+
+  function pruefe(feld, fehlerId) {
+    var box = document.getElementById(fehlerId);
+    var huelle = feld.closest('.feld');
+    var text = '';
+    if (!feld.value) {
+      text = meldungen[feld.id];
+    } else if (feld.id === 'resMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(feld.value)) {
+      text = meldungen.resMail;
+    } else if (feld.id === 'resTelefon' && feld.value.replace(/[^0-9]/g, '').length < 6) {
+      text = 'Diese Telefonnummer sieht zu kurz aus.';
+    } else if (feld.id === 'resDatum') {
+      if (feld.value < heuteISO) {
+        text = 'Dieses Datum liegt in der Vergangenheit.';
+      } else {
+        var d = datumAusISO(feld.value);
+        if (!istSommer(d)) {
+          text = 'Von November bis April sind keine Zeiten veröffentlicht. Bitte rufen Sie kurz an, die Anfrage können Sie trotzdem senden.';
+        } else {
+          var e = zeiten[d.getDay()];
+          if (!e || !e.offen) {
+            text = 'Am ' + TAGNAMEN[d.getDay()] + ' ist Ruhetag. Bitte wählen Sie einen anderen Tag.';
+          }
+        }
+      }
+    } else if (feld.id === 'resPersonen' && (Number(feld.value) < 1 || Number(feld.value) > 40)) {
+      text = 'Bitte eine Zahl zwischen 1 und 40. Für größere Runden rufen Sie bitte an.';
+    }
+    box.textContent = text;
+    /* Der Winterhinweis ist ein Hinweis, kein Fehler, deshalb blockiert er nicht. */
+    var blockiert = Boolean(text) && text.indexOf('trotzdem senden') < 0;
+    if (huelle) { huelle.classList.toggle('ungueltig', blockiert); }
+    return !blockiert;
+  }
+
+  Object.keys(meldungen).forEach(function (id) {
+    var feld = document.getElementById(id);
+    feld.addEventListener('blur', function () { pruefe(feld, 'fehler' + id.slice(3)); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    bestaetigung.hidden = true;
+    var alleGut = true, erstes = null;
+    Object.keys(meldungen).forEach(function (id) {
+      var feld = document.getElementById(id);
+      if (!pruefe(feld, 'fehler' + id.slice(3))) {
+        alleGut = false;
+        if (!erstes) { erstes = feld; }
+      }
+    });
+    if (!alleGut) { if (erstes) { erstes.focus(); } return; }
+
+    var d = datumFeld.value.split('-');
+    var koerper = [
+      'Reservierungswunsch über die Website',
+      '',
+      'Name:      ' + document.getElementById('resName').value,
+      'Telefon:   ' + document.getElementById('resTelefon').value,
+      'E-Mail:    ' + document.getElementById('resMail').value,
+      'Datum:     ' + d[2] + '.' + d[1] + '.' + d[0] + ' (' + TAGNAMEN[datumAusISO(datumFeld.value).getDay()] + ')',
+      'Uhrzeit:   ' + zeitFeld.value,
+      'Personen:  ' + document.getElementById('resPersonen').value,
+      '',
+      'Anmerkung: ' + (document.getElementById('resNotiz').value || 'keine'),
+      '',
+      'Gesendet über die Website von ' + BETRIEB + '.'
+    ].join('\n');
+
+    window.location.href = 'mailto:' + RESERVIERUNG_EMPFAENGER +
+      '?subject=' + encodeURIComponent('Tischreservierung ' + BETRIEB) +
+      '&body=' + encodeURIComponent(koerper);
+    bestaetigung.hidden = false;
+  });
+}());
+</script>
+</body>
+</html>

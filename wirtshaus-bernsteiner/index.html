@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wirtshaus Bernsteiner | Steirische Wirtshausküche in Graz</title>
+<meta name="description" content="Wirtshaus Bernsteiner, Bethlehemgasse 3, 8020 Graz. Tagesmenü von 11 bis 15 Uhr ab 12,50 Euro, großer Gastgarten, Menüpass. Montag bis Freitag 10 bis 20 Uhr.">
+<meta name="theme-color" content="#262422">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Wirtshaus Bernsteiner | Steirische Wirtshausküche in Graz">
+<meta property="og:description" content="Der Geheimtipp unter den Grazer Wirtshäusern. Tagesmenü ab 12,50 Euro, großer Gastgarten im Hinterhof, jedes elfte Menü gratis.">
+<meta property="og:image" content="assets/img/gastgarten.webp">
+<meta property="og:site_name" content="Wirtshaus Bernsteiner">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%23262422'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial,sans-serif' font-size='19' font-weight='800' fill='%23e0a32e' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, es wird kein fremder Server aufgerufen. */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/archivo-400.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/archivo-600.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:800;font-display:swap;src:url('assets/fonts/archivo-800.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#7a4a12;
+  --farbe-akzent:#e0a32e;
+  --farbe-text:#1e1c19;
+  --farbe-flaeche:#fbf7ef;
+  --farbe-flaeche-2:#f4e9d2;
+  --farbe-dunkel:#262422;
+  --farbe-linie:#ddd0b6;
+  --farbe-gedaempft:#5b544a;
+  --abstand-s:.6rem;
+  --abstand-m:1.3rem;
+  --abstand-l:2.8rem;
+  --abstand-xl:5rem;
+  --schrift-titel:'Archivo',Helvetica,Arial,sans-serif;
+  --schrift-text:'Archivo',Helvetica,Arial,sans-serif;
+  /* Der eine typografische Höhepunkt der Seite. */
+  --schrift-riesig:clamp(2.8rem,8.5vw,8rem);
+  --breite:1140px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-size:1.0625rem;line-height:1.6;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:800;line-height:1.08;margin:0 0 var(--abstand-m);letter-spacing:-.025em}
+h1{font-size:var(--schrift-riesig);text-transform:uppercase;line-height:.92;letter-spacing:-.035em}
+h2{font-size:clamp(1.7rem,4.2vw,2.5rem)}
+h3{font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-primaer)}
+:focus-visible{outline:3px solid var(--farbe-akzent);outline-offset:3px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.augenmass{max-width:60ch}
+.klein{font-size:.95rem;color:var(--farbe-gedaempft)}
+
+/* Demo-Balken */
+.demobalken{position:sticky;top:0;z-index:60;background:#141312;color:#ccc6bb;font-size:.8125rem;line-height:1.4;padding:.5rem 1.25rem;text-align:center}
+.demobalken a{color:var(--farbe-akzent);text-underline-offset:3px}
+
+/* Kopf */
+.kopf{background:var(--farbe-dunkel);color:#f2ece0}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;padding-top:.7rem;padding-bottom:.7rem}
+.wortmarke{font-family:var(--schrift-titel);font-weight:800;font-size:1.25rem;text-transform:uppercase;letter-spacing:-.02em;color:#fff;text-decoration:none;margin-right:auto;line-height:1.1}
+.wortmarke span{display:block;font-weight:400;font-size:.7rem;letter-spacing:.16em;text-transform:none;color:var(--farbe-akzent);margin-top:.15rem}
+.hauptnav{width:100%;order:3;background:var(--farbe-dunkel)}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0 1.3rem;margin:0;padding:0;border-top:1px solid rgba(242,236,224,.15)}
+.hauptnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:46px;font-size:.9rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#f2ece0;text-decoration:none}
+.hauptnav a:hover{color:var(--farbe-akzent)}
+.nav-inaktiv{opacity:.4;cursor:not-allowed}
+.nav-hinweis{margin:0;font-size:.9rem;color:var(--farbe-akzent);max-height:0;overflow:hidden;transition:max-height .2s ease}
+.nav-hinweis.sichtbar{max-height:3rem;padding-bottom:.5rem}
+.tel-kopf{display:inline-flex;align-items:center;min-height:44px;font-weight:800;color:var(--farbe-akzent);text-decoration:none;font-size:1.05rem}
+.tel-kopf:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* Knöpfe */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.7rem 1.5rem;border:2px solid transparent;border-radius:4px;font-family:var(--schrift-titel);font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;cursor:pointer}
+.knopf-voll{background:var(--farbe-akzent);color:#231a08}
+.knopf-voll:hover{background:#f0b544}
+.knopf-hell{background:transparent;color:#f2ece0;border-color:rgba(242,236,224,.5)}
+.knopf-hell:hover{border-color:#f2ece0}
+.knopf-dunkel{background:var(--farbe-dunkel);color:#f2ece0}
+.knopf-dunkel:hover{background:#3a3733}
+
+/* Hero */
+.hero{background:var(--farbe-dunkel);color:#f2ece0;padding:var(--abstand-l) 0}.hero-foto{position:relative;isolation:isolate;min-height:76vh;display:flex;align-items:flex-end;padding-bottom:var(--abstand-m)}.hero-hintergrund{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.hero-foto::after{content:"";position:absolute;inset:0;background:rgba(20,15,8,.68);z-index:-1}.hero-foto .hero-raster{grid-template-columns:1fr;width:100%}@media (max-width:639px){.hero-foto{min-height:66vh}.hero-foto::after{background:rgba(20,15,8,.74)}}
+.hero-raster{display:grid;gap:var(--abstand-l);align-items:center}
+.hero h1{color:#fff}
+.hero .zitat{font-size:1.3rem;font-weight:600;color:var(--farbe-akzent);max-width:22ch;margin:0 0 var(--abstand-m)}
+.hero .leit{color:#d5cec2;max-width:40ch}
+.hero-bild img{border:6px solid #3a3733;width:100%}
+.status{border-top:2px solid var(--farbe-akzent);padding:.9rem 0 0;margin:0 0 var(--abstand-m);display:flex;flex-wrap:wrap;gap:.1rem 1rem;align-items:baseline}
+.status b{font-size:1.2rem;font-weight:800;color:#fff}
+.status .zusatz{color:#c8c1b5;font-size:.98rem}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:.7rem}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.marke{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--farbe-primaer);margin:0 0 .6rem;font-weight:800}
+.sektion-kopf{margin-bottom:var(--abstand-l);max-width:62ch}
+.sektion-kopf p:last-child{margin-bottom:0}
+.gedeckt{background:var(--farbe-flaeche-2)}
+.dunkel{background:var(--farbe-dunkel);color:#f2ece0}
+.dunkel h2,.dunkel h3{color:#fff}
+.dunkel .marke{color:var(--farbe-akzent)}
+.dunkel a{color:var(--farbe-akzent)}
+
+/* Wochenmenü, der wichtigste Block */
+.menupreise{display:flex;flex-wrap:wrap;gap:.6rem;margin:0 0 var(--abstand-l)}
+.menupreise span{background:var(--farbe-dunkel);color:#f2ece0;padding:.5rem 1rem;font-weight:600;font-size:1rem;border-radius:4px}
+.menupreise b{color:var(--farbe-akzent);font-weight:800}
+.wochenmenu{list-style:none;margin:0;padding:0;border-top:2px solid var(--farbe-dunkel)}
+.wochenmenu li{display:grid;grid-template-columns:1fr;gap:.15rem;padding:1.1rem 0;border-bottom:1px solid var(--farbe-linie)}
+.wochenmenu .tag{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem;color:var(--farbe-primaer)}
+.wochenmenu .suppe{color:var(--farbe-gedaempft);font-size:.98rem}
+.wochenmenu .haupt{font-size:1.15rem;font-weight:600}
+.wochenmenu li.heute{background:var(--farbe-flaeche-2);box-shadow:inset 4px 0 0 var(--farbe-akzent)}
+.wochenmenu li.heute .tag::after{content:'heute';margin-left:.6rem;font-size:.7rem;letter-spacing:.1em;background:var(--farbe-dunkel);color:var(--farbe-akzent);padding:.12rem .45rem;border-radius:3px}
+.wochenmenu li.heute .tag,.wochenmenu li.heute .suppe,.wochenmenu li.heute .haupt{padding-left:.8rem}
+
+/* Menüpass */
+.pass-raster{display:grid;gap:var(--abstand-l);align-items:center}
+.pass-punkte li{width:2.5rem;height:2.5rem;border:2px solid rgba(242,236,224,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.95rem;color:#d5cec2}
+.pass-punkte li:last-child{border-color:var(--farbe-akzent);background:var(--farbe-akzent);color:#231a08;font-weight:800}
+
+/* Speisekarte */
+.karte-gruppe{margin-bottom:var(--abstand-l)}
+.karte-gruppe h3{color:var(--farbe-primaer);border-bottom:2px solid var(--farbe-linie);padding-bottom:.4rem;text-transform:uppercase;letter-spacing:.08em;font-size:.88rem;font-weight:800}
+.karte-liste{list-style:none;margin:0;padding:0}
+.karte-liste li{display:flex;justify-content:space-between;gap:1.2rem;align-items:baseline;padding:.45rem 0;border-bottom:1px dotted var(--farbe-linie)}
+.karte-liste .preis{white-space:nowrap;font-weight:800;font-variant-numeric:tabular-nums}
+.karte-spalten{display:grid;gap:0 var(--abstand-xl)}
+.teller{display:grid;gap:.8rem;grid-template-columns:repeat(2,1fr);margin-top:var(--abstand-l)}
+.teller figcaption{padding-top:.35rem;font-size:.85rem}
+figure{margin:0}
+figcaption{font-size:.92rem;color:var(--farbe-gedaempft);padding-top:.5rem}
+.zweispalt{display:grid;gap:var(--abstand-l)}
+.allergen{margin-top:var(--abstand-m)}
+
+/* Öffnungszeiten */
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left}
+.zeittabelle caption{text-align:left;padding-bottom:.7rem;color:var(--farbe-gedaempft);font-size:.95rem}
+.zeittabelle th,.zeittabelle td{padding:.7rem .5rem;border-bottom:1px solid var(--farbe-linie)}
+.zeittabelle thead th{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--farbe-gedaempft);font-weight:800}
+.zeittabelle th[scope=row]{font-weight:800}
+.zeittabelle tr.heute{background:#fff;box-shadow:inset 4px 0 0 var(--farbe-akzent)}
+.zeittabelle tr.heute th[scope=row]{color:var(--farbe-primaer)}
+.ruhe{color:var(--farbe-gedaempft)}
+
+/* Formular */
+.formular{display:grid;gap:1.05rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.feld input,.feld select,.feld textarea{font-family:var(--schrift-text);font-size:1rem;color:var(--farbe-text);background:#fff;border:2px solid var(--farbe-linie);border-radius:4px;padding:.6rem .7rem;min-height:48px;width:100%}
+.feld textarea{min-height:96px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-primaer)}
+.fehler{color:#8f2012;font-size:.9rem;margin-top:.3rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#8f2012}
+.bestaetigung{border:2px solid var(--farbe-akzent);border-radius:4px;background:#fff;padding:1rem 1.1rem;margin-top:1.2rem}
+.bestaetigung[hidden]{display:none}
+
+/* Kontakt */
+address{font-style:normal}
+.datenzeile{display:grid;gap:.15rem;padding:.75rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--farbe-gedaempft);font-weight:800}
+.datenzeile dd{margin:0}
+.linien{list-style:none;margin:0 0 var(--abstand-m);padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.linien li{border:2px solid var(--farbe-linie);border-radius:4px;padding:.25rem .7rem;font-weight:600;font-size:.95rem}
+
+/* Seitfix */
+.seitfix{background:#1c1c1e;color:#e9e9ea}
+.seitfix h2{font-weight:600;font-size:clamp(1.35rem,3.4vw,1.9rem);letter-spacing:-.01em;color:#fff;text-transform:none}
+.seitfix a{color:#9fd0c4}
+.seitfix .marke{color:#9fd0c4}
+.seitfix :focus-visible{outline-color:#9fd0c4}
+.preisliste{list-style:none;margin:var(--abstand-m) 0;padding:0;max-width:34rem}
+.preisliste li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid #333}
+.preisliste .betrag{white-space:nowrap;color:#fff;font-weight:800}
+.seitfix .knopf-seitfix{background:#9fd0c4;color:#12211d;text-decoration:none}
+.seitfix .knopf-seitfix:hover{background:#b6ded4}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:#c8c1b5;padding:var(--abstand-l) 0;font-size:.95rem}
+.fuss a{color:var(--farbe-akzent)}
+.fuss strong{color:#fff;font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;background:var(--farbe-dunkel)}
+.mobilleiste a{display:flex;align-items:center;justify-content:center;min-height:56px;font-weight:800;text-transform:uppercase;font-size:.95rem;text-decoration:none;color:#f2ece0}
+.mobilleiste a:last-child{background:var(--farbe-akzent);color:#231a08}
+body{padding-bottom:56px}
+
+@media (min-width:640px){
+  .teller{grid-template-columns:repeat(5,1fr)}
+  .wochenmenu li{grid-template-columns:9rem 1fr;gap:.15rem 1.2rem;align-items:baseline}
+  .wochenmenu li .suppe{grid-column:2}
+  .wochenmenu li.heute .tag,.wochenmenu li.heute .suppe,.wochenmenu li.heute .haupt{padding-left:0}
+  .wochenmenu li.heute{padding-left:.9rem}
+  .datenzeile{grid-template-columns:8rem 1fr;gap:1rem;align-items:baseline}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:var(--balkenhoehe,2.1rem);z-index:50}
+  .hero-raster{grid-template-columns:1.35fr .65fr;gap:var(--abstand-xl)}
+  .karte-spalten{grid-template-columns:1fr 1fr}
+  .zweispalt{grid-template-columns:1fr 1fr;gap:var(--abstand-xl)}
+  .zweispalt-schmal{grid-template-columns:1.4fr .6fr}
+  .pass-raster{grid-template-columns:1fr 15rem;gap:var(--abstand-xl)}
+  .formular{grid-template-columns:1fr 1fr;gap:1.05rem 1.4rem}
+  .feld-breit{grid-column:1 / -1}
+  .fuss-raster{grid-template-columns:1.3fr 1fr 1fr}
+}
+@media (min-width:1200px){:root{--abstand-xl:6.5rem}}
+
+/* Signature eins: der Menüpass als gezeichnete Stempelkarte */
+.pass-karte{width:100%;max-width:34rem;height:auto;display:block;margin:0 0 var(--abstand-m)}
+.pass-rahmen{fill:none;stroke:var(--farbe-akzent);stroke-width:2}
+.pass-kreis{fill:none;stroke:rgba(224,163,46,.55);stroke-width:2}
+.pass-zahl{fill:#d7cfc2;font-family:var(--schrift-text);font-size:17px;font-weight:600;text-anchor:middle;dominant-baseline:central}
+.pass-voll{fill:var(--farbe-akzent);stroke:var(--farbe-akzent);stroke-width:2}
+.pass-vollzahl{fill:#231a08;font-family:var(--schrift-text);font-size:17px;font-weight:800;text-anchor:middle;dominant-baseline:central}
+.pass-titel{fill:#fff;font-family:var(--schrift-titel);font-size:22px;font-weight:800;letter-spacing:-.5px}
+.pass-unter{fill:var(--farbe-akzent);font-family:var(--schrift-text);font-size:12px;font-weight:600;letter-spacing:2px}
+
+/* Signature zwei: das Wochenmenü als große Tafel */
+.tafel{background:var(--farbe-dunkel);color:#f2ece0;padding:var(--abstand-l) 0}
+.tafel .marke{color:var(--farbe-akzent)}
+.tafel h2{color:#fff}
+.tafelliste{list-style:none;margin:0;padding:0;border-top:1px solid rgba(242,236,224,.22)}
+.tafelliste li{padding:1.4rem 0;border-bottom:1px solid rgba(242,236,224,.22);display:grid;gap:.2rem}
+.tafelliste .tag{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--farbe-akzent);font-weight:800}
+.tafelliste .haupt{font-family:var(--schrift-titel);font-weight:800;font-size:clamp(1.35rem,3.2vw,2.2rem);line-height:1.15;letter-spacing:-.02em;color:#fff}
+.tafelliste .suppe{color:#c9c1b4;font-size:1rem}
+.tafelliste li.heute{background:rgba(224,163,46,.12);box-shadow:inset 5px 0 0 var(--farbe-akzent);padding-left:1.1rem}
+.tafelliste li.heute .tag::after{content:'heute';margin-left:.7rem;font-size:.66rem;background:var(--farbe-akzent);color:#231a08;padding:.12rem .5rem;border-radius:3px;letter-spacing:.08em}
+.gepflegt{display:inline-block;border:1px solid rgba(242,236,224,.4);padding:.4rem .9rem;font-size:.9rem;color:#d7cfc2;margin-top:var(--abstand-m)}
+@media (min-width:640px){
+  .tafelliste li{grid-template-columns:11rem 1fr;gap:.2rem 1.5rem;align-items:baseline}
+  .tafelliste li .suppe{grid-column:2}
+}
+
+/* ------------------------------------------------------------------
+   Ausbau: Verkaufswerkzeug und Wow-Hebel
+   ------------------------------------------------------------------ */
+.hauptnav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hauptnav ul::-webkit-scrollbar{display:none}
+.hauptnav li{flex:0 0 auto}@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
+.nav-hinweis{line-height:1.5;max-height:0}
+.nav-hinweis.sichtbar{max-height:9rem;padding-bottom:.8rem}
+.nav-hinweis b{font-weight:700}
+
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Seitfix: Seitenliste und Angebot */
+.seitfix-raster{display:grid;gap:var(--abstand-l)}
+.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
+.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}
+.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
+.seitenliste b{display:block;color:#fff}
+.seitenliste span{color:#b6b6b8;font-size:.95rem}
+.angebot{border:1px solid #3a3a3c;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
+.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#fff;line-height:1;display:block;margin-bottom:.3rem}
+.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
+.angebot li{padding:.4rem 0;border-top:1px solid #333;font-size:.98rem;color:#c9c9cb}
+.seitfix h3{color:#fff}
+@media (min-width:900px){
+  .seitfix-raster{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
+}
+
+/* Sammelkorrektur, zentral angehaengt. */
+.seitenliste li>b,.seitenliste li>span{grid-column:2}
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}.hero-raster>*,.hero-raster>*>*{min-width:0}.hero .status{flex-wrap:wrap}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){
+  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+@media (max-width:639px){
+  .hauptnav ul{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobalken">
+  Unverbindliche Demo für das Wirtshaus Bernsteiner. Erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="#oben">Wirtshaus Bernsteiner<span>Bethlehemgasse 3, 8020 Graz</span></a>
+    <a class="tel-kopf" href="tel:+436641336563">+43 664 1336563</a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#menupass">Menüpass</a></li>
+        <li><a href="#bier">Bier</a></li>
+        <li><a href="#zeiten">Zeiten</a></li>
+        <li><a href="#reservierung">Reservieren</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit dem Menüplan, den Sie jede Woche selbst tauschen, samt Preisen.">Wochenmenü</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit der ganzen Karte, den Getränken und der Allergenkennzeichnung.">Speisekarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite über den Gastgarten im Hinterhof und den Gastraum mit der Schank.">Gastgarten</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Anfahrt, Buslinien, Parken und allen Kontaktdaten.">Kontakt</span></li>
+      </ul>
+      <p class="nav-hinweis" id="navHinweis" role="status"></p>
+    </nav>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero hero-foto" aria-labelledby="titel">
+    <img class="hero-hintergrund" src="assets/img/gastgarten.webp" alt="Der Gastgarten im Hinterhof mit Holztischen unter Bäumen" width="1200" height="798" fetchpriority="high">
+    <div class="rand hero-raster">
+      <div>
+        <h1 id="titel">Wirtshaus Bernsteiner</h1>
+        <p class="zitat">Der Geheimtipp unter den Grazer Wirtshäusern.</p>
+        <p class="leit">Steirische Wirtshausküche in der Bethlehemgasse, unweit vom Griesplatz. Tagesmenü von 11 bis 15 Uhr, durchgehend warme Küche bis 20 Uhr.</p>
+        <p class="status" id="statusHero">
+          <b id="statusText">Öffnungszeiten werden geladen</b>
+          <span class="zusatz" id="statusZusatz"></span>
+        </p>
+        <div class="hero-knoepfe">
+          <a class="knopf knopf-voll" href="#reservierung">Tisch reservieren</a>
+          <a class="knopf knopf-hell" href="#menuplan">Menü diese Woche</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menuplan" class="tafel" aria-labelledby="menuTitel">
+    <div class="rand">
+      <div class="sektion-kopf">
+        <p class="marke" id="wochenMarke">Menüplan</p>
+        <h2 id="menuTitel">Das Menü diese Woche</h2>
+        <p style="color:#d7cfc2">Von Montag bis Freitag zwischen 11 und 15 Uhr. Danach geht es mit der Speisekarte weiter, ab 17 Uhr mit der kleinen Karte.</p>
+      </div>
+      <p class="menupreise">
+        <span>Menü mit Suppe <b>14,50 Euro</b></span>
+        <span>Kleines Menü ohne Suppe <b>12,50 Euro</b></span>
+      </p>
+      <ul class="tafelliste" id="wochenmenu">
+        <li data-tag="1">
+          <span class="tag">Montag</span>
+          <span class="haupt">Gebackenes Schweinsschnitzel, Petersilienkartoffeln, Preiselbeeren</span>
+          <span class="suppe">Rindsuppe mit Leberknödel</span>
+        </li>
+        <li data-tag="2">
+          <span class="tag">Dienstag</span>
+          <span class="haupt">Rindsgeschnetzeltes mit Champignons und Spätzle</span>
+          <span class="suppe">Frittatensuppe</span>
+        </li>
+        <li data-tag="3">
+          <span class="tag">Mittwoch</span>
+          <span class="haupt">Gebackene Hend'l Haxn mit frischem Kartoffelsalat</span>
+          <span class="suppe">Kürbissuppe</span>
+        </li>
+        <li data-tag="4">
+          <span class="tag">Donnerstag</span>
+          <span class="haupt">Saurer Teller mit Rindfleisch, Wurst, Käse und Preßwurst</span>
+          <span class="suppe">Lungenstrudelsuppe, dazu Gebäck und Kernöl</span>
+        </li>
+        <li data-tag="5">
+          <span class="tag">Freitag</span>
+          <span class="haupt">Spaghetti mit Basilikumpesto und Salat</span>
+          <span class="suppe">Grießnockerlsuppe</span>
+        </li>
+        <li data-tag="6">
+          <span class="tag">Samstag</span>
+          <span class="haupt">Geöffnet ab 10:00 Uhr, Küchenschluss 15:00 Uhr</span>
+          <span class="suppe">Kein Wochenmenü</span>
+        </li>
+      </ul>
+      <p style="color:#d7cfc2;margin-top:var(--abstand-m)">Vegetarisch die ganze Woche: mit Frischkäse gefüllte Kartoffelteigtaschen an Blattsalat, 14,50 Euro.</p>
+      <p class="gepflegt">Dieser Block wird jede Woche getauscht. Im Hosting ist das enthalten.</p>
+    </div>
+  </section>
+
+  <section id="menupass" class="dunkel" aria-labelledby="passTitel">
+    <div class="rand pass-raster">
+      <div>
+        <p class="marke">Für Stammgäste</p>
+        <h2 id="passTitel">Jedes elfte Menü geht aufs Haus</h2>
+        <svg class="pass-karte" viewBox="0 0 636 150" role="img" aria-label="Stempelkarte mit elf Feldern, das elfte Menü ist gratis">
+    <rect class="pass-rahmen" x="3" y="3" width="630" height="144" rx="5"/>
+    <text class="pass-titel" x="26" y="44">Bernsteiner Menüpass</text>
+    <text class="pass-unter" x="26" y="66">JEDES ELFTE MENUE GRATIS</text>
+    <circle class="pass-kreis" cx="44" cy="104" r="21"/>
+    <text class="pass-zahl" x="44" y="104">1</text>
+    <circle class="pass-kreis" cx="97" cy="104" r="21"/>
+    <text class="pass-zahl" x="97" y="104">2</text>
+    <circle class="pass-kreis" cx="150" cy="104" r="21"/>
+    <text class="pass-zahl" x="150" y="104">3</text>
+    <circle class="pass-kreis" cx="203" cy="104" r="21"/>
+    <text class="pass-zahl" x="203" y="104">4</text>
+    <circle class="pass-kreis" cx="256" cy="104" r="21"/>
+    <text class="pass-zahl" x="256" y="104">5</text>
+    <circle class="pass-kreis" cx="309" cy="104" r="21"/>
+    <text class="pass-zahl" x="309" y="104">6</text>
+    <circle class="pass-kreis" cx="362" cy="104" r="21"/>
+    <text class="pass-zahl" x="362" y="104">7</text>
+    <circle class="pass-kreis" cx="415" cy="104" r="21"/>
+    <text class="pass-zahl" x="415" y="104">8</text>
+    <circle class="pass-kreis" cx="468" cy="104" r="21"/>
+    <text class="pass-zahl" x="468" y="104">9</text>
+    <circle class="pass-kreis" cx="521" cy="104" r="21"/>
+    <text class="pass-zahl" x="521" y="104">10</text>
+    <circle class="pass-voll" cx="574" cy="104" r="21"/>
+    <text class="pass-vollzahl" x="574" y="104">11</text>
+        </svg>
+        <p>Mit dem Bernsteiner-Menüpass bekommen Sie jedes elfte Menü gratis. Den Pass gibt es im Wirtshaus, gestempelt wird beim Zahlen.</p>
+        <h3>Kleine Zeitung Genusspass</h3>
+        <p>Das Wirtshaus ist eines von 28 Gasthäusern, bei denen Genusspass-Gutscheine gegen ein Dreigängemenü eingetauscht werden können.</p>
+        <h3>Gutscheine</h3>
+        <p>Gutscheine zum Verschenken gibt es direkt im Haus.</p>
+      </div>
+      <figure>
+        <img src="assets/img/edi-bernsteiner.webp" width="700" height="1050" loading="lazy"
+             alt="Eduard Bernsteiner in roter Kochjacke, in den Händen ein Teller und eine Schale">
+        <figcaption style="color:#b6afa3">Eduard Bernsteiner führt das Wirtshaus.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="speisekarte" class="gedeckt" aria-labelledby="karteTitel">
+    <div class="rand">
+      <div class="sektion-kopf">
+        <p class="marke">Auszug aus der Karte</p>
+        <h2 id="karteTitel">Aus der Wirtshausküche</h2>
+        <p>Regionale und saisonale Speisen, die Zutaten kommen von Lieferanten aus der Region. Preise wie im Haus ausgezeichnet.</p>
+      </div>
+      <div class="karte-spalten">
+        <div>
+          <div class="karte-gruppe">
+            <h3>Suppen und Kleines</h3>
+            <ul class="karte-liste">
+              <li><span>Kleine Flecksuppe</span><span class="preis">6,50</span></li>
+              <li><span>Große Flecksuppe</span><span class="preis">9,50</span></li>
+              <li><span>Steirische Klachlsuppe</span><span class="preis">10,50</span></li>
+              <li><span>Rindsuppe mit Frittaten oder Leberknödel</span><span class="preis">5,20</span></li>
+              <li><span>Knoblauchcremesuppe</span><span class="preis">5,90</span></li>
+              <li><span>Ein Stück Bauernkrainer mit Senf und Kren</span><span class="preis">4,50</span></li>
+              <li><span>Paar Bauernkrainer mit Senf und Kren</span><span class="preis">9,00</span></li>
+              <li><span>Frankfurter mit Saft</span><span class="preis">9,50</span></li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Wirtshausklassiker</h3>
+            <ul class="karte-liste">
+              <li><span>Kleines Gulasch</span><span class="preis">9,90</span></li>
+              <li><span>Großes Gulasch</span><span class="preis">12,50</span></li>
+              <li><span>Schweinsbeuschl mit Semmelknödel</span><span class="preis">12,50</span></li>
+              <li><span>Saures Rindfleisch fein garniert, Kernöl</span><span class="preis">12,80</span></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="karte-gruppe">
+            <h3>Hausspezialitäten</h3>
+            <ul class="karte-liste">
+              <li><span>Halbes Backhendl</span><span class="preis">14,50</span></li>
+              <li><span>Gebackene oder gegrillte Hendlbruststreifen an Blattsalaten, Kernöl</span><span class="preis">14,50</span></li>
+              <li><span>Hühnerbrust in Kürbiskernpanier an Blattsalaten, Kernöl</span><span class="preis">16,50</span></li>
+              <li><span>Wiener Schnitzel vom Schwein, Pommes frites</span><span class="preis">18,50</span></li>
+              <li><span>Cordon bleu mit Petersilkartoffeln</span><span class="preis">21,50</span></li>
+              <li><span>Grillteller von Rind, Schwein und Huhn, Gemüse, Pommes frites</span><span class="preis">22,50</span></li>
+              <li><span>Gebackenes Schollenfilet mit Kartoffelsalat</span><span class="preis">16,80</span></li>
+              <li><span>Gebackener Emmentaler, Preiselbeeren</span><span class="preis">16,80</span></li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Salat und Süßes</h3>
+            <ul class="karte-liste">
+              <li><span>Gemischter Salat mit Kernöl</span><span class="preis">6,50</span></li>
+              <li><span>Salatteller mit Schinken und Ei</span><span class="preis">11,50</span></li>
+              <li><span>Apfelstrudel ohne Schlag</span><span class="preis">5,50</span></li>
+              <li><span>Topfenstrudel ohne Schlag</span><span class="preis">5,50</span></li>
+              <li><span>Torte nach Wahl</span><span class="preis">5,90</span></li>
+              <li><span>Stück Palatschinke, Marille oder Preiselbeer</span><span class="preis">3,80</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="klein allergen">Alle Preise in Euro. Die Allergenkennzeichnung steht auf der Karte im Haus.</p>
+
+      <div class="teller">
+        <figure>
+          <img src="assets/img/gulasch.webp" width="600" height="401" loading="lazy" alt="Gulasch mit dunkler Sauce in einem tiefen weißen Teller">
+          <figcaption>Gulasch</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/beuschl.webp" width="605" height="400" loading="lazy" alt="Beuschl mit Semmelknödel und einem Petersilienzweig">
+          <figcaption>Beuschl</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/bratwurst.webp" width="605" height="400" loading="lazy" alt="Bratwurst mit Röstkartoffeln und Petersilie auf weißem Teller">
+          <figcaption>Bratwurst</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/schnitzel.webp" width="608" height="406" loading="lazy" alt="Panierte Hühnerstreifen auf Blattsalat mit Kürbiskernöl">
+          <figcaption>Hendlbruststreifen</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/torte.webp" width="605" height="400" loading="lazy" alt="Stück Schokoladentorte mit Schlagobers auf weißem Teller">
+          <figcaption>Torte nach Wahl</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="bier" aria-labelledby="bierTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Vom Fass</p>
+        <h2 id="bierTitel">Bier</h2>
+        <p>Zwei Sorten laufen vom Fass, dazu Flaschenbier und alkoholfreies.</p>
+        <div class="karte-spalten">
+          <div>
+            <div class="karte-gruppe">
+              <h3>Puntigamer</h3>
+              <ul class="karte-liste">
+                <li><span>Pfiff, 0,2 Liter</span><span class="preis">3,00</span></li>
+                <li><span>Glas, 0,3 Liter</span><span class="preis">4,30</span></li>
+                <li><span>Krügerl, 0,5 Liter</span><span class="preis">5,30</span></li>
+              </ul>
+            </div>
+            <div class="karte-gruppe">
+              <h3>Kaltenhauser Bernstein</h3>
+              <ul class="karte-liste">
+                <li><span>Pfiff, 0,2 Liter</span><span class="preis">3,10</span></li>
+                <li><span>Glas, 0,3 Liter</span><span class="preis">4,80</span></li>
+                <li><span>Krügerl, 0,5 Liter</span><span class="preis">5,90</span></li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="karte-gruppe">
+              <h3>Aus der Flasche</h3>
+              <ul class="karte-liste">
+                <li><span>Puntigamer, 0,3 Liter</span><span class="preis">4,00</span></li>
+                <li><span>Puntigamer, 0,5 Liter</span><span class="preis">4,90</span></li>
+                <li><span>Lasko aus Slowenien, 0,3 Liter</span><span class="preis">4,00</span></li>
+                <li><span>Lasko aus Slowenien, 0,5 Liter</span><span class="preis">4,90</span></li>
+                <li><span>Weizenbier, 0,5 Liter</span><span class="preis">5,60</span></li>
+                <li><span>Gösser Naturgold alkoholfrei, 0,33 Liter</span><span class="preis">4,20</span></li>
+                <li><span>Gösser Naturgold alkoholfrei, 0,5 Liter</span><span class="preis">5,00</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure>
+        <img src="assets/img/schank.webp" width="605" height="400" loading="lazy"
+             alt="Schank mit drei Zapfhähnen, dahinter Regale mit Flaschen und Gläsern">
+        <figcaption>Die Schank im Gastraum.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="bandTitel">
+    <img src="assets/img/gastgarten.webp" width="602" height="400" loading="lazy"
+         alt="Gastgarten mit Sonnenschirmen und Tischen zwischen Sträuchern und Bäumen im Hinterhof">
+    <div class="band-inhalt">
+      <div class="rand">
+        <p class="marke">Hinter dem Haus</p>
+        <p id="bandTitel">Ein Gastgarten mitten in Graz, von dem man die Stadt nicht hört.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gastgarten" class="gedeckt" aria-labelledby="gartenTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Drinnen und draußen</p>
+        <h2 id="gartenTitel">Gastgarten und Gastraum</h2>
+        <p>Der Gastgarten liegt im Hinterhof, viel Grün und wenig Stadtlärm, obwohl das Wirtshaus mitten in Graz steht.</p>
+        <p>Drinnen ist es urig steirisch gehalten, mit Schank und Holz. Wer sich hier wohlfühlt, kommt wieder.</p>
+        <ul class="linien">
+          <li>Gratis WLAN</li>
+          <li>Kartenzahlung möglich</li>
+          <li>Gutscheine</li>
+        </ul>
+      </div>
+      <figure>
+        <img src="assets/img/gastgarten.webp" width="602" height="400" loading="lazy"
+             alt="Gastgarten mit Sonnenschirmen und Tischen zwischen Sträuchern und Bäumen im Hinterhof">
+        <figcaption>Der Gastgarten im Hinterhof.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="zeiten" class="dunkel" aria-labelledby="zeitenTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Wann offen ist</p>
+        <h2 id="zeitenTitel">Öffnungszeiten</h2>
+        <table class="zeittabelle" id="zeittabelle" style="color:#f2ece0">
+          <caption style="color:#b6afa3">Der heutige Tag ist hervorgehoben. Die Zeiten stehen als data-Attribute in der Tabelle und lassen sich dort ändern.</caption>
+          <thead>
+            <tr><th scope="col" style="color:var(--farbe-akzent)">Tag</th><th scope="col" style="color:var(--farbe-akzent)">Wirtshaus</th><th scope="col" style="color:var(--farbe-akzent)">Küche</th></tr>
+          </thead>
+          <tbody>
+            <tr data-tag="1" data-offen="10:00-20:00" data-kueche="11:00-20:00"><th scope="row">Montag</th><td>10:00 bis 20:00</td><td>11:00 bis 20:00</td></tr>
+            <tr data-tag="2" data-offen="10:00-20:00" data-kueche="11:00-20:00"><th scope="row">Dienstag</th><td>10:00 bis 20:00</td><td>11:00 bis 20:00</td></tr>
+            <tr data-tag="3" data-offen="10:00-20:00" data-kueche="11:00-20:00"><th scope="row">Mittwoch</th><td>10:00 bis 20:00</td><td>11:00 bis 20:00</td></tr>
+            <tr data-tag="4" data-offen="10:00-20:00" data-kueche="11:00-20:00"><th scope="row">Donnerstag</th><td>10:00 bis 20:00</td><td>11:00 bis 20:00</td></tr>
+            <tr data-tag="5" data-offen="10:00-20:00" data-kueche="11:00-20:00"><th scope="row">Freitag</th><td>10:00 bis 20:00</td><td>11:00 bis 20:00</td></tr>
+            <tr data-tag="6" data-offen="10:00-" data-kueche="10:00-15:00"><th scope="row">Samstag</th><td>ab 10:00</td><td>bis 15:00</td></tr>
+            <tr data-tag="0"><th scope="row">Sonntag</th><td class="ruhe" colspan="2">Geschlossen</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Wie der Tag abläuft</h3>
+        <p>Von 11 bis 15 Uhr gibt es das Tagesmenü. Die Küche bleibt durchgehend warm, ab 17 Uhr wird die kleine Karte serviert, bis 20 Uhr.</p>
+        <p>Am Samstag ist ab 10 Uhr geöffnet, Küchenschluss ist um 15 Uhr. Am Sonntag bleibt das Wirtshaus geschlossen.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservierung" aria-labelledby="resTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Tisch bestellen</p>
+        <h2 id="resTitel">Reservierung</h2>
+        <p>Der Sonntag ist gesperrt, die Uhrzeiten richten sich nach den Küchenzeiten des gewählten Tages.</p>
+        <form class="formular" id="resForm" novalidate>
+          <div class="feld">
+            <label for="resName">Name</label>
+            <input type="text" id="resName" name="name" required autocomplete="name" aria-describedby="fehlerName">
+            <p class="fehler" id="fehlerName"></p>
+          </div>
+          <div class="feld">
+            <label for="resTelefon">Telefon</label>
+            <input type="tel" id="resTelefon" name="telefon" required autocomplete="tel" aria-describedby="fehlerTelefon">
+            <p class="fehler" id="fehlerTelefon"></p>
+          </div>
+          <div class="feld">
+            <label for="resMail">E-Mail</label>
+            <input type="email" id="resMail" name="mail" required autocomplete="email" aria-describedby="fehlerMail">
+            <p class="fehler" id="fehlerMail"></p>
+          </div>
+          <div class="feld">
+            <label for="resPersonen">Anzahl Personen</label>
+            <input type="number" id="resPersonen" name="personen" min="1" max="40" value="2" required aria-describedby="fehlerPersonen">
+            <p class="fehler" id="fehlerPersonen"></p>
+          </div>
+          <div class="feld">
+            <label for="resDatum">Datum</label>
+            <input type="date" id="resDatum" name="datum" required aria-describedby="fehlerDatum">
+            <p class="fehler" id="fehlerDatum"></p>
+          </div>
+          <div class="feld">
+            <label for="resZeit">Uhrzeit</label>
+            <select id="resZeit" name="zeit" required aria-describedby="fehlerZeit">
+              <option value="">Bitte zuerst ein Datum wählen</option>
+            </select>
+            <p class="fehler" id="fehlerZeit"></p>
+          </div>
+          <div class="feld feld-breit">
+            <label for="resNotiz">Anmerkung (optional)</label>
+            <textarea id="resNotiz" name="notiz" rows="3" placeholder="Tisch im Gastgarten, Menüpass, Kinderstuhl"></textarea>
+          </div>
+          <div class="feld-breit">
+            <button type="submit" class="knopf knopf-dunkel">Reservierung per E-Mail senden</button>
+          </div>
+        </form>
+        <div class="bestaetigung" id="resBestaetigung" role="status" hidden>
+          <p style="margin:0"><strong>Ihr Mailprogramm wurde geöffnet.</strong> Die Reservierung geht erst ein, wenn Sie die vorbereitete Nachricht auch absenden. Öffnet sich kein Fenster, rufen Sie bitte unter <a href="tel:+436641336563">+43 664 1336563</a> an.</p>
+        </div>
+        <p class="klein" style="margin-top:1.2rem">Lieber telefonisch? <a href="tel:+436641336563">+43 664 1336563</a>, Montag bis Freitag ab 10 Uhr.</p>
+        <p class="klein">Es werden keine Daten gespeichert und keine Daten weitergegeben. Ihre Angaben gehen ausschließlich per E-Mail an das Wirtshaus.</p>
+      </div>
+      <figure>
+        <img src="assets/img/bethlehemgasse.webp" width="503" height="752" loading="lazy"
+             alt="Blick in die Bethlehemgasse, an der Hausecke ein Wirtshausschild und Tafeln vor der Tür">
+        <figcaption>Die Bethlehemgasse vor dem Haus.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="kontakt" class="gedeckt" aria-labelledby="kontaktTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Kontakt</p>
+        <h2 id="kontaktTitel">So finden Sie uns</h2>
+        <address>
+          <dl style="margin:0">
+            <div class="datenzeile">
+              <dt>Adresse</dt>
+              <dd>Bethlehemgasse 3<br>8020 Graz<br>
+                <a href="https://www.openstreetmap.org/search?query=Bethlehemgasse%203%2C%208020%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+              </dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Telefon</dt>
+              <dd><a href="tel:+436641336563">+43 664 1336563</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>E-Mail</dt>
+              <dd><a href="mailto:Wirtshaus-Bernsteiner@a1.net">Wirtshaus-Bernsteiner@a1.net</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Inhaber</dt>
+              <dd>Eduard Bernsteiner</dd>
+            </div>
+          </dl>
+        </address>
+      </div>
+      <div>
+        <h3>Lage</h3>
+        <p>Mitten in Graz, unweit vom Griesplatz, vor der Albert-Schweitzer-Klinik.</p>
+        <h3>Mit dem Bus</h3>
+        <p>Haltestelle Griesplatz, von dort ein kurzes Stück zu Fuß.</p>
+        <ul class="linien">
+          <li>31</li><li>32</li><li>33</li><li>39</li><li>40</li><li>67</li>
+        </ul>
+        <h3>Mit dem Auto</h3>
+        <p>Parkgarage Winkler in der Albert-Schweitzer-Gasse, dazu die blaue Zone rund um das Wirtshaus.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seitfix" aria-labelledby="seitfixTitel">
+    <div class="rand">
+      <p class="marke">In eigener Sache</p>
+      <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für das Wirtshaus Bernsteiner gebaut.</h2>
+      <div class="seitfix-raster">
+        <div>
+          <div style="max-width:56ch">
+            <p>Ihr Wochenmenü ist das, wonach die Leute mittags suchen. Auf Ihrer jetzigen Seite steht es unter dem großen Bild, und auf dem Handy muss man dafür scrollen. Hier steht es als große Tafel gleich unter dem Namen, mit dem heutigen Tag hervorgehoben.</p>
+            <p>Reserviert wird derzeit nur telefonisch. Hier gibt es zusätzlich ein Formular, das die Uhrzeiten aus Ihren Küchenzeiten erzeugt und den Sonntag gar nicht erst anbietet. Und ohne Cookie-Banner, weil die Seite nichts mitschreibt.</p>
+          </div>
+
+          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
+          <ul class="seitenliste">
+            <li><b>Wochenmenü</b><span>Der Menüplan, den Sie jede Woche selbst tauschen, samt Preisen.</span></li>
+            <li><b>Speisekarte</b><span>Die ganze Karte, die Getränke und die Allergenkennzeichnung.</span></li>
+            <li><b>Gastgarten</b><span>Der Gastgarten im Hinterhof und der Gastraum mit der Schank.</span></li>
+            <li><b>Kontakt</b><span>Anfahrt, Buslinien, Parken und alle Kontaktdaten.</span></li>
+          </ul>
+          <p class="klein" style="color:#b6b6b8">Mit dieser Startseite sind das fünf Seiten, fertig aufgesetzt.</p>
+        </div>
+
+        <div>
+          <div class="angebot">
+            <span class="zahl">1000 Euro</span>
+            <p style="margin:0;color:#c9c9cb">einmalig für die komplette Website mit allen fünf Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
+            <ul>
+              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
+              <li>Eine Korrekturrunde ist enthalten.</li>
+              <li>Die Website gehört Ihnen.</li>
+              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
+            </ul>
+          </div>
+          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Wirtshaus Bernsteiner</strong>
+      <p style="margin:.4rem 0 0">Bethlehemgasse 3, 8020 Graz<br>
+        <a href="tel:+436641336563">+43 664 1336563</a><br>
+        <a href="mailto:Wirtshaus-Bernsteiner@a1.net">Wirtshaus-Bernsteiner@a1.net</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Montag bis Freitag 10 bis 20 Uhr<br>
+        Samstag ab 10 Uhr, Küchenschluss 15 Uhr<br>
+        Sonntag geschlossen</p>
+    </div>
+    <div>
+      <p style="margin:0">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen beim Wirtshaus Bernsteiner. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+436641336563">Anrufen</a>
+  <a href="#reservierung">Reservieren</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Wirtshaus Bernsteiner",
+  "url":"https://www.wirtshaus-bernsteiner.at/",
+  "telephone":"+436641336563",
+  "email":"Wirtshaus-Bernsteiner@a1.net",
+  "servesCuisine":["Steirisch","Österreichisch"],
+  "image":"assets/img/gastgarten.webp",
+  "priceRange":"12,50 bis 22,50 Euro",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Bethlehemgasse 3",
+    "postalCode":"8020",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:00","closes":"20:00"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Platzhalter. Hier stehen die drei Adressen, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var RESERVIERUNG_EMPFAENGER = 'hallo@seitfix.at';  // nach Auftrag: Adresse des Betriebs
+  var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
+  var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
+
+  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
+  var PAKETPREIS = '1000 Euro';
+
+  /* Die Woche des Menüplans. Eine Zahl tauschen, dann stimmt die Überschrift.
+     Der Plan selbst steht als Liste im HTML darunter. */
+  var MENUE_WOCHE = 34;
+
+  var BETRIEB = 'Wirtshaus Bernsteiner';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen. Die
+     beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+     FEIERTAG_REGEL: 'geschlossen' | 'wie sonntag' | 'offen' | 'unbekannt'
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'unbekannt';
+  var FEIERTAG_TELEFON = '+43 664 1336563';
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tg = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tg);
+  }
+  function ftPlus(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function ftKey(d) { return (d.getMonth() + 1) + '-' + d.getDate(); }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = ftKey(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var bew = [[ftPlus(o,1),'Ostermontag'],[ftPlus(o,39),'Christi Himmelfahrt'],
+               [ftPlus(o,50),'Pfingstmontag'],[ftPlus(o,60),'Fronleichnam']];
+    for (var i = 0; i < bew.length; i++) { if (ftKey(bew[i][0]) === k) { return bew[i][1]; } }
+    return null;
+  }
+
+  document.documentElement.classList.add('js');
+
+  var balken = document.querySelector('.demobalken');
+  function balkenMessen() {
+    document.documentElement.style.setProperty('--balkenhoehe', balken.offsetHeight + 'px');
+  }
+  balkenMessen();
+  window.addEventListener('resize', balkenMessen);
+
+  /* ---------- Öffnungszeiten aus der Tabelle lesen ----------
+     "10:00-20:00" ist ein festes Fenster, "10:00-" heißt: ab 10 Uhr offen,
+     das Ende ist auf der Originalseite nicht angegeben.                     */
+  var zeiten = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#zeittabelle tbody tr'), function (tr) {
+    zeiten[Number(tr.getAttribute('data-tag'))] = {
+      zeile: tr,
+      offen: spanne(tr.getAttribute('data-offen')),
+      kueche: spanne(tr.getAttribute('data-kueche'))
+    };
+  });
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return {
+      von: minuten(t[0]),
+      bis: t[1] ? minuten(t[1]) : null,
+      vonText: t[0],
+      bisText: t[1] || ''
+    };
+  }
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function alsText(m) {
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function naechsterOffenerTag(ab) {
+    for (var i = 1; i <= 7; i++) {
+      var t = (ab + i) % 7;
+      if (zeiten[t] && zeiten[t].offen) { return t; }
+    }
+    return null;
+  }
+
+  function statusSetzen() {
+    var jetzt = new Date();
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+    if (heute && heute.zeile) { heute.zeile.classList.add('heute'); }
+    var menuPunkt = document.querySelector('#wochenmenu li[data-tag="' + tag + '"]');
+    if (menuPunkt) { menuPunkt.classList.add('heute'); }
+
+    var ftName = feiertagName(jetzt);
+    if (ftName) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + ftName + ', wir haben geschlossen';
+        var ftNext = null;
+        for (var ftI = 1; ftI <= 9 && ftNext === null; ftI++) {
+          var ftT = (tag + ftI) % 7;
+          if (zeiten[ftT] && zeiten[ftT].offen && !feiertagName(ftPlus(jetzt, ftI))) { ftNext = ftT; }
+        }
+        if (zusatz) {
+          zusatz.textContent = ftNext === null ? '' :
+            'Wieder geöffnet am ' + TAGNAMEN[ftNext] + ' ab ' + zeiten[ftNext].offen.vonText + ' Uhr';
+        }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + ftName;
+        if (zusatz) { zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON; }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute geschlossen';
+      zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = heute.kueche ? 'Küche von ' + heute.kueche.vonText + ' bis ' + heute.kueche.bisText + ' Uhr' : '';
+      return;
+    }
+    if (heute.offen.bis === null || min < heute.offen.bis) {
+      text.textContent = heute.offen.bis === null
+        ? 'Jetzt geöffnet'
+        : 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      if (heute.kueche && min < heute.kueche.bis) {
+        zusatz.textContent = 'Küche bis ' + heute.kueche.bisText + ' Uhr';
+      } else {
+        zusatz.textContent = 'Die Küche hat für heute geschlossen';
+      }
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+  }
+  var wochenMarke = document.getElementById('wochenMarke');
+  if (wochenMarke) { wochenMarke.textContent = 'Menüplan Woche ' + MENUE_WOCHE; }
+
+  statusSetzen();
+
+  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
+     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  var hinweis = document.getElementById('navHinweis');
+  var hinweisUhr = null;
+  function hinweisZeigen(el) {
+    hinweis.innerHTML = '';
+    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
+    hinweis.appendChild(b);
+    hinweis.classList.add('sichtbar');
+    window.clearTimeout(hinweisUhr);
+    hinweisUhr = window.setTimeout(function () {
+      hinweis.classList.remove('sichtbar');
+      hinweis.textContent = '';
+    }, 6000);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    el.addEventListener('click', function () { hinweisZeigen(el); });
+    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+    });
+  });
+
+  /* ---------- Seitfix-Anfrage ---------- */
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    var rumpf = 'Guten Tag,\n\nich habe die Demoseite für ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n';
+    if (SEITFIX_TELEFON) { rumpf += 'Bitte melden Sie sich telefonisch oder per Mail.\n\n'; }
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent(rumpf));
+  }
+
+  /* ---------- Reservierungsformular ---------- */
+  var form = document.getElementById('resForm');
+  if (!form) { return; }
+  var datumFeld = document.getElementById('resDatum');
+  var zeitFeld = document.getElementById('resZeit');
+  var bestaetigung = document.getElementById('resBestaetigung');
+
+  var heuteISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  datumFeld.setAttribute('min', heuteISO);
+  var spaet = new Date();
+  spaet.setFullYear(spaet.getFullYear() + 1);
+  datumFeld.setAttribute('max', spaet.toISOString().slice(0, 10));
+
+  function tagAusISO(iso) {
+    var t = iso.split('-');
+    return new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2])).getDay();
+  }
+  function neueOption(wert, beschriftung) {
+    var o = document.createElement('option');
+    o.value = wert;
+    o.textContent = beschriftung;
+    return o;
+  }
+  function zeitenFuellen() {
+    var iso = datumFeld.value;
+    zeitFeld.innerHTML = '';
+    if (!iso) {
+      zeitFeld.appendChild(neueOption('', 'Bitte zuerst ein Datum wählen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    var tag = tagAusISO(iso);
+    var e = zeiten[tag];
+    if (!e || !e.kueche) {
+      zeitFeld.appendChild(neueOption('', 'Am ' + TAGNAMEN[tag] + ' geschlossen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    zeitFeld.disabled = false;
+    zeitFeld.appendChild(neueOption('', 'Bitte wählen'));
+    for (var m = e.kueche.von; m <= e.kueche.bis - 30; m += 30) {
+      zeitFeld.appendChild(neueOption(alsText(m), alsText(m) + ' Uhr'));
+    }
+  }
+  datumFeld.addEventListener('change', function () {
+    zeitenFuellen();
+    pruefe(datumFeld, 'fehlerDatum');
+  });
+  zeitenFuellen();
+
+  var meldungen = {
+    resName: 'Bitte tragen Sie einen Namen ein.',
+    resTelefon: 'Bitte tragen Sie eine Telefonnummer ein, unter der wir Sie erreichen.',
+    resMail: 'Bitte tragen Sie eine gültige E-Mail-Adresse ein.',
+    resPersonen: 'Bitte geben Sie an, für wie viele Personen der Tisch sein soll.',
+    resDatum: 'Bitte wählen Sie ein Datum.',
+    resZeit: 'Bitte wählen Sie eine Uhrzeit.'
+  };
+
+  function pruefe(feld, fehlerId) {
+    var box = document.getElementById(fehlerId);
+    var huelle = feld.closest('.feld');
+    var text = '';
+    if (!feld.value) {
+      text = meldungen[feld.id];
+    } else if (feld.id === 'resMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(feld.value)) {
+      text = meldungen.resMail;
+    } else if (feld.id === 'resTelefon' && feld.value.replace(/[^0-9]/g, '').length < 6) {
+      text = 'Diese Telefonnummer sieht zu kurz aus.';
+    } else if (feld.id === 'resDatum') {
+      if (feld.value < heuteISO) {
+        text = 'Dieses Datum liegt in der Vergangenheit.';
+      } else {
+        var e = zeiten[tagAusISO(feld.value)];
+        if (!e || !e.offen) {
+          text = 'Am ' + TAGNAMEN[tagAusISO(feld.value)] + ' ist geschlossen. Bitte wählen Sie einen anderen Tag.';
+        }
+      }
+    } else if (feld.id === 'resPersonen' && (Number(feld.value) < 1 || Number(feld.value) > 40)) {
+      text = 'Bitte eine Zahl zwischen 1 und 40. Für größere Runden rufen Sie bitte an.';
+    }
+    box.textContent = text;
+    if (huelle) { huelle.classList.toggle('ungueltig', Boolean(text)); }
+    return !text;
+  }
+
+  Object.keys(meldungen).forEach(function (id) {
+    var feld = document.getElementById(id);
+    feld.addEventListener('blur', function () { pruefe(feld, 'fehler' + id.slice(3)); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    bestaetigung.hidden = true;
+    var alleGut = true, erstes = null;
+    Object.keys(meldungen).forEach(function (id) {
+      var feld = document.getElementById(id);
+      if (!pruefe(feld, 'fehler' + id.slice(3))) {
+        alleGut = false;
+        if (!erstes) { erstes = feld; }
+      }
+    });
+    if (!alleGut) { if (erstes) { erstes.focus(); } return; }
+
+    var d = datumFeld.value.split('-');
+    var koerper = [
+      'Reservierungswunsch über die Website',
+      '',
+      'Name:      ' + document.getElementById('resName').value,
+      'Telefon:   ' + document.getElementById('resTelefon').value,
+      'E-Mail:    ' + document.getElementById('resMail').value,
+      'Datum:     ' + d[2] + '.' + d[1] + '.' + d[0] + ' (' + TAGNAMEN[tagAusISO(datumFeld.value)] + ')',
+      'Uhrzeit:   ' + zeitFeld.value + ' Uhr',
+      'Personen:  ' + document.getElementById('resPersonen').value,
+      '',
+      'Anmerkung: ' + (document.getElementById('resNotiz').value || 'keine'),
+      '',
+      'Gesendet über die Website von ' + BETRIEB + '.'
+    ].join('\n');
+
+    window.location.href = 'mailto:' + RESERVIERUNG_EMPFAENGER +
+      '?subject=' + encodeURIComponent('Tischreservierung ' + BETRIEB) +
+      '&body=' + encodeURIComponent(koerper);
+    bestaetigung.hidden = false;
+  });
+}());
+</script>
+</body>
+</html>

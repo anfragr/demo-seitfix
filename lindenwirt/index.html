@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lindenwirt | Hotel und Restaurant in Graz</title>
+<meta name="description" content="Lindenwirt, Peter Rosegger Straße 125, 8052 Graz. Hotel und Restaurant der Familie Poglitz-Raffler, seit 1896. Steirische Küche, Mittagsmenü, Zimmer mit Frühstücksbuffet.">
+<meta name="theme-color" content="#111111">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Lindenwirt | Hotel und Restaurant in Graz">
+<meta property="og:description" content="Seit 1896 am Stadtrand von Graz, in fünfter Generation. Steirische Küche, Gastgarten unter Linden, Zimmer mit Frühstücksbuffet ab sechs Uhr.">
+<meta property="og:image" content="assets/img/saal.webp">
+<meta property="og:site_name" content="Lindenwirt">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111111'/%3E%3Cpath d='M16 6c5 3 7 7 5 11-1.6 3.2-4 4-5 4s-3.4-.8-5-4c-2-4 0-8 5-11z' fill='%236f8f4a'/%3E%3Crect x='15.3' y='19' width='1.4' height='8' fill='%236f8f4a'/%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, es wird kein fremder Server aufgerufen. */
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/playfair-display-500.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/manrope-400.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-500.woff2') format('woff2')}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-700.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#111111;
+  --farbe-akzent:#6f8f4a;
+  --farbe-text:#1a1a1a;
+  --farbe-flaeche:#ffffff;
+  --farbe-flaeche-2:#f2f2f0;
+  --farbe-dunkel:#111111;
+  --farbe-linie:#dcdcd8;
+  --farbe-gedaempft:#5a5a58;
+  --abstand-s:.6rem;
+  --abstand-m:1.4rem;
+  --abstand-l:3rem;
+  --abstand-xl:6.5rem;
+  --schrift-titel:'Playfair Display',Georgia,'Times New Roman',serif;
+  --schrift-text:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  /* Der eine typografische Höhepunkt der Seite. */
+  --schrift-riesig:clamp(3rem,8.5vw,8.5rem);
+  --breite:1200px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-size:1.0625rem;line-height:1.7;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:500;line-height:1.16;margin:0 0 var(--abstand-m)}
+h1{font-size:var(--schrift-riesig);letter-spacing:-.015em;line-height:.95}
+h2{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+h3{font-family:var(--schrift-text);font-weight:700;font-size:1.1rem;letter-spacing:-.01em}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-primaer)}
+:focus-visible{outline:2px solid var(--farbe-akzent);outline-offset:3px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.klein{font-size:.95rem;color:var(--farbe-gedaempft)}
+.marke{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--farbe-akzent);margin:0 0 .9rem;font-weight:700}
+
+/* Demo-Balken */
+.demobalken{position:sticky;top:0;z-index:60;background:#000;color:#b9b9b6;font-size:.8125rem;line-height:1.4;padding:.5rem 1.25rem;text-align:center}
+.demobalken a{color:#9dbb75;text-underline-offset:3px}
+
+/* Kopf */
+.kopf{background:var(--farbe-dunkel);color:#fff;position:relative}
+.kopf a{color:#fff}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem 1.6rem;padding-top:.9rem;padding-bottom:.2rem}
+.wortmarke{font-family:var(--schrift-titel);font-weight:500;font-size:1.4rem;letter-spacing:.02em;text-decoration:none;margin-right:auto;line-height:1.1}
+.wortmarke span{display:block;font-family:var(--schrift-text);font-weight:400;font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:#9dbb75;margin-top:.25rem}
+.hauptnav{width:100%;order:3}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:nowrap;gap:0 1.35rem;margin:0;padding:0 0 .1rem;border-top:1px solid #2c2c2c;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.hauptnav ul::-webkit-scrollbar{display:none}.hauptnav li{flex:0 0 auto}
+.hauptnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:46px;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:#fff;text-decoration:none}
+.hauptnav a:hover{color:#9dbb75}
+.nav-inaktiv{opacity:.42;cursor:not-allowed}
+.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
+.nav-hinweis{
+  margin:0;font-size:.9rem;line-height:1.5;color:#dfe6d4;
+  max-height:0;overflow:hidden;transition:max-height .2s ease;
+}
+.nav-hinweis.sichtbar{max-height:8rem;padding:.2rem 0 .9rem}
+.nav-hinweis b{color:#9dbb75;font-weight:700}
+.tel-kopf{font-weight:700;font-size:.95rem;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+
+/* Knöpfe */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.75rem 1.7rem;border:1px solid transparent;border-radius:0;font-family:var(--schrift-text);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+.knopf-voll{background:#fff;color:#111}
+.knopf-voll:hover{background:#e6e6e3}
+.knopf-linie{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.knopf-linie:hover{border-color:#fff}
+.knopf-dunkel{background:var(--farbe-dunkel);color:#fff}
+.knopf-dunkel:hover{background:#333}
+.knopf-rand{background:transparent;color:var(--farbe-primaer);border-color:var(--farbe-linie)}
+.knopf-rand:hover{border-color:var(--farbe-primaer)}
+
+/* Hero */
+.hero{background:var(--farbe-dunkel);color:#fff;padding:var(--abstand-xl) 0 var(--abstand-l)}.hero-bild{position:relative;isolation:isolate;padding-top:var(--abstand-l);min-height:78vh;display:flex;align-items:flex-end}.hero-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}.hero-bild::after{content:"";position:absolute;inset:0;background:rgba(9,9,9,.62);z-index:-1}.hero-bild .rand{width:100%;padding-bottom:var(--abstand-m)}@media (max-width:639px){.hero-bild{min-height:70vh}.hero-bild::after{background:rgba(9,9,9,.7)}}
+.hero h1{color:#fff;margin-bottom:1.2rem}
+.spruch{
+  margin:0 0 var(--abstand-l);
+  font-family:var(--schrift-titel);font-style:italic;font-weight:500;
+  font-size:clamp(1.25rem,2.6vw,2.05rem);line-height:1.35;color:#dcdcd6;
+  max-width:22ch;margin:0 0 var(--abstand-l);
+}
+.status{display:flex;flex-wrap:wrap;gap:.1rem 1rem;align-items:baseline;border-top:1px solid #2c2c2c;border-bottom:1px solid #2c2c2c;padding:1.1rem 0;margin:0 0 var(--abstand-m)}
+.status b{font-family:var(--schrift-titel);font-weight:500;font-size:1.45rem;color:#fff}
+.status .zusatz{color:#9d9d9a;font-size:.95rem}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:.8rem}
+
+/* Signature: zwei Häuser unter einem Dach, randlos und gleichwertig */
+.wege{display:grid;gap:0;padding:0}
+.weg{
+  position:relative;display:block;text-decoration:none;color:#fff;
+  min-height:62vh;overflow:hidden;background:#111;
+}
+.weg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.weg::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.62)}
+.weg-inhalt{position:relative;z-index:1;padding:2.6rem 1.5rem;display:flex;flex-direction:column;justify-content:flex-end;min-height:62vh}
+.weg .nummer{display:block;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:#d9e8c4;margin:0 0 .7rem;font-weight:700}
+.weg h2{font-size:clamp(2rem,4.6vw,3.2rem);color:#fff;margin-bottom:.7rem;line-height:1.05}
+.weg p{max-width:34ch;color:#e2e2df;margin-bottom:1.2rem}
+.weg dl{display:grid;grid-template-columns:1fr auto;gap:.35rem 1rem;margin:0 0 1.6rem;max-width:26rem;font-size:.95rem}
+.weg dt{color:#e2e2df}
+.weg dd{margin:0;text-align:right;font-weight:700}
+.weg .pfeilwort{
+  display:inline-flex;align-items:center;min-height:48px;padding:.6rem 1.5rem;
+  border:1px solid rgba(255,255,255,.6);font-size:.76rem;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:700;align-self:flex-start;
+}
+.weg:hover .pfeilwort{background:#fff;color:#111;border-color:#fff}
+.weg:focus-visible{outline:3px solid #9dbb75;outline-offset:-6px}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.sektion-kopf{margin-bottom:var(--abstand-l);max-width:58ch}
+.sektion-kopf p:last-child{margin-bottom:0}
+.gedeckt{background:var(--farbe-flaeche-2)}
+.dunkel{background:var(--farbe-dunkel);color:#e8e8e5}
+.dunkel h2,.dunkel h3{color:#fff}
+.dunkel a{color:#9dbb75}
+figure{margin:0}
+figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.6rem}
+.zweispalt{display:grid;gap:var(--abstand-l)}
+
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:22rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Speisen */
+.gerichte{list-style:none;margin:0;padding:0}
+.gerichte li{padding:.55rem 0;border-bottom:1px solid var(--farbe-linie)}
+.teller{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);margin-top:var(--abstand-l)}
+.teller img{aspect-ratio:3 / 2;object-fit:cover;width:100%}
+.teller figcaption{font-size:.85rem;padding-top:.4rem}
+
+/* Zeitleiste Geschichte */
+.jahre{list-style:none;margin:0;padding:0;display:grid;gap:var(--abstand-l)}
+.jahre .jahr{display:block;font-family:var(--schrift-titel);font-weight:500;font-size:2.4rem;color:var(--farbe-akzent);line-height:1;margin-bottom:.5rem}
+.jahre p{margin:0}
+
+/* Öffnungszeiten */
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left}
+.zeittabelle caption{text-align:left;padding-bottom:.8rem;color:#9d9d9a;font-size:.95rem}
+.zeittabelle th,.zeittabelle td{padding:.8rem .4rem;border-bottom:1px solid #2c2c2c}
+.zeittabelle thead th{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#9dbb75;font-weight:700}
+.zeittabelle th[scope=row]{font-weight:700}
+.zeittabelle tr.heute{background:#1c1c1c;box-shadow:inset 3px 0 0 var(--farbe-akzent)}
+.ruhe{color:#9d9d9a}
+
+/* Reservierung mit Umschaltung */
+.umschalter{display:flex;gap:0;margin:0 0 var(--abstand-m);border:1px solid var(--farbe-linie)}
+.umschalter label{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  min-height:52px;padding:.6rem 1rem;cursor:pointer;
+  font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+}
+.umschalter input{position:absolute;opacity:0;width:1px;height:1px}
+.umschalter label.aktiv{background:var(--farbe-primaer);color:#fff}
+.umschalter label:focus-within{outline:2px solid var(--farbe-akzent);outline-offset:-4px}
+.formular{display:grid;gap:1.1rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.4rem;color:var(--farbe-gedaempft);font-weight:700}
+.feld input,.feld select,.feld textarea{font-family:var(--schrift-text);font-size:1rem;color:var(--farbe-text);background:#fff;border:1px solid var(--farbe-linie);border-radius:0;padding:.65rem .7rem;min-height:48px;width:100%}
+.feld textarea{min-height:100px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-primaer)}
+.fehler{color:#8f2020;font-size:.9rem;margin-top:.3rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#8f2020}
+.feld[hidden]{display:none}
+.bestaetigung{border:1px solid var(--farbe-akzent);background:#fff;padding:1rem 1.1rem;margin-top:1.2rem}
+.bestaetigung[hidden]{display:none}
+
+/* Kontakt */
+address{font-style:normal}
+.datenzeile{display:grid;gap:.1rem;padding:.85rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-gedaempft);font-weight:700}
+.datenzeile dd{margin:0}
+
+/* Seitfix */
+.seitfix{background:#1c1c1e;color:#e9e9ea}
+.seitfix h2{font-family:var(--schrift-text);font-weight:700;font-size:clamp(1.3rem,3.2vw,1.85rem);color:#fff;letter-spacing:-.01em}
+.seitfix h3{color:#fff;margin-bottom:.8rem}
+.seitfix a{color:#9fd0c4}
+.seitfix .marke{color:#9fd0c4}
+.seitfix :focus-visible{outline-color:#9fd0c4}
+.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
+.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}
+.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
+.seitenliste b{display:block;color:#fff;grid-column:2}
+.seitenliste span{color:#b6b6b8;font-size:.95rem;grid-column:2}
+.angebot{border:1px solid #3a3a3c;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
+.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#fff;line-height:1;display:block;margin-bottom:.3rem}
+.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
+.angebot li{padding:.4rem 0;border-top:1px solid #333;font-size:.98rem;color:#c9c9cb}
+.seitfix .knopf-seitfix{background:#9fd0c4;color:#12211d;text-decoration:none;border-color:transparent}
+.seitfix .knopf-seitfix:hover{background:#b6ded4}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:#a5a5a2;padding:var(--abstand-l) 0;font-size:.95rem}
+.fuss a{color:#9dbb75}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-weight:500;font-size:1.2rem}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;background:var(--farbe-dunkel)}
+.mobilleiste a{display:flex;align-items:center;justify-content:center;min-height:56px;font-weight:700;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff}
+.mobilleiste a:last-child{background:#fff;color:#111}
+body{padding-bottom:56px}
+
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}
+  .teller{grid-template-columns:repeat(4,1fr)}
+  .jahre{grid-template-columns:repeat(3,1fr)}
+  .datenzeile{grid-template-columns:8rem 1fr;gap:1rem;align-items:baseline}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:var(--balkenhoehe,2rem);z-index:50}
+  .wege{grid-template-columns:1fr 1fr}
+  .weg,.weg-inhalt{min-height:78vh}
+  .weg-inhalt{padding:3.4rem 3rem}
+  .zweispalt{grid-template-columns:1fr 1fr;gap:var(--abstand-xl);align-items:start}
+  .zweispalt-schmal{grid-template-columns:1.3fr .7fr}
+  .formular{grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem}
+  .feld-breit{grid-column:1 / -1}
+  .fuss-raster{grid-template-columns:1.3fr 1fr 1fr}
+  .seitfix-raster{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
+}
+@media (min-width:1200px){:root{--abstand-xl:7.5rem}}
+
+/* Sammelkorrektur, zentral angehaengt. */
+.seitenliste li>b,.seitenliste li>span{grid-column:2}
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){
+  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+@media (max-width:639px){
+  .hauptnav ul{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobalken">
+  Unverbindliche Demo für den Lindenwirt. Erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="#oben">Lindenwirt<span>Hotel und Restaurant, Graz</span></a>
+    <a class="tel-kopf" href="tel:+43316281901">+43 316 28 19 01</a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#restaurant">Restaurant</a></li>
+        <li><a href="#hotel">Hotel</a></li>
+        <li><a href="#zeiten">Zeiten</a></li>
+        <li><a href="#reservierung">Reservieren</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit der ganzen Karte, dem Mittagsmenü und den hausgemachten Süßspeisen.">Speisekarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit allen Zimmern, Preisen, dem Frühstücksbuffet und der Zimmeranfrage.">Zimmer</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite für Hochzeiten, Geburtstage und Firmenfeiern bis 120 Personen.">Feiern</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit 1896, dem Umbau 1976 und den fünf Generationen.">Geschichte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Anfahrt, Parken und allen Kontaktdaten.">Kontakt</span></li>
+      </ul>
+      <p class="nav-hinweis" id="navHinweis" role="status"></p>
+    </nav>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero hero-bild" aria-labelledby="titel">
+    <img class="hero-foto" src="assets/img/saal.webp" alt="Der Saal des Lindenwirt, für eine Feier eingedeckt" width="1600" height="900" fetchpriority="high">
+    <div class="rand">
+      <p class="marke">Seit 1896, in fünfter Generation</p>
+      <h1 id="titel">Lindenwirt</h1>
+      <blockquote class="spruch">Ein Haus ist nicht schön durch seine Wände, wohl aber durch gastliche Hände!</blockquote>
+      <p class="status" id="statusHero">
+        <b id="statusText">Öffnungszeiten werden geladen</b>
+        <span class="zusatz" id="statusZusatz"></span>
+      </p>
+      <div class="hero-knoepfe">
+        <a class="knopf knopf-voll" href="#reservierung" data-art="tisch">Tisch reservieren</a>
+        <a class="knopf knopf-linie" href="#reservierung" data-art="zimmer">Zimmer anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wege" aria-label="Restaurant und Hotel">
+    <a class="weg" href="#restaurant">
+      <img src="assets/img/saal.webp" width="1700" height="1133" loading="eager" fetchpriority="high"
+           alt="Langer festlich gedeckter Saal mit weißen Tischtüchern und roten Bänken">
+      <div class="weg-inhalt">
+        <span class="nummer">Weg eins</span>
+        <h2>Restaurant</h2>
+        <p>Traditionelle steirische Küche, saisonal. Dazu zwei Mittagsmenüs zur Wahl und ein Gastgarten unter den Linden.</p>
+        <dl>
+          <dt>Dienstag bis Samstag</dt><dd>11 bis 23 Uhr</dd>
+          <dt>Sonntag</dt><dd>11 bis 18 Uhr</dd>
+          <dt>Mittagsmenü</dt><dd>11 bis 14 Uhr</dd>
+        </dl>
+        <span class="pfeilwort">Zur Küche</span>
+      </div>
+    </a>
+    <a class="weg" href="#hotel">
+      <img src="assets/img/zimmer.webp" width="1700" height="1133" loading="eager" fetchpriority="high"
+           alt="Hotelzimmer mit gemachtem Doppelbett, Holzkopfteil und Nachtkästchen mit Blumen">
+      <div class="weg-inhalt">
+        <span class="nummer">Weg zwei</span>
+        <h2>Hotel</h2>
+        <p>Geräumige Zimmer mit Sitzecke und Fernseher, einige mit Balkon. Frühstücksbuffet ab sechs Uhr früh.</p>
+        <dl>
+          <dt>Einbettzimmer</dt><dd>87,50 Euro</dd>
+          <dt>Doppelzimmer</dt><dd>150,00 Euro</dd>
+          <dt>Frühstück</dt><dd>06 bis 10 Uhr</dd>
+        </dl>
+        <span class="pfeilwort">Zu den Zimmern</span>
+      </div>
+    </a>
+  </section>
+
+  <section id="restaurant" aria-labelledby="restaurantTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Die Küche</p>
+        <h2 id="restaurantTitel">Was auf den Tisch kommt</h2>
+        <p>Je nach Saison wechselnde Spezialitäten, für Fleischesser wie für Vegetarier. Neben der Karte gibt es von Montag bis Freitag zwei Mittagsmenüs zur Wahl, von 11 bis 14 Uhr.</p>
+        <ul class="gerichte">
+          <li>Verschiedene Suppen</li>
+          <li>Steirisches Backhendl</li>
+          <li>Kärntner Kasnudeln</li>
+          <li>Klassische süße Palatschinke</li>
+          <li>Hausgemachte Strudel</li>
+          <li>Schokotarte</li>
+          <li>Lindenwirt Torte</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Der Weinkeller</h3>
+        <p>Hannes Raffler führt den Keller und stellt Qualitätsweine aus Österreich auf den Tisch, mit Schwerpunkt auf regionalen Spitzenweinen.</p>
+        <h3>Das Weckglas für zu Hause</h3>
+        <p>Speisen aus der Küche werden in wiederverwendbare Weckgläser gefüllt und haltbar gemacht. Zu holen sind sie im Gourmetomat und im Abholshop.</p>
+      </div>
+    </div>
+    <div class="rand teller">
+      <figure>
+        <img src="assets/img/backhendl.webp" width="800" height="533" loading="lazy"
+             alt="Frittierte Hühnerteile mit Dip und Zitrone auf einem schwarzen Blech, daneben ein Glas Rotwein">
+        <figcaption>Backhendl</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/schnitzel.webp" width="800" height="533" loading="lazy"
+             alt="Paniertes Schnitzel mit Zitrone, daneben Petersilkartoffeln in einer Pfanne">
+        <figcaption>Schnitzel</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/rostbraten.webp" width="800" height="533" loading="lazy"
+             alt="Fleisch mit gerösteten Zwiebelringen auf einer Steinplatte">
+        <figcaption>Zwiebelrostbraten</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/gebaeck.webp" width="800" height="533" loading="lazy"
+             alt="Korb mit Semmeln, Kornspitz und dunklen Weckerln in einer Stoffserviette">
+        <figcaption>Gebäck zum Frühstück</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="bandTitel">
+    <img src="assets/img/weinglaeser.webp" width="1900" height="1267" loading="lazy"
+         alt="Lange Reihe kopfüber hängender Weingläser im warmen Gegenlicht">
+    <div class="band-inhalt">
+      <div class="rand">
+        <p class="marke">Feiern</p>
+        <p id="bandTitel">Bis zu 120 Personen, mit persönlich abgestimmtem Menü.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="feiern" class="gedeckt" aria-labelledby="feiernTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Anlässe</p>
+        <h2 id="feiernTitel">Feiern und Gastgarten</h2>
+        <p>Für Geburtstage, Hochzeiten und Firmenfeiern gibt es Räumlichkeiten für bis zu 120 Personen. Die Menüs werden persönlich abgestimmt, mit saisonalen Einflüssen, die passenden Weine empfiehlt der Hausherr des Weinkellers.</p>
+        <p>Im Gastgarten sitzt man unter den Linden, die dem Haus den Namen gegeben haben.</p>
+      </div>
+      <div>
+        <p class="marke">Seit 1896</p>
+        <h2>Die Geschichte in drei Zahlen</h2>
+        <ul class="jahre" style="grid-template-columns:1fr">
+          <li>
+            <span class="jahr">1896</span>
+            <p>Markus Grabitzer eröffnet einen Gasthof mit bodenständiger Hausmannskost. Die Gastwirtschaft "Zur Linde" wird ein beliebtes Ausflugsziel.</p>
+          </li>
+          <li>
+            <span class="jahr">1976</span>
+            <p>Unter Günter Poglitz wird der Gasthof vergrößert und ausgebaut.</p>
+          </li>
+          <li>
+            <span class="jahr">Heute</span>
+            <p>Nach einer Totalrenovierung des Restaurantbereichs führt die Familie Poglitz-Raffler das Haus in fünfter Generation.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="hotel" aria-labelledby="hotelTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Übernachten</p>
+        <h2 id="hotelTitel">Zimmer am ruhigen Stadtrand</h2>
+        <p>Das Haus liegt am ruhigen Stadtrand von Graz und ist mit dem Auto wie mit den öffentlichen Verkehrsmitteln gut zu erreichen.</p>
+        <p>Die Zimmer sind geräumig, mit Sitzecke und Fernseher, einige haben einen eigenen Balkon. WLAN gibt es für alle Gäste, dazu eigene Zimmer für Allergiker.</p>
+        <h3>Preise</h3>
+        <ul class="gerichte">
+          <li>Einbettzimmer, 87,50 Euro pro Nacht, inklusive Frühstücksbuffet und Ortstaxe</li>
+          <li>Doppelzimmer, 150,00 Euro pro Nacht und Zimmer, inklusive Frühstücksbuffet und Ortstaxe</li>
+        </ul>
+        <h3 style="margin-top:var(--abstand-l)">Frühstück</h3>
+        <p>Das Buffet steht täglich von sechs bis zehn Uhr bereit, von klassischen Schmankerln bis zu saisonalen Produkten aus der Umgebung.</p>
+        <p><a class="knopf knopf-rand" href="#reservierung" data-art="zimmer">Zimmer anfragen</a></p>
+      </div>
+      <figure>
+        <img src="assets/img/fruehstueck.webp" width="1000" height="667" loading="lazy"
+             alt="Frühstücksbuffet mit Aufschnitt, Käse, Gemüse und Aufstrichen">
+        <figcaption>Das Frühstücksbuffet für Hausgäste.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="zeiten" class="dunkel" aria-labelledby="zeitenTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Wann offen ist</p>
+        <h2 id="zeitenTitel">Öffnungszeiten</h2>
+        <table class="zeittabelle" id="zeittabelle">
+          <caption>Der heutige Tag ist hervorgehoben. Die Zeiten stehen als data-Attribute in der Tabelle und lassen sich dort ändern.</caption>
+          <thead>
+            <tr><th scope="col">Tag</th><th scope="col">Haus</th><th scope="col">Küche</th></tr>
+          </thead>
+          <tbody>
+            <tr data-tag="1"><th scope="row">Montag</th><td class="ruhe" colspan="2">Ruhetag</td></tr>
+            <tr data-tag="2" data-offen="11:00-23:00" data-kueche="11:00-21:00"><th scope="row">Dienstag</th><td>11:00 bis 23:00</td><td>11:00 bis 21:00</td></tr>
+            <tr data-tag="3" data-offen="11:00-23:00" data-kueche="11:00-21:00"><th scope="row">Mittwoch</th><td>11:00 bis 23:00</td><td>11:00 bis 21:00</td></tr>
+            <tr data-tag="4" data-offen="11:00-23:00" data-kueche="11:00-21:00"><th scope="row">Donnerstag</th><td>11:00 bis 23:00</td><td>11:00 bis 21:00</td></tr>
+            <tr data-tag="5" data-offen="11:00-23:00" data-kueche="11:00-21:00"><th scope="row">Freitag</th><td>11:00 bis 23:00</td><td>11:00 bis 21:00</td></tr>
+            <tr data-tag="6" data-offen="11:00-23:00" data-kueche="11:00-21:00"><th scope="row">Samstag</th><td>11:00 bis 23:00</td><td>11:00 bis 21:00</td></tr>
+            <tr data-tag="0" data-offen="11:00-18:00" data-kueche="11:00-18:00"><th scope="row">Sonntag</th><td>11:00 bis 18:00</td><td>11:00 bis 18:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Mittagsmenü</h3>
+        <p>Von Montag bis Freitag von 11 bis 14 Uhr, zwei Menüs zur Wahl. Weil der Montag Ruhetag ist, gilt das in der Praxis von Dienstag bis Freitag.</p>
+        <h3>Frühstück</h3>
+        <p>Für Hausgäste täglich von sechs bis zehn Uhr, auch am Montag.</p>
+        <h3>Ruhetag</h3>
+        <p>Das Restaurant bleibt am Montag geschlossen. Zimmeranfragen können Sie trotzdem jederzeit senden.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservierung" aria-labelledby="resTitel">
+    <div class="rand zweispalt zweispalt-schmal">
+      <div>
+        <p class="marke">Buchen</p>
+        <h2 id="resTitel">Reservierung</h2>
+        <p>Ein Formular für beides. Oben umschalten, die Felder darunter richten sich danach.</p>
+
+        <div class="umschalter" role="radiogroup" aria-label="Was möchten Sie reservieren">
+          <label><input type="radio" name="art" value="tisch" id="artTisch" checked> Tisch</label>
+          <label><input type="radio" name="art" value="zimmer" id="artZimmer"> Zimmer</label>
+        </div>
+
+        <form class="formular" id="resForm" novalidate>
+          <div class="feld">
+            <label for="resName">Name</label>
+            <input type="text" id="resName" name="name" required autocomplete="name" aria-describedby="fehlerName">
+            <p class="fehler" id="fehlerName"></p>
+          </div>
+          <div class="feld">
+            <label for="resTelefon">Telefon</label>
+            <input type="tel" id="resTelefon" name="telefon" required autocomplete="tel" aria-describedby="fehlerTelefon">
+            <p class="fehler" id="fehlerTelefon"></p>
+          </div>
+          <div class="feld">
+            <label for="resMail">E-Mail</label>
+            <input type="email" id="resMail" name="mail" required autocomplete="email" aria-describedby="fehlerMail">
+            <p class="fehler" id="fehlerMail"></p>
+          </div>
+          <div class="feld">
+            <label for="resPersonen">Anzahl Personen</label>
+            <input type="number" id="resPersonen" name="personen" min="1" max="120" value="2" required aria-describedby="fehlerPersonen">
+            <p class="fehler" id="fehlerPersonen"></p>
+          </div>
+
+          <div class="feld" id="feldDatum">
+            <label for="resDatum">Datum</label>
+            <input type="date" id="resDatum" name="datum" aria-describedby="fehlerDatum">
+            <p class="fehler" id="fehlerDatum"></p>
+          </div>
+          <div class="feld" id="feldZeit">
+            <label for="resZeit">Uhrzeit</label>
+            <select id="resZeit" name="zeit" aria-describedby="fehlerZeit">
+              <option value="">Bitte zuerst ein Datum wählen</option>
+            </select>
+            <p class="fehler" id="fehlerZeit"></p>
+          </div>
+
+          <div class="feld" id="feldAnreise" hidden>
+            <label for="resAnreise">Anreise</label>
+            <input type="date" id="resAnreise" name="anreise" aria-describedby="fehlerAnreise">
+            <p class="fehler" id="fehlerAnreise"></p>
+          </div>
+          <div class="feld" id="feldAbreise" hidden>
+            <label for="resAbreise">Abreise</label>
+            <input type="date" id="resAbreise" name="abreise" aria-describedby="fehlerAbreise">
+            <p class="fehler" id="fehlerAbreise"></p>
+          </div>
+          <div class="feld" id="feldKategorie" hidden>
+            <label for="resKategorie">Zimmerkategorie</label>
+            <select id="resKategorie" name="kategorie" aria-describedby="fehlerKategorie">
+              <option value="Einbettzimmer">Einbettzimmer, 87,50 Euro pro Nacht</option>
+              <option value="Doppelzimmer" selected>Doppelzimmer, 150,00 Euro pro Nacht</option>
+            </select>
+            <p class="fehler" id="fehlerKategorie"></p>
+          </div>
+
+          <div class="feld feld-breit">
+            <label for="resNotiz">Anmerkung (optional)</label>
+            <textarea id="resNotiz" name="notiz" rows="3" placeholder="Allergikerzimmer, Balkon, Platz im Gastgarten"></textarea>
+          </div>
+          <div class="feld-breit">
+            <button type="submit" class="knopf knopf-dunkel" id="resSenden">Tischreservierung per E-Mail senden</button>
+          </div>
+        </form>
+        <div class="bestaetigung" id="resBestaetigung" role="status" hidden>
+          <p style="margin:0"><strong>Ihr Mailprogramm wurde geöffnet.</strong> Die Anfrage geht erst ein, wenn Sie die vorbereitete Nachricht auch absenden. Öffnet sich kein Fenster, rufen Sie bitte unter <a href="tel:+43316281901">+43 316 28 19 01</a> an.</p>
+        </div>
+        <p class="klein" style="margin-top:1.2rem">Lieber telefonisch? <a href="tel:+43316281901">+43 316 28 19 01</a>.</p>
+        <p class="klein">Es werden keine Daten gespeichert und keine Daten weitergegeben. Ihre Angaben gehen ausschließlich per E-Mail an das Haus.</p>
+      </div>
+      <div>
+        <p class="marke">Kontakt</p>
+        <h3>So finden Sie uns</h3>
+        <address>
+          <dl style="margin:0">
+            <div class="datenzeile">
+              <dt>Adresse</dt>
+              <dd>Peter Rosegger Straße 125<br>8052 Graz<br>
+                <a href="https://www.openstreetmap.org/search?query=Peter-Rosegger-Stra%C3%9Fe%20125%2C%208052%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+              </dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Telefon</dt>
+              <dd><a href="tel:+43316281901">+43 316 28 19 01</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Fax</dt>
+              <dd>+43 316 28 19 01 47</dd>
+            </div>
+            <div class="datenzeile">
+              <dt>E-Mail</dt>
+              <dd><a href="mailto:office@lindenwirt.at">office@lindenwirt.at</a></dd>
+            </div>
+            <div class="datenzeile">
+              <dt>Familie</dt>
+              <dd>Poglitz-Raffler</dd>
+            </div>
+          </dl>
+        </address>
+      </div>
+    </div>
+  </section>
+
+  <section class="seitfix" aria-labelledby="seitfixTitel">
+    <div class="rand">
+      <p class="marke">In eigener Sache</p>
+      <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für den Lindenwirt gebaut.</h2>
+      <div class="seitfix-raster">
+        <div>
+          <div style="max-width:56ch">
+            <p>Auf Ihrer jetzigen Seite steht im Öffnungszeitenkasten, auf jeder einzelnen Unterseite: "Betriebsurlaub 25. Juli bis 7. August 2022. AB 8. August sind wir wieder für Sie da." Das steht dort seit vier Jahren. Wer die Seite heute aufmacht, weiß nicht, ob überhaupt noch offen ist.</p>
+            <p>Hier rechnet die Seite selbst aus, ob gerade geöffnet ist, und Sie ändern die Zeiten an einer Stelle in der Tabelle. Dazu laufen Hotel und Restaurant im Original ineinander. Hier sind es ab dem ersten Bildschirm zwei gleichwertige Wege, und das Reservierungsformular schaltet zwischen Tisch und Zimmer um.</p>
+          </div>
+
+          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
+          <ul class="seitenliste">
+            <li><b>Speisekarte</b><span>Die ganze Karte, das Mittagsmenü und die hausgemachten Süßspeisen.</span></li>
+            <li><b>Zimmer</b><span>Alle Zimmer, Preise, das Frühstücksbuffet und die Zimmeranfrage.</span></li>
+            <li><b>Feiern</b><span>Hochzeiten, Geburtstage und Firmenfeiern bis 120 Personen.</span></li>
+            <li><b>Geschichte</b><span>1896, der Umbau 1976 und die fünf Generationen.</span></li>
+            <li><b>Kontakt</b><span>Anfahrt, Parken und alle Kontaktdaten.</span></li>
+          </ul>
+          <p class="klein" style="color:#b6b6b8">Mit dieser Startseite sind das sechs Seiten, fertig aufgesetzt.</p>
+        </div>
+
+        <div>
+          <div class="angebot">
+            <span class="zahl">1000 Euro</span>
+            <p style="margin:0;color:#c9c9cb">einmalig für die komplette Website mit allen sechs Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
+            <ul>
+              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
+              <li>Eine Korrekturrunde ist enthalten.</li>
+              <li>Die Website gehört Ihnen.</li>
+              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
+            </ul>
+          </div>
+          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Lindenwirt</strong>
+      <p style="margin:.4rem 0 0">Peter Rosegger Straße 125, 8052 Graz<br>
+        <a href="tel:+43316281901">+43 316 28 19 01</a><br>
+        <a href="mailto:office@lindenwirt.at">office@lindenwirt.at</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Dienstag bis Samstag 11 bis 23 Uhr<br>
+        Sonntag 11 bis 18 Uhr<br>
+        Montag Ruhetag</p>
+    </div>
+    <div>
+      <p style="margin:0">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen beim Lindenwirt. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316281901">Anrufen</a>
+  <a href="#reservierung">Reservieren</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Lindenwirt",
+  "url":"https://lindenwirt.at/",
+  "telephone":"+43316281901",
+  "faxNumber":"+43316281901 47",
+  "email":"office@lindenwirt.at",
+  "servesCuisine":["Steirisch","Österreichisch"],
+  "image":"assets/img/saal.webp",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Peter Rosegger Straße 125",
+    "postalCode":"8052",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"11:00","closes":"23:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"11:00","closes":"18:00"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Platzhalter. Hier stehen die drei Adressen, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var RESERVIERUNG_EMPFAENGER = 'hallo@seitfix.at';  // nach Auftrag: Adresse des Betriebs
+  var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
+  var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
+
+  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
+  var PAKETPREIS = '1000 Euro';
+
+  var BETRIEB = 'Lindenwirt';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen.
+     Die beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+
+     FEIERTAG_REGEL sagt, was an einem Feiertag gilt:
+       'geschlossen'  der Betrieb hat an Feiertagen zu
+       'wie sonntag'  es gelten die Sonntagszeiten
+       'offen'        normale Zeiten des Wochentags
+       'unbekannt'    die Seite behauptet nichts und bittet um einen Anruf
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'unbekannt';
+  var FEIERTAG_TELEFON = '+43 316 28 19 01';
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tag = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tag);
+  }
+  function plusTage(d, n) {
+    var x = new Date(d.getTime());
+    x.setDate(x.getDate() + n);
+    return x;
+  }
+  function schluessel(d) {
+    return (d.getMonth() + 1) + '-' + d.getDate();
+  }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = schluessel(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var beweglich = [
+      [plusTage(o, 1), 'Ostermontag'],
+      [plusTage(o, 39), 'Christi Himmelfahrt'],
+      [plusTage(o, 50), 'Pfingstmontag'],
+      [plusTage(o, 60), 'Fronleichnam']
+    ];
+    for (var i = 0; i < beweglich.length; i++) {
+      if (schluessel(beweglich[i][0]) === k) { return beweglich[i][1]; }
+    }
+    return null;
+  }
+
+  document.documentElement.classList.add('js');
+
+  var balken = document.querySelector('.demobalken');
+  function balkenMessen() {
+    document.documentElement.style.setProperty('--balkenhoehe', balken.offsetHeight + 'px');
+  }
+  balkenMessen();
+  window.addEventListener('resize', balkenMessen);
+
+  /* ---------- Öffnungszeiten aus der Tabelle lesen ---------- */
+  var zeiten = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#zeittabelle tbody tr'), function (tr) {
+    zeiten[Number(tr.getAttribute('data-tag'))] = {
+      zeile: tr,
+      offen: spanne(tr.getAttribute('data-offen')),
+      kueche: spanne(tr.getAttribute('data-kueche'))
+    };
+  });
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return { von: minuten(t[0]), bis: minuten(t[1]), vonText: t[0], bisText: t[1] };
+  }
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function alsText(m) {
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function naechsterOffenerTag(ab, abDatum) {
+    for (var i = 1; i <= 9; i++) {
+      var t = (ab + i) % 7;
+      if (!zeiten[t] || !zeiten[t].offen) { continue; }
+      if (abDatum && FEIERTAG_REGEL === 'geschlossen' && feiertagName(plusTage(abDatum, i))) { continue; }
+      return t;
+    }
+    return null;
+  }
+
+  function statusSetzen() {
+    var jetzt = new Date();
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+    if (heute && heute.zeile) { heute.zeile.classList.add('heute'); }
+
+    var feiertag = feiertagName(jetzt);
+    if (feiertag) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + feiertag + ', wir haben geschlossen';
+        var f1 = naechsterOffenerTag(tag, jetzt);
+        zusatz.textContent = f1 === null ? '' :
+          'Wieder geöffnet am ' + TAGNAMEN[f1] + ' ab ' + zeiten[f1].offen.vonText + ' Uhr';
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + feiertag;
+        zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON;
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag, jetzt);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute Ruhetag im Restaurant';
+      zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText + ', Frühstück für Hausgäste wie immer' : '';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = 'Küche von ' + heute.kueche.vonText + ' bis ' + heute.kueche.bisText + ' Uhr';
+      return;
+    }
+    if (min < heute.offen.bis) {
+      text.textContent = 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      zusatz.textContent = min < heute.kueche.bis
+        ? 'Küche bis ' + heute.kueche.bisText + ' Uhr'
+        : 'Die Küche hat für heute geschlossen';
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+  }
+  statusSetzen();
+
+  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
+     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  var hinweis = document.getElementById('navHinweis');
+  var hinweisUhr = null;
+  function hinweisZeigen(el) {
+    hinweis.innerHTML = '';
+    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
+    hinweis.appendChild(b);
+    hinweis.classList.add('sichtbar');
+    window.clearTimeout(hinweisUhr);
+    hinweisUhr = window.setTimeout(function () {
+      hinweis.classList.remove('sichtbar');
+      hinweis.textContent = '';
+    }, 6000);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    el.addEventListener('click', function () { hinweisZeigen(el); });
+    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+    });
+  });
+
+  /* ---------- Seitfix-Anfrage ---------- */
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    var rumpf = 'Guten Tag,\n\nich habe die Demoseite für den ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n';
+    if (SEITFIX_TELEFON) { rumpf += 'Bitte melden Sie sich telefonisch oder per Mail.\n\n'; }
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent(rumpf));
+  }
+
+  /* ---------- Reservierungsformular mit Umschaltung ---------- */
+  var form = document.getElementById('resForm');
+  if (!form) { return; }
+  var datumFeld = document.getElementById('resDatum');
+  var zeitFeld = document.getElementById('resZeit');
+  var anreiseFeld = document.getElementById('resAnreise');
+  var abreiseFeld = document.getElementById('resAbreise');
+  var kategorieFeld = document.getElementById('resKategorie');
+  var senden = document.getElementById('resSenden');
+  var bestaetigung = document.getElementById('resBestaetigung');
+  var artTisch = document.getElementById('artTisch');
+  var artZimmer = document.getElementById('artZimmer');
+
+  var heuteISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  var spaet = new Date();
+  spaet.setFullYear(spaet.getFullYear() + 1);
+  var spaetISO = spaet.toISOString().slice(0, 10);
+  [datumFeld, anreiseFeld, abreiseFeld].forEach(function (f) {
+    f.setAttribute('min', heuteISO);
+    f.setAttribute('max', spaetISO);
+  });
+
+  function istZimmer() { return artZimmer.checked; }
+
+  function modusSetzen() {
+    var zimmer = istZimmer();
+    document.getElementById('feldDatum').hidden = zimmer;
+    document.getElementById('feldZeit').hidden = zimmer;
+    document.getElementById('feldAnreise').hidden = !zimmer;
+    document.getElementById('feldAbreise').hidden = !zimmer;
+    document.getElementById('feldKategorie').hidden = !zimmer;
+    datumFeld.required = !zimmer;
+    zeitFeld.required = !zimmer;
+    anreiseFeld.required = zimmer;
+    abreiseFeld.required = zimmer;
+    senden.textContent = zimmer
+      ? 'Zimmeranfrage per E-Mail senden'
+      : 'Tischreservierung per E-Mail senden';
+    document.getElementById('resPersonen').setAttribute('max', zimmer ? '10' : '120');
+    artTisch.closest('label').classList.toggle('aktiv', !zimmer);
+    artZimmer.closest('label').classList.toggle('aktiv', zimmer);
+    bestaetigung.hidden = true;
+  }
+  artTisch.addEventListener('change', modusSetzen);
+  artZimmer.addEventListener('change', modusSetzen);
+  modusSetzen();
+
+  /* Die Knöpfe im Hero und beim Hotel stellen den Umschalter gleich richtig. */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-art]'), function (a) {
+    a.addEventListener('click', function () {
+      if (a.getAttribute('data-art') === 'zimmer') { artZimmer.checked = true; }
+      else { artTisch.checked = true; }
+      modusSetzen();
+    });
+  });
+
+  function tagAusISO(iso) {
+    var t = iso.split('-');
+    return new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2])).getDay();
+  }
+  function neueOption(wert, beschriftung) {
+    var o = document.createElement('option');
+    o.value = wert;
+    o.textContent = beschriftung;
+    return o;
+  }
+  function zeitenFuellen() {
+    var iso = datumFeld.value;
+    zeitFeld.innerHTML = '';
+    if (!iso) {
+      zeitFeld.appendChild(neueOption('', 'Bitte zuerst ein Datum wählen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    var e = zeiten[tagAusISO(iso)];
+    if (!e || !e.kueche) {
+      zeitFeld.appendChild(neueOption('', TAGNAMEN[tagAusISO(iso)] + ' ist Ruhetag'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    zeitFeld.disabled = false;
+    zeitFeld.appendChild(neueOption('', 'Bitte wählen'));
+    for (var m = e.kueche.von; m <= e.kueche.bis - 30; m += 30) {
+      zeitFeld.appendChild(neueOption(alsText(m), alsText(m) + ' Uhr'));
+    }
+  }
+  datumFeld.addEventListener('change', function () {
+    zeitenFuellen();
+    pruefe(datumFeld, 'fehlerDatum');
+  });
+  zeitenFuellen();
+
+  var meldungen = {
+    resName: 'Bitte tragen Sie einen Namen ein.',
+    resTelefon: 'Bitte tragen Sie eine Telefonnummer ein, unter der wir Sie erreichen.',
+    resMail: 'Bitte tragen Sie eine gültige E-Mail-Adresse ein.',
+    resPersonen: 'Bitte geben Sie die Anzahl der Personen an.',
+    resDatum: 'Bitte wählen Sie ein Datum.',
+    resZeit: 'Bitte wählen Sie eine Uhrzeit.',
+    resAnreise: 'Bitte wählen Sie den Tag der Anreise.',
+    resAbreise: 'Bitte wählen Sie den Tag der Abreise.'
+  };
+
+  function pruefe(feld, fehlerId) {
+    var box = document.getElementById(fehlerId);
+    var huelle = feld.closest('.feld');
+    if (huelle && huelle.hidden) {
+      box.textContent = '';
+      huelle.classList.remove('ungueltig');
+      return true;
+    }
+    var text = '';
+    if (!feld.value) {
+      text = meldungen[feld.id];
+    } else if (feld.id === 'resMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(feld.value)) {
+      text = meldungen.resMail;
+    } else if (feld.id === 'resTelefon' && feld.value.replace(/[^0-9]/g, '').length < 6) {
+      text = 'Diese Telefonnummer sieht zu kurz aus.';
+    } else if (feld.id === 'resDatum') {
+      if (feld.value < heuteISO) {
+        text = 'Dieses Datum liegt in der Vergangenheit.';
+      } else {
+        var e = zeiten[tagAusISO(feld.value)];
+        if (!e || !e.offen) {
+          text = 'Am ' + TAGNAMEN[tagAusISO(feld.value)] + ' ist Ruhetag. Bitte wählen Sie einen anderen Tag.';
+        }
+      }
+    } else if ((feld.id === 'resAnreise' || feld.id === 'resAbreise') && feld.value < heuteISO) {
+      text = 'Dieses Datum liegt in der Vergangenheit.';
+    } else if (feld.id === 'resAbreise' && anreiseFeld.value && feld.value <= anreiseFeld.value) {
+      text = 'Die Abreise muss nach der Anreise liegen.';
+    } else if (feld.id === 'resPersonen') {
+      var max = istZimmer() ? 10 : 120;
+      if (Number(feld.value) < 1 || Number(feld.value) > max) {
+        text = 'Bitte eine Zahl zwischen 1 und ' + max + '. Für größere Gruppen rufen Sie bitte an.';
+      }
+    }
+    box.textContent = text;
+    if (huelle) { huelle.classList.toggle('ungueltig', Boolean(text)); }
+    return !text;
+  }
+
+  Object.keys(meldungen).forEach(function (id) {
+    var feld = document.getElementById(id);
+    feld.addEventListener('blur', function () { pruefe(feld, 'fehler' + id.slice(3)); });
+  });
+
+  function lesbar(iso) {
+    var d = iso.split('-');
+    return d[2] + '.' + d[1] + '.' + d[0];
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    bestaetigung.hidden = true;
+    var alleGut = true, erstes = null;
+    Object.keys(meldungen).forEach(function (id) {
+      var feld = document.getElementById(id);
+      if (!pruefe(feld, 'fehler' + id.slice(3))) {
+        alleGut = false;
+        if (!erstes) { erstes = feld; }
+      }
+    });
+    if (!alleGut) { if (erstes) { erstes.focus(); } return; }
+
+    var zimmer = istZimmer();
+    var kopf = ['Name:      ' + document.getElementById('resName').value,
+                'Telefon:   ' + document.getElementById('resTelefon').value,
+                'E-Mail:    ' + document.getElementById('resMail').value,
+                'Personen:  ' + document.getElementById('resPersonen').value];
+    var mitte = zimmer
+      ? ['Anreise:   ' + lesbar(anreiseFeld.value),
+         'Abreise:   ' + lesbar(abreiseFeld.value),
+         'Kategorie: ' + kategorieFeld.value]
+      : ['Datum:     ' + lesbar(datumFeld.value) + ' (' + TAGNAMEN[tagAusISO(datumFeld.value)] + ')',
+         'Uhrzeit:   ' + zeitFeld.value + ' Uhr'];
+
+    var koerper = [zimmer ? 'Zimmeranfrage über die Website' : 'Reservierungswunsch über die Website', '']
+      .concat(kopf, mitte, ['', 'Anmerkung: ' + (document.getElementById('resNotiz').value || 'keine'), '',
+        'Gesendet über die Website vom ' + BETRIEB + '.']).join('\n');
+
+    window.location.href = 'mailto:' + RESERVIERUNG_EMPFAENGER +
+      '?subject=' + encodeURIComponent((zimmer ? 'Zimmeranfrage ' : 'Tischreservierung ') + BETRIEB) +
+      '&body=' + encodeURIComponent(koerper);
+    bestaetigung.hidden = false;
+  });
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Murstüberl | Beisl in der Franziskanergasse in Graz</title>
+<meta name="description" content="Murstüberl, Franziskanergasse 5, Graz. Ein Beisl mitten in der Altstadt, Montag bis Samstag von 15 bis 22 Uhr geöffnet. Sonn- und Feiertage geschlossen.">
+<meta name="theme-color" content="#1b2a3f">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Murstüberl | Beisl in der Franziskanergasse in Graz">
+<meta property="og:description" content="Ein Beisl im Herzen von Graz, ein paar Schritte von der Mur. Geöffnet ab 15 Uhr, Montag bis Samstag.">
+<meta property="og:image" content="assets/img/mur-blaue-stunde.webp">
+<meta property="og:site_name" content="Murstüberl">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231b2a3f'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23f2ede3' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<style>
+/* Schrift liegt lokal in assets/fonts, es wird kein fremder Server aufgerufen. */
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/vollkorn-400.woff2') format('woff2')}
+@font-face{font-family:'Vollkorn';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/vollkorn-600.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#1b2a3f;
+  --farbe-akzent:#a84436;
+  --farbe-text:#22201d;
+  --farbe-flaeche:#f7f4ee;
+  --farbe-flaeche-2:#ebe5da;
+  --farbe-dunkel:#16212f;
+  --farbe-linie:#d5cec1;
+  --farbe-gedaempft:#5a564e;
+  --abstand-s:.6rem;
+  --abstand-m:1.4rem;
+  --abstand-l:3rem;
+  --abstand-xl:5.5rem;
+  --schrift-titel:'Vollkorn',Georgia,'Times New Roman',serif;
+  --schrift-text:'Vollkorn',Georgia,'Times New Roman',serif;
+  /* Der eine typografische Höhepunkt der Seite. */
+  --schrift-riesig:clamp(3.2rem,9vw,9rem);
+  --breite:860px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-size:1.125rem;line-height:1.7;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:600;line-height:1.2;margin:0 0 var(--abstand-m)}
+h1{font-size:var(--schrift-riesig);line-height:.95;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,4vw,2.2rem)}
+h3{font-size:1.2rem}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-akzent)}
+:focus-visible{outline:3px solid var(--farbe-akzent);outline-offset:3px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.25rem}
+.klein{font-size:1rem;color:var(--farbe-gedaempft)}
+.marke{font-family:var(--schrift-text);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--farbe-akzent);margin:0 0 .8rem;font-weight:600}
+
+/* Demo-Balken */
+.demobalken{position:sticky;top:0;z-index:60;background:#101a26;color:#bcc5d0;font-size:.8125rem;line-height:1.4;padding:.5rem 1.25rem;text-align:center}
+.demobalken a{color:#e0917f;text-underline-offset:3px}
+
+/* Kopf */
+.kopf{background:var(--farbe-dunkel);color:#f2ede3}
+.kopf a{color:#f2ede3}
+.kopf-innen{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem 1.4rem;padding-top:.7rem;padding-bottom:.2rem}
+.wortmarke{font-family:var(--schrift-titel);font-weight:600;font-size:1.3rem;text-decoration:none;margin-right:auto;line-height:1.15}
+.wortmarke span{display:block;font-size:.68rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#9aa7b6;margin-top:.15rem}
+.hauptnav{width:100%;order:3}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;gap:0 1.5rem;margin:0;padding:0;border-top:1px solid rgba(242,237,227,.15)}
+.hauptnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:46px;font-size:.95rem;text-decoration:none;color:#f2ede3}
+.hauptnav a:hover{color:#e0917f}
+.nav-inaktiv{opacity:.42;cursor:not-allowed}
+.nav-hinweis{margin:0;font-size:.9rem;color:#e0917f;max-height:0;overflow:hidden;transition:max-height .2s ease}
+.nav-hinweis.sichtbar{max-height:3rem;padding-bottom:.5rem}
+.tel-kopf{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;min-height:44px;color:#e0917f}
+
+/* Knöpfe */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:.7rem 1.6rem;border:1px solid transparent;border-radius:3px;font-family:var(--schrift-text);font-size:1.05rem;font-weight:600;text-decoration:none;cursor:pointer}
+.knopf-voll{background:var(--farbe-akzent);color:#fdf5f3}
+.knopf-voll:hover{background:#8d372b}
+.knopf-hell{background:transparent;color:#f2ede3;border-color:rgba(242,237,227,.5)}
+.knopf-hell:hover{border-color:#f2ede3}
+.knopf-linie{background:transparent;color:var(--farbe-akzent);border-color:var(--farbe-linie)}
+.knopf-linie:hover{border-color:var(--farbe-akzent)}
+
+/* Hero: das Bild trägt die volle Fensterhöhe, der Name steht darüber.
+   Auf dem Handy schneidet dasselbe Bild von selbst ins Hochformat. */
+.hero{position:relative;background:var(--farbe-dunkel);color:#f2ede3;padding:0;
+      min-height:88vh;display:flex;align-items:flex-end}
+.hero-bild{margin:0;position:absolute;inset:0}
+.hero-bild img{width:100%;height:100%;object-fit:cover}
+.hero-bild::after{content:'';position:absolute;inset:0;background:rgba(10,16,26,.62)}
+.hero-text{position:relative;z-index:1;width:100%;padding:var(--abstand-l) 0}
+.bildhinweis{font-size:.9rem;color:#ccd6e2;margin:1.6rem 0 0;max-width:46ch}
+.hero .marke{color:#f2d9d2}
+.hero h1{color:#fff;margin-bottom:.3rem}
+.hero .zitat{font-style:italic;font-size:clamp(1.3rem,2.8vw,2rem);color:#c8d2de;margin:0 0 var(--abstand-l)}
+.status{display:flex;flex-wrap:wrap;gap:.1rem .9rem;align-items:baseline;border-top:1px solid rgba(242,237,227,.25);border-bottom:1px solid rgba(242,237,227,.25);padding:1rem 0;margin:0 0 var(--abstand-m)}
+.status b{font-weight:600;font-size:1.3rem;color:#fff}
+.status .zusatz{color:#ccd6e2;font-size:1rem}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:.7rem}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.gedeckt{background:var(--farbe-flaeche-2)}
+figure{margin:0}
+figcaption{font-size:.95rem;color:var(--farbe-gedaempft);padding-top:.5rem}
+.fakten{list-style:none;margin:var(--abstand-m) 0 0;padding:0}
+.fakten li{display:grid;gap:.1rem;padding:.9rem 0;border-bottom:1px solid var(--farbe-linie)}
+.fakten li:first-child{border-top:1px solid var(--farbe-linie)}
+.fakten dt,.fakten .was{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-gedaempft)}
+.fakten .wert{font-size:1.2rem;font-weight:600}
+.bildpaar{display:grid;gap:1.2rem;margin-top:var(--abstand-l)}
+
+/* Öffnungszeiten */
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left}
+.zeittabelle caption{text-align:left;padding-bottom:.8rem;color:var(--farbe-gedaempft);font-size:1rem}
+.zeittabelle th,.zeittabelle td{padding:.75rem .4rem;border-bottom:1px solid var(--farbe-linie)}
+.zeittabelle th[scope=row]{font-weight:600}
+.zeittabelle td{text-align:right}
+.zeittabelle tr.heute{background:#fff;box-shadow:inset 3px 0 0 var(--farbe-akzent)}
+.zeittabelle tr.heute th[scope=row]{color:var(--farbe-akzent)}
+.ruhe{color:var(--farbe-gedaempft)}
+
+/* Formular */
+.formular{display:grid;gap:1.1rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-weight:600;font-size:1rem;margin-bottom:.3rem}
+.feld input,.feld select,.feld textarea{font-family:var(--schrift-text);font-size:1.05rem;color:var(--farbe-text);background:#fff;border:1px solid var(--farbe-linie);border-radius:3px;padding:.6rem .7rem;min-height:48px;width:100%}
+.feld textarea{min-height:100px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-akzent)}
+.fehler{color:#8d372b;font-size:.95rem;margin-top:.3rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#8d372b}
+.bestaetigung{border:1px solid var(--farbe-akzent);background:#fff;padding:1rem 1.1rem;border-radius:3px;margin-top:1.2rem}
+.bestaetigung[hidden]{display:none}
+
+/* Kontakt */
+address{font-style:normal}
+.datenzeile{display:grid;gap:.1rem;padding:.85rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--farbe-gedaempft)}
+.datenzeile dd{margin:0}
+
+/* Seitfix */
+.seitfix{background:#1c1c1e;color:#e9e9ea}
+.seitfix h2{font-size:clamp(1.3rem,3.2vw,1.8rem);color:#fff}
+.seitfix a{color:#9fd0c4}
+.seitfix .marke{color:#9fd0c4}
+.seitfix :focus-visible{outline-color:#9fd0c4}
+.preisliste{list-style:none;margin:var(--abstand-m) 0;padding:0}
+.preisliste li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid #333}
+.preisliste .betrag{white-space:nowrap;color:#fff;font-weight:600}
+.seitfix .knopf-seitfix{background:#9fd0c4;color:#12211d;text-decoration:none}
+.seitfix .knopf-seitfix:hover{background:#b6ded4}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:#b3bdc9;padding:var(--abstand-l) 0;font-size:1rem}
+.fuss a{color:#e0917f}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-size:1.15rem}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;background:var(--farbe-dunkel)}
+.mobilleiste a{display:flex;align-items:center;justify-content:center;min-height:56px;font-weight:600;text-decoration:none;color:#f2ede3}
+.mobilleiste a:last-child{background:var(--farbe-akzent);color:#fdf5f3}
+body{padding-bottom:56px}
+
+@media (min-width:640px){
+  .bildpaar{grid-template-columns:1fr 1fr}
+  .fakten li{grid-template-columns:11rem 1fr;gap:1rem;align-items:baseline}
+  .datenzeile{grid-template-columns:8rem 1fr;gap:1rem;align-items:baseline}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:var(--balkenhoehe,2rem);z-index:50}
+  .hero-text{padding-bottom:var(--abstand-xl)}
+  .formular{grid-template-columns:1fr 1fr;gap:1.1rem 1.4rem}
+  .feld-breit{grid-column:1 / -1}
+  .fuss-raster{grid-template-columns:1.2fr 1fr 1fr}
+}
+@media (min-width:1200px){:root{--abstand-xl:6.5rem}}
+
+/* ------------------------------------------------------------------
+   Ausbau: Verkaufswerkzeug und Wow-Hebel
+   ------------------------------------------------------------------ */
+.hauptnav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hauptnav ul::-webkit-scrollbar{display:none}
+.hauptnav li{flex:0 0 auto}
+.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
+.nav-hinweis{line-height:1.5;max-height:0}
+.nav-hinweis.sichtbar{max-height:9rem;padding-bottom:.8rem}
+.nav-hinweis b{font-weight:700}
+
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Seitfix: Seitenliste und Angebot */
+.seitfix-raster{display:grid;gap:var(--abstand-l)}
+.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
+.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}
+.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
+.seitenliste b{display:block;color:#fff}
+.seitenliste span{color:#b6b6b8;font-size:.95rem}
+.angebot{border:1px solid #3a3a3c;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
+.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#fff;line-height:1;display:block;margin-bottom:.3rem}
+.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
+.angebot li{padding:.4rem 0;border-top:1px solid #333;font-size:.98rem;color:#c9c9cb}
+.seitfix h3{color:#fff}
+@media (min-width:900px){
+  .seitfix-raster{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
+}
+
+/* Sammelkorrektur, zentral angehaengt. */
+.seitenliste li>b,.seitenliste li>span{grid-column:2}
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){
+  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+@media (max-width:639px){
+  .hauptnav ul{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobalken">
+  Unverbindliche Demo für das Murstüberl. Erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="#oben">Murstüberl<span>Franziskanergasse 5, Graz</span></a>
+    <a class="tel-kopf" href="tel:+436645270785">+43 664 5270785</a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#zeiten">Öffnungszeiten</a></li>
+        <li><a href="#reservierung">Reservieren</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Ihrer Karte, die es online bisher nicht gibt. Wir setzen sie gemeinsam mit Ihnen auf.">Speisekarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite über das Lokal, die Räume und die Geschichte, mit Ihren eigenen Fotos.">Das Beisl</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Anfahrt, öffentlichen Verkehrsmitteln und allen Kontaktdaten.">Kontakt</span></li>
+      </ul>
+      <p class="nav-hinweis" id="navHinweis" role="status"></p>
+    </nav>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero" aria-labelledby="titel">
+    <figure class="hero-bild">
+      <img src="assets/img/mur-blaue-stunde.webp" width="1600" height="747" loading="eager" fetchpriority="high"
+           alt="Die Mur zur blauen Stunde, am Ufer beleuchtete Häuser, dahinter der Schlossberg">
+    </figure>
+    <div class="hero-text">
+      <div class="rand">
+        <p class="marke">Franziskanergasse 5</p>
+        <h1 id="titel">Murstüberl</h1>
+        <p class="zitat">Im Herzen von Graz</p>
+        <p class="status" id="statusHero">
+          <b id="statusText">Öffnungszeiten werden geladen</b>
+          <span class="zusatz" id="statusZusatz"></span>
+        </p>
+        <div class="hero-knoepfe">
+          <a class="knopf knopf-voll" href="#reservierung">Tisch reservieren</a>
+          <a class="knopf knopf-hell" href="tel:+436645270785">+43 664 5270785</a>
+        </div>
+        <p class="bildhinweis">Das Bild zeigt die Mur unterhalb des Schlossbergs, ein paar Minuten vom Lokal entfernt. Fotos vom Beisl selbst gibt es bisher keine.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="beisl" aria-labelledby="beislTitel">
+    <div class="rand">
+      <p class="marke">Das Beisl</p>
+      <h2 id="beislTitel">Ein Beisl, ein paar Schritte von der Mur</h2>
+      <p>Das Murstüberl liegt in der Franziskanergasse 5, mitten in der Grazer Altstadt. Zur Mur und zum Hauptplatz sind es jeweils ein paar Minuten zu Fuß.</p>
+      <p>Geführt wird es von Reinhard Lackner und Ruth Bischof. Aufgesperrt wird um drei Uhr nachmittags, von Montag bis Samstag. An Sonn- und Feiertagen bleibt zu.</p>
+      <ul class="fakten">
+        <li><span class="was">Wer</span><span class="wert">Reinhard Lackner und Ruth Bischof</span></li>
+        <li><span class="was">Wo</span><span class="wert">Franziskanergasse 5, Graz</span></li>
+        <li><span class="was">Wann</span><span class="wert">Montag bis Samstag, 15 bis 22 Uhr</span></li>
+      </ul>
+      <div class="bildpaar">
+        <figure>
+          <img src="assets/img/franziskanerturm.webp" width="900" height="420" loading="lazy"
+               alt="Beleuchteter Kirchturm über den Dächern der Grazer Altstadt bei Nacht">
+          <figcaption>Der Turm der Franziskanerkirche, gleich um die Ecke.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/img/schlossberg.webp" width="900" height="420" loading="lazy"
+               alt="Blick über beleuchtete Altstadthäuser hinauf zum Schlossberg mit dem Uhrturm">
+          <figcaption>Der Schlossberg vom Murufer aus.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="zeiten" class="gedeckt" aria-labelledby="zeitenTitel">
+    <div class="rand">
+      <p class="marke">Wann offen ist</p>
+      <h2 id="zeitenTitel">Öffnungszeiten</h2>
+      <table class="zeittabelle" id="zeittabelle">
+        <caption>Der heutige Tag ist hervorgehoben. Die Zeiten stehen als data-Attribute in der Tabelle und lassen sich dort ändern.</caption>
+        <tbody>
+          <tr data-tag="1" data-offen="15:00-22:00" data-kueche="15:00-22:00"><th scope="row">Montag</th><td>15:00 bis 22:00</td></tr>
+          <tr data-tag="2" data-offen="15:00-22:00" data-kueche="15:00-22:00"><th scope="row">Dienstag</th><td>15:00 bis 22:00</td></tr>
+          <tr data-tag="3" data-offen="15:00-22:00" data-kueche="15:00-22:00"><th scope="row">Mittwoch</th><td>15:00 bis 22:00</td></tr>
+          <tr data-tag="4" data-offen="15:00-22:00" data-kueche="15:00-22:00"><th scope="row">Donnerstag</th><td>15:00 bis 22:00</td></tr>
+          <tr data-tag="5" data-offen="15:00-22:00" data-kueche="15:00-22:00"><th scope="row">Freitag</th><td>15:00 bis 22:00</td></tr>
+          <tr data-tag="6" data-offen="15:00-22:00" data-kueche="15:00-22:00"><th scope="row">Samstag</th><td>15:00 bis 22:00</td></tr>
+          <tr data-tag="0"><th scope="row">Sonn- und Feiertage</th><td class="ruhe">geschlossen</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="reservierung" aria-labelledby="resTitel">
+    <div class="rand">
+      <p class="marke">Tisch bestellen</p>
+      <h2 id="resTitel">Reservierung</h2>
+      <p>Sonn- und Feiertage sind gesperrt, die Uhrzeiten reichen von 15 bis 21:30 Uhr.</p>
+      <form class="formular" id="resForm" novalidate>
+        <div class="feld">
+          <label for="resName">Name</label>
+          <input type="text" id="resName" name="name" required autocomplete="name" aria-describedby="fehlerName">
+          <p class="fehler" id="fehlerName"></p>
+        </div>
+        <div class="feld">
+          <label for="resTelefon">Telefon</label>
+          <input type="tel" id="resTelefon" name="telefon" required autocomplete="tel" aria-describedby="fehlerTelefon">
+          <p class="fehler" id="fehlerTelefon"></p>
+        </div>
+        <div class="feld">
+          <label for="resMail">E-Mail</label>
+          <input type="email" id="resMail" name="mail" required autocomplete="email" aria-describedby="fehlerMail">
+          <p class="fehler" id="fehlerMail"></p>
+        </div>
+        <div class="feld">
+          <label for="resPersonen">Anzahl Personen</label>
+          <input type="number" id="resPersonen" name="personen" min="1" max="30" value="2" required aria-describedby="fehlerPersonen">
+          <p class="fehler" id="fehlerPersonen"></p>
+        </div>
+        <div class="feld">
+          <label for="resDatum">Datum</label>
+          <input type="date" id="resDatum" name="datum" required aria-describedby="fehlerDatum">
+          <p class="fehler" id="fehlerDatum"></p>
+        </div>
+        <div class="feld">
+          <label for="resZeit">Uhrzeit</label>
+          <select id="resZeit" name="zeit" required aria-describedby="fehlerZeit">
+            <option value="">Bitte zuerst ein Datum wählen</option>
+          </select>
+          <p class="fehler" id="fehlerZeit"></p>
+        </div>
+        <div class="feld feld-breit">
+          <label for="resNotiz">Anmerkung (optional)</label>
+          <textarea id="resNotiz" name="notiz" rows="3" placeholder="Größere Runde, Platz am Fenster"></textarea>
+        </div>
+        <div class="feld-breit">
+          <button type="submit" class="knopf knopf-voll">Reservierung per E-Mail senden</button>
+        </div>
+      </form>
+      <div class="bestaetigung" id="resBestaetigung" role="status" hidden>
+        <p style="margin:0"><strong>Ihr Mailprogramm wurde geöffnet.</strong> Die Reservierung geht erst ein, wenn Sie die vorbereitete Nachricht auch absenden. Öffnet sich kein Fenster, rufen Sie bitte unter <a href="tel:+436645270785">+43 664 5270785</a> an.</p>
+      </div>
+      <p class="klein" style="margin-top:1.2rem">Lieber telefonisch? <a href="tel:+436645270785">+43 664 5270785</a>.</p>
+      <p class="klein">Es werden keine Daten gespeichert und keine Daten weitergegeben. Ihre Angaben gehen ausschließlich per E-Mail an das Beisl.</p>
+    </div>
+  </section>
+
+  <section id="kontakt" class="gedeckt" aria-labelledby="kontaktTitel">
+    <div class="rand">
+      <p class="marke">Kontakt</p>
+      <h2 id="kontaktTitel">So finden Sie uns</h2>
+      <address>
+        <dl style="margin:0">
+          <div class="datenzeile">
+            <dt>Adresse</dt>
+            <dd>Franziskanergasse 5<br>8010 Graz<br>
+              <a href="https://www.openstreetmap.org/search?query=Franziskanergasse%205%2C%208010%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+            </dd>
+          </div>
+          <div class="datenzeile">
+            <dt>Telefon</dt>
+            <dd><a href="tel:+436645270785">+43 664 5270785</a></dd>
+          </div>
+          <div class="datenzeile">
+            <dt>E-Mail</dt>
+            <dd><a href="mailto:beisl@murstueberl.at">beisl@murstueberl.at</a></dd>
+          </div>
+          <div class="datenzeile">
+            <dt>Betrieb</dt>
+            <dd>Lackner &amp; Bischof Gastro OG</dd>
+          </div>
+        </dl>
+      </address>
+    </div>
+  </section>
+
+  <section class="seitfix" aria-labelledby="seitfixTitel">
+    <div class="rand">
+      <p class="marke">In eigener Sache</p>
+      <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für das Murstüberl gebaut.</h2>
+      <div class="seitfix-raster">
+        <div>
+          <div style="max-width:56ch">
+            <p>Ihre jetzige Seite besteht aus einer Bilderschleife und einem Begrüßungssatz. Die Unterseite "Über uns" enthält genau drei Wörter, die Telefonnummer steht nur im Impressum, und eine Speisekarte gibt es online gar nicht.</p>
+            <p>Diese Startseite ist absichtlich die kürzeste im Set. Sie zeigt, dass wenig Inhalt gut aussieht, wenn er ordentlich gesetzt ist: der Name groß über dem Bild, die Zeiten, ein Reservierungsformular, die Kontaktdaten. Was fehlt, ist die Karte, und genau die füllen wir im Auftrag gemeinsam mit Ihnen.</p>
+          </div>
+
+          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
+          <ul class="seitenliste">
+            <li><b>Speisekarte</b><span>Ihre Karte, die es online bisher nicht gibt. Setzen wir gemeinsam auf.</span></li>
+            <li><b>Das Beisl</b><span>Das Lokal, die Räume und die Geschichte, mit Ihren eigenen Fotos.</span></li>
+            <li><b>Kontakt</b><span>Anfahrt, Öffis und alle Kontaktdaten auf einen Blick.</span></li>
+          </ul>
+          <p class="klein" style="color:#b6b6b8">Mit dieser Startseite sind das vier Seiten, fertig aufgesetzt.</p>
+        </div>
+
+        <div>
+          <div class="angebot">
+            <span class="zahl">1000 Euro</span>
+            <p style="margin:0;color:#c9c9cb">einmalig für die komplette Website mit allen vier Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
+            <ul>
+              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
+              <li>Eine Korrekturrunde ist enthalten.</li>
+              <li>Die Website gehört Ihnen.</li>
+              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
+            </ul>
+          </div>
+          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Murstüberl</strong>
+      <p style="margin:.4rem 0 0">Franziskanergasse 5, 8010 Graz<br>
+        <a href="tel:+436645270785">+43 664 5270785</a><br>
+        <a href="mailto:beisl@murstueberl.at">beisl@murstueberl.at</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Montag bis Samstag 15 bis 22 Uhr<br>
+        Sonn- und Feiertage geschlossen</p>
+    </div>
+    <div>
+      <p style="margin:0">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen bei der Lackner &amp; Bischof Gastro OG. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+436645270785">Anrufen</a>
+  <a href="#reservierung">Reservieren</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Murstüberl",
+  "url":"https://murstueberl.at/",
+  "telephone":"+436645270785",
+  "email":"beisl@murstueberl.at",
+  "image":"assets/img/mur-blaue-stunde.webp",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Franziskanergasse 5",
+    "postalCode":"8010",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"15:00","closes":"22:00"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Platzhalter. Hier stehen die drei Adressen, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var RESERVIERUNG_EMPFAENGER = 'hallo@seitfix.at';  // nach Auftrag: Adresse des Betriebs
+  var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
+  var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
+
+  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
+  var PAKETPREIS = '1000 Euro';
+
+  var BETRIEB = 'Murstüberl';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen. Die
+     beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+     FEIERTAG_REGEL: 'geschlossen' | 'wie sonntag' | 'offen' | 'unbekannt'
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'geschlossen';
+  var FEIERTAG_TELEFON = '+43 664 5270785';
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tg = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tg);
+  }
+  function ftPlus(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function ftKey(d) { return (d.getMonth() + 1) + '-' + d.getDate(); }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = ftKey(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var bew = [[ftPlus(o,1),'Ostermontag'],[ftPlus(o,39),'Christi Himmelfahrt'],
+               [ftPlus(o,50),'Pfingstmontag'],[ftPlus(o,60),'Fronleichnam']];
+    for (var i = 0; i < bew.length; i++) { if (ftKey(bew[i][0]) === k) { return bew[i][1]; } }
+    return null;
+  }
+
+  document.documentElement.classList.add('js');
+
+  var balken = document.querySelector('.demobalken');
+  function balkenMessen() {
+    document.documentElement.style.setProperty('--balkenhoehe', balken.offsetHeight + 'px');
+  }
+  balkenMessen();
+  window.addEventListener('resize', balkenMessen);
+
+  /* ---------- Öffnungszeiten aus der Tabelle lesen ---------- */
+  var zeiten = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#zeittabelle tbody tr'), function (tr) {
+    zeiten[Number(tr.getAttribute('data-tag'))] = {
+      zeile: tr,
+      offen: spanne(tr.getAttribute('data-offen')),
+      kueche: spanne(tr.getAttribute('data-kueche'))
+    };
+  });
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return { von: minuten(t[0]), bis: minuten(t[1]), vonText: t[0], bisText: t[1] };
+  }
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function alsText(m) {
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function naechsterOffenerTag(ab) {
+    for (var i = 1; i <= 7; i++) {
+      var t = (ab + i) % 7;
+      if (zeiten[t] && zeiten[t].offen) { return t; }
+    }
+    return null;
+  }
+
+  function statusSetzen() {
+    var jetzt = new Date();
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+    if (heute && heute.zeile) { heute.zeile.classList.add('heute'); }
+
+    var ftName = feiertagName(jetzt);
+    if (ftName) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + ftName + ', wir haben geschlossen';
+        var ftNext = null;
+        for (var ftI = 1; ftI <= 9 && ftNext === null; ftI++) {
+          var ftT = (tag + ftI) % 7;
+          if (zeiten[ftT] && zeiten[ftT].offen && !feiertagName(ftPlus(jetzt, ftI))) { ftNext = ftT; }
+        }
+        if (zusatz) {
+          zusatz.textContent = ftNext === null ? '' :
+            'Wieder geöffnet am ' + TAGNAMEN[ftNext] + ' ab ' + zeiten[ftNext].offen.vonText + ' Uhr';
+        }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + ftName;
+        if (zusatz) { zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON; }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute geschlossen';
+      zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = 'Dann bis ' + heute.offen.bisText + ' Uhr';
+      return;
+    }
+    if (min < heute.offen.bis) {
+      text.textContent = 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      zusatz.textContent = '';
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+  }
+  statusSetzen();
+
+  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
+     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  var hinweis = document.getElementById('navHinweis');
+  var hinweisUhr = null;
+  function hinweisZeigen(el) {
+    hinweis.innerHTML = '';
+    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
+    hinweis.appendChild(b);
+    hinweis.classList.add('sichtbar');
+    window.clearTimeout(hinweisUhr);
+    hinweisUhr = window.setTimeout(function () {
+      hinweis.classList.remove('sichtbar');
+      hinweis.textContent = '';
+    }, 6000);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    el.addEventListener('click', function () { hinweisZeigen(el); });
+    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+    });
+  });
+
+  /* ---------- Seitfix-Anfrage ---------- */
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    var rumpf = 'Guten Tag,\n\nich habe die Demoseite für das ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n';
+    if (SEITFIX_TELEFON) { rumpf += 'Bitte melden Sie sich telefonisch oder per Mail.\n\n'; }
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent(rumpf));
+  }
+
+  /* ---------- Reservierungsformular ---------- */
+  var form = document.getElementById('resForm');
+  if (!form) { return; }
+  var datumFeld = document.getElementById('resDatum');
+  var zeitFeld = document.getElementById('resZeit');
+  var bestaetigung = document.getElementById('resBestaetigung');
+
+  var heuteISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  datumFeld.setAttribute('min', heuteISO);
+  var spaet = new Date();
+  spaet.setFullYear(spaet.getFullYear() + 1);
+  datumFeld.setAttribute('max', spaet.toISOString().slice(0, 10));
+
+  function tagAusISO(iso) {
+    var t = iso.split('-');
+    return new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2])).getDay();
+  }
+  function neueOption(wert, beschriftung) {
+    var o = document.createElement('option');
+    o.value = wert;
+    o.textContent = beschriftung;
+    return o;
+  }
+  function zeitenFuellen() {
+    var iso = datumFeld.value;
+    zeitFeld.innerHTML = '';
+    if (!iso) {
+      zeitFeld.appendChild(neueOption('', 'Bitte zuerst ein Datum wählen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    var tag = tagAusISO(iso);
+    var e = zeiten[tag];
+    if (!e || !e.kueche) {
+      zeitFeld.appendChild(neueOption('', 'An diesem Tag geschlossen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    zeitFeld.disabled = false;
+    zeitFeld.appendChild(neueOption('', 'Bitte wählen'));
+    for (var m = e.kueche.von; m <= e.kueche.bis - 30; m += 30) {
+      zeitFeld.appendChild(neueOption(alsText(m), alsText(m) + ' Uhr'));
+    }
+  }
+  datumFeld.addEventListener('change', function () {
+    zeitenFuellen();
+    pruefe(datumFeld, 'fehlerDatum');
+  });
+  zeitenFuellen();
+
+  var meldungen = {
+    resName: 'Bitte tragen Sie einen Namen ein.',
+    resTelefon: 'Bitte tragen Sie eine Telefonnummer ein, unter der wir Sie erreichen.',
+    resMail: 'Bitte tragen Sie eine gültige E-Mail-Adresse ein.',
+    resPersonen: 'Bitte geben Sie an, für wie viele Personen der Tisch sein soll.',
+    resDatum: 'Bitte wählen Sie ein Datum.',
+    resZeit: 'Bitte wählen Sie eine Uhrzeit.'
+  };
+
+  function pruefe(feld, fehlerId) {
+    var box = document.getElementById(fehlerId);
+    var huelle = feld.closest('.feld');
+    var text = '';
+    if (!feld.value) {
+      text = meldungen[feld.id];
+    } else if (feld.id === 'resMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(feld.value)) {
+      text = meldungen.resMail;
+    } else if (feld.id === 'resTelefon' && feld.value.replace(/[^0-9]/g, '').length < 6) {
+      text = 'Diese Telefonnummer sieht zu kurz aus.';
+    } else if (feld.id === 'resDatum') {
+      if (feld.value < heuteISO) {
+        text = 'Dieses Datum liegt in der Vergangenheit.';
+      } else {
+        var e = zeiten[tagAusISO(feld.value)];
+        if (!e || !e.offen) {
+          text = 'Am ' + TAGNAMEN[tagAusISO(feld.value)] + ' ist geschlossen. Bitte wählen Sie einen anderen Tag.';
+        }
+      }
+    } else if (feld.id === 'resPersonen' && (Number(feld.value) < 1 || Number(feld.value) > 30)) {
+      text = 'Bitte eine Zahl zwischen 1 und 30. Für größere Runden rufen Sie bitte an.';
+    }
+    box.textContent = text;
+    if (huelle) { huelle.classList.toggle('ungueltig', Boolean(text)); }
+    return !text;
+  }
+
+  Object.keys(meldungen).forEach(function (id) {
+    var feld = document.getElementById(id);
+    feld.addEventListener('blur', function () { pruefe(feld, 'fehler' + id.slice(3)); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    bestaetigung.hidden = true;
+    var alleGut = true, erstes = null;
+    Object.keys(meldungen).forEach(function (id) {
+      var feld = document.getElementById(id);
+      if (!pruefe(feld, 'fehler' + id.slice(3))) {
+        alleGut = false;
+        if (!erstes) { erstes = feld; }
+      }
+    });
+    if (!alleGut) { if (erstes) { erstes.focus(); } return; }
+
+    var d = datumFeld.value.split('-');
+    var koerper = [
+      'Reservierungswunsch über die Website',
+      '',
+      'Name:      ' + document.getElementById('resName').value,
+      'Telefon:   ' + document.getElementById('resTelefon').value,
+      'E-Mail:    ' + document.getElementById('resMail').value,
+      'Datum:     ' + d[2] + '.' + d[1] + '.' + d[0] + ' (' + TAGNAMEN[tagAusISO(datumFeld.value)] + ')',
+      'Uhrzeit:   ' + zeitFeld.value + ' Uhr',
+      'Personen:  ' + document.getElementById('resPersonen').value,
+      '',
+      'Anmerkung: ' + (document.getElementById('resNotiz').value || 'keine'),
+      '',
+      'Gesendet über die Website vom ' + BETRIEB + '.'
+    ].join('\n');
+
+    window.location.href = 'mailto:' + RESERVIERUNG_EMPFAENGER +
+      '?subject=' + encodeURIComponent('Tischreservierung ' + BETRIEB) +
+      '&body=' + encodeURIComponent(koerper);
+    bestaetigung.hidden = false;
+  });
+}());
+</script>
+</body>
+</html>

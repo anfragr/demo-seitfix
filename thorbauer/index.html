@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wirtshaus Thorbauer | Fine Dining und steirische Küche in Graz</title>
+<meta name="description" content="Wirtshaus Thorbauer, Steinbergstraße 76, 8052 Graz. Fine Dine mit acht Gängen jeden Freitag um 18 Uhr für 70 Euro, dazu tägliches Dreigangmittagsmenü und steirische Küche.">
+<meta name="theme-color" content="#141414">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="Wirtshaus Thorbauer | Fine Dining und steirische Küche in Graz">
+<meta property="og:description" content="Crossover aus Fine Dining und steirischer Küche. Acht Gänge jeden Freitag, 70 Euro pro Person. Küche von Martin Thorbauer, Service von Leopoldine Thorbauer.">
+<meta property="og:site_name" content="Wirtshaus Thorbauer">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141414'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='18' fill='%23b08d57' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, es wird kein fremder Server aufgerufen. */
+@font-face{font-family:'Marcellus';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/marcellus-400.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/barlow-300.woff2') format('woff2')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/barlow-500.woff2') format('woff2')}
+
+/* Alle Farben, Abstände und Schriften an einer Stelle. */
+:root{
+  --farbe-primaer:#141414;
+  --farbe-akzent:#b08d57;
+  --farbe-text:#ece9e4;
+  --farbe-flaeche:#141414;
+  --farbe-flaeche-2:#1d1d1d;
+  --farbe-dunkel:#0b0b0b;
+  --farbe-linie:#2e2e2e;
+  --farbe-gedaempft:#9b9791;
+  --abstand-s:.7rem;
+  --abstand-m:1.5rem;
+  --abstand-l:3.4rem;
+  --abstand-xl:7rem;
+  --schrift-titel:'Marcellus',Georgia,'Times New Roman',serif;
+  --schrift-text:'Barlow',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  /* Der eine typografische Höhepunkt der Seite ist der Preis. */
+  --schrift-riesig:clamp(5.5rem,17vw,17rem);
+  --breite:1000px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-weight:300;font-size:1.125rem;line-height:1.8;
+  overflow-x:clip;
+}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:400;line-height:1.2;margin:0 0 var(--abstand-m);color:#fff}
+h1{font-size:clamp(2.4rem,7vw,4.6rem);letter-spacing:.04em}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:.03em}
+h3{font-size:1.3rem;letter-spacing:.03em}
+p{margin:0 0 var(--abstand-m)}
+a{color:var(--farbe-akzent)}
+:focus-visible{outline:2px solid var(--farbe-akzent);outline-offset:4px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 1.5rem}
+.mitte{text-align:center}
+.spalte{max-width:56ch;margin-left:auto;margin-right:auto}
+.klein{font-size:1rem;color:var(--farbe-gedaempft)}
+.marke{font-family:var(--schrift-text);font-weight:500;font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--farbe-akzent);margin:0 0 1.1rem}
+
+/* Demo-Balken */
+.demobalken{position:sticky;top:0;z-index:60;background:#000;color:#8f8b85;font-size:.8125rem;line-height:1.4;padding:.5rem 1.5rem;text-align:center}
+.demobalken a{color:var(--farbe-akzent);text-underline-offset:3px}
+
+/* Kopf */
+.kopf{background:var(--farbe-flaeche);border-bottom:1px solid var(--farbe-linie);text-align:center}
+.kopf-innen{padding-top:1.1rem;padding-bottom:.2rem}
+.wortmarke{display:inline-block;font-family:var(--schrift-titel);font-size:1.4rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-decoration:none;line-height:1.1}
+.wortmarke span{display:block;font-family:var(--schrift-text);font-weight:300;font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--farbe-gedaempft);margin-top:.4rem}
+.hauptnav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:0 1.9rem;margin:.5rem 0 0;padding:0}
+.hauptnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:46px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--farbe-text);text-decoration:none}
+.hauptnav a:hover{color:var(--farbe-akzent)}
+.nav-inaktiv{opacity:.38;cursor:not-allowed}
+.nav-hinweis{margin:0;font-size:.85rem;letter-spacing:.06em;color:var(--farbe-akzent);max-height:0;overflow:hidden;transition:max-height .2s ease}
+.nav-hinweis.sichtbar{max-height:3rem;padding-bottom:.5rem}
+
+/* Knöpfe */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:.8rem 2rem;border:1px solid var(--farbe-akzent);border-radius:0;font-family:var(--schrift-text);font-weight:500;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;background:transparent;color:var(--farbe-akzent)}
+.knopf:hover{background:var(--farbe-akzent);color:#141414}
+.knopf-voll{background:var(--farbe-akzent);color:#141414}
+.knopf-voll:hover{background:#c4a069}
+
+/* Urlaubshinweis */
+.urlaub{border:1px solid var(--farbe-akzent);padding:1rem 1.4rem;margin:0 auto var(--abstand-l);max-width:44ch;font-size:1rem;line-height:1.6;color:#e6d5ba}
+.urlaub[hidden]{display:none}
+.urlaub b{font-family:var(--schrift-titel);font-weight:400;display:block;color:var(--farbe-akzent);letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin-bottom:.35rem}
+
+/* Hero */
+.hero{padding:var(--abstand-xl) 0;text-align:center;border-bottom:1px solid var(--farbe-linie)}
+.hero h1{margin-bottom:1.4rem}
+.hero .zitat{font-family:var(--schrift-titel);font-size:clamp(1.15rem,2.6vw,1.5rem);color:#d6cfc4;letter-spacing:.05em;margin:0 0 var(--abstand-l)}
+.status{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:.1rem 1rem;align-items:baseline;border-top:1px solid var(--farbe-linie);border-bottom:1px solid var(--farbe-linie);padding:1.1rem 1.6rem;margin:0 0 var(--abstand-l)}
+.status b{font-family:var(--schrift-titel);font-weight:400;font-size:1.4rem;color:#fff}
+.status .zusatz{color:var(--farbe-gedaempft);font-size:1rem}
+.hero-knoepfe{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+
+/* Sektionen */
+section{padding:var(--abstand-xl) 0}
+.sektion-kopf{margin-bottom:var(--abstand-l)}
+.sektion-kopf p:last-child{margin-bottom:0}
+.gedeckt{background:var(--farbe-flaeche-2)}
+.trennlinie{border:0;border-top:1px solid var(--farbe-akzent);max-width:3.5rem;margin:0 auto var(--abstand-m)}
+.zweispalt{display:grid;gap:var(--abstand-l)}
+
+/* Fine Dine, das Herzstück */
+.finedine{background:var(--farbe-dunkel);border-top:1px solid var(--farbe-akzent);border-bottom:1px solid var(--farbe-akzent)}
+.finedine .preis{
+  font-family:var(--schrift-titel);font-size:var(--schrift-riesig);
+  line-height:.8;color:var(--farbe-akzent);margin:0 0 .5rem;letter-spacing:-.01em;
+}
+.finedine .preis-zusatz{display:block;font-family:var(--schrift-text);font-weight:500;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--farbe-gedaempft);margin-bottom:var(--abstand-l)}
+.eckdaten{list-style:none;margin:0 0 var(--abstand-l);padding:0;display:grid;gap:1px;background:var(--farbe-linie);border-top:1px solid var(--farbe-linie);border-bottom:1px solid var(--farbe-linie)}
+.eckdaten div{background:var(--farbe-dunkel);padding:1.4rem 1rem}
+.eckdaten dt{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--farbe-gedaempft);margin-bottom:.4rem}
+.eckdaten dd{margin:0;font-family:var(--schrift-titel);font-size:1.3rem;color:#fff}
+.termine{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.termine li{border:1px solid var(--farbe-linie);padding:.5rem 1.2rem;font-family:var(--schrift-titel);font-size:1.05rem;letter-spacing:.04em}
+
+/* Karte */
+.karte-gruppe{margin-bottom:var(--abstand-l)}
+.karte-gruppe h3{border-bottom:1px solid var(--farbe-linie);padding-bottom:.6rem;margin-bottom:1rem;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--farbe-akzent);font-family:var(--schrift-text);font-weight:500}
+.karte{list-style:none;margin:0;padding:0}
+.karte li{padding:.7rem 0;border-bottom:1px solid #232323}
+.karte .name{display:block;font-family:var(--schrift-titel);font-size:1.15rem;color:#fff}
+.karte .zutaten{display:block;font-size:.98rem;color:var(--farbe-gedaempft);line-height:1.5}
+.karte-spalten{display:grid;gap:0 var(--abstand-l)}
+
+/* Team */
+.personen{display:grid;gap:var(--abstand-l)}
+.person{border-top:1px solid var(--farbe-akzent);padding-top:1.4rem}
+.person .rolle{display:block;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--farbe-akzent);margin-bottom:.5rem}
+.person h3{margin-bottom:.8rem}
+
+/* Öffnungszeiten */
+.zeittabelle{width:100%;border-collapse:collapse;text-align:left}
+.zeittabelle caption{text-align:left;padding-bottom:.9rem;color:var(--farbe-gedaempft);font-size:1rem}
+.zeittabelle th,.zeittabelle td{padding:.9rem .4rem;border-bottom:1px solid var(--farbe-linie)}
+.zeittabelle thead th{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--farbe-akzent);font-weight:500}
+.zeittabelle th[scope=row]{font-family:var(--schrift-titel);font-weight:400;font-size:1.15rem;color:#fff}
+.zeittabelle tr.heute{background:#202020}
+.ruhe{color:var(--farbe-gedaempft)}
+
+/* Formular */
+.formular{display:grid;gap:1.2rem}
+.feld{display:flex;flex-direction:column}
+.feld label{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:.5rem;color:var(--farbe-gedaempft);font-weight:500}
+.feld input,.feld select,.feld textarea{
+  font-family:var(--schrift-text);font-weight:300;font-size:1.05rem;color:var(--farbe-text);
+  background:#1a1a1a;border:1px solid var(--farbe-linie);border-radius:0;
+  padding:.7rem .8rem;min-height:50px;width:100%;
+}
+.feld textarea{min-height:104px;resize:vertical}
+.feld input:focus-visible,.feld select:focus-visible,.feld textarea:focus-visible{border-color:var(--farbe-akzent)}
+.fehler{color:#e08b7f;font-size:.95rem;margin-top:.35rem}
+.feld.ungueltig input,.feld.ungueltig select{border-color:#e08b7f}
+.bestaetigung{border:1px solid var(--farbe-akzent);padding:1.1rem 1.3rem;margin-top:1.4rem}
+.bestaetigung[hidden]{display:none}
+
+/* Kontakt */
+address{font-style:normal}
+.datenzeile{display:grid;gap:.15rem;padding:.9rem 0;border-bottom:1px solid var(--farbe-linie)}
+.datenzeile dt{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--farbe-gedaempft)}
+.datenzeile dd{margin:0}
+
+/* Seitfix */
+.seitfix{background:#f4f4f2;color:#2a2a2a;text-align:left}
+.seitfix h2{font-family:var(--schrift-text);font-weight:500;font-size:clamp(1.3rem,3.2vw,1.85rem);color:#111;letter-spacing:0}
+.seitfix p{font-weight:300}
+.seitfix a{color:#1f5f52}
+.seitfix .marke{color:#1f5f52}
+.seitfix :focus-visible{outline-color:#1f5f52}
+.preisliste{list-style:none;margin:var(--abstand-m) 0;padding:0;max-width:34rem}
+.preisliste li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:1px solid #d8d8d4}
+.preisliste .betrag{white-space:nowrap;color:#111;font-weight:500}
+.seitfix .knopf-seitfix{background:#1f5f52;border-color:#1f5f52;color:#f2fbf8;text-decoration:none}
+.seitfix .knopf-seitfix:hover{background:#17493f;color:#f2fbf8}
+
+/* Fuß */
+.fuss{background:var(--farbe-dunkel);color:var(--farbe-gedaempft);padding:var(--abstand-l) 0;font-size:1rem;border-top:1px solid var(--farbe-linie)}
+.fuss a{color:var(--farbe-akzent)}
+.fuss strong{color:#fff;font-family:var(--schrift-titel);font-weight:400;font-size:1.2rem;letter-spacing:.1em}
+.fuss-raster{display:grid;gap:var(--abstand-m)}
+
+/* Mobile Aktionsleiste */
+.mobilleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;background:var(--farbe-dunkel);border-top:1px solid var(--farbe-linie)}
+.mobilleiste a{display:flex;align-items:center;justify-content:center;min-height:56px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;text-decoration:none;color:var(--farbe-akzent)}
+.mobilleiste a:last-child{background:var(--farbe-akzent);color:#141414}
+body{padding-bottom:56px}
+
+@media (min-width:640px){
+  .eckdaten{grid-template-columns:repeat(3,1fr)}
+  .karte-spalten{grid-template-columns:1fr 1fr}
+  .personen{grid-template-columns:1fr 1fr}
+  .datenzeile{grid-template-columns:8rem 1fr;gap:1rem;align-items:baseline}
+}
+@media (min-width:900px){
+  body{padding-bottom:0}
+  .mobilleiste{display:none}
+  .kopf{position:sticky;top:var(--balkenhoehe,2rem);z-index:50}
+  .zweispalt{grid-template-columns:1fr 1fr;gap:var(--abstand-xl);align-items:start}
+  .formular{grid-template-columns:1fr 1fr;gap:1.2rem 1.6rem}
+  .feld-breit{grid-column:1 / -1}
+  .fuss-raster{grid-template-columns:1.3fr 1fr 1fr}
+}
+@media (min-width:1200px){:root{--abstand-xl:8rem}}
+
+/* Signature: die acht Gänge als nummerierte Abfolge über eine Bildschirmhöhe.
+   Was auf den Teller kommt, steht nirgends, das ist beim Überraschungsmenü
+   der Punkt. Deshalb tragen hier die Zahlen allein. */
+.gaenge-sektion{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+.gaenge{list-style:none;margin:0;padding:0;counter-reset:g;max-width:46rem;margin-left:auto;margin-right:auto;width:100%}
+.gaenge li{
+  counter-increment:g;display:grid;grid-template-columns:4.5rem 1fr;
+  gap:0 1.6rem;align-items:baseline;
+  padding:1.15rem 0;border-top:1px solid var(--farbe-linie);
+}
+.gaenge li:last-child{border-bottom:1px solid var(--farbe-linie)}
+.gaenge li::before{
+  content:'0' counter(g);
+  font-family:var(--schrift-titel);font-size:clamp(1.6rem,3.4vw,2.4rem);
+  color:var(--farbe-akzent);line-height:1;
+}
+.gaenge .was{font-family:var(--schrift-titel);font-size:clamp(1.05rem,2.2vw,1.4rem);color:#fff}
+.gaenge .still{color:var(--farbe-gedaempft);font-family:var(--schrift-text);font-weight:300;font-size:1rem}
+
+/* ------------------------------------------------------------------
+   Ausbau: Verkaufswerkzeug und Wow-Hebel
+   ------------------------------------------------------------------ */
+.hauptnav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hauptnav ul::-webkit-scrollbar{display:none}
+.hauptnav li{flex:0 0 auto}@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
+.nav-hinweis{line-height:1.5;max-height:0}
+.nav-hinweis.sichtbar{max-height:9rem;padding-bottom:.8rem}
+.nav-hinweis b{font-weight:700}
+
+/* Randloses Band über die volle Fensterbreite */
+.band{position:relative;overflow:hidden;background:#111;padding:0}
+.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
+.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
+.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
+.band-inhalt .rand{padding-bottom:3rem}
+.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
+.band-inhalt .marke{color:#fff}
+
+/* Seitfix: Seitenliste und Angebot */
+.seitfix-raster{display:grid;gap:var(--abstand-l)}
+.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
+.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}.seitfix .seitenliste li{border-bottom-color:#ddd}.seitfix .seitenliste b{color:#111}.seitfix .seitenliste span{color:#4a4a4a}.seitfix .klein{color:#4a4a4a}.seitfix .seitenliste+p,.seitfix .abschluss{color:#3a3a3a}.seitfix .angebot p{color:#3a3a3a}
+.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
+.seitenliste b{display:block;color:#fff}
+.seitenliste span{color:#b6b6b8;font-size:.95rem}
+.angebot{border:1px solid #cfcfca;background:#fff;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
+.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#111;line-height:1;display:block;margin-bottom:.3rem}
+.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
+.angebot li{padding:.4rem 0;border-top:1px solid #ddd;font-size:.98rem;color:#3a3a3a}
+.seitfix h3{color:#111}
+@media (min-width:900px){
+  .seitfix-raster{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
+}
+
+/* Sammelkorrektur, zentral angehaengt. */
+.seitenliste li>b,.seitenliste li>span{grid-column:2}
+@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
+
+/* Handy-Feinschliff, zentral angehaengt. */
+h1,h2,h3{overflow-wrap:break-word}
+@media (max-width:639px){
+  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
+  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
+  .wortmarke span{font-size:.72rem}
+  table td:last-child{white-space:normal}
+}
+
+/* Handy-Feinschliff, zweiter Durchgang. */
+@media (max-width:639px){
+  .preise td:last-child,.preise th:last-child{white-space:normal}
+  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
+}
+.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
+.hero-foto{min-width:0}
+
+/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
+   ein langer Betriebsname ueber den Rand. */
+@media (max-width:359px){
+  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
+}
+
+/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
+@media (max-width:639px){
+  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
+  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
+}
+
+/* Handy-Feinschliff, vierter Durchgang.
+   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
+   abgeschnitten und der erste Punkt waere nicht erreichbar. */
+@media (max-width:639px){
+  .hauptnav ul{justify-content:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="demobalken">
+  Unverbindliche Demo für das Wirtshaus Thorbauer. Erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="#oben">Thorbauer<span>Wirtshaus, Steinbergstraße 76, Graz</span></a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#gaenge">Acht Gänge</a></li>
+        <li><a href="#mittag">Mittagsmenü</a></li>
+        <li><a href="#karte">Karte</a></li>
+        <li><a href="#zeiten">Zeiten</a></li>
+        <li><a href="#reservierung">Reservieren</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit dem Achtgängemenü, allen Terminen und der Buchung.">Fine Dine</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit der ganzen Karte samt Preisen, die online bisher fehlen.">Speisekarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit den Weinen und der Weinbegleitung zum Menü.">Weinkarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Martin und Leopoldine Thorbauer und der Küche.">Team</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit Anfahrt, Parken und allen Kontaktdaten.">Kontakt</span></li>
+      </ul>
+      <p class="nav-hinweis" id="navHinweis" role="status"></p>
+    </nav>
+  </div>
+</header>
+
+<main id="oben">
+
+  <section class="hero" aria-labelledby="titel">
+    <div class="rand">
+      <p class="marke">Steinbergstraße 76, Graz</p>
+      <h1 id="titel">Wirtshaus Thorbauer</h1>
+      <p class="zitat">Essen ist Erlebnis. Erlebnis ist Freude.</p>
+      <p class="urlaub" id="urlaubHinweis" hidden>
+        <b>Betriebsurlaub</b>
+        <span id="urlaubText"></span>
+      </p>
+      <p class="status" id="statusHero">
+        <b id="statusText">Öffnungszeiten werden geladen</b>
+        <span class="zusatz" id="statusZusatz"></span>
+      </p>
+      <div class="hero-knoepfe">
+        <a class="knopf knopf-voll" href="#gaenge">Fine Dine ansehen</a>
+        <a class="knopf" href="tel:+43316577155">0316 57 71 55</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gaenge" class="gaenge-sektion mitte" aria-labelledby="gaengeTitel">
+    <div class="rand">
+      <p class="marke">Ein Abend, ein Menü</p>
+      <h2 id="gaengeTitel">Acht Gänge</h2>
+      <hr class="trennlinie">
+      <p class="spalte" style="margin-bottom:var(--abstand-l)">Was auf den Teller kommt, steht vorher nirgends. Saisonal kombiniert, modern interpretiert, und angekündigt wird es am Abend selbst.</p>
+      <ol class="gaenge" style="text-align:left">
+        <li><span class="was">Der Auftakt</span></li>
+        <li><span class="was">Zweiter Gang</span></li>
+        <li><span class="was">Dritter Gang</span></li>
+        <li><span class="was">Vierter Gang</span></li>
+        <li><span class="was">Fünfter Gang</span></li>
+        <li><span class="was">Sechster Gang</span></li>
+        <li><span class="was">Siebenter Gang</span></li>
+        <li><span class="was">Der Abschluss</span></li>
+      </ol>
+      <p class="klein" style="margin-top:var(--abstand-l)">Eine vegetarische Variante mit Fisch ist möglich, wenn Sie es vorher bekanntgeben.</p>
+    </div>
+  </section>
+
+  <section id="finedine" class="finedine mitte" aria-labelledby="fdTitel">
+    <div class="rand">
+      <p class="marke">Jeden Freitag um 18 Uhr</p>
+      <h2 id="fdTitel">Fine Dine by Thorbauer</h2>
+      <hr class="trennlinie">
+      <p class="spalte">Immer freitags um 18 Uhr, an den angekündigten Terminen.</p>
+      <p class="preis">70<span class="preis-zusatz">Euro pro Person</span></p>
+      <dl class="eckdaten">
+        <div><dt>Gänge</dt><dd>Acht</dd></div>
+        <div><dt>Beginn</dt><dd>18:00 Uhr</dd></div>
+        <div><dt>Tag</dt><dd>Freitag</dd></div>
+      </dl>
+      <h3>Verfügbare Termine</h3>
+      <ul class="termine">
+        <li>18. September</li>
+        <li>25. September</li>
+        <li>2. Oktober</li>
+        <li>9. Oktober</li>
+      </ul>
+      <p style="margin-top:var(--abstand-l)"><a class="knopf knopf-voll" href="#reservierung" data-anlass="Fine Dine">Für Fine Dine reservieren</a></p>
+    </div>
+  </section>
+
+  <section id="mittag" aria-labelledby="mittagTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Mittwoch bis Freitag ab 11 Uhr</p>
+        <h2 id="mittagTitel">Das Mittagsmenü</h2>
+        <p>Drei Gänge, jeden Tag neu: Suppe, Hauptgang, Salat.</p>
+        <p>Weil die Küche auf saisonale und regionale Produkte setzt, wird das Menü täglich neu zusammengestellt und nicht im Vorfeld geplant. Was es gibt, steht am selben Tag auf Instagram und Facebook.</p>
+      </div>
+      <div>
+        <h3>Die Handschrift des Hauses</h3>
+        <p>Ein Crossover aus Fine Dining und steirischer Küche. Intuitiv, frei und unbeschwert bricht Chef de Cuisine Martin Thorbauer das Tor zur Welt der Aromen auf.</p>
+        <p>Für Service und Weinbegleitung sorgt Restaurantleiterin Leopoldine Thorbauer mit ihrem Team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="karte" class="gedeckt" aria-labelledby="karteTitel">
+    <div class="rand">
+      <div class="sektion-kopf mitte spalte">
+        <p class="marke">Auszug</p>
+        <h2 id="karteTitel">Von der Karte</h2>
+        <hr class="trennlinie">
+        <p>Die vollständige Karte liegt im Haus auf und wechselt mit der Saison.</p>
+      </div>
+      <div class="karte-spalten">
+        <div>
+          <div class="karte-gruppe">
+            <h3>Vorspeisen</h3>
+            <ul class="karte">
+              <li><span class="name">Kräftige Rindsuppe</span><span class="zutaten">Frittaten oder Kaspressknödel</span></li>
+              <li><span class="name">Beef Tatar</span><span class="zutaten">Weidelandrind, Raucharomen, Buchweizen, Eigelb, fermentierter Knoblauch, Butter, Brot</span></li>
+              <li><span class="name">Kürbiscremesuppe</span><span class="zutaten">Kürbiskernpesto, Brioche, Apfel, Kürbiswürfel</span></li>
+              <li><span class="name">Süßpommes</span><span class="zutaten">Trüffelmayo</span></li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Fisch</h3>
+            <ul class="karte">
+              <li><span class="name">Zanderfilet</span><span class="zutaten">Fregola sarda, Holunder Beurre blanc, glacierte Karotten, Dillöl, gepuffter Buchweizen, Gurkenperlen</span></li>
+              <li><span class="name">Miesmuscheln</span><span class="zutaten">Kräuter, Weißweinsud, Knoblauch, Gemüsejulienne, Focaccia</span></li>
+              <li><span class="name">Gegrillte Calamari</span><span class="zutaten">Sommergemüse</span></li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Vegetarisch</h3>
+            <ul class="karte">
+              <li><span class="name">Kräuterseitlinge gebacken</span><span class="zutaten">Erbsencreme, Zitronengel, frittierte Kapern, Minzöl</span></li>
+              <li><span class="name">Schafskäse gebacken</span><span class="zutaten">Vogerlsalat, Marille, Pistazie, Lavendelhonig</span></li>
+              <li><span class="name">Geröstete Eierschwammerl</span><span class="zutaten">Freilandeier, Kürbiskernöl, geröstete Kürbiskerne, Krustenbrot</span></li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="karte-gruppe">
+            <h3>Hauptspeisen</h3>
+            <ul class="karte">
+              <li><span class="name">Zwiebelrostbraten-Roulade</span><span class="zutaten">Polenta, Zitrone, Marille, Sonnenblumenkerne, Basilikumöl, Speck, Kräuter</span></li>
+              <li><span class="name">Schweinerückensteak</span><span class="zutaten">Spitzkraut, Romanasalat, Speckcrumble, grüne Pfefferbutter, Dillöl</span></li>
+              <li><span class="name">Thorbauer Schnitzel</span><span class="zutaten">Cordon bleu mit Schinken und Käse in Kürbiskernpanier, Petersilkartoffeln, Preiselbeeren</span></li>
+              <li><span class="name">Wiener Schnitzel vom Kalb</span><span class="zutaten">Butterschmalz, Zitrone</span></li>
+              <li><span class="name">Eierschwammerlgulasch</span><span class="zutaten">Serviettenschnitte, Krustenbrot</span></li>
+              <li><span class="name">Genussburger Steiermark</span><span class="zutaten">180 Gramm Rinderfaschiertes, Vogerlsalat, Emmentaler, Speck, Rösti, Eierschwammerlsoße</span></li>
+              <li><span class="name">Backhendl</span><span class="zutaten">Halbes Backhendl</span></li>
+            </ul>
+          </div>
+          <div class="karte-gruppe">
+            <h3>Nachspeisen</h3>
+            <ul class="karte">
+              <li><span class="name">Weißes Schokoladenmousse</span><span class="zutaten">Himbeereis, Minzcrumble, Yuzuperlen</span></li>
+              <li><span class="name">Warmes Schokoladenküchlein</span><span class="zutaten">Schlagobers</span></li>
+              <li><span class="name">Mini Topfenknödel</span><span class="zutaten">Marille, Vanilleeis</span></li>
+              <li><span class="name">Flambierte Banane</span><span class="zutaten">Schokoladensoße, Vanilleeis, karamellisierte Walnüsse</span></li>
+              <li><span class="name">Crème brûlée</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" aria-labelledby="teamTitel">
+    <div class="rand">
+      <div class="sektion-kopf mitte spalte">
+        <p class="marke">Seit 2008</p>
+        <h2 id="teamTitel">Das Haus wird von zweien geführt</h2>
+        <hr class="trennlinie">
+      </div>
+      <div class="personen">
+        <div class="person">
+          <span class="rolle">Chef de Cuisine</span>
+          <h3>Martin Thorbauer</h3>
+          <p>Hat 2008 mit einem Ziel angefangen: dem Raum Graz ein gutes Essenserlebnis zu bieten. Serviert frische, herzhafte Gerichte.</p>
+        </div>
+        <div class="person">
+          <span class="rolle">Restaurantleitung</span>
+          <h3>Leopoldine Thorbauer</h3>
+          <p>Hat sich 2008 vorgenommen, Gäste mit Herzlichkeit und professionellem Service durch den Abend zu bringen. Das zufriedene Lächeln der Gäste bestätigt sie darin jeden Tag.</p>
+        </div>
+      </div>
+      <div class="sektion-kopf mitte spalte" style="margin-top:var(--abstand-xl);margin-bottom:0">
+        <p class="marke">Zum Aperitif</p>
+        <blockquote style="font-family:var(--schrift-titel);font-size:1.25rem;line-height:1.7;margin:0;color:#d6cfc4">
+          Nimmst du täglich deinen Tropfen, wird dein Herz stets freudig klopfen, wirst im Alter wie der Wein, stets begehrt und heiter sein.
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="zeiten" class="gedeckt" aria-labelledby="zeitenTitel">
+    <div class="rand zweispalt">
+      <div>
+        <p class="marke">Wann offen ist</p>
+        <h2 id="zeitenTitel">Öffnungszeiten</h2>
+        <table class="zeittabelle" id="zeittabelle">
+          <caption>Der heutige Tag ist hervorgehoben. Die Zeiten stehen als data-Attribute in der Tabelle und lassen sich dort ändern.</caption>
+          <thead>
+            <tr><th scope="col">Tag</th><th scope="col">Haus</th><th scope="col">Warme Küche</th></tr>
+          </thead>
+          <tbody>
+            <tr data-tag="1"><th scope="row">Montag</th><td class="ruhe" colspan="2">Ruhetag</td></tr>
+            <tr data-tag="2"><th scope="row">Dienstag</th><td class="ruhe" colspan="2">Ruhetag</td></tr>
+            <tr data-tag="3" data-offen="09:00-22:00" data-kueche="09:00-20:00"><th scope="row">Mittwoch</th><td>09:00 bis 22:00</td><td>bis 20:00</td></tr>
+            <tr data-tag="4" data-offen="09:00-22:00" data-kueche="09:00-20:00"><th scope="row">Donnerstag</th><td>09:00 bis 22:00</td><td>bis 20:00</td></tr>
+            <tr data-tag="5" data-offen="09:00-22:00" data-kueche="09:00-20:00"><th scope="row">Freitag</th><td>09:00 bis 22:00</td><td>bis 20:00</td></tr>
+            <tr data-tag="6" data-offen="09:00-22:00" data-kueche="09:00-20:00"><th scope="row">Samstag</th><td>09:00 bis 22:00</td><td>bis 20:00</td></tr>
+            <tr data-tag="0" data-offen="09:00-16:00" data-kueche="09:00-15:00"><th scope="row">Sonntag</th><td>09:00 bis 16:00</td><td>bis 15:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Mittagsmenü</h3>
+        <p>Mittwoch bis Freitag ab 11 Uhr, solange der Vorrat reicht.</p>
+        <h3>Fine Dine</h3>
+        <p>Freitags um 18 Uhr, an den angekündigten Terminen.</p>
+        <h3>Montag und Dienstag</h3>
+        <p>Ruhetag. Anfragen können Sie trotzdem jederzeit senden.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservierung" aria-labelledby="resTitel">
+    <div class="rand">
+      <div class="sektion-kopf mitte spalte">
+        <p class="marke">Tisch bestellen</p>
+        <h2 id="resTitel">Reservierung</h2>
+        <hr class="trennlinie">
+        <p>Ruhetage sind gesperrt, die Uhrzeiten kommen aus den Küchenzeiten des gewählten Tages. Wählen Sie den Freitagabend, ist der Fine-Dine-Beginn gleich mit dabei.</p>
+      </div>
+      <div class="zweispalt">
+        <div>
+          <form class="formular" id="resForm" novalidate>
+            <div class="feld">
+              <label for="resName">Name</label>
+              <input type="text" id="resName" name="name" required autocomplete="name" aria-describedby="fehlerName">
+              <p class="fehler" id="fehlerName"></p>
+            </div>
+            <div class="feld">
+              <label for="resTelefon">Telefon</label>
+              <input type="tel" id="resTelefon" name="telefon" required autocomplete="tel" aria-describedby="fehlerTelefon">
+              <p class="fehler" id="fehlerTelefon"></p>
+            </div>
+            <div class="feld">
+              <label for="resMail">E-Mail</label>
+              <input type="email" id="resMail" name="mail" required autocomplete="email" aria-describedby="fehlerMail">
+              <p class="fehler" id="fehlerMail"></p>
+            </div>
+            <div class="feld">
+              <label for="resPersonen">Anzahl Personen</label>
+              <input type="number" id="resPersonen" name="personen" min="1" max="30" value="2" required aria-describedby="fehlerPersonen">
+              <p class="fehler" id="fehlerPersonen"></p>
+            </div>
+            <div class="feld">
+              <label for="resDatum">Datum</label>
+              <input type="date" id="resDatum" name="datum" required aria-describedby="fehlerDatum">
+              <p class="fehler" id="fehlerDatum"></p>
+            </div>
+            <div class="feld">
+              <label for="resZeit">Uhrzeit</label>
+              <select id="resZeit" name="zeit" required aria-describedby="fehlerZeit">
+                <option value="">Bitte zuerst ein Datum wählen</option>
+              </select>
+              <p class="fehler" id="fehlerZeit"></p>
+            </div>
+            <div class="feld feld-breit">
+              <label for="resNotiz">Anmerkung (optional)</label>
+              <textarea id="resNotiz" name="notiz" rows="3" placeholder="Fine Dine, vegetarische Variante mit Fisch, Unverträglichkeiten"></textarea>
+            </div>
+            <div class="feld-breit">
+              <button type="submit" class="knopf knopf-voll">Reservierung per E-Mail senden</button>
+            </div>
+          </form>
+          <div class="bestaetigung" id="resBestaetigung" role="status" hidden>
+            <p style="margin:0"><strong>Ihr Mailprogramm wurde geöffnet.</strong> Die Reservierung geht erst ein, wenn Sie die vorbereitete Nachricht auch absenden. Öffnet sich kein Fenster, rufen Sie bitte unter <a href="tel:+43316577155">0316 57 71 55</a> an.</p>
+          </div>
+          <p class="klein" style="margin-top:1.4rem">Lieber telefonisch? <a href="tel:+43316577155">0316 57 71 55</a> oder <a href="tel:+436642403495">0664 240 34 95</a>.</p>
+          <p class="klein">Es werden keine Daten gespeichert und keine Daten weitergegeben. Ihre Angaben gehen ausschließlich per E-Mail an das Wirtshaus.</p>
+        </div>
+        <div id="kontakt">
+          <p class="marke">Kontakt</p>
+          <h3>So finden Sie uns</h3>
+          <address>
+            <dl style="margin:0">
+              <div class="datenzeile">
+                <dt>Adresse</dt>
+                <dd>Steinbergstraße 76<br>8052 Graz<br>
+                  <a href="https://www.openstreetmap.org/search?query=Steinbergstra%C3%9Fe%2076%2C%208052%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+                </dd>
+              </div>
+              <div class="datenzeile">
+                <dt>Telefon</dt>
+                <dd><a href="tel:+43316577155">0316 57 71 55</a><br>
+                  <a href="tel:+436642403495">0664 240 34 95</a></dd>
+              </div>
+              <div class="datenzeile">
+                <dt>E-Mail</dt>
+                <dd><a href="mailto:office@thorbauer.com">office@thorbauer.com</a></dd>
+              </div>
+              <div class="datenzeile">
+                <dt>Küche</dt>
+                <dd>Martin Thorbauer</dd>
+              </div>
+              <div class="datenzeile">
+                <dt>Service</dt>
+                <dd>Leopoldine Thorbauer</dd>
+              </div>
+            </dl>
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seitfix" aria-labelledby="seitfixTitel">
+    <div class="rand">
+      <p class="marke">In eigener Sache</p>
+      <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für das Wirtshaus Thorbauer gebaut.</h2>
+      <div class="seitfix-raster">
+        <div>
+          <div style="max-width:56ch">
+            <p>Auf Ihrer jetzigen Seite steht: "Zurzeit ist unser Online Reservierungstool nicht verfügbar. Bitte ausschließlich Reservierung per Telefon." Wer abends um halb elf einen Tisch für Freitag will, ruft nicht mehr an. Hier gibt es ein Formular, das die Ruhetage und den Betriebsurlaub sperrt, die Uhrzeiten aus Ihren Küchenzeiten erzeugt und beim Freitagabend an den Fine-Dine-Beginn erinnert.</p>
+            <p>Das zweite ist das Achtgängemenü. Siebzig Euro pro Person ist ein anderes Preisniveau als ein Mittagsteller. Auf Ihrer Seite steht das Menü als Absatz zwischen zwei Überschriften. Hier bekommt es einen eigenen Bildschirm, und die Siebzig ist das größte Zeichen der ganzen Seite. Das alles ohne ein einziges Foto, weil Sie keines online haben. Ein Fotoshooting wäre der nächste Schritt.</p>
+          </div>
+
+          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
+          <ul class="seitenliste">
+            <li><b>Fine Dine</b><span>Das Achtgängemenü, alle Termine und die Buchung.</span></li>
+            <li><b>Speisekarte</b><span>Die ganze Karte samt Preisen, die online bisher fehlen.</span></li>
+            <li><b>Weinkarte</b><span>Die Weine und die Weinbegleitung zum Menü.</span></li>
+            <li><b>Team</b><span>Martin und Leopoldine Thorbauer und die Küche.</span></li>
+            <li><b>Kontakt</b><span>Anfahrt, Parken und alle Kontaktdaten auf einen Blick.</span></li>
+          </ul>
+          <p class="klein">Mit dieser Startseite sind das sechs Seiten, fertig aufgesetzt.</p>
+        </div>
+
+        <div>
+          <div class="angebot">
+            <span class="zahl">1000 Euro</span>
+            <p style="margin:0;color:#3a3a3a">einmalig für die komplette Website mit allen sechs Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
+            <ul>
+              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
+              <li>Eine Korrekturrunde ist enthalten.</li>
+              <li>Die Website gehört Ihnen.</li>
+              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
+            </ul>
+          </div>
+          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand fuss-raster">
+    <div>
+      <strong>Thorbauer</strong>
+      <p style="margin:.5rem 0 0">Steinbergstraße 76, 8052 Graz<br>
+        <a href="tel:+43316577155">0316 57 71 55</a><br>
+        <a href="mailto:office@thorbauer.com">office@thorbauer.com</a></p>
+    </div>
+    <div>
+      <p style="margin:0">Mittwoch bis Samstag 9 bis 22 Uhr<br>
+        Sonntag 9 bis 16 Uhr<br>
+        Montag und Dienstag Ruhetag</p>
+    </div>
+    <div>
+      <p style="margin:0">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen beim Wirtshaus Thorbauer. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobilleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316577155">Anrufen</a>
+  <a href="#reservierung">Reservieren</a>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "name":"Wirtshaus Thorbauer",
+  "url":"https://www.thorbauer.com/",
+  "telephone":"+43316577155",
+  "email":"office@thorbauer.com",
+  "servesCuisine":["Steirisch","Österreichisch","Fine Dining"],
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Steinbergstraße 76",
+    "postalCode":"8052",
+    "addressLocality":"Graz",
+    "addressRegion":"Steiermark",
+    "addressCountry":"AT"
+  },
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"09:00","closes":"16:00"}
+  ]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Platzhalter. Hier stehen die drei Adressen, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var RESERVIERUNG_EMPFAENGER = 'hallo@seitfix.at';  // nach Auftrag: Adresse des Betriebs
+  var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
+  var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
+
+  /* Betriebsurlaub. Beide Werte leeren, dann verschwindet der Hinweis
+     und die Sperre im Reservierungsformular gleich mit.                */
+  var URLAUB_VON = '2026-08-17';
+  var URLAUB_BIS = '2026-09-08';   // letzter Urlaubstag, einschließlich
+
+  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
+  var PAKETPREIS = '1000 Euro';
+
+  var BETRIEB = 'Wirtshaus Thorbauer';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+  var MONATE = ['Jänner', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli',
+                'August', 'September', 'Oktober', 'November', 'Dezember'];
+
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen. Die
+     beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+     FEIERTAG_REGEL: 'geschlossen' | 'wie sonntag' | 'offen' | 'unbekannt'
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'unbekannt';
+  var FEIERTAG_TELEFON = '0316 57 71 55';
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tg = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tg);
+  }
+  function ftPlus(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
+  function ftKey(d) { return (d.getMonth() + 1) + '-' + d.getDate(); }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = ftKey(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var bew = [[ftPlus(o,1),'Ostermontag'],[ftPlus(o,39),'Christi Himmelfahrt'],
+               [ftPlus(o,50),'Pfingstmontag'],[ftPlus(o,60),'Fronleichnam']];
+    for (var i = 0; i < bew.length; i++) { if (ftKey(bew[i][0]) === k) { return bew[i][1]; } }
+    return null;
+  }
+
+  document.documentElement.classList.add('js');
+
+  var balken = document.querySelector('.demobalken');
+  function balkenMessen() {
+    document.documentElement.style.setProperty('--balkenhoehe', balken.offsetHeight + 'px');
+  }
+  balkenMessen();
+  window.addEventListener('resize', balkenMessen);
+
+  function lesbar(iso) {
+    var t = iso.split('-');
+    return Number(t[2]) + '. ' + MONATE[Number(t[1]) - 1] + ' ' + t[0];
+  }
+  function imUrlaub(iso) {
+    return Boolean(URLAUB_VON && URLAUB_BIS) && iso >= URLAUB_VON && iso <= URLAUB_BIS;
+  }
+
+  /* ---------- Öffnungszeiten aus der Tabelle lesen ---------- */
+  var zeiten = {};
+  Array.prototype.forEach.call(document.querySelectorAll('#zeittabelle tbody tr'), function (tr) {
+    zeiten[Number(tr.getAttribute('data-tag'))] = {
+      zeile: tr,
+      offen: spanne(tr.getAttribute('data-offen')),
+      kueche: spanne(tr.getAttribute('data-kueche'))
+    };
+  });
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return { von: minuten(t[0]), bis: minuten(t[1]), vonText: t[0], bisText: t[1] };
+  }
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function alsText(m) {
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h < 10 ? '0' : '') + h + ':' + (r < 10 ? '0' : '') + r;
+  }
+  function naechsterOffenerTag(ab) {
+    for (var i = 1; i <= 7; i++) {
+      var t = (ab + i) % 7;
+      if (zeiten[t] && zeiten[t].offen) { return t; }
+    }
+    return null;
+  }
+
+  var heuteISO = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+  function statusSetzen() {
+    var jetzt = new Date();
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+    if (heute && heute.zeile) { heute.zeile.classList.add('heute'); }
+
+    /* Urlaubshinweis, solange der Zeitraum in der Zukunft liegt oder läuft */
+    var kasten = document.getElementById('urlaubHinweis');
+    if (URLAUB_VON && URLAUB_BIS && heuteISO <= URLAUB_BIS) {
+      document.getElementById('urlaubText').textContent =
+        'Vom ' + lesbar(URLAUB_VON) + ' bis einschließlich ' + lesbar(URLAUB_BIS) + ' bleibt das Wirtshaus geschlossen.';
+      kasten.hidden = false;
+    }
+
+    if (imUrlaub(heuteISO)) {
+      text.textContent = 'Betriebsurlaub';
+      zusatz.textContent = 'Wieder da ab ' + lesbar(naechsterTagNach(URLAUB_BIS));
+      return;
+    }
+
+    var ftName = feiertagName(jetzt);
+    if (ftName) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + ftName + ', wir haben geschlossen';
+        var ftNext = null;
+        for (var ftI = 1; ftI <= 9 && ftNext === null; ftI++) {
+          var ftT = (tag + ftI) % 7;
+          if (zeiten[ftT] && zeiten[ftT].offen && !feiertagName(ftPlus(jetzt, ftI))) { ftNext = ftT; }
+        }
+        if (zusatz) {
+          zusatz.textContent = ftNext === null ? '' :
+            'Wieder geöffnet am ' + TAGNAMEN[ftNext] + ' ab ' + zeiten[ftNext].offen.vonText + ' Uhr';
+        }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + ftName;
+        if (zusatz) { zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON; }
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute Ruhetag';
+      zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = 'Warme Küche bis ' + heute.kueche.bisText + ' Uhr';
+      return;
+    }
+    if (min < heute.offen.bis) {
+      text.textContent = 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      zusatz.textContent = min < heute.kueche.bis
+        ? 'Warme Küche bis ' + heute.kueche.bisText + ' Uhr'
+        : 'Die warme Küche hat für heute geschlossen';
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText ? 'Wieder geöffnet am ' + folgtText : '';
+  }
+  function naechsterTagNach(iso) {
+    var t = iso.split('-');
+    var d = new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2]) + 1);
+    return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  }
+  statusSetzen();
+
+  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
+     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  var hinweis = document.getElementById('navHinweis');
+  var hinweisUhr = null;
+  function hinweisZeigen(el) {
+    hinweis.innerHTML = '';
+    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
+    hinweis.appendChild(b);
+    hinweis.classList.add('sichtbar');
+    window.clearTimeout(hinweisUhr);
+    hinweisUhr = window.setTimeout(function () {
+      hinweis.classList.remove('sichtbar');
+      hinweis.textContent = '';
+    }, 6000);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    el.addEventListener('click', function () { hinweisZeigen(el); });
+    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+    });
+  });
+
+  /* ---------- Seitfix-Anfrage ---------- */
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    var rumpf = 'Guten Tag,\n\nich habe die Demoseite für das ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n';
+    if (SEITFIX_TELEFON) { rumpf += 'Bitte melden Sie sich telefonisch oder per Mail.\n\n'; }
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent(rumpf));
+  }
+
+  /* ---------- Reservierungsformular ---------- */
+  var form = document.getElementById('resForm');
+  if (!form) { return; }
+  var datumFeld = document.getElementById('resDatum');
+  var zeitFeld = document.getElementById('resZeit');
+  var notizFeld = document.getElementById('resNotiz');
+  var bestaetigung = document.getElementById('resBestaetigung');
+
+  datumFeld.setAttribute('min', heuteISO);
+  var spaet = new Date();
+  spaet.setFullYear(spaet.getFullYear() + 1);
+  datumFeld.setAttribute('max', spaet.toISOString().slice(0, 10));
+
+  /* Die Fine-Dine-Knöpfe tragen den Anlass gleich in die Anmerkung ein. */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-anlass]'), function (a) {
+    a.addEventListener('click', function () {
+      if (!notizFeld.value) { notizFeld.value = a.getAttribute('data-anlass'); }
+    });
+  });
+
+  function tagAusISO(iso) {
+    var t = iso.split('-');
+    return new Date(Number(t[0]), Number(t[1]) - 1, Number(t[2])).getDay();
+  }
+  function neueOption(wert, beschriftung) {
+    var o = document.createElement('option');
+    o.value = wert;
+    o.textContent = beschriftung;
+    return o;
+  }
+  function zeitenFuellen() {
+    var iso = datumFeld.value;
+    zeitFeld.innerHTML = '';
+    if (!iso) {
+      zeitFeld.appendChild(neueOption('', 'Bitte zuerst ein Datum wählen'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    if (imUrlaub(iso)) {
+      zeitFeld.appendChild(neueOption('', 'Betriebsurlaub'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    var tag = tagAusISO(iso);
+    var e = zeiten[tag];
+    if (!e || !e.kueche) {
+      zeitFeld.appendChild(neueOption('', TAGNAMEN[tag] + ' ist Ruhetag'));
+      zeitFeld.disabled = true;
+      return;
+    }
+    zeitFeld.disabled = false;
+    zeitFeld.appendChild(neueOption('', 'Bitte wählen'));
+    for (var m = e.kueche.von; m <= e.kueche.bis - 30; m += 30) {
+      var beschriftung = alsText(m) + ' Uhr';
+      if (tag === 5 && m === 18 * 60) { beschriftung += ', Beginn Fine Dine'; }
+      zeitFeld.appendChild(neueOption(alsText(m), beschriftung));
+    }
+  }
+  datumFeld.addEventListener('change', function () {
+    zeitenFuellen();
+    pruefe(datumFeld, 'fehlerDatum');
+  });
+  zeitenFuellen();
+
+  var meldungen = {
+    resName: 'Bitte tragen Sie einen Namen ein.',
+    resTelefon: 'Bitte tragen Sie eine Telefonnummer ein, unter der wir Sie erreichen.',
+    resMail: 'Bitte tragen Sie eine gültige E-Mail-Adresse ein.',
+    resPersonen: 'Bitte geben Sie an, für wie viele Personen der Tisch sein soll.',
+    resDatum: 'Bitte wählen Sie ein Datum.',
+    resZeit: 'Bitte wählen Sie eine Uhrzeit.'
+  };
+
+  function pruefe(feld, fehlerId) {
+    var box = document.getElementById(fehlerId);
+    var huelle = feld.closest('.feld');
+    var text = '';
+    if (!feld.value) {
+      text = meldungen[feld.id];
+    } else if (feld.id === 'resMail' && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(feld.value)) {
+      text = meldungen.resMail;
+    } else if (feld.id === 'resTelefon' && feld.value.replace(/[^0-9]/g, '').length < 6) {
+      text = 'Diese Telefonnummer sieht zu kurz aus.';
+    } else if (feld.id === 'resDatum') {
+      if (feld.value < heuteISO) {
+        text = 'Dieses Datum liegt in der Vergangenheit.';
+      } else if (imUrlaub(feld.value)) {
+        text = 'In dieser Zeit ist Betriebsurlaub. Ab ' + lesbar(naechsterTagNach(URLAUB_BIS)) + ' ist wieder offen.';
+      } else {
+        var e = zeiten[tagAusISO(feld.value)];
+        if (!e || !e.offen) {
+          text = 'Am ' + TAGNAMEN[tagAusISO(feld.value)] + ' ist Ruhetag. Bitte wählen Sie einen anderen Tag.';
+        }
+      }
+    } else if (feld.id === 'resPersonen' && (Number(feld.value) < 1 || Number(feld.value) > 30)) {
+      text = 'Bitte eine Zahl zwischen 1 und 30. Für größere Runden rufen Sie bitte an.';
+    }
+    box.textContent = text;
+    if (huelle) { huelle.classList.toggle('ungueltig', Boolean(text)); }
+    return !text;
+  }
+
+  Object.keys(meldungen).forEach(function (id) {
+    var feld = document.getElementById(id);
+    feld.addEventListener('blur', function () { pruefe(feld, 'fehler' + id.slice(3)); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    bestaetigung.hidden = true;
+    var alleGut = true, erstes = null;
+    Object.keys(meldungen).forEach(function (id) {
+      var feld = document.getElementById(id);
+      if (!pruefe(feld, 'fehler' + id.slice(3))) {
+        alleGut = false;
+        if (!erstes) { erstes = feld; }
+      }
+    });
+    if (!alleGut) { if (erstes) { erstes.focus(); } return; }
+
+    var d = datumFeld.value.split('-');
+    var koerper = [
+      'Reservierungswunsch über die Website',
+      '',
+      'Name:      ' + document.getElementById('resName').value,
+      'Telefon:   ' + document.getElementById('resTelefon').value,
+      'E-Mail:    ' + document.getElementById('resMail').value,
+      'Datum:     ' + d[2] + '.' + d[1] + '.' + d[0] + ' (' + TAGNAMEN[tagAusISO(datumFeld.value)] + ')',
+      'Uhrzeit:   ' + zeitFeld.value + ' Uhr',
+      'Personen:  ' + document.getElementById('resPersonen').value,
+      '',
+      'Anmerkung: ' + (notizFeld.value || 'keine'),
+      '',
+      'Gesendet über die Website vom ' + BETRIEB + '.'
+    ].join('\n');
+
+    window.location.href = 'mailto:' + RESERVIERUNG_EMPFAENGER +
+      '?subject=' + encodeURIComponent('Tischreservierung ' + BETRIEB) +
+      '&body=' + encodeURIComponent(koerper);
+    bestaetigung.hidden = false;
+  });
+}());
+</script>
+</body>
+</html>
