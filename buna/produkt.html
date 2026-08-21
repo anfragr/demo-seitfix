@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
+       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
+  <meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaffee | BUNA Coffee Roasters, Graz | Demo von Seitfix</title>
+<meta name="description" content="BUNA Coffee Roasters, Joanneumring 16, 8010 Graz. Sortenreine Single Origins, seit 2015 selbst geröstet. Kaffee, Zubehör und Workshops im Shop.">
+<meta name="theme-color" content="#2e1b08">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_AT">
+<meta property="og:title" content="BUNA Coffee Roasters | Kaffeerösterei in Graz">
+<meta property="og:description" content="Buna heißt Kaffee. Sortenreine Single Origins, seit 2015 geröstet in Graz.">
+<meta property="og:image" content="assets/img/roestung.webp">
+<meta property="og:site_name" content="BUNA Coffee Roasters">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232e1b08'/%3E%3Cellipse cx='16' cy='16' rx='7.5' ry='10' fill='%23f9be58'/%3E%3Cpath d='M16 6.4c-2.2 3-2.2 16.2 0 19.2' stroke='%232e1b08' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<style>
+/* Schriften liegen lokal in assets/fonts, es wird kein fremder Server aufgerufen.
+   Lato ist die Schrift, die buna.at selbst verwendet. */
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/lato-400.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/lato-700.woff2') format('woff2')}
+@font-face{font-family:'Lato';font-style:normal;font-weight:900;font-display:swap;src:url('assets/fonts/lato-900.woff2') format('woff2')}
+
+:root{
+  /* Farbwelt aus dem Stylesheet von buna.at. Der Akzent ist eine Spur
+     abgedunkelt, das Original #c4533a erreicht auf der hellen Flaeche nur 4,22:1. */
+  --farbe-primaer:#653804;
+  --farbe-akzent:#b2462e;
+  --farbe-gelb:#f9be58;
+  --farbe-text:#23282d;
+  --farbe-flaeche:#ffffff;
+  --farbe-flaeche-2:#f7f7f9;
+  --farbe-dunkel:#2e1b08;
+  --farbe-linie:#e0dad2;
+  --farbe-gedaempft:#5f5850;
+
+  /* Abstandsraster. Es gibt nur diese neun Werte, nichts dazwischen. */
+  --a1:.25rem; --a2:.5rem; --a3:.75rem; --a4:1rem;
+  --a5:1.5rem; --a6:2rem; --a7:3rem; --a8:4rem; --a9:6rem;
+
+  --schrift:'Lato',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --breite:1280px;
+  --kopfhoehe:68px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{transition:none !important}}
+body{margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift);font-size:1.0625rem;line-height:1.65;overflow-x:clip}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--schrift);letter-spacing:-.02em;line-height:1.2;margin:0;overflow-wrap:break-word}
+p{margin:0}
+a{color:var(--farbe-akzent)}
+:focus-visible{outline:2px solid var(--farbe-akzent);outline-offset:2px}
+.rand{width:100%;max-width:var(--breite);margin:0 auto;padding:0 var(--a4)}
+@media (min-width:640px){.rand{padding:0 var(--a5)}}
+
+/* ---------- Knoepfe ---------- */
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:44px;
+  padding:var(--a3) var(--a5);border:1px solid transparent;border-radius:4px;
+  font-family:var(--schrift);font-weight:700;font-size:.78rem;letter-spacing:.1em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;background:none}
+.knopf-voll{background:var(--farbe-dunkel);color:#fff}
+.knopf-voll:hover{background:#452a10}
+.knopf-gelb{background:var(--farbe-gelb);color:var(--farbe-dunkel)}
+.knopf-gelb:hover{background:#fbd082}
+.knopf-rand{border-color:var(--farbe-linie);color:var(--farbe-text)}
+.knopf-rand:hover{border-color:var(--farbe-text)}
+.knopf-klein{min-height:44px;width:100%;font-size:.72rem;padding:var(--a2) var(--a3)}
+
+/* ---------- 1. Demoleiste ---------- */
+.demoleiste{background:#000;color:#bdb5aa;font-size:.8125rem;line-height:1.4;
+  padding:var(--a2) var(--a4);text-align:center}
+.demoleiste a{color:var(--farbe-gelb);text-underline-offset:3px}
+
+/* ---------- 2. Hinweisleiste ---------- */
+.hinweisleiste{background:var(--farbe-dunkel);color:#e7ddd0;font-size:.8125rem;
+  line-height:1.4;padding:var(--a2) var(--a4);text-align:center;letter-spacing:.01em}
+
+/* ---------- 3. Kopf ---------- */
+.kopf{position:sticky;top:0;z-index:70;background:#fff;border-bottom:1px solid var(--farbe-linie)}
+.kopf-innen{display:flex;align-items:center;gap:var(--a4);height:var(--kopfhoehe)}
+.wortmarke{display:flex;flex-direction:column;justify-content:center;text-decoration:none;
+  color:var(--farbe-text);flex:0 0 auto;min-height:44px}
+.wortmarke b{font-size:1.25rem;font-weight:900;letter-spacing:.1em;line-height:1.1}
+.wortmarke span{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--farbe-gedaempft);margin-top:2px}
+.kopfnav{flex:1 1 auto;min-width:0}
+.kopfnav ul{list-style:none;display:flex;flex-wrap:nowrap;gap:0 var(--a5);margin:0;padding:0;
+  overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
+.kopfnav ul::-webkit-scrollbar{display:none}
+.kopfnav li{flex:0 0 auto}
+.kopfnav a,.nav-inaktiv{display:inline-flex;align-items:center;min-height:44px;
+  font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+  color:var(--farbe-text);text-decoration:none;white-space:nowrap}
+.kopfnav a:hover{color:var(--farbe-akzent)}
+.nav-inaktiv{color:var(--farbe-gedaempft);font-weight:400;cursor:not-allowed}
+.nav-inaktiv::before{content:'';width:5px;height:5px;border:1px solid currentColor;
+  border-radius:50%;margin-right:var(--a2);flex:none}
+.kopfrechts{display:flex;align-items:center;gap:var(--a2);flex:0 0 auto;margin-left:auto}
+.kopfknopf{display:inline-flex;align-items:center;gap:var(--a2);min-height:44px;
+  padding:0 var(--a3);border:0;background:none;cursor:pointer;font-family:var(--schrift);
+  font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+  color:var(--farbe-text);border-radius:4px}
+.kopfknopf:hover{color:var(--farbe-akzent)}
+.kopfknopf svg{width:18px;height:18px;flex:none}
+.korbzahl{display:inline-flex;align-items:center;justify-content:center;min-width:22px;
+  height:22px;padding:0 6px;background:var(--farbe-gelb);color:var(--farbe-dunkel);
+  font-size:.75rem;font-weight:900;letter-spacing:0;border-radius:4px}
+@media (max-width:900px){.kopfknopf span:not(.korbzahl){position:absolute;width:1px;height:1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* Am Handy braucht die Navigation den Platz. Wortmarke und Knoepfe geben ihn her,
+   die Navigation scrollt waagrecht und der naechste Punkt ist angeschnitten. */
+@media (max-width:639px){
+  .kopf-innen{gap:var(--a2)}
+  .wortmarke b{font-size:1.05rem;letter-spacing:.08em}
+  .wortmarke span{font-size:.5rem;letter-spacing:.12em}
+  .kopfnav ul{gap:0 var(--a4)}
+  .kopfnav a,.nav-inaktiv{font-size:.72rem;letter-spacing:.06em}
+  .kopfknopf{padding:0 var(--a1);gap:var(--a1)}
+}
+.suchfeld{border-top:1px solid var(--farbe-linie);padding:var(--a3) 0}
+.suchfeld[hidden]{display:none}
+.suchfeld input{width:100%;max-width:26rem;font-family:var(--schrift);font-size:1rem;
+  padding:var(--a2) var(--a3);min-height:44px;border:1px solid var(--farbe-linie);
+  border-radius:4px;color:var(--farbe-text)}
+.suchfeld p{margin-top:var(--a2);font-size:.85rem;color:var(--farbe-gedaempft)}
+.nav-hinweis{margin:0;font-size:.85rem;line-height:1.5;color:var(--farbe-text);
+  background:var(--farbe-flaeche-2);max-height:0;overflow:hidden;transition:max-height .2s ease}
+.nav-hinweis.sichtbar{max-height:9rem;padding:var(--a3) 0}
+.nav-hinweis b{color:var(--farbe-akzent)}
+
+/* ---------- 4. Hero ---------- */
+.hero{position:relative;isolation:isolate;min-height:62vh;display:flex;align-items:flex-end;
+  background:var(--farbe-dunkel);color:#fff;padding:var(--a9) 0 var(--a7)}
+.hero-bild{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(16,9,3,.84) 0%,rgba(16,9,3,.55) 55%,rgba(16,9,3,.38) 100%)}
+.hero .rand{width:100%;min-width:0}
+.hero h1{font-size:clamp(3rem,7.5vw,9rem);font-weight:900;line-height:.92;color:#fff;
+  letter-spacing:-.03em}
+.hero-satz{margin:var(--a4) 0 var(--a6);font-size:clamp(1.05rem,1.9vw,1.4rem);
+  color:#efe7dc;max-width:34ch;line-height:1.5}
+
+/* ---------- 5. Kategoriekacheln ---------- */
+.kacheln{display:grid;gap:var(--a4);grid-template-columns:1fr}
+@media (min-width:640px){.kacheln{grid-template-columns:repeat(3,1fr)}}
+.kachel{position:relative;display:block;aspect-ratio:4/3;border-radius:4px;overflow:hidden;
+  text-decoration:none;color:#fff;background:var(--farbe-dunkel)}
+.kachel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kachel::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(16,9,3,.8) 0%,rgba(16,9,3,.18) 60%,rgba(16,9,3,0) 100%)}
+.kachel-text{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:var(--a4)}
+.kachel-text b{display:block;font-size:1.15rem;font-weight:900;letter-spacing:-.02em}
+.kachel-text span{display:block;font-size:.85rem;color:#e7ddd0;margin-top:var(--a1)}
+.kachel:hover .kachel-text b{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Abschnitte ---------- */
+.abschnitt{padding:var(--a8) 0}
+.abschnitt-hell{background:var(--farbe-flaeche-2)}
+.abschnitt-kopf{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--a2) var(--a4);
+  margin-bottom:var(--a6)}
+.abschnitt-kopf h2{font-size:1.3rem;font-weight:900}
+.abschnitt-kopf .dazu{font-size:.92rem;color:var(--farbe-gedaempft)}
+
+/* ---------- 6./7. Produktraster. Wortlaut aus der Vorgabe. ---------- */
+.raster{display:grid;gap:2rem 1rem;grid-template-columns:repeat(2,1fr)}
+@media(min-width:640px){.raster{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.raster{grid-template-columns:repeat(4,1fr)}}
+
+.produkt{display:flex;flex-direction:column;min-width:0}
+.produkt-bild{position:relative;aspect-ratio:1/1;background:#fff;
+  border:1px solid var(--farbe-linie);border-radius:4px;overflow:hidden}
+.produkt-bild img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:contain;padding:11%}
+.produkt-name{margin:.75rem 0 .25rem;font-size:.88rem;font-weight:500;line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  min-height:2.8em}
+.produkt-preis{font-size:.92rem;font-weight:700}
+.produkt-preis small{font-weight:400;color:var(--farbe-gedaempft);font-size:.76rem}
+
+.produkt-noten{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:700;color:var(--farbe-akzent);margin:var(--a3) 0 0;line-height:1.35;
+  min-height:2.7em}
+.produkt-noten + .produkt-name{margin-top:var(--a1)}
+.produkt-lager{font-size:.76rem;color:#3f6b34;font-weight:700;margin:var(--a1) 0 0}
+.produkt-knopf{margin-top:auto;padding-top:var(--a3)}
+.produkt[hidden]{display:none}
+
+/* ---------- 8. Workshops ---------- */
+.kurse{display:grid;gap:var(--a5) var(--a4);grid-template-columns:1fr}
+@media (min-width:640px){.kurse{grid-template-columns:repeat(2,1fr)}}
+.kurs{display:flex;flex-direction:column;min-width:0;
+  border:1px solid var(--farbe-linie);border-radius:4px;background:#fff;overflow:hidden}
+.kurs-bild{position:relative;aspect-ratio:3/2;background:var(--farbe-flaeche-2)}
+.kurs-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kurs-inhalt{display:flex;flex-direction:column;flex:1;padding:var(--a5)}
+.kurs h3{font-size:1.05rem;font-weight:900;margin-bottom:var(--a1)}
+.kurs .dauer{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+  color:var(--farbe-akzent);margin-bottom:var(--a3)}
+.kurs .text{font-size:.9rem;color:var(--farbe-gedaempft);max-width:46ch}
+.kurs .preis{font-size:.92rem;font-weight:700;margin:var(--a4) 0 var(--a3)}
+.kurs .knopf{align-self:flex-start;width:auto;padding:var(--a2) var(--a5);margin-top:auto}
+.kurs[hidden]{display:none}
+
+/* ---------- 9. Band ---------- */
+.band{position:relative;isolation:isolate;color:#fff;background:var(--farbe-dunkel);
+  min-height:46vh;display:flex;align-items:flex-end;padding:var(--a9) 0 var(--a7)}
+.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.band::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(16,9,3,.84) 0%,rgba(16,9,3,.5) 70%,rgba(16,9,3,.35) 100%)}
+.band .rand{width:100%;min-width:0}
+.band h2{font-size:clamp(1.4rem,3vw,2rem);font-weight:900;margin-bottom:var(--a4);max-width:20ch}
+.band p{max-width:52ch;color:#efe7dc}
+
+/* ---------- 10. Fuss ---------- */
+.fuss{background:#fff;border-top:1px solid var(--farbe-linie);padding:var(--a8) 0 var(--a6)}
+.fuss-raster{display:grid;gap:var(--a6);grid-template-columns:1fr}
+@media (min-width:640px){.fuss-raster{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.fuss-raster{grid-template-columns:repeat(4,1fr)}}
+.fuss h3{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--farbe-gedaempft);margin-bottom:var(--a3)}
+.fuss ul{list-style:none;margin:0;padding:0}
+.fuss li{padding:var(--a1) 0;font-size:.92rem;line-height:1.6}
+.fuss a{color:var(--farbe-text);text-underline-offset:3px}
+.fuss a:hover{color:var(--farbe-akzent)}
+.fuss address{font-style:normal;font-size:.92rem;line-height:1.6}
+.fuss .zeiten{font-size:.92rem;margin-top:var(--a3)}
+.status{margin-top:var(--a3);padding-top:var(--a3);border-top:1px solid var(--farbe-linie)}
+.status b{display:block;font-size:.92rem;font-weight:700}
+.status span{display:block;font-size:.85rem;color:var(--farbe-gedaempft);margin-top:2px}
+.fuss-schluss{margin-top:var(--a6);padding-top:var(--a4);border-top:1px solid var(--farbe-linie);
+  font-size:.82rem;color:var(--farbe-gedaempft);line-height:1.6}
+.fuss-schluss a{color:var(--farbe-gedaempft)}
+@media (max-width:639px){
+  .fuss a[href^="tel:"],.fuss a[href^="mailto:"],.fuss a[href*="openstreetmap"]{
+    display:inline-flex;align-items:center;min-height:44px}
+}
+
+/* ---------- 11. Seitfix ---------- */
+.seitfix{background:#1b1b1d;color:#d6d6d8;padding:var(--a8) 0}
+.seitfix h2{color:#fff;font-size:1.2rem;font-weight:900;margin-bottom:var(--a4)}
+.seitfix p{max-width:62ch;margin-bottom:var(--a4);font-size:.95rem;line-height:1.65}
+.seitfix q{color:#fff;font-style:normal}
+.seitfix .marke{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:700;color:#9fd0c4;margin-bottom:var(--a3)}
+.seitfix .zahl{display:block;font-size:clamp(2rem,5vw,3rem);font-weight:900;color:#fff;
+  line-height:1;letter-spacing:-.03em;margin-bottom:var(--a2)}
+.seitfix a{color:#9fd0c4}
+.seitfix :focus-visible{outline-color:#9fd0c4}
+/* Die Spezifitaet muss ueber .seitfix a liegen, sonst steht der Knopftext
+   in derselben Farbe wie seine Flaeche. */
+.seitfix .knopf-seitfix{background:#9fd0c4;color:#12211d}
+.seitfix .knopf-seitfix:hover{background:#b6ded4}
+
+/* ---------- Warenkorb als Lade. Wortlaut aus der Vorgabe. ---------- */
+.schatten{position:fixed;inset:0;background:rgba(10,10,12,.45);z-index:80;
+  opacity:0;pointer-events:none;transition:opacity .2s}
+.schatten[data-offen]{opacity:1;pointer-events:auto}
+.lade{position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(26rem,100%);
+  background:#fff;display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform .24s ease}
+.lade[data-offen]{transform:none}
+.lade-liste{overflow-y:auto;flex:1}
+
+.lade-kopf{display:flex;align-items:center;justify-content:space-between;gap:var(--a4);
+  padding:var(--a4) var(--a5);border-bottom:1px solid var(--farbe-linie);flex:0 0 auto}
+.lade-kopf h2{font-size:1.05rem;font-weight:900}
+.zu{border:0;background:none;font-size:1.6rem;line-height:1;cursor:pointer;
+  min-width:44px;min-height:44px;color:var(--farbe-text);border-radius:4px}
+.zu:hover{color:var(--farbe-akzent)}
+.lade-liste{list-style:none;margin:0;padding:0}
+.lade-liste li{display:grid;grid-template-columns:56px 1fr auto;gap:var(--a3);
+  align-items:start;padding:var(--a4) var(--a5);border-bottom:1px solid var(--farbe-linie)}
+.lade-bild{width:56px;height:56px;border:1px solid var(--farbe-linie);border-radius:4px;
+  overflow:hidden;background:#fff;position:relative}
+.lade-liste li.ohne-bild{grid-template-columns:1fr auto}
+.lade-liste li.ohne-bild .lade-bild{display:none}
+.lade-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8%}
+.lade-name{font-size:.88rem;font-weight:700;line-height:1.35}
+.lade-stueck{font-size:.78rem;color:var(--farbe-gedaempft);margin-top:2px}
+.mengenschalter{display:inline-flex;align-items:center;gap:var(--a1);margin-top:var(--a2)}
+.mengenschalter button{width:44px;height:44px;min-width:44px;border:1px solid var(--farbe-linie);
+  background:#fff;border-radius:4px;cursor:pointer;font-family:var(--schrift);
+  font-size:1rem;font-weight:700;color:var(--farbe-text);line-height:1}
+.mengenschalter button:hover{border-color:var(--farbe-text)}
+.mengenschalter span{min-width:2rem;text-align:center;font-size:.88rem;font-weight:700}
+.lade-zeilenpreis{font-size:.88rem;font-weight:700;white-space:nowrap;text-align:right}
+.leer{padding:var(--a6) var(--a5);color:var(--farbe-gedaempft);font-size:.95rem}
+.leer[hidden]{display:none}
+.lade-fuss{flex:0 0 auto;border-top:1px solid var(--farbe-linie);padding:var(--a5)}
+.summe{display:flex;justify-content:space-between;align-items:baseline;gap:var(--a4);
+  font-size:.95rem}
+.summe b{font-size:1.25rem;font-weight:900}
+.lade-hinweis{margin:var(--a2) 0 var(--a4);font-size:.82rem;color:var(--farbe-gedaempft)}
+#kasse{width:100%;cursor:not-allowed;opacity:.9}
+.kassenhinweis{margin:0;font-size:.85rem;line-height:1.55;color:var(--farbe-text);
+  max-height:0;overflow:hidden;transition:max-height .2s ease}
+.kassenhinweis.sichtbar{max-height:14rem;padding-top:var(--a3)}
+.kassenhinweis b{color:var(--farbe-akzent)}
+
+  /* ---------- Kaffee: Ware links, Beschreibung rechts ---------- */
+  /* Nur sinnvoll, solange es wenige Sorten sind. Ab etwa acht Artikeln die
+     warezwei-Huelle entfernen, dann traegt das Raster wieder die volle Breite. */
+  .warezwei{display:grid;gap:var(--a6);align-items:start}
+  @media(min-width:1000px){
+    .warezwei{grid-template-columns:minmax(0,3fr) minmax(0,1.15fr);gap:var(--a7)}
+  }
+  .warezwei .raster{grid-template-columns:repeat(2,1fr)}
+  @media(min-width:640px){.warezwei .raster{grid-template-columns:repeat(3,1fr)}}
+
+  .warentext{border-top:2px solid var(--farbe-primaer);padding-top:var(--a4)}
+  @media(min-width:1000px){
+    .warentext{border-top:0;border-left:1px solid var(--farbe-linie);padding:0 0 0 var(--a6)}
+  }
+  .warentext h3{font-size:1.02rem;font-weight:900;margin:0 0 var(--a3)}
+  .warentext p{font-size:.92rem;color:var(--farbe-gedaempft);margin:0 0 var(--a4)}
+  .warentext p:last-of-type{margin-bottom:0}
+  .warentext strong{color:var(--farbe-text)}
+  .warenfakten{list-style:none;margin:var(--a5) 0 0;padding:var(--a4) 0 0;
+    border-top:1px solid var(--farbe-linie);font-size:.86rem}
+  .warenfakten li{display:grid;grid-template-columns:auto 1fr;gap:var(--a3);
+    padding:var(--a2) 0;color:var(--farbe-gedaempft)}
+  .warenfakten b{color:var(--farbe-text);font-weight:700;white-space:nowrap}
+
+  /* ---------- Women in Coffee ---------- */
+  /* Der Abschnitt ueber die gelben Packungen ist gelb. Das Bild ist das Logo
+     der Linie, deshalb contain auf weisser Flaeche, nie beschneiden. */
+  .wic{background:var(--farbe-gelb);color:var(--farbe-dunkel);padding:var(--a8) 0}
+  .wic-innen{display:grid;gap:var(--a6);align-items:center}
+  @media(min-width:900px){
+    .wic-innen{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:var(--a7)}
+  }
+  .wic-bild{position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;
+    background:#fff}
+  .wic-bild img{position:absolute;inset:0;width:100%;height:100%;
+    object-fit:contain;padding:14%}
+  .wic .marke{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:900;margin:0 0 var(--a3)}
+  .wic h2{font-size:clamp(1.35rem,2.8vw,1.95rem);font-weight:900;
+    margin:0 0 var(--a4);max-width:22ch;letter-spacing:-.02em}
+  .wic p{font-size:.98rem;margin:0 0 var(--a4);max-width:52ch}
+  .wic .zitat{border-left:3px solid var(--farbe-dunkel);padding-left:var(--a4);
+    font-weight:700}
+  .wic .zitat small{display:block;font-weight:400;font-size:.82rem;margin-top:var(--a2)}
+  .wic .knopf-dunkel{background:var(--farbe-dunkel);border-color:var(--farbe-dunkel);color:#fff}
+
+  
+  /* ---------- Produktseite ---------- */
+  .pfad{font-size:.8rem;color:var(--farbe-gedaempft);padding:var(--a5) 0 0}
+  .pfad a{color:inherit}
+  .pseite{display:grid;gap:var(--a6);padding:var(--a5) 0 var(--a8);align-items:start}
+  @media(min-width:900px){.pseite{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--a7)}}
+  .pbild{position:relative;aspect-ratio:1/1;background:#fff;border:1px solid var(--farbe-linie);
+    border-radius:4px;overflow:hidden}
+  .pbild img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:8%}
+  .pnoten{font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+    color:var(--farbe-akzent);margin:0 0 var(--a2)}
+  .pname{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:900;letter-spacing:-.02em;
+    margin:0 0 var(--a3)}
+  .ppreis{font-size:1.35rem;font-weight:900;margin:0 0 var(--a1)}
+  .ppreis small{font-weight:400;color:var(--farbe-gedaempft);font-size:.82rem}
+  .plager{font-size:.8rem;color:#3f6b34;font-weight:700;margin:0 0 var(--a5)}
+  .wahl{margin:0 0 var(--a5)}
+  .wahl-titel{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+    font-weight:700;color:var(--farbe-gedaempft);margin-bottom:var(--a3)}
+  .pillen{display:flex;flex-wrap:wrap;gap:var(--a2)}
+  .pille{position:relative}
+  .pille input{position:absolute;inset:0;opacity:0;cursor:pointer}
+  .pille span{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--a4);
+    border:1px solid var(--farbe-linie);border-radius:4px;font-size:.88rem;font-weight:700;
+    background:#fff;color:var(--farbe-text)}
+  .pille input:checked+span{border-color:var(--farbe-primaer);background:var(--farbe-primaer);color:#fff}
+  .pille input:focus-visible+span{outline:2px solid var(--farbe-akzent);outline-offset:2px}
+  .abo-hinweis{font-size:.85rem;color:var(--farbe-gedaempft);margin:var(--a3) 0 0;max-width:46ch}
+  .zusammenfassung{border-top:1px solid var(--farbe-linie);padding-top:var(--a4);
+    margin:var(--a5) 0;font-size:.92rem}
+  .zusammenfassung b{font-weight:700}
+  .pfakten{list-style:none;margin:var(--a6) 0 0;padding:var(--a4) 0 0;
+    border-top:1px solid var(--farbe-linie);font-size:.86rem}
+  .pfakten li{display:grid;grid-template-columns:auto 1fr;gap:var(--a3);
+    padding:var(--a2) 0;color:var(--farbe-gedaempft)}
+  .pfakten b{color:var(--farbe-text);font-weight:700;white-space:nowrap}
+  .weitere{padding:0 0 var(--a8)}
+  .weitere h2{font-size:1.05rem;font-weight:900;margin:0 0 var(--a5)}
+  .weitere .raster{grid-template-columns:repeat(2,1fr);max-width:34rem}
+
+  </style>
+</head>
+<body>
+
+<div class="demoleiste">
+  Unverbindlicher Vorschlag für BUNA Coffee Roasters, erstellt von Seitfix.
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div>
+
+<p class="hinweisleiste">Abholung am Joanneumring 16, Versand innerhalb Österreichs.</p>
+
+<header class="kopf">
+  <div class="rand kopf-innen">
+    <a class="wortmarke" href="index.html"><b>BUNA</b><span>Coffee Roasters Graz</span></a>
+    <nav class="kopfnav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="index.html#kaffee">Kaffee</a></li>
+        <li><a href="index.html#zubehoer">Zubehör</a></li>
+        <li><a href="index.html#workshops">Workshops</a></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite für Gastronomie und Handel, Büro und Veranstaltungen, jeweils mit Anfrageformular, Gebindegrößen und Geräteverleih.">Firmenkund:innen</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
+                 data-hinweis="Eigene Seite mit der Geschichte seit 2007, der Röstung in Graz-Puntigam und der Linie Women in Coffee.">Über uns</span></li>
+      </ul>
+    </nav>
+    <div class="kopfrechts">
+      <button type="button" class="kopfknopf" id="suchAuf" aria-expanded="false" aria-controls="suchfeld">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.5-4.5"/></svg>
+        <span>Suche</span>
+      </button>
+      <button type="button" class="kopfknopf" id="korbAuf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16l-1.5 12.5a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+        <span>Warenkorb</span><span class="korbzahl" id="korbZahl">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="rand suchfeld" id="suchfeld" hidden>
+    <input type="search" id="suche" placeholder="Kaffee, Zubehör, Workshop" autocomplete="off" aria-label="Im Sortiment suchen">
+    <p id="suchErgebnis" role="status"></p>
+  </div>
+  <div class="nav-hinweis" id="navHinweis" role="status"><div class="rand" id="navHinweisText"></div></div>
+</header>
+
+<main id="oben">
+
+  <div class="rand pfad"><a href="index.html#kaffee">Kaffee</a> / <span id="pfadName">Sorte</span></div>
+
+  <section class="rand pseite" aria-label="Produkt">
+    <div class="pbild">
+      <img id="pBild" src="assets/img/kaffee-aethiopien.webp" width="700" height="700"
+           alt="BUNA Kaffeepackung">
+    </div>
+
+    <div>
+      <p class="pnoten" id="pNoten"></p>
+      <h1 class="pname" id="pName"></h1>
+      <p class="ppreis"><span id="pPreis"></span> <small>inkl. MwSt.</small></p>
+      <p class="plager">Vorrätig</p>
+
+      <div class="wahl">
+        <span class="wahl-titel" id="wtGroesse">Größe</span>
+        <div class="pillen" id="wGroesse" role="radiogroup" aria-labelledby="wtGroesse">
+          <label class="pille"><input type="radio" name="groesse" value="250" checked><span>250 g</span></label>
+          <label class="pille"><input type="radio" name="groesse" value="1000"><span>1000 g</span></label>
+        </div>
+      </div>
+
+      <div class="wahl">
+        <span class="wahl-titel" id="wtMahlung">Mahlung</span>
+        <div class="pillen" role="radiogroup" aria-labelledby="wtMahlung">
+          <label class="pille"><input type="radio" name="mahlung" value="Ganze Bohne" checked><span>Ganze Bohne</span></label>
+          <label class="pille"><input type="radio" name="mahlung" value="Gemahlen"><span>Gemahlen</span></label>
+        </div>
+      </div>
+
+      <div class="wahl">
+        <span class="wahl-titel" id="wtRhythmus">Lieferrhythmus</span>
+        <div class="pillen" role="radiogroup" aria-labelledby="wtRhythmus">
+          <label class="pille"><input type="radio" name="rhythmus" value="" checked><span>Einmalig</span></label>
+          <label class="pille"><input type="radio" name="rhythmus" value="alle 2 Wochen"><span>Alle 2 Wochen</span></label>
+          <label class="pille"><input type="radio" name="rhythmus" value="alle 4 Wochen"><span>Alle 4 Wochen</span></label>
+          <label class="pille"><input type="radio" name="rhythmus" value="alle 6 Wochen"><span>Alle 6 Wochen</span></label>
+        </div>
+        <p class="abo-hinweis">Ab einem Rhythmus von zwei Wochen wird daraus ein Abo. Auf der
+        fertigen Website übernimmt das Shopify: Ihre Kundinnen und Kunden pausieren oder
+        überspringen eine Lieferung selbst, ohne anzurufen und ohne zu schreiben.</p>
+      </div>
+
+      <p class="zusammenfassung">Ihre Auswahl: <b id="pZusammen"></b></p>
+
+      <button type="button" class="knopf knopf-voll" id="pKorb" data-korb
+              data-artikel="" data-preis="0" data-bild="">In den Warenkorb</button>
+
+      <ul class="pfakten">
+        <li><b>Sorte</b><span>Sortenrein, hundert Prozent Arabica</span></li>
+        <li><b>Röstung</b><span>Graz-Puntigam, schonend, seit 2015</span></li>
+        <li><b>Versand</b><span>Innerhalb Österreichs, Post AG, 2 bis 4 Werktage Bearbeitungszeit</span></li>
+        <li><b>Abholung</b><span>Joanneumring 16, Freitag 10 bis 18 Uhr und nach Vereinbarung</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rand weitere" aria-label="Weitere Kaffees">
+    <h2>Auch frisch geröstet</h2>
+    <div class="raster" id="pWeitere"></div>
+  </section>
+
+</main>
+
+<footer class="fuss">
+  <div class="rand">
+    <div class="fuss-raster">
+      <div>
+        <h3>Geschäft</h3>
+        <address>
+          Joanneumring 16<br>8010 Graz<br>
+          <a href="https://www.openstreetmap.org/search?query=Joanneumring%2016%2C%208010%20Graz" target="_blank" rel="noopener">Auf der Karte ansehen</a>
+        </address>
+        <p class="zeiten">Freitag 10 bis 18 Uhr und nach Vereinbarung</p>
+        <p class="status">
+          <b id="statusText">Öffnungszeiten werden geladen</b>
+          <span id="statusZusatz"></span>
+        </p>
+      </div>
+
+      <div>
+        <h3>Bestellen</h3>
+        <ul>
+          <li>Versand innerhalb Österreichs</li>
+          <li>Bearbeitungszeit 2 bis 4 Werktage</li>
+          <li>Österreichische Post AG</li>
+          <li>Zahlung per Überweisung, Kreditkarte oder PayPal</li>
+          <li>Abholung am Joanneumring 16</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Rechtliches</h3>
+        <ul>
+          <li>Impressum</li>
+          <li>Allgemeine Geschäftsbedingungen</li>
+          <li>Datenschutzerklärung</li>
+          <li>Widerrufsbelehrung</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="tel:+43316228683">0316 228683</a></li>
+          <li><a href="mailto:office@buna.at">office@buna.at</a></li>
+          <li>Inhaberin Susanne Feier</li>
+          <li><a href="warenkorb.html">Warenkorb als eigene Seite</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fuss-schluss">Unverbindliche Demoseite von Seitfix, kein Auftritt des Betriebs. Alle Bildrechte liegen bei BUNA Coffee Roasters, Imagefotografie von Peter Oswald aka Tasty. <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a></p>
+  </div>
+</footer>
+
+<section class="seitfix" aria-labelledby="sfTitel">
+  <div class="rand">
+    <p class="marke">In eigener Sache</p>
+    <h2 id="sfTitel">Diese Seite ist ein Vorschlag für BUNA Coffee Roasters.</h2>
+    <p>Auf Ihrer Startseite steht: <q>Leider kommt es seit einiger Zeit zu Problemen im Onlineshop, aus diesem Grund haben wir uns entschieden ihn Offline zu schalten. Für Kaffee Bestellungen schreib bitte eine Email an walter@buna.at.</q></p>
+    <p>Der Shop läuft aber. Uraga, Fazenda Mumbuca und der Decaf stehen heute mit Preis, Mahlgrad und funktionierendem Warenkorb online. Nur findet sie niemand: die Kategorie Kaffee meldet, es seien keine Produkte gefunden worden, und von der Startseite führt kein Weg hin. Das ist kein kaputter Shop, das ist ein Katalog ohne Eintrag.</p>
+    <p><span class="zahl" id="preisEinmalig"></span>
+      einmalig, ohne Umsatzsteuer, für den kompletten Shop auf Shopify: sieben Seiten, Texte, Bildbearbeitung, Produkte angelegt, Warenkorb und Kasse eingerichtet, eine Korrekturrunde. Die Website gehört danach Ihnen.</p>
+    <p>Danach <span id="preisShopify"></span> Euro im Monat an Shopify, bei jährlicher Zahlung <span id="preisShopifyJahr"></span>. Produkte, Preise und Verfügbarkeit ändern Sie selbst, ohne mich und ohne HTML. Das Kaffeeabo ist ohne Aufpreis dabei. Betreuung durch mich optional, <span id="preisBetreuung"></span> Euro im Monat, monatlich kündbar. Ehrlich dazu: die Produktadressen ändern sich, sie werden weitergeleitet, die Anzeige bei Google braucht danach ein paar Wochen.</p>
+    <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="mailto:hallo@seitfix.at">Unverbindlich anfragen</a></p>
+  </div>
+</section>
+
+<div class="schatten" id="schatten"></div>
+<aside class="lade" id="lade" aria-hidden="true" aria-label="Warenkorb">
+  <div class="lade-kopf"><h2>Warenkorb</h2>
+    <button class="zu" id="korbZu" aria-label="Warenkorb schliessen">&times;</button></div>
+  <ul class="lade-liste" id="ladeListe"></ul>
+  <p class="leer" id="ladeLeer">Noch nichts im Warenkorb.</p>
+  <div class="lade-fuss">
+    <div class="summe"><span>Zwischensumme</span><b id="ladeSumme">0,00 Euro</b></div>
+    <p class="lade-hinweis">Versandkosten werden im nächsten Schritt berechnet.</p>
+    <button class="knopf knopf-voll" id="kasse">Zur Kasse</button>
+    <p class="kassenhinweis" id="kassenhinweis" role="status"></p>
+  </div>
+</aside>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Store",
+  "name":"BUNA Coffee Roasters",
+  "description":"Kaffeerösterei in Graz. Sortenreine Single Origins, seit 2015 selbst geröstet, dazu Zubehör und Workshops.",
+  "url":"https://www.buna.at/",
+  "telephone":"+43316228683",
+  "email":"office@buna.at",
+  "founder":"Susanne Feier",
+  "foundingDate":"2007",
+  "vatID":"ATU63526223",
+  "image":"assets/img/roestung.webp",
+  "address":{"@type":"PostalAddress","streetAddress":"Joanneumring 16","postalCode":"8010","addressLocality":"Graz","addressCountry":"AT"},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"10:00","closes":"18:00"}]
+}
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Alle Zahlen und Adressen stehen hier, sonst nirgends.
+     ------------------------------------------------------------------ */
+  var PREIS               = 2500;   // Euro einmalig, ohne Umsatzsteuer
+  var PREIS_BETREUUNG     = 30;     // Euro pro Monat, Seitfix, monatlich kündbar
+  var PREIS_SHOPIFY       = 32;     // Euro pro Monat an Shopify
+  var PREIS_SHOPIFY_JAHR  = 24;     // Euro pro Monat an Shopify bei jährlicher Zahlung
+  var KONTAKT_SEITFIX     = 'hallo@seitfix.at';
+  var BETRIEB = 'BUNA Coffee Roasters';
+  var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+
+  var zahlen = {
+    preisEinmalig:    PREIS + ' Euro',
+    preisShopify:     PREIS_SHOPIFY,
+    preisShopifyJahr: PREIS_SHOPIFY_JAHR + ' Euro',
+    preisBetreuung:   PREIS_BETREUUNG
+  };
+  Object.keys(zahlen).forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) { el.textContent = String(zahlen[id]); }
+  });
+
+  var anfrage = document.getElementById('seitfixAnfrage');
+  if (anfrage) {
+    anfrage.setAttribute('href', 'mailto:' + KONTAKT_SEITFIX +
+      '?subject=' + encodeURIComponent('Anfrage Website ' + BETRIEB) +
+      '&body=' + encodeURIComponent('Guten Tag,\n\nich habe die Demoseite für ' + BETRIEB + ' gesehen und hätte dazu ein paar Fragen.\n\n'));
+  }
+
+  /* ------------------------------------------------------------------
+     Feiertage. Einmal setzen, danach nie wieder anfassen.
+     Die beweglichen Feiertage werden aus dem Osterdatum berechnet und
+     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
+
+     FEIERTAG_REGEL sagt, was an einem Feiertag gilt:
+       'geschlossen'  der Betrieb hat an Feiertagen zu
+       'wie sonntag'  es gelten die Sonntagszeiten
+       'offen'        normale Zeiten des Wochentags
+       'unbekannt'    die Seite behauptet nichts und bittet um einen Anruf
+     ------------------------------------------------------------------ */
+  var FEIERTAG_REGEL = 'geschlossen';
+  var FEIERTAG_TELEFON = '0316 228683';
+
+  /* Die Zeiten stehen hier, damit man sie ohne Codeverstaendnis aendern kann.
+     Schluessel ist der Wochentag, 0 ist Sonntag, null bedeutet geschlossen. */
+  var ZEITEN_ROH = { 0: null, 1: null, 2: null, 3: null, 4: null, 5: '10:00-18:00', 6: null };
+
+  function ostersonntag(j) {
+    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
+    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
+    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
+    var i = Math.floor(c / 4), k = c % 4;
+    var l = (32 + 2 * e + 2 * i - h - k) % 7;
+    var m = Math.floor((a + 11 * h + 22 * l) / 451);
+    var monat = Math.floor((h + l - 7 * m + 114) / 31);
+    var tag = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(j, monat - 1, tag);
+  }
+  function plusTage(d, n) {
+    var x = new Date(d.getTime());
+    x.setDate(x.getDate() + n);
+    return x;
+  }
+  function schluessel(d) {
+    return (d.getMonth() + 1) + '-' + d.getDate();
+  }
+  function feiertagName(datum) {
+    var j = datum.getFullYear();
+    var fest = {
+      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
+      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
+      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
+      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
+    };
+    var k = schluessel(datum);
+    if (fest[k]) { return fest[k]; }
+    var o = ostersonntag(j);
+    var beweglich = [
+      [plusTage(o, 1), 'Ostermontag'],
+      [plusTage(o, 39), 'Christi Himmelfahrt'],
+      [plusTage(o, 50), 'Pfingstmontag'],
+      [plusTage(o, 60), 'Fronleichnam']
+    ];
+    for (var i = 0; i < beweglich.length; i++) {
+      if (schluessel(beweglich[i][0]) === k) { return beweglich[i][1]; }
+    }
+    return null;
+  }
+
+  function minuten(hhmm) {
+    var t = hhmm.split(':');
+    return Number(t[0]) * 60 + Number(t[1]);
+  }
+  function spanne(wert) {
+    if (!wert) { return null; }
+    var t = wert.split('-');
+    return { von: minuten(t[0]), bis: minuten(t[1]), vonText: t[0], bisText: t[1] };
+  }
+  var zeiten = {};
+  Object.keys(ZEITEN_ROH).forEach(function (t) { zeiten[t] = { offen: spanne(ZEITEN_ROH[t]) }; });
+
+  /* Der Laden hat nur einen offenen Tag pro Woche. Deshalb sucht die Schleife
+     ueber acht Wochen statt ueber neun Tage: faellt der Freitag auf einen Feiertag,
+     muss sie bis zum uebernaechsten Freitag weiterspringen koennen. */
+  function naechsterOffenerTag(ab, abDatum) {
+    for (var i = 1; i <= 60; i++) {
+      var t = (ab + i) % 7;
+      if (!zeiten[t] || !zeiten[t].offen) { continue; }
+      if (abDatum && FEIERTAG_REGEL === 'geschlossen' && feiertagName(plusTage(abDatum, i))) { continue; }
+      return t;
+    }
+    return null;
+  }
+
+  function statusSetzen() {
+    var jetzt = new Date();
+    var tag = jetzt.getDay();
+    var min = jetzt.getHours() * 60 + jetzt.getMinutes();
+    var heute = zeiten[tag];
+    var text = document.getElementById('statusText');
+    var zusatz = document.getElementById('statusZusatz');
+    if (!text || !zusatz) { return; }
+
+    var feiertag = feiertagName(jetzt);
+    if (feiertag) {
+      if (FEIERTAG_REGEL === 'geschlossen') {
+        text.textContent = 'Heute ist ' + feiertag + ', das Geschäft ist geschlossen';
+        var f1 = naechsterOffenerTag(tag, jetzt);
+        zusatz.textContent = f1 === null ? 'Bestellen geht rund um die Uhr' :
+          'Wieder geöffnet am ' + TAGNAMEN[f1] + ' ab ' + zeiten[f1].offen.vonText + ' Uhr. Bestellen geht rund um die Uhr';
+        return;
+      }
+      if (FEIERTAG_REGEL === 'unbekannt') {
+        text.textContent = 'Heute ist ' + feiertag;
+        zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON;
+        return;
+      }
+      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
+    }
+
+    var folgt = naechsterOffenerTag(tag, jetzt);
+    var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
+
+    if (!heute || !heute.offen) {
+      text.textContent = 'Heute geschlossen';
+      zusatz.textContent = folgtText
+        ? 'Geöffnet am ' + folgtText + ', Beratung nach Vereinbarung. Bestellen geht rund um die Uhr'
+        : 'Bestellen geht rund um die Uhr';
+      return;
+    }
+    if (min < heute.offen.von) {
+      text.textContent = 'Heute ab ' + heute.offen.vonText + ' Uhr geöffnet';
+      zusatz.textContent = 'Bis ' + heute.offen.bisText + ' Uhr, Joanneumring 16';
+      return;
+    }
+    if (min < heute.offen.bis) {
+      text.textContent = 'Jetzt geöffnet bis ' + heute.offen.bisText + ' Uhr';
+      zusatz.textContent = 'Joanneumring 16, 8010 Graz';
+      return;
+    }
+    text.textContent = 'Für heute geschlossen';
+    zusatz.textContent = folgtText
+      ? 'Wieder geöffnet am ' + folgtText + '. Bestellen geht rund um die Uhr'
+      : 'Bestellen geht rund um die Uhr';
+  }
+  statusSetzen();
+
+  /* ---------- Inaktive Punkte: das Verkaufswerkzeug ---------- */
+  var navHinweis = document.getElementById('navHinweis');
+  var navHinweisText = document.getElementById('navHinweisText');
+  var hinweisUhr = null;
+  Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
+    function zeigen() {
+      navHinweisText.innerHTML = '';
+      navHinweisText.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
+      var b = document.createElement('b');
+      b.textContent = 'Teil der Website um ' + PREIS + ' Euro.';
+      navHinweisText.appendChild(b);
+      navHinweis.classList.add('sichtbar');
+      window.clearTimeout(hinweisUhr);
+      hinweisUhr = window.setTimeout(function () {
+        navHinweis.classList.remove('sichtbar');
+        navHinweisText.textContent = '';
+      }, 8000);
+    }
+    el.addEventListener('click', zeigen);
+    el.addEventListener('focus', zeigen);
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); zeigen(); }
+    });
+  });
+
+  /* ---------- Suche ueber das Sortiment ---------- */
+  var suchAuf = document.getElementById('suchAuf');
+  var suchfeld = document.getElementById('suchfeld');
+  var suche = document.getElementById('suche');
+  var suchErgebnis = document.getElementById('suchErgebnis');
+  suchAuf.addEventListener('click', function () {
+    var oeffnen = suchfeld.hidden;
+    suchfeld.hidden = !oeffnen;
+    suchAuf.setAttribute('aria-expanded', String(oeffnen));
+    if (oeffnen) { suche.focus(); }
+  });
+  suche.addEventListener('input', function () {
+    var q = suche.value.trim().toLowerCase();
+    var treffer = 0, gesamt = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-name]'), function (el) {
+      gesamt += 1;
+      var text = (el.getAttribute('data-name') + ' ' + el.textContent).toLowerCase();
+      var passt = !q || text.indexOf(q) !== -1;
+      el.hidden = !passt;
+      if (passt) { treffer += 1; }
+    });
+    suchErgebnis.textContent = !q ? '' : treffer + ' von ' + gesamt + ' Artikeln passen zur Suche.';
+  });
+
+  /* ---------- Warenkorb als Lade ----------
+     Der Korb liegt in sessionStorage, damit er den Wechsel auf warenkorb.html
+     uebersteht. Kein Server, kein Cookie, nichts verlaesst den Browser.
+     Auf der fertigen Website macht das Shopify, hier ist es nachgebaut. */
+  var KORB_SCHLUESSEL = 'buna-korb';
+  var schatten = document.getElementById('schatten');
+  var lade = document.getElementById('lade');
+  var ladeListe = document.getElementById('ladeListe');
+  var ladeLeer = document.getElementById('ladeLeer');
+  var ladeSumme = document.getElementById('ladeSumme');
+  var korbZahl = document.getElementById('korbZahl');
+  var kasse = document.getElementById('kasse');
+  var kassenhinweis = document.getElementById('kassenhinweis');
+  var zuletztOffen = null;
+
+  function korbLesen() {
+    try { return JSON.parse(window.sessionStorage.getItem(KORB_SCHLUESSEL)) || []; }
+    catch (e) { return []; }
+  }
+  function korbSchreiben(k) {
+    try { window.sessionStorage.setItem(KORB_SCHLUESSEL, JSON.stringify(k)); } catch (e) {}
+  }
+  function euro(cent) {
+    return (cent / 100).toFixed(2).replace('.', ',') + ' Euro';
+  }
+
+  function mengeAendern(i, um) {
+    var k = korbLesen();
+    if (!k[i]) { return; }
+    k[i].anzahl += um;
+    if (k[i].anzahl < 1) { k.splice(i, 1); }
+    korbSchreiben(k);
+    zeichnen();
+  }
+
+  function zeile(pos, i) {
+    var li = document.createElement('li');
+    if (!pos.bild) { li.classList.add('ohne-bild'); }
+
+    var bildbox = document.createElement('div');
+    bildbox.className = 'lade-bild';
+    if (pos.bild) {
+      var img = document.createElement('img');
+      img.src = pos.bild;
+      img.alt = '';
+      img.width = 56;
+      img.height = 56;
+      bildbox.appendChild(img);
+    }
+
+    var mitte = document.createElement('div');
+    var name = document.createElement('p');
+    name.className = 'lade-name';
+    name.textContent = pos.artikel;
+    mitte.appendChild(name);
+
+    var stueck = document.createElement('p');
+    stueck.className = 'lade-stueck';
+    stueck.textContent = pos.anfrage ? 'Preis auf Anfrage' : euro(pos.preis) + ' je Stück';
+    mitte.appendChild(stueck);
+
+    var schalter = document.createElement('div');
+    schalter.className = 'mengenschalter';
+    var minus = document.createElement('button');
+    minus.type = 'button';
+    minus.textContent = '−';
+    minus.setAttribute('aria-label', 'Eins weniger von ' + pos.artikel);
+    minus.addEventListener('click', function () { mengeAendern(i, -1); });
+    var zahl = document.createElement('span');
+    zahl.textContent = String(pos.anzahl);
+    var plus = document.createElement('button');
+    plus.type = 'button';
+    plus.textContent = '+';
+    plus.setAttribute('aria-label', 'Eins mehr von ' + pos.artikel);
+    plus.addEventListener('click', function () { mengeAendern(i, 1); });
+    schalter.appendChild(minus);
+    schalter.appendChild(zahl);
+    schalter.appendChild(plus);
+    mitte.appendChild(schalter);
+
+    var preis = document.createElement('p');
+    preis.className = 'lade-zeilenpreis';
+    preis.textContent = pos.anfrage ? 'auf Anfrage' : euro(pos.anzahl * pos.preis);
+
+    li.appendChild(bildbox);
+    li.appendChild(mitte);
+    li.appendChild(preis);
+    return li;
+  }
+
+  function zeichnen() {
+    var korb = korbLesen();
+    var summe = 0, stueck = 0;
+    ladeListe.innerHTML = '';
+    korb.forEach(function (pos, i) {
+      stueck += pos.anzahl;
+      if (!pos.anfrage) { summe += pos.anzahl * pos.preis; }
+      ladeListe.appendChild(zeile(pos, i));
+    });
+    ladeLeer.hidden = korb.length > 0;
+    ladeSumme.textContent = euro(summe);
+    korbZahl.textContent = String(stueck);
+  }
+
+  function ladeOeffnen() {
+    zuletztOffen = document.activeElement;
+    lade.setAttribute('data-offen', '');
+    schatten.setAttribute('data-offen', '');
+    lade.setAttribute('aria-hidden', 'false');
+    document.getElementById('korbZu').focus();
+  }
+  function ladeSchliessen() {
+    lade.removeAttribute('data-offen');
+    schatten.removeAttribute('data-offen');
+    lade.setAttribute('aria-hidden', 'true');
+    kassenhinweis.classList.remove('sichtbar');
+    kassenhinweis.textContent = '';
+    if (zuletztOffen && zuletztOffen.focus) { zuletztOffen.focus(); }
+  }
+  document.getElementById('korbAuf').addEventListener('click', ladeOeffnen);
+  document.getElementById('korbZu').addEventListener('click', ladeSchliessen);
+  schatten.addEventListener('click', ladeSchliessen);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && lade.hasAttribute('data-offen')) { ladeSchliessen(); }
+  });
+
+  function hineinlegen(artikel, preis, bild, anfrage) {
+    var korb = korbLesen();
+    var da = null;
+    korb.forEach(function (x) { if (x.artikel === artikel) { da = x; } });
+    if (da) { da.anzahl += 1; }
+    else { korb.push({ artikel: artikel, preis: preis, anzahl: 1, bild: bild || '', anfrage: Boolean(anfrage) }); }
+    korbSchreiben(korb);
+    zeichnen();
+    ladeOeffnen();
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-korb]'), function (knopf) {
+    knopf.addEventListener('click', function () {
+      hineinlegen(
+        knopf.getAttribute('data-artikel'),
+        Number(knopf.getAttribute('data-preis') || 0),
+        knopf.getAttribute('data-bild'),
+        knopf.getAttribute('data-anfrage')
+      );
+    });
+  });
+
+  kasse.addEventListener('click', function () {
+    kassenhinweis.innerHTML = '';
+    kassenhinweis.appendChild(document.createTextNode(
+      'Im fertigen Shop folgen hier Versand oder Abholung, die Adresse, die Zahlung per Überweisung, Kreditkarte oder PayPal und die Einstellung des Kaffeeabos. '));
+    var b = document.createElement('b');
+    b.textContent = 'Teil der Website um ' + PREIS + ' Euro.';
+    kassenhinweis.appendChild(b);
+    kassenhinweis.classList.add('sichtbar');
+  });
+
+  zeichnen();
+
+}());
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Preise in Cent, belegt ueber die drei live stehenden Produktseiten auf buna.at,
+     siehe NOTIZEN.md. Nichts davon ist erfunden. */
+  var KAFFEES = {
+    'uraga': {
+      name: 'Uraga, Äthiopien',
+      noten: 'Blumig, Zitrus, Süß',
+      bild: 'assets/img/kaffee-aethiopien.webp',
+      alt: 'BUNA Kaffeepackung auf einer Steinplatte, daneben wird Kaffee in eine weiße Tasse gegossen',
+      preis: { '250': 1550, '1000': 5890 }
+    },
+    'fazenda': {
+      name: 'Fazenda Mumbuca, Brasilien',
+      noten: 'Süß, Erdnussbutter, Pekannuss',
+      bild: 'assets/img/kaffee-brasilien.webp',
+      alt: 'Geröstete Kaffeebohnen in einer Tasse, dahinter eine BUNA Kaffeepackung',
+      preis: { '250': 1290, '1000': 4920 }
+    },
+    'decaf': {
+      name: 'DECAF Women ASOMUJER, Kolumbien',
+      noten: 'Rohrzucker, Apfel, Mandel',
+      bild: 'assets/img/kaffee-decaf.webp',
+      alt: 'BUNA Kaffeepackung zwischen einem Wasserglas, einer Kanne und einer Handmühle',
+      preis: { '250': 1270, '1000': 3880 }
+    }
+  };
+
+  var schluessel = (function () {
+    var m = /[?&]k=([a-z]+)/.exec(window.location.search);
+    return (m && KAFFEES[m[1]]) ? m[1] : 'uraga';
+  }());
+  var K = KAFFEES[schluessel];
+
+  document.title = K.name + ' | BUNA Coffee Roasters, Graz | Demo von Seitfix';
+  document.getElementById('pfadName').textContent = K.name;
+  document.getElementById('pName').textContent = K.name;
+  document.getElementById('pNoten').textContent = K.noten;
+  var bild = document.getElementById('pBild');
+  bild.src = K.bild; bild.alt = K.alt;
+
+  function euro(cent) { return (cent / 100).toFixed(2).replace('.', ',') + ' Euro'; }
+  function wert(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+
+  var knopf = document.getElementById('pKorb');
+
+  function auffrischen() {
+    var g = wert('groesse');
+    var m = wert('mahlung');
+    var r = wert('rhythmus');
+    var cent = K.preis[g];
+    document.getElementById('pPreis').textContent = euro(cent);
+    var teile = [K.name, g + ' g', m];
+    if (r) { teile.push(r); }
+    var artikel = teile.join(', ');
+    document.getElementById('pZusammen').textContent =
+      artikel + (r ? '' : ', einmalige Lieferung');
+    knopf.setAttribute('data-artikel', artikel);
+    knopf.setAttribute('data-preis', String(cent));
+    knopf.setAttribute('data-bild', K.bild);
+  }
+
+  Array.prototype.forEach.call(
+    document.querySelectorAll('.pillen input'),
+    function (el) { el.addEventListener('change', auffrischen); }
+  );
+  auffrischen();
+
+  /* Die beiden anderen Kaffees */
+  var weitere = document.getElementById('pWeitere');
+  Object.keys(KAFFEES).forEach(function (k) {
+    if (k === schluessel) { return; }
+    var W = KAFFEES[k];
+    var art = document.createElement('article');
+    art.className = 'produkt';
+    art.setAttribute('data-name', W.name);
+    art.innerHTML =
+      '<a href="produkt.html?k=' + k + '" style="text-decoration:none;color:inherit">' +
+        '<div class="produkt-bild"><img src="' + W.bild + '" width="700" height="700" loading="lazy" alt=""></div>' +
+        '<p class="produkt-noten">' + W.noten + '</p>' +
+        '<h3 class="produkt-name">' + W.name + '</h3>' +
+        '<p class="produkt-preis">' + euro(W.preis['250']) + ' <small>250 g, inkl. MwSt.</small></p>' +
+      '</a>';
+    weitere.appendChild(art);
+  });
+
+}());
+</script>
+
+</body>
+</html>
