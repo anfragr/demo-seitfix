@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gauster-gastronomie/warenkorb.html
+
+Sitemap: https://demo.seitfix.at/gauster-gastronomie/sitemap.xml

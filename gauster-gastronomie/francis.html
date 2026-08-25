@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Francis Bistro Graz | Am Franziskanerplatz bis 24 Uhr</title>
+<meta name="description" content="Bistro am Franziskanerplatz 13 in Graz, Montag bis Samstag von 11:30 bis 24 Uhr geöffnet. Küchenchef Jan Felix Punzer, regionale Wurzeln und neue Ideen.">
+<link rel="canonical" href="https://demo.seitfix.at/gauster-gastronomie/francis.html">
+<meta name="theme-color" content="#201d1a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Francis Bistro Graz | Am Franziskanerplatz bis 24 Uhr">
+<meta property="og:description" content="Bistro am Franziskanerplatz 13 in Graz, Montag bis Samstag von 11:30 bis 24 Uhr geöffnet. Küchenchef Jan Felix Punzer, regionale Wurzeln und neue Ideen.">
+<meta property="og:image" content="assets/img/francis-team.webp">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Francis Bistro Graz | Am Franziskanerplatz bis 24 Uhr">
+<meta name="twitter:image" content="assets/img/francis-team.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23201d1a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%23f6f4ef' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+/* ------------------------------------------------------------------
+   Gauster Gastronomie, Demoseite von Seitfix. Dritter Durchgang.
+   Warmes Editorial-Design: Fraunces fuer Titel, IBM Plex Sans fuer Text.
+   Identisch auf allen Seiten. Schriften lokal, kein fremder Server.
+   ------------------------------------------------------------------ */
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-400-kursiv.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'IBM Plex Sans';src:url('assets/fonts/ibm-plex-sans-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'IBM Plex Sans';src:url('assets/fonts/ibm-plex-sans-600.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+
+:root{
+  /* Das Dach ist neutral und warm, die Farbe gehoert den Haeusern.
+     Die drei Hausfarben stammen aus den Gutscheinmotiven des Betriebs,
+     unveraendert uebernommen, Kontrastwerte in NOTIZEN.md. */
+  --farbe-primaer:#211b14;
+  --farbe-primaer-hell:#38302a;
+  --farbe-text:#211b14;
+  --farbe-gedaempft:#5f584d;
+  --farbe-flaeche:#fdfcf9;
+  --farbe-flaeche-2:#f4efe6;
+  --farbe-linie:#e5ddcd;
+  --farbe-akzent:#8a5a1f;
+  --hell:#f6f1e7;
+  --hell-gedaempft:#cfc5b2;
+
+  --haus-kreuzwirt:#6e2317;
+  --haus-dreizehn:#7d5d42;
+  --haus-francis:#126b55;
+
+  --abstand-xs:.25rem;
+  --abstand-s:.5rem;
+  --abstand-m:1rem;
+  --abstand-l:2rem;
+  --abstand-xl:3.5rem;
+  --abstand-xxl:6rem;
+
+  --schrift-titel:'Fraunces',Georgia,'Times New Roman',serif;
+  --schrift-text:'IBM Plex Sans','Segoe UI',Helvetica,Arial,sans-serif;
+
+  --breite:1200px;
+  --radius:4px;
+  --schnell:.16s ease;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+body{
+  margin:0;background:var(--farbe-flaeche);color:var(--farbe-text);
+  font-family:var(--schrift-text);font-size:17px;line-height:1.65;
+  overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+::selection{background:var(--farbe-akzent);color:#fff}
+h1,h2,h3{font-family:var(--schrift-titel);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 var(--abstand-m)}
+em{font-family:var(--schrift-titel);font-weight:400;font-style:italic}
+:focus-visible{outline:3px solid var(--farbe-akzent);outline-offset:2px}
+.mitte{max-width:var(--breite);margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+.nurlesbar{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Demoleiste und Kopf ---------- */
+.demoleiste{background:#171310;color:#a89e8d;font-size:12.5px;padding:6px 0;position:relative;z-index:60;letter-spacing:.02em}
+.demoleiste .mitte{display:flex;gap:var(--abstand-s);flex-wrap:wrap;align-items:baseline}
+.demoleiste a{color:#e8e0d2;text-underline-offset:3px}
+
+.kopf{position:sticky;top:0;z-index:50;background:var(--farbe-flaeche);border-bottom:1px solid var(--farbe-linie);box-shadow:0 1px 0 rgba(33,27,20,.02),0 6px 18px -14px rgba(33,27,20,.25)}
+.kopf-zeile{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--abstand-m);height:52px}
+.wortmarke{font-family:var(--schrift-titel);font-weight:600;font-size:18px;text-decoration:none;white-space:nowrap;letter-spacing:0;justify-self:start}
+.wortmarke span{font-family:var(--schrift-titel);font-weight:400;font-style:italic;color:var(--farbe-gedaempft)}
+.hauptnav{display:flex;gap:clamp(.9rem,2vw,1.7rem);justify-self:center;align-items:center;overflow-x:auto;scrollbar-width:none;min-width:0;max-width:100%}
+.hauptnav::-webkit-scrollbar{display:none}
+.hauptnav a,.hauptnav .aus{font-size:14.5px;text-decoration:none;white-space:nowrap;padding:16px 0 14px;border-bottom:2px solid transparent;transition:border-color var(--schnell)}
+.hauptnav a:hover{border-bottom-color:var(--farbe-akzent)}
+.hauptnav a[aria-current="page"]{border-bottom-color:var(--farbe-primaer);font-weight:600}
+.hauptnav .aus{opacity:.45;cursor:not-allowed;background:none;border:0;border-bottom:2px solid transparent;font:inherit;font-size:14.5px;color:inherit;padding:16px 0 14px}
+.korbknopf{justify-self:end;flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--farbe-primaer);color:var(--hell);border:0;border-radius:var(--radius);font:600 14px/1 var(--schrift-text);padding:0 13px;height:36px;cursor:pointer;transition:background var(--schnell)}
+.korbknopf:hover{background:var(--farbe-primaer-hell)}
+.korbzahl{background:var(--hell);color:var(--farbe-primaer);border-radius:10px;padding:1px 7px;font-size:13px;font-weight:600}
+.hinweis{font-size:14px;color:var(--farbe-akzent);margin:var(--abstand-s) 0 0}
+.hinweis:empty{margin:0}
+
+/* ---------- Brotkrumen ---------- */
+.krumen{font-size:13px;color:var(--farbe-gedaempft);padding:var(--abstand-m) 0 0}
+.krumen ol{list-style:none;margin:0;padding:0;display:flex;gap:8px;flex-wrap:wrap}
+.krumen li+li::before{content:"/";margin-right:8px;color:var(--hell-gedaempft)}
+.krumen a{color:inherit}
+
+/* ---------- Ueberzeile mit kleiner Linie ---------- */
+.ueberzeile{font-family:var(--schrift-text);font-weight:600;font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--farbe-akzent);margin:0 0 var(--abstand-m);display:flex;align-items:center;gap:12px}
+.ueberzeile::before{content:"";width:28px;height:1px;background:var(--farbe-akzent);flex:none}
+.ueberzeile-hell{color:var(--hell-gedaempft)}
+.ueberzeile-hell::before{background:var(--hell-gedaempft)}
+
+/* ---------- Hero der Startseite: Vollbild mit Foto ---------- */
+.hero{position:relative;color:var(--hell);background:var(--farbe-primaer);display:flex;align-items:flex-end;min-height:min(88vh,860px);isolation:isolate}
+.hero-foto{position:absolute;inset:0;z-index:-2}
+.hero-foto img{width:100%;height:100%;object-fit:cover}
+.hero-foto .platzhalter{width:100%;height:100%;aspect-ratio:auto}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(23,19,16,.42) 0%,rgba(23,19,16,.18) 38%,rgba(23,19,16,.78) 82%,rgba(23,19,16,.92) 100%)}
+.hero .mitte{padding-top:var(--abstand-xxl);padding-bottom:clamp(3rem,7vh,5rem);width:100%}
+.hero h1{font-size:clamp(2.7rem,6.6vw,5.4rem);color:#fff;margin-bottom:var(--abstand-m);max-width:16ch;text-wrap:balance}
+.hero .unter{font-size:clamp(1.06rem,1.8vw,1.3rem);color:var(--hell);max-width:46ch;text-shadow:0 1px 12px rgba(23,19,16,.4)}
+.hero-knoepfe{display:flex;gap:var(--abstand-s);flex-wrap:wrap;margin-top:var(--abstand-l)}
+
+/* ---------- Knoepfe ---------- */
+.knopf{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:var(--radius);font:600 16px/1 var(--schrift-text);padding:15px 24px;min-height:50px;cursor:pointer;text-decoration:none;border:1px solid transparent;transition:background var(--schnell),border-color var(--schnell),color var(--schnell)}
+.knopf-hell{background:var(--hell);color:var(--farbe-primaer)}
+.knopf-hell:hover{background:#fff}
+.knopf-linie{background:rgba(23,19,16,.25);color:#fff;border-color:rgba(246,241,231,.6)}
+.knopf-linie:hover{border-color:#fff;background:rgba(23,19,16,.45)}
+.knopf-dunkel{background:var(--farbe-primaer);color:var(--hell)}
+.knopf-dunkel:hover{background:var(--farbe-primaer-hell)}
+.knopf-rand{background:transparent;color:var(--farbe-primaer);border-color:var(--hell-gedaempft)}
+.knopf-rand:hover{border-color:var(--farbe-primaer)}
+
+/* ---------- Statusband: drei Hauskarten ---------- */
+.statusband{display:grid;gap:var(--abstand-m)}
+.statusband > a{
+  background:var(--farbe-flaeche);border:1px solid var(--farbe-linie);border-top:3px solid var(--hausfarbe,var(--farbe-linie));
+  border-radius:var(--radius);padding:calc(var(--abstand-m) + 8px) var(--abstand-l) var(--abstand-l);
+  text-decoration:none;display:flex;flex-direction:column;gap:4px;
+  transition:transform var(--schnell),box-shadow var(--schnell);
+}
+.statusband > a:hover{transform:translateY(-3px);box-shadow:0 14px 34px -18px rgba(33,27,20,.45)}
+.statusband .name{font-family:var(--schrift-titel);font-weight:600;font-size:1.35rem;margin:0}
+.statusband .lage{font-size:14px;color:var(--farbe-gedaempft);margin:0}
+.statusband .zeit{font-size:14.5px;margin:12px 0 0;display:flex;align-items:baseline;gap:8px}
+.statusband .weiter{font-size:14px;font-weight:600;margin:14px 0 0;color:var(--farbe-akzent)}
+.statusband > a:hover .weiter{text-decoration:underline;text-underline-offset:3px}
+.punkt{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+
+/* ---------- Abschnitte ---------- */
+.abschnitt{padding:var(--abstand-xxl) 0}
+.abschnitt-papier{background:var(--farbe-flaeche-2)}
+.kopfzeile{display:flex;align-items:flex-end;justify-content:space-between;gap:var(--abstand-m);margin-bottom:var(--abstand-xl);flex-wrap:wrap}
+.kopfzeile h2{font-size:clamp(1.9rem,3.8vw,3rem)}
+.kopfzeile p{margin:10px 0 0;color:var(--farbe-gedaempft);max-width:54ch;font-size:1.05rem}
+
+/* ---------- Zwei Wege: grosse Bildpaneele ---------- */
+.wege{display:grid;gap:var(--abstand-l)}
+.weg{background:var(--farbe-flaeche);border:1px solid var(--farbe-linie);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform var(--schnell),box-shadow var(--schnell)}
+.weg:hover{transform:translateY(-3px);box-shadow:0 18px 40px -20px rgba(33,27,20,.4)}
+.weg-bild{aspect-ratio:16/8;overflow:hidden;background:var(--farbe-flaeche-2)}
+.weg-bild img{width:100%;height:100%;object-fit:cover}
+.weg-bild .platzhalter{width:100%;height:100%;aspect-ratio:auto}
+.weg-inhalt{padding:var(--abstand-l);display:flex;flex-direction:column;gap:var(--abstand-s);flex:1}
+.weg h3{font-size:1.7rem}
+.weg p{color:var(--farbe-gedaempft);margin:0}
+.weg .knopf{margin-top:var(--abstand-m);align-self:flex-start}
+
+/* ---------- Karten, Raster, Kacheln ---------- */
+.raster{display:grid;gap:var(--abstand-l);grid-template-columns:1fr}
+.raster > *{min-width:0}
+.karte{background:var(--farbe-flaeche);border:1px solid var(--farbe-linie);border-radius:var(--radius);padding:var(--abstand-l)}
+.karte h3{font-size:1.35rem;margin-bottom:var(--abstand-s)}
+.liste{list-style:none;margin:0;padding:0;display:grid;gap:var(--abstand-s);font-size:15.5px}
+.liste li{padding-left:20px;position:relative}
+.liste li::before{content:"";position:absolute;left:0;top:.66em;width:9px;height:1px;background:var(--farbe-akzent)}
+
+.kachel{background:var(--farbe-flaeche);border:1px solid var(--farbe-linie);border-radius:var(--radius);display:flex;flex-direction:column;overflow:hidden;transition:transform var(--schnell),box-shadow var(--schnell)}
+.kachel:hover{transform:translateY(-3px);box-shadow:0 16px 36px -20px rgba(33,27,20,.4)}
+.kachel-bild{background:var(--farbe-flaeche-2);overflow:hidden}
+.kachel-bild img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .4s ease}
+.kachel:hover .kachel-bild img{transform:scale(1.03)}
+.kachel-bild .platzhalter{aspect-ratio:4/3;font-size:1.15rem}
+.kachel-inhalt{padding:var(--abstand-l);display:flex;flex-direction:column;flex:1}
+.kachel h3{font-size:1.45rem;margin-bottom:8px}
+.kachel .text{font-size:15px;color:var(--farbe-gedaempft);margin:0 0 var(--abstand-m)}
+.kachel .preis{font-family:var(--schrift-titel);font-weight:600;font-size:1.7rem;margin:auto 0 var(--abstand-m);letter-spacing:-.01em}
+.kachel .preis small{font-family:var(--schrift-text);font-weight:400;font-size:13.5px;color:var(--farbe-gedaempft);letter-spacing:.02em}
+.kachel .knopf{width:100%}
+.kachel-link{text-decoration:none}
+
+.haus-marke{display:inline-flex;align-items:center;gap:8px;font-family:var(--schrift-text);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px}
+
+.platzhalter{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-family:var(--schrift-titel);font-weight:600;color:#fff;font-size:clamp(1.3rem,2.6vw,2rem);text-align:center;padding:var(--abstand-m);line-height:1.15}
+
+/* ---------- Hausseiten-Hero: Foto mit Farbkante ---------- */
+.hero-haus{position:relative;color:var(--hell);background:var(--farbe-primaer);display:flex;align-items:flex-end;min-height:min(92vh,900px);isolation:isolate;border-bottom:5px solid var(--hausfarbe,var(--farbe-primaer))}
+.hero-haus .hero-foto{position:absolute;inset:0;z-index:-2}
+.hero-haus::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(23,19,16,.35) 0%,rgba(23,19,16,.12) 40%,rgba(23,19,16,.82) 88%,rgba(23,19,16,.94) 100%)}
+.hero-haus .mitte{padding-top:var(--abstand-xxl);padding-bottom:clamp(1.5rem,3.5vh,2.5rem);width:100%}
+.hero-haus h1{font-size:clamp(2.6rem,6vw,4.8rem);color:#fff;margin:0 0 var(--abstand-s);text-wrap:balance}
+.hero-haus .jetzt{color:var(--hell);text-shadow:0 1px 10px rgba(23,19,16,.5)}
+
+.jetzt{font-size:15.5px;font-weight:600;display:inline-flex;align-items:baseline;gap:9px;margin:0 0 var(--abstand-m)}
+
+/* Kursive Ueberzeile im Stil der Referenz */
+.kursiv-zeile{font-family:var(--schrift-titel);font-weight:400;font-style:italic;font-size:clamp(1.05rem,1.8vw,1.35rem);color:#e9cf9c;margin:0 0 var(--abstand-s);text-shadow:0 1px 8px rgba(23,19,16,.5)}
+.hero-haus .unter{font-size:clamp(1.05rem,1.7vw,1.25rem);color:var(--hell);max-width:44ch;text-shadow:0 1px 10px rgba(23,19,16,.45);margin:0 0 var(--abstand-m)}
+
+/* Merkmalreihe am unteren Rand des Heros */
+.hero-merkmale{display:grid;gap:var(--abstand-l);border-top:1px solid rgba(246,241,231,.35);margin-top:clamp(1.6rem,4vh,3rem);padding-top:clamp(1rem,2.5vh,1.6rem)}
+.hero-merkmale div{min-width:0}
+.hero-merkmale .titel{font-family:var(--schrift-titel);font-weight:600;font-size:clamp(1.1rem,1.8vw,1.4rem);color:#fff;margin:0}
+.hero-merkmale .unterzeile{font-family:var(--schrift-text);font-weight:600;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--hell-gedaempft);margin:5px 0 0}
+@media (min-width:640px){.hero-merkmale{grid-template-columns:repeat(3,auto);justify-content:start;column-gap:clamp(2rem,6vw,5rem)}}
+
+/* ---------- Shop: Hauswahl ---------- */
+.hauswahl{display:grid;gap:var(--abstand-s);margin-bottom:var(--abstand-s)}
+.hauswahl button{border:1px solid var(--farbe-linie);background:var(--farbe-flaeche);border-radius:var(--radius);font:600 15.5px/1.3 var(--schrift-text);padding:16px 14px;cursor:pointer;min-height:56px;display:flex;align-items:center;gap:10px;color:var(--farbe-text);transition:border-color var(--schnell),background var(--schnell)}
+.hauswahl button:hover{border-color:var(--farbe-gedaempft)}
+.hauswahl button[aria-pressed="true"]{background:var(--farbe-primaer);color:var(--hell);border-color:var(--farbe-primaer)}
+.betraege{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 var(--abstand-m)}
+.betraege button{border:1px solid var(--farbe-linie);background:var(--farbe-flaeche);border-radius:var(--radius);font:600 15px/1 var(--schrift-text);padding:10px 14px;cursor:pointer;min-height:44px;min-width:52px;transition:border-color var(--schnell)}
+.betraege button:hover{border-color:var(--farbe-gedaempft)}
+.betraege button[aria-pressed="true"]{background:var(--farbe-primaer);color:var(--hell);border-color:var(--farbe-primaer)}
+.eigenbetrag{display:flex;gap:8px;align-items:center;margin:0 0 var(--abstand-m)}
+.eigenbetrag label{font-size:14px;color:var(--farbe-gedaempft)}
+.eigenbetrag input{width:104px;font:400 16px/1 var(--schrift-text);padding:11px 10px;min-height:44px;border:1px solid var(--farbe-linie);border-radius:var(--radius);background:var(--farbe-flaeche)}
+.zwischentitel{font-family:var(--schrift-titel);font-weight:600;font-size:clamp(1.5rem,2.6vw,2rem);margin:var(--abstand-xl) 0 var(--abstand-l)}
+
+/* ---------- FAQ ---------- */
+.faq{border-top:1px solid var(--farbe-linie)}
+.faq details{border-bottom:1px solid var(--farbe-linie)}
+.faq summary{font:600 17px/1.45 var(--schrift-text);padding:calc(var(--abstand-m) + 4px) 0;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:var(--abstand-m)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--schrift-titel);font-weight:400;font-size:1.3rem;color:var(--farbe-akzent);line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq .antwort{padding:0 0 calc(var(--abstand-m) + 4px);color:var(--farbe-gedaempft);max-width:65ch}
+
+/* ---------- Warenkorb-Lade ---------- */
+.schatten{position:fixed;inset:0;background:rgba(23,19,16,.55);opacity:0;visibility:hidden;transition:opacity .2s;z-index:80}
+.schatten[data-offen]{opacity:1;visibility:visible}
+.lade{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);background:var(--farbe-flaeche);z-index:90;transform:translateX(100%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-6px 0 40px rgba(23,19,16,.3)}
+.lade[data-offen]{transform:translateX(0)}
+.lade-kopf{display:flex;align-items:center;justify-content:space-between;padding:var(--abstand-m) var(--abstand-l);border-bottom:1px solid var(--farbe-linie)}
+.lade-kopf h2{font-size:1.5rem}
+.zu{background:none;border:0;font-size:26px;line-height:1;cursor:pointer;padding:8px 12px;min-height:44px;min-width:44px;color:var(--farbe-text)}
+.lade-liste{flex:1;overflow-y:auto;padding:var(--abstand-m) var(--abstand-l);margin:0;list-style:none}
+.pos{display:grid;grid-template-columns:1fr auto;gap:var(--abstand-s);padding:var(--abstand-m) 0;border-bottom:1px solid var(--farbe-linie)}
+.pos:first-child{padding-top:0}
+.pos h3{font-size:15.5px;font-family:var(--schrift-text);font-weight:600}
+.pos .detail{font-size:13px;color:var(--farbe-gedaempft);margin:4px 0 0}
+.pos .steuer{display:flex;align-items:center;gap:6px;margin-top:10px}
+.pos .steuer button{width:34px;height:34px;border:1px solid var(--farbe-linie);background:var(--farbe-flaeche);border-radius:var(--radius);font:600 17px/1 var(--schrift-text);cursor:pointer}
+.pos .steuer .weg-knopf{width:auto;padding:0 10px;font-size:13px;font-weight:400;color:var(--farbe-gedaempft)}
+.pos .summe{font-family:var(--schrift-titel);font-weight:600;white-space:nowrap;font-size:1.1rem}
+.lade-fuss{border-top:1px solid var(--farbe-linie);padding:var(--abstand-m) var(--abstand-l) var(--abstand-l)}
+.zeile{display:flex;justify-content:space-between;gap:var(--abstand-m);font-size:15px;margin-bottom:8px}
+.zeile.gesamt{font-family:var(--schrift-titel);font-weight:600;font-size:1.35rem;margin:var(--abstand-s) 0 var(--abstand-m)}
+.leer{color:var(--farbe-gedaempft);font-size:15px}
+
+/* ---------- Warenkorbseite ---------- */
+.seiten-korb{display:grid;gap:var(--abstand-l)}
+.korbliste{list-style:none;margin:0;padding:0}
+.korbliste .pos{padding:var(--abstand-m) 0}
+.korbliste .pos:first-child{border-top:1px solid var(--farbe-linie)}
+.felder{display:grid;gap:var(--abstand-s);margin:var(--abstand-m) 0}
+.feld{display:grid;gap:4px}
+.feld label{font-size:14px;color:var(--farbe-gedaempft)}
+.feld input,.feld textarea{font:400 16px/1.4 var(--schrift-text);padding:12px 11px;border:1px solid var(--farbe-linie);border-radius:var(--radius);background:var(--farbe-flaeche);color:var(--farbe-text);width:100%}
+.feld textarea{min-height:76px;resize:vertical}
+
+/* ---------- Zeiten, Fakten ---------- */
+.zeiten{width:100%;border-collapse:collapse;font-size:15px}
+.zeiten th,.zeiten td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--farbe-linie)}
+.zeiten th{font-weight:600;font-family:var(--schrift-text)}
+.zeiten tr[data-heute] td,.zeiten tr[data-heute] th{background:var(--farbe-flaeche-2);font-weight:600}
+.haus-fakten{list-style:none;margin:var(--abstand-m) 0;padding:0;display:grid;gap:10px;font-size:15.5px}
+.haus-fakten li{display:flex;gap:12px;align-items:baseline;min-width:0}
+.haus-fakten .was{color:var(--farbe-gedaempft);min-width:112px;flex:none;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.haus-fakten a,.haus-fakten span:not(.was){overflow-wrap:anywhere;min-width:0}
+.zweispalt{display:grid;gap:var(--abstand-l)}
+.zweispalt > *{min-width:0}
+.bildpaar{display:grid;gap:var(--abstand-m);margin:var(--abstand-xl) 0 0}
+.bildpaar img{border-radius:var(--radius);width:100%;aspect-ratio:3/2;object-fit:cover}
+
+/* ---------- Fuss und Seitfix ---------- */
+.fuss{background:#171310;color:#b3a996;padding:var(--abstand-xxl) 0 var(--abstand-xl);font-size:15px}
+.fuss a{color:var(--hell)}
+.fuss h2{color:#fff;font-family:var(--schrift-titel);font-weight:600;font-size:1.25rem;margin-bottom:var(--abstand-s);letter-spacing:0}
+.fuss-marke{font-family:var(--schrift-titel);font-weight:600;font-size:1.6rem;color:#fff;margin:0 0 var(--abstand-s)}
+.fuss-raster{display:grid;gap:var(--abstand-l)}
+.fuss .klein{font-size:13px;color:#948a77;margin-top:var(--abstand-xl);border-top:1px solid rgba(246,241,231,.12);padding-top:var(--abstand-l);line-height:1.7}
+.seitfix{background:#101010;color:#d9d6cf;padding:var(--abstand-xl) 0;font-family:var(--schrift-text);border-top:1px solid #2a2a2a}
+.seitfix h2{font-family:var(--schrift-text);font-weight:600;font-size:1.1rem;color:#fff;margin-bottom:var(--abstand-s);letter-spacing:0}
+.seitfix p{color:#b0ada6;font-size:15px;max-width:64ch}
+.seitfix .preisblock{font-family:var(--schrift-titel);font-weight:600;font-size:1.7rem;color:#fff;margin:var(--abstand-m) 0 var(--abstand-s)}
+.seitfix .knopf-seitfix{background:#fff;color:#101010;border-radius:var(--radius);padding:13px 20px;text-decoration:none;display:inline-flex;min-height:46px;align-items:center;font-weight:600}
+.seitfix .knopf-seitfix:hover{background:#dedbd4}
+
+/* ---------- Handy-Leiste ---------- */
+.handyleiste{position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--farbe-linie);border-top:1px solid var(--farbe-linie)}
+.handyleiste a{background:var(--farbe-flaeche);text-align:center;padding:13px 6px;font-size:15px;font-weight:600;text-decoration:none;min-height:48px;display:flex;align-items:center;justify-content:center}
+.handyleiste a.stark{background:var(--farbe-primaer);color:var(--hell)}
+
+/* ---------- Breakpoints ---------- */
+@media (max-width:639px){
+  .kopf-zeile{display:flex;flex-wrap:wrap;height:auto;padding-top:8px;padding-bottom:0;row-gap:0}
+  .wortmarke{font-size:18px}
+  .korbknopf{margin-left:auto;height:34px;padding:0 11px}
+  .hauptnav{order:3;width:100%;justify-content:flex-start;padding:2px 0 0}
+  .hauptnav a,.hauptnav .aus{padding:8px 0 9px}
+  .hero{min-height:78vh}
+}
+@media (max-width:899px){ body{padding-bottom:56px} }
+@media (min-width:640px){
+  .raster{grid-template-columns:repeat(2,1fr)}
+  .statusband{grid-template-columns:repeat(3,1fr)}
+  .wege{grid-template-columns:1fr 1fr}
+  .hauswahl{grid-template-columns:repeat(4,1fr)}
+  .fuss-raster{grid-template-columns:repeat(2,1fr)}
+  .bildpaar{grid-template-columns:1fr 1fr}
+}
+@media (min-width:900px){
+  .raster{grid-template-columns:repeat(3,1fr)}
+  .zweispalt{grid-template-columns:1fr 1fr}
+  .fuss-raster{grid-template-columns:1.4fr 1fr 1fr 1fr}
+  .handyleiste{display:none}
+  body{padding-bottom:0}
+  .haus-splitt{display:grid;grid-template-columns:6fr 5fr;gap:var(--abstand-xxl);align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div class="demoleiste">
+  <div class="mitte">
+    <span>Unverbindliche Demo für Gauster Gastronomie. Erstellt von Seitfix.</span>
+    <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+  </div>
+</div>
+
+<header class="kopf">
+  <div class="mitte kopf-zeile">
+    <a class="wortmarke" href="index.html">Gauster <span>Gastronomie</span></a>
+    <nav class="hauptnav" aria-label="Hauptnavigation">
+      <a href="kreuzwirt-am-rosenberg.html">Kreuzwirt</a>
+      <a href="dreizehn.html">Dreizehn</a>
+      <a href="francis.html" aria-current="page">Francis</a>
+      <a href="gutscheine.html">Gutscheine</a>
+    </nav>
+    <button class="korbknopf" type="button" id="korbOeffnen" aria-haspopup="dialog">
+      Warenkorb <span class="korbzahl" id="korbZahl">0</span>
+    </button>
+  </div>
+  <p class="hinweis mitte" id="navHinweis" role="status"></p>
+</header>
+
+<main>
+
+<section class="hero-haus" aria-labelledby="hausTitel" style="--hausfarbe:var(--haus-francis)">
+  <div class="hero-foto">
+    <img src="assets/img/francis-team.webp" alt="Innenraum des Francis mit bunten Stühlen, Ziegelwand und grünem Leuchtschriftzug" width="1200" height="800" loading="eager" fetchpriority="high" onerror="ersatz(this,'francis','')">
+  </div>
+  <div class="mitte">
+    <p class="kursiv-zeile">Bistro · Cocktails · bis Mitternacht · Franziskanerplatz 13</p>
+    <h1 id="hausTitel">Francis</h1>
+    <p class="unter">Regionale Wurzeln, neue Ideen, und offen, wenn andere längst zusperren.</p>
+    <div class="hero-knoepfe">
+      <a class="knopf knopf-hell" href="tel:+436644031001">Tisch reservieren</a>
+      <a class="knopf knopf-linie" href="https://www.francis-bistro.at/" target="_blank" rel="noopener">Zur Website: francis-bistro.at</a>
+    </div>
+    <div class="hero-merkmale">
+      <div><p class="titel">Bis Mitternacht</p><p class="unterzeile">Mo bis Sa</p></div>
+      <div><p class="titel">Menu du Chef</p><p class="unterzeile">52 Euro als Gutschein</p></div>
+      <div><p class="titel">Küchenchef</p><p class="unterzeile">Jan Felix Punzer</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="abschnitt" aria-labelledby="ueberTitel" style="padding-top:var(--abstand-xl)">
+  <div class="mitte">
+    <div class="zweispalt">
+      <div>
+        <p class="ueberzeile">Das Wichtigste</p>
+        <h2 id="ueberTitel" style="font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:var(--abstand-m)">Francis <em>in Kürze</em></h2>
+        <p>Das Bistro an derselben Adresse wie das Dreizehn, unter Küchenchef Jan Felix Punzer. Das Haus sagt über sich: <q>Hier trifft Steiermark auf die Welt</q>. Von den drei Häusern der Familie ist es das einzige, das bis Mitternacht offen hat.</p>
+        <ul class="haus-fakten">
+          <li><span class="was">Küchenchef</span><span>Jan Felix Punzer</span></li>
+          <li><span class="was">Offen bis</span><span>24:00 Uhr, Montag bis Samstag</span></li>
+          <li><span class="was">Menu du Chef</span><span>als Gutschein um 52 Euro im Shop</span></li>
+          <li><span class="was">Adresse</span><span>Franziskanerplatz 13, 8010 Graz</span></li>
+          <li><span class="was">Telefon</span><a href="tel:+436644031001">+43 664 403 10 01</a></li>
+          <li><span class="was">E-Mail</span><a href="mailto:hallo@francis-bistro.at">hallo@francis-bistro.at</a></li>
+        </ul>
+        <p style="margin-top:var(--abstand-m)">Speisekarte, Aktuelles und alles Weitere stehen auf der Seite des Hauses: <a href="https://www.francis-bistro.at/" target="_blank" rel="noopener">francis-bistro.at</a></p>
+      </div>
+      <div class="karte" style="align-self:start">
+        <h2 style="font-size:1.35rem;margin-bottom:var(--abstand-m)">Öffnungszeiten</h2>
+        <table class="zeiten" data-zeiten="francis">
+          <caption class="nurlesbar">Öffnungszeiten</caption>
+          <tbody>
+            <tr data-tag="1"><th scope="row">Montag</th><td>11:30 bis 24:00</td></tr>
+            <tr data-tag="2"><th scope="row">Dienstag</th><td>11:30 bis 24:00</td></tr>
+            <tr data-tag="3"><th scope="row">Mittwoch</th><td>11:30 bis 24:00</td></tr>
+            <tr data-tag="4"><th scope="row">Donnerstag</th><td>11:30 bis 24:00</td></tr>
+            <tr data-tag="5"><th scope="row">Freitag</th><td>11:30 bis 24:00</td></tr>
+            <tr data-tag="6"><th scope="row">Samstag</th><td>11:30 bis 24:00</td></tr>
+            <tr data-tag="0"><th scope="row">Sonntag</th><td>geschlossen</td></tr>
+          </tbody>
+        </table>
+        <p style="margin:var(--abstand-m) 0 0;font-size:15px;color:var(--farbe-gedaempft)">Die anderen Häuser der Familie: <a href="kreuzwirt-am-rosenberg.html">Kreuzwirt am Rosenberg</a>, <a href="dreizehn.html">Dreizehn by Gauster</a>.</p>
+      </div>
+    </div>
+
+    <div class="weg" style="margin-top:var(--abstand-xl)">
+      <div class="weg-inhalt">
+        <p class="ueberzeile" style="margin-bottom:2px">Verschenken</p>
+        <h2 style="font-size:1.7rem;font-family:var(--schrift-titel)">Gutschein für das Francis</h2>
+        <p style="color:var(--farbe-gedaempft)">Ein Wertgutschein mit dem Francis-Motiv oder das Menu du Chef um 52 Euro, einlösbar hier und in den beiden anderen Häusern.</p>
+        <a class="knopf knopf-dunkel" href="gutscheine.html">Zum Gutscheinshop</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="fuss">
+  <div class="mitte">
+    <div class="fuss-raster">
+      <div>
+        <p class="fuss-marke">Gauster <em>Gastronomie</em></p>
+        <p style="margin:0">Franziskanerplatz 13<br>8010 Graz</p>
+        <p style="margin-top:var(--abstand-m)">Drei Häuser, ein Gutschein.</p>
+      </div>
+      <div>
+        <h2><a href="kreuzwirt-am-rosenberg.html" style="text-decoration:none">Kreuzwirt am Rosenberg</a></h2>
+        <p style="margin:0">Saumgasse 39, 8010 Graz<br><a href="tel:+43316676458">+43 316 67 64 58</a></p>
+      </div>
+      <div>
+        <h2><a href="dreizehn.html" style="text-decoration:none">Dreizehn by Gauster</a></h2>
+        <p style="margin:0">Franziskanerplatz 13, 8010 Graz<br><a href="tel:+43316838567">+43 316 83 85 67</a></p>
+      </div>
+      <div>
+        <h2><a href="francis.html" style="text-decoration:none">Francis</a></h2>
+        <p style="margin:0">Franziskanerplatz 13, 8010 Graz<br><a href="tel:+436644031001">+43 664 403 10 01</a></p>
+      </div>
+    </div>
+    <p class="klein">
+      Betrieben von der Gauster Gastronomie GmbH, FN 484469 f, Landesgericht für ZRS Graz, UID ATU72964704, Geschäftsführer Michael Gauster. Der Kreuzwirt am Rosenberg wird von der Kreuzwirt Betriebs GmbH geführt, FN 525682, UID ATU75138307.
+      <br><br>
+      Diese Seite ist eine unverbindliche Demo, erstellt von Seitfix. Sie ist kein Auftritt der Gauster Gastronomie GmbH. Alle Angaben stammen von den Seiten der drei Betriebe und dem bestehenden Gutscheinshop, Stand 25. August 2026. Bildrechte liegen bei den Betrieben.
+    </p>
+  </div>
+</footer>
+
+<section class="seitfix" aria-labelledby="sfTitel">
+  <div class="mitte">
+    <h2 id="sfTitel">Diese Seite ist ein Vorschlag für die Gauster Gastronomie.</h2>
+    <p>Diese Seite ist der knappe Steckbrief des Bistros auf der gemeinsamen Adresse, mit einer einzigen Telefonnummer statt der zwei verschiedenen, die heute online stehen, und dem direkten Weg zur eigenen Website.</p>
+    <p class="preisblock"><span id="preisText"></span></p>
+    <p>Dazu <span id="betreuungText"></span> für Hosting und Betreuung, monatlich kündbar. Kleinunternehmer, keine Umsatzsteuer ausgewiesen.</p>
+    <p><a class="knopf-seitfix" id="anfrageKnopf" href="#">Unverbindlich anfragen</a></p>
+  </div>
+</section>
+
+<nav class="handyleiste" aria-label="Schnellzugriff">
+  <a href="tel:+436644031001">Anrufen</a>
+  <a class="stark" href="gutscheine.html">Gutschein kaufen</a>
+</nav>
+
+<div class="schatten" id="schatten" hidden></div>
+<aside class="lade" id="lade" role="dialog" aria-modal="true" aria-labelledby="ladeTitel" aria-hidden="true">
+  <div class="lade-kopf">
+    <h2 id="ladeTitel">Warenkorb</h2>
+    <button class="zu" type="button" id="ladeZu" aria-label="Warenkorb schließen">&times;</button>
+  </div>
+  <ul class="lade-liste" id="ladeListe"></ul>
+  <div class="lade-fuss">
+    <div class="zeile"><span>Zwischensumme</span><span id="zwischensumme">0,00 Euro</span></div>
+    <div class="zeile gesamt"><span>Gesamt</span><span id="gesamtsumme">0,00 Euro</span></div>
+    <a class="knopf knopf-dunkel" style="width:100%" href="warenkorb.html">Zum Warenkorb</a>
+  </div>
+</aside>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://demo.seitfix.at/gauster-gastronomie/#organisation",
+   "name": "Gauster Gastronomie GmbH",
+   "url": "https://demo.seitfix.at/gauster-gastronomie/",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Franziskanerplatz 13",
+    "postalCode": "8010",
+    "addressLocality": "Graz",
+    "addressCountry": "AT"
+   },
+   "vatID": "ATU72964704",
+   "sameAs": [
+    "https://www.kreuzwirtamrosenberg.at/",
+    "https://www.dreizehnbygauster.at/",
+    "https://www.francis-bistro.at/"
+   ]
+  },
+  {
+   "@type": "Restaurant",
+   "name": "Francis",
+   "url": "https://demo.seitfix.at/gauster-gastronomie/francis.html",
+   "sameAs": "https://www.francis-bistro.at/",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Franziskanerplatz 13",
+    "postalCode": "8010",
+    "addressLocality": "Graz",
+    "addressCountry": "AT"
+   },
+   "telephone": "+436644031001",
+   "email": "hallo@francis-bistro.at",
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+     ],
+     "opens": "11:30",
+     "closes": "24:00"
+    }
+   ],
+   "parentOrganization": {
+    "@id": "https://demo.seitfix.at/gauster-gastronomie/#organisation"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Gauster Gastronomie",
+     "item": "https://demo.seitfix.at/gauster-gastronomie/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Francis",
+     "item": "https://demo.seitfix.at/gauster-gastronomie/francis.html"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<script>
+/* ==================================================================
+   Gauster Gastronomie, gemeinsames Skript aller Seiten.
+   Konstanten: jede Zahl und jede Adresse steht genau einmal hier.
+   ================================================================== */
+var PREIS               = 3000;                 // Euro einmalig, Kleinunternehmer, ohne Umsatzsteuer
+var PREIS_BETREUUNG     = 30;                   // Euro pro Monat, Hosting und Betreuung
+var KONTAKT_SEITFIX     = 'hallo@seitfix.at';   // Anfragen an Seitfix
+var BESTELL_EMPFAENGER  = 'hallo@seitfix.at';   // nach Auftrag: Adresse der Gauster Gastronomie
+
+/* ------------------------------------------------------------------
+   Bildersatz. Solange ein Foto fehlt, steht an seiner Stelle eine
+   Flaeche in der Hausfarbe mit dem Namen. Liegt die Datei in
+   assets/img, verschwindet der Ersatz von selbst.
+   ------------------------------------------------------------------ */
+function ersatz(bild, haus, name){
+  var d = document.createElement('div');
+  d.className = 'platzhalter';
+  d.style.background = getComputedStyle(document.documentElement).getPropertyValue('--haus-' + haus) || '#201d1a';
+  d.textContent = name;
+  if (bild.parentNode) { bild.parentNode.replaceChild(d, bild); }
+}
+
+/* ------------------------------------------------------------------
+   Oeffnungszeiten: keine Live-Logik. Die Zeiten stehen als Text im
+   HTML und werden dort gepflegt. Einzig der heutige Wochentag wird
+   in den Tabellen hervorgehoben, das braucht keine Wartung.
+   ------------------------------------------------------------------ */
+function heuteMarkieren(){
+  var heute = new Date().getDay();
+  var zeilen = document.querySelectorAll('.zeiten tr[data-tag]');
+  for (var n = 0; n < zeilen.length; n++){
+    if (parseInt(zeilen[n].getAttribute('data-tag'), 10) === heute){
+      zeilen[n].setAttribute('data-heute', '');
+    } else {
+      zeilen[n].removeAttribute('data-heute');
+    }
+  }
+}
+
+/* ------------------------------------------------------------------
+   Inaktive Punkte: Hinweis statt toter Link, kein alert.
+   ------------------------------------------------------------------ */
+function hinweisAnbinden(){
+  var aus = document.querySelectorAll('.aus, .aus-knopf');
+  for (var i = 0; i < aus.length; i++){
+    (function(el){
+      function zeigen(){
+        var ziel = el.parentNode.querySelector('.hinweis') || document.getElementById('navHinweis');
+        var alle = document.querySelectorAll('.hinweis');
+        for (var n = 0; n < alle.length; n++){ alle[n].textContent = ''; }
+        if (ziel) { ziel.textContent = el.getAttribute('data-hinweis'); }
+      }
+      el.addEventListener('click', zeigen);
+      el.addEventListener('focus', zeigen);
+    })(aus[i]);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Shop: Hauswahl-Filter, Betragswahl, Warenkorb.
+   Der Korb liegt in sessionStorage und ueberlebt den Seitenwechsel.
+   ------------------------------------------------------------------ */
+var KORB_SCHLUESSEL = 'gauster-korb';
+
+function korbLesen(){
+  try {
+    var roh = sessionStorage.getItem(KORB_SCHLUESSEL);
+    return roh ? JSON.parse(roh) : [];
+  } catch (e) { return []; }
+}
+function korbSchreiben(korb){
+  try { sessionStorage.setItem(KORB_SCHLUESSEL, JSON.stringify(korb)); } catch (e) {}
+  korbZeichnen();
+}
+function euro(betrag){
+  return betrag.toFixed(2).replace('.', ',') + ' Euro';
+}
+
+function betragDerKachel(kachel){
+  var fix = kachel.getAttribute('data-fixpreis');
+  if (fix) { return parseFloat(fix); }
+  var eigen = kachel.querySelector('.eigenbetrag input');
+  if (eigen && eigen.value){
+    var wert = parseInt(eigen.value, 10);
+    if (!isNaN(wert) && wert >= 10 && wert <= 1000) { return wert; }
+  }
+  var gewaehlt = kachel.querySelector('.betraege button[aria-pressed="true"]');
+  return gewaehlt ? parseFloat(gewaehlt.getAttribute('data-betrag')) : 0;
+}
+
+function preisAnzeigeSetzen(kachel){
+  var anzeige = kachel.querySelector('[data-preisanzeige]');
+  if (!anzeige) { return; }
+  anzeige.textContent = betragDerKachel(kachel).toFixed(2).replace('.', ',');
+}
+
+function shopAnbinden(){
+  var kacheln = document.querySelectorAll('.kachel[data-produkt]');
+  for (var i = 0; i < kacheln.length; i++){
+    (function(kachel){
+      var knoepfe = kachel.querySelectorAll('.betraege button');
+      for (var n = 0; n < knoepfe.length; n++){
+        (function(knopf){
+          knopf.addEventListener('click', function(){
+            for (var m = 0; m < knoepfe.length; m++){ knoepfe[m].setAttribute('aria-pressed', 'false'); }
+            knopf.setAttribute('aria-pressed', 'true');
+            var eigen = kachel.querySelector('.eigenbetrag input');
+            if (eigen) { eigen.value = ''; }
+            preisAnzeigeSetzen(kachel);
+          });
+        })(knoepfe[n]);
+      }
+      var eigenfeld = kachel.querySelector('.eigenbetrag input');
+      if (eigenfeld){
+        eigenfeld.addEventListener('input', function(){
+          if (eigenfeld.value){
+            for (var m = 0; m < knoepfe.length; m++){ knoepfe[m].setAttribute('aria-pressed', 'false'); }
+          }
+          preisAnzeigeSetzen(kachel);
+        });
+      }
+      var legen = kachel.querySelector('[data-legen]');
+      if (legen){
+        legen.addEventListener('click', function(){
+          var betrag = betragDerKachel(kachel);
+          if (!betrag){ return; }
+          var name = kachel.getAttribute('data-produkt');
+          var haus = kachel.getAttribute('data-haus') || '';
+          var kennung = name + '|' + betrag;
+          var korb = korbLesen();
+          var gefunden = false;
+          for (var m = 0; m < korb.length; m++){
+            if (korb[m].kennung === kennung){ korb[m].anzahl = korb[m].anzahl + 1; gefunden = true; }
+          }
+          if (!gefunden){
+            korb.push({ kennung:kennung, name:name, haus:haus, preis:betrag, anzahl:1 });
+          }
+          korbSchreiben(korb);
+          ladeOeffnen();
+        });
+      }
+    })(kacheln[i]);
+  }
+
+  /* Hauswahl filtert die Wertgutscheine. Menuegutscheine ohne
+     Hausangabe bleiben immer sichtbar, weil die Gutscheine laut den
+     Motiven des Betriebs in allen drei Haeusern einloesbar sind. */
+  var wahl = document.querySelectorAll('.hauswahl button');
+  for (var w = 0; w < wahl.length; w++){
+    (function(knopf){
+      knopf.addEventListener('click', function(){
+        for (var m = 0; m < wahl.length; m++){ wahl[m].setAttribute('aria-pressed', 'false'); }
+        knopf.setAttribute('aria-pressed', 'true');
+        var ziel = knopf.getAttribute('data-filter');
+        var alle = document.querySelectorAll('.kachel[data-produkt]');
+        for (var n = 0; n < alle.length; n++){
+          var haus = alle[n].getAttribute('data-haus') || 'alle';
+          alle[n].style.display = (ziel === 'alle' || haus === ziel || haus === 'alle') ? '' : 'none';
+        }
+        var meldung = document.getElementById('filterMeldung');
+        if (meldung){
+          meldung.textContent = ziel === 'alle'
+            ? 'Alle Gutscheine werden angezeigt.'
+            : 'Gutscheine mit dem Motiv ' + knopf.textContent.trim() + ' und alle Menügutscheine werden angezeigt.';
+        }
+      });
+    })(wahl[w]);
+  }
+}
+
+function korbZeichnen(){
+  var korb = korbLesen();
+  var liste = document.getElementById('ladeListe');
+  var stueck = 0, summe = 0;
+  for (var z = 0; z < korb.length; z++){ stueck += korb[z].anzahl; summe += korb[z].anzahl * korb[z].preis; }
+  var zahl = document.getElementById('korbZahl');
+  if (zahl) { zahl.textContent = stueck; }
+  var zwischen = document.getElementById('zwischensumme');
+  var gesamt = document.getElementById('gesamtsumme');
+  if (zwischen) { zwischen.textContent = euro(summe); }
+  if (gesamt) { gesamt.textContent = euro(summe); }
+  if (!liste) { return; }
+  liste.innerHTML = '';
+  if (!korb.length){
+    var leer = document.createElement('li');
+    leer.className = 'leer';
+    leer.textContent = 'Noch nichts im Warenkorb.';
+    liste.appendChild(leer);
+  }
+  for (var i = 0; i < korb.length; i++){
+    (function(pos, stelle){
+      var li = document.createElement('li');
+      li.className = 'pos';
+      var links = document.createElement('div');
+      var titel = document.createElement('h3');
+      titel.textContent = pos.name;
+      links.appendChild(titel);
+      var detail = document.createElement('p');
+      detail.className = 'detail';
+      detail.textContent = euro(pos.preis) + ' je Stück';
+      links.appendChild(detail);
+
+      var steuer = document.createElement('div');
+      steuer.className = 'steuer';
+      var minus = document.createElement('button');
+      minus.type = 'button'; minus.textContent = '−';
+      minus.setAttribute('aria-label', 'Eines weniger von ' + pos.name);
+      minus.addEventListener('click', function(){
+        var k = korbLesen();
+        if (k[stelle].anzahl > 1){ k[stelle].anzahl = k[stelle].anzahl - 1; } else { k.splice(stelle, 1); }
+        korbSchreiben(k); seiteZeichnen();
+      });
+      var anz = document.createElement('span');
+      anz.textContent = pos.anzahl;
+      anz.setAttribute('aria-live', 'polite');
+      var plus = document.createElement('button');
+      plus.type = 'button'; plus.textContent = '+';
+      plus.setAttribute('aria-label', 'Eines mehr von ' + pos.name);
+      plus.addEventListener('click', function(){
+        var k = korbLesen(); k[stelle].anzahl = k[stelle].anzahl + 1; korbSchreiben(k); seiteZeichnen();
+      });
+      var weg = document.createElement('button');
+      weg.type = 'button'; weg.className = 'weg-knopf'; weg.textContent = 'entfernen';
+      weg.addEventListener('click', function(){
+        var k = korbLesen(); k.splice(stelle, 1); korbSchreiben(k); seiteZeichnen();
+      });
+      steuer.appendChild(minus); steuer.appendChild(anz); steuer.appendChild(plus); steuer.appendChild(weg);
+      links.appendChild(steuer);
+
+      var rechts = document.createElement('div');
+      rechts.className = 'summe';
+      rechts.textContent = euro(pos.anzahl * pos.preis);
+
+      li.appendChild(links); li.appendChild(rechts);
+      liste.appendChild(li);
+    })(korb[i], i);
+  }
+}
+
+/* Die Warenkorbseite zeichnet dieselben Positionen gross und ohne Lade. */
+function seiteZeichnen(){
+  var liste = document.getElementById('seiteListe');
+  if (!liste) { return; }
+  var korb = korbLesen();
+  var summe = 0;
+  liste.innerHTML = '';
+  if (!korb.length){
+    var leer = document.createElement('li');
+    leer.className = 'leer';
+    leer.style.borderTop = '1px solid var(--farbe-linie)';
+    leer.style.paddingTop = 'var(--abstand-m)';
+    leer.innerHTML = 'Der Warenkorb ist leer. <a href="gutscheine.html">Zu den Gutscheinen</a>';
+    liste.appendChild(leer);
+  }
+  for (var i = 0; i < korb.length; i++){
+    (function(pos, stelle){
+      summe = summe + pos.anzahl * pos.preis;
+      var li = document.createElement('li');
+      li.className = 'pos';
+      var links = document.createElement('div');
+      var titel = document.createElement('h3');
+      titel.style.fontSize = '17px';
+      titel.textContent = pos.name;
+      links.appendChild(titel);
+      var detail = document.createElement('p');
+      detail.className = 'detail';
+      detail.textContent = euro(pos.preis) + ' je Stück';
+      links.appendChild(detail);
+      var steuer = document.createElement('div');
+      steuer.className = 'steuer';
+      var minus = document.createElement('button');
+      minus.type = 'button'; minus.textContent = '−';
+      minus.setAttribute('aria-label', 'Eines weniger von ' + pos.name);
+      minus.addEventListener('click', function(){
+        var k = korbLesen();
+        if (k[stelle].anzahl > 1){ k[stelle].anzahl = k[stelle].anzahl - 1; } else { k.splice(stelle, 1); }
+        korbSchreiben(k); seiteZeichnen();
+      });
+      var anz = document.createElement('span'); anz.textContent = pos.anzahl;
+      var plus = document.createElement('button');
+      plus.type = 'button'; plus.textContent = '+';
+      plus.setAttribute('aria-label', 'Eines mehr von ' + pos.name);
+      plus.addEventListener('click', function(){
+        var k = korbLesen(); k[stelle].anzahl = k[stelle].anzahl + 1; korbSchreiben(k); seiteZeichnen();
+      });
+      var weg = document.createElement('button');
+      weg.type = 'button'; weg.className = 'weg-knopf'; weg.textContent = 'entfernen';
+      weg.addEventListener('click', function(){
+        var k = korbLesen(); k.splice(stelle, 1); korbSchreiben(k); seiteZeichnen();
+      });
+      steuer.appendChild(minus); steuer.appendChild(anz); steuer.appendChild(plus); steuer.appendChild(weg);
+      links.appendChild(steuer);
+      var rechts = document.createElement('div');
+      rechts.className = 'summe';
+      rechts.textContent = euro(pos.anzahl * pos.preis);
+      li.appendChild(links); li.appendChild(rechts);
+      liste.appendChild(li);
+    })(korb[i], i);
+  }
+  var zwischen = document.getElementById('seiteZwischen');
+  var gesamt = document.getElementById('seiteGesamt');
+  if (zwischen) { zwischen.textContent = euro(summe); }
+  if (gesamt) { gesamt.textContent = euro(summe); }
+}
+
+/* ------------------------------------------------------------------
+   Warenkorb-Lade
+   ------------------------------------------------------------------ */
+var zuletztFokus = null;
+function ladeOeffnen(){
+  var lade = document.getElementById('lade');
+  var schatten = document.getElementById('schatten');
+  if (!lade || !schatten) { return; }
+  zuletztFokus = document.activeElement;
+  schatten.hidden = false;
+  schatten.setAttribute('data-offen', '');
+  lade.setAttribute('data-offen', '');
+  lade.setAttribute('aria-hidden', 'false');
+  var zu = document.getElementById('ladeZu');
+  if (zu) { zu.focus(); }
+}
+function ladeSchliessen(){
+  var lade = document.getElementById('lade');
+  var schatten = document.getElementById('schatten');
+  if (!lade || !schatten) { return; }
+  lade.removeAttribute('data-offen');
+  lade.setAttribute('aria-hidden', 'true');
+  schatten.removeAttribute('data-offen');
+  window.setTimeout(function(){ schatten.hidden = true; }, 220);
+  if (zuletztFokus && zuletztFokus.focus) { zuletztFokus.focus(); }
+}
+
+/* ------------------------------------------------------------------
+   Seitfix-Block: Zahlen aus den Konstanten oben.
+   ------------------------------------------------------------------ */
+function seitfixSchreiben(){
+  var preis = document.getElementById('preisText');
+  if (!preis) { return; }
+  preis.textContent = String(PREIS).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' Euro einmalig, fünf Seiten und Gutscheinshop';
+  var betreuung = document.getElementById('betreuungText');
+  if (betreuung) { betreuung.textContent = PREIS_BETREUUNG + ' Euro im Monat'; }
+  var knopf = document.getElementById('anfrageKnopf');
+  if (knopf) { knopf.href = 'mailto:' + KONTAKT_SEITFIX + '?subject=' + encodeURIComponent('Anfrage Website Gauster Gastronomie'); }
+}
+
+/* ------------------------------------------------------------------
+   Start
+   ------------------------------------------------------------------ */
+document.addEventListener('DOMContentLoaded', function(){
+  heuteMarkieren();
+  hinweisAnbinden();
+  shopAnbinden();
+  var kacheln = document.querySelectorAll('.kachel[data-produkt]');
+  for (var i = 0; i < kacheln.length; i++){ preisAnzeigeSetzen(kacheln[i]); }
+  korbZeichnen();
+  seiteZeichnen();
+  seitfixSchreiben();
+  var auf = document.getElementById('korbOeffnen');
+  var zu = document.getElementById('ladeZu');
+  var schatten = document.getElementById('schatten');
+  if (auf) { auf.addEventListener('click', ladeOeffnen); }
+  if (zu) { zu.addEventListener('click', ladeSchliessen); }
+  if (schatten) { schatten.addEventListener('click', ladeSchliessen); }
+  document.addEventListener('keydown', function(e){
+    var lade = document.getElementById('lade');
+    if (e.key === 'Escape' && lade && lade.hasAttribute('data-offen')){ ladeSchliessen(); }
+  });
+});
+</script>
+
+</body>
+</html>
