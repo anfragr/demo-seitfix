@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markus Bauer Schuhmanufaktur | Rahmengenähte Schuhe aus Graz</title>
+<meta name="description" content="Rahmengenähte Schuhe und Maßschuhe aus Graz, in bis zu 250 Arbeitsschritten von Hand gefertigt. Shop und 3D-Konfigurator.">
+<meta name="theme-color" content="#fbfaf6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Markus Bauer Schuhmanufaktur | Rahmengenähte Schuhe aus Graz">
+<meta property="og:description" content="Rahmengenähte Schuhe und Maßschuhe aus Graz, in bis zu 250 Arbeitsschritten von Hand gefertigt. Shop und 3D-Konfigurator.">
+<meta property="og:image" content="assets/img/logo.png">
+<meta property="og:locale" content="de_AT">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfaf6'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%2323211e' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="demoleiste"><div class="mitte">
+  <span>Unverbindliche Demo für die Markus Bauer Schuhmanufaktur. Erstellt von Seitfix.</span>
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div></div>
+<header class="kopf"><div class="mitte kopf-zeile">
+  <a class="marke" href="index.html" aria-label="Markus Bauer Schuhmanufaktur, Startseite">
+    <img src="assets/img/logo.png" alt="Markus Bauer Schuhmanufaktur" width="200" height="120"></a>
+  <nav class="hauptnav" aria-label="Hauptnavigation">
+    <a href="shop.html">Shop</a><a href="massschuh.html">Maßschuh</a><a href="handwerk.html">Handwerk</a><a href="ueber-uns.html">Über uns</a><a href="geschaefte.html">Geschäfte</a>
+  </nav>
+  <div class="kopf-cta">
+    <button class="korbknopf" type="button" id="korbOeffnen" aria-haspopup="dialog">Warenkorb <span class="korbzahl" id="korbZahl">0</span></button>
+  </div>
+</div></header>
+<main>
+<section class="hero"><div class="mitte">
+  <div class="hero-text">
+    <p class="ueber">Rahmengenäht · Graz · seit 2008</p>
+    <h1>Ihr Schuh, so <em>einzigartig</em> wie sein Anlass.</h1>
+    <p class="unter">Rahmengenähte Schuhe aus geprüftem italienischem Leder, in bis zu 250 Arbeitsschritten von Hand gebaut. Fertig zum Bestellen oder ganz nach Maß.</p>
+    <div class="hero-knoepfe">
+      <a class="knopf knopf-dunkel" href="shop.html">Zum Shop</a>
+      <a class="knopf knopf-linie" href="massschuh.html">Schuh nach Maß</a>
+    </div>
+  </div>
+  <div class="buehne">
+    <canvas id="heroCanvas" aria-label="Drehbares 3D-Modell eines rahmengenähten Schuhs"></canvas>
+    <p class="dreh-hinweis">Zum Drehen ziehen</p>
+  </div>
+</div></section>
+<section class="abschnitt"><div class="mitte">
+  <div class="kopfzeile"><p class="ueber">Der Shop</p><h2>Fünf Kategorien, ein Handwerk</h2>
+  <p>Vom formellen Oxford bis zum Gürtel. Jedes Modell hat seine eigene Seite mit Foto, Beschreibung und Größen.</p></div>
+  <div class="kat-kacheln">
+<a class="kat-kachel" href="oxford.html">
+  <img src="assets/img/produkte/oxford-schwarz.webp" alt="Oxford" loading="lazy">
+  <span class="kk-zahl">6 Modelle</span>
+  <span class="kk-text"><span class="kk-name">Oxford</span><span class="kk-kurz">Geschlossene Schnürung</span></span>
+</a>
+<a class="kat-kachel" href="derby.html">
+  <img src="assets/img/produkte/budapester-cognac.webp" alt="Derby" loading="lazy">
+  <span class="kk-zahl">8 Modelle</span>
+  <span class="kk-text"><span class="kk-name">Derby</span><span class="kk-kurz">Offene Schnürung</span></span>
+</a>
+<a class="kat-kachel" href="loafer.html">
+  <img src="assets/img/produkte/penny-loafer.webp" alt="Loafer" loading="lazy">
+  <span class="kk-zahl">6 Modelle</span>
+  <span class="kk-text"><span class="kk-name">Loafer</span><span class="kk-kurz">Der Schlupfschuh</span></span>
+</a>
+<a class="kat-kachel" href="boots.html">
+  <img src="assets/img/produkte/schnuerboot-eiche.webp" alt="Boots" loading="lazy">
+  <span class="kk-zahl">8 Modelle</span>
+  <span class="kk-text"><span class="kk-name">Boots</span><span class="kk-kurz">Knöchelhoch</span></span>
+</a>
+<a class="kat-kachel" href="guertel.html">
+  <img src="assets/img/produkte/guertel-geflochten.webp" alt="Gürtel" loading="lazy">
+  <span class="kk-zahl">6 Modelle</span>
+  <span class="kk-text"><span class="kk-name">Gürtel</span><span class="kk-kurz">Passend zum Schuh</span></span>
+</a>
+</div>
+</div></section>
+<section class="abschnitt abschnitt-creme"><div class="mitte">
+  <div class="kopfzeile"><p class="ueber">Ausgewählt</p><h2>Vier Modelle, die das Haus ausmachen</h2>
+  <p>Vom Hirschleder-Onecut bis zum Schnürboot aus geöltem Pullup-Leder. Ein Querschnitt durch das, was die Manufaktur kann.</p></div>
+  <div class="signatur-raster">
+<a class="signatur-karte" href="produkt/onecut-hirsch.html">
+  <span class="sk-bild"><img src="assets/img/produkte/onecut-hirsch.webp" alt="Onecut aus Hirschleder in Beige" loading="lazy" width="600" height="600"></span>
+  <span class="sk-txt"><span class="sk-kat">Oxford</span><h3>Onecut aus Hirschleder</h3>
+  <span class="farbe" style="color:var(--grau);font-size:13px">Beige</span>
+  <span class="sk-preis">750,00 Euro</span></span>
+</a>
+<a class="signatur-karte" href="produkt/budapester-blauweiss.html">
+  <span class="sk-bild"><img src="assets/img/produkte/budapester-blauweiss.webp" alt="Budapester aus Kalbsleder in Blau und Weiß" loading="lazy" width="600" height="600"></span>
+  <span class="sk-txt"><span class="sk-kat">Derby</span><h3>Budapester aus Kalbsleder</h3>
+  <span class="farbe" style="color:var(--grau);font-size:13px">Blau und Weiß</span>
+  <span class="sk-preis">485,00 Euro</span></span>
+</a>
+<a class="signatur-karte" href="produkt/penny-loafer.html">
+  <span class="sk-bild"><img src="assets/img/produkte/penny-loafer.webp" alt="Penny Loafer aus Kalbsleder in Rotbraun" loading="lazy" width="600" height="600"></span>
+  <span class="sk-txt"><span class="sk-kat">Loafer</span><h3>Penny Loafer aus Kalbsleder</h3>
+  <span class="farbe" style="color:var(--grau);font-size:13px">Rotbraun</span>
+  <span class="sk-preis">385,00 Euro</span></span>
+</a>
+<a class="signatur-karte" href="produkt/schnuerboot-eiche.html">
+  <span class="sk-bild"><img src="assets/img/produkte/schnuerboot-eiche.webp" alt="Schnürboot aus Kalbsleder in Eiche" loading="lazy" width="600" height="600"></span>
+  <span class="sk-txt"><span class="sk-kat">Boots</span><h3>Schnürboot aus Kalbsleder</h3>
+  <span class="farbe" style="color:var(--grau);font-size:13px">Eiche</span>
+  <span class="sk-preis">475,00 Euro</span></span>
+</a>
+</div>
+</div></section>
+<section class="abschnitt"><div class="mitte">
+  <div class="split">
+    <div class="split-bild"><img src="assets/img/inhalt/hw-zwicken.webp" alt="Rahmengenähte Machart in der Werkstatt" loading="lazy"></div>
+    <div>
+      <p class="ueber">Das Handwerk</p>
+      <h2>Rahmengenäht, nicht verklebt.</h2>
+      <p>Etwa 90 Prozent aller Schuhe werden industriell verklebt. Ein rahmengenähter Schuh braucht bis zu 250 Arbeitsgänge und viel handwerkliches Geschick. Das Oberteil wird flexibel mit dem Boden vernäht, nicht starr verklebt. Das macht den Schuh langlebig und reparierbar.</p>
+      <a class="knopf knopf-linie" href="handwerk.html">Wie ein Schuh entsteht</a>
+    </div>
+  </div>
+</div></section>
+<section class="abschnitt abschnitt-creme"><div class="mitte">
+  <div class="split umkehr">
+    <div class="split-bild"><img src="assets/img/inhalt/hw-modell.webp" alt="Modellentwicklung von Hand" loading="lazy"></div>
+    <div>
+      <p class="ueber">Nach Maß</p>
+      <h2>Ihr Modell in zwei Fragen finden</h2>
+      <p>Sagen Sie uns Anlass und Jahreszeit, wir schlagen Ihnen drei Modelle vor. Danach stellen Sie den Schuh im 3D-Konfigurator zusammen und drehen ihn mit der Maus. Aus rund 200 Lederarten entsteht Ihr Unikat.</p>
+      <a class="knopf knopf-dunkel" href="massschuh.html">Schuh-Berater starten</a>
+    </div>
+  </div>
+</div></section>
+</main>
+<section class="seitfix"><div class="mitte">
+  <h2>Diese Seite ist ein Vorschlag für die Markus Bauer Schuhmanufaktur.</h2>
+  <p>Die bestehende Seite zeigt die Schuhe, macht aber aus dem stärksten Argument, der freien Zusammenstellung aus rund 200 Lederarten, keine Handlung. Dieser Vorschlag ist ein vollständiger Shop mit eigener Seite für jedes Modell, dazu ein Schuh-Berater, der den Kunden in zwei Fragen zu seinem Maßschuh führt, und ein 3D-Modell zum Drehen.</p>
+  <p class="preisblock">Shop 1.900 Euro einmalig</p>
+  <p>Darin enthalten sind alle Shop-Seiten mit Kategorien, Produktseiten, Warenkorb und Kasse, die Produkttexte und der Schuh-Berater. Der 3D-Konfigurator ist der individuelle Teil und wird separat nach Aufwand angeboten. Dazu 30 Euro im Monat für Hosting und Betreuung, monatlich kündbar. Kleinunternehmer, keine Umsatzsteuer ausgewiesen.</p>
+  <p><a class="knopf-seitfix" href="https://seitfix.at" target="_blank" rel="noopener">Unverbindlich anfragen</a></p>
+</div></section><footer class="fuss"><div class="mitte">
+  <div class="fuss-raster">
+    <div>
+      <img src="assets/img/logo-hell.png" alt="Markus Bauer Schuhmanufaktur" width="200" height="120">
+      <p style="margin:0;max-width:40ch">Rahmengenähte Maßschuhe aus Graz. Aus rund 200 Lederarten entsteht Ihr Unikat.</p>
+    </div>
+    <div><h2>Schuhe</h2><ul><li><a href="oxford.html">Oxford</a></li><li><a href="derby.html">Derby</a></li><li><a href="loafer.html">Loafer</a></li><li><a href="boots.html">Boots</a></li><li><a href="guertel.html">Gürtel</a></li></ul></div>
+    <div><h2>Service</h2><ul>
+      <li><a href="massschuh.html">Maßschuh und Beratung</a></li>
+      <li><a href="zahlung-versand.html">Zahlung und Versand</a></li>
+      <li><a href="groessen.html">Größen und Fragen</a></li>
+      <li><a href="geschaefte.html">Geschäfte</a></li>
+    </ul></div>
+    <div><h2>Kontakt</h2><ul>
+      <li><a href="tel:+43316674010">+43 316 67 40 10</a></li>
+      <li><a href="mailto:office@markusbauer-schuhmanufaktur.at">E-Mail schreiben</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="agb.html">AGB</a></li>
+      <li><a href="widerruf.html">Widerruf</a></li>
+    </ul></div>
+  </div>
+  <p class="klein">
+    Markus Bauer Schuhmanufaktur GmbH, Hofgasse 10, 8010 Graz. Geschäftsführer Mag. Markus Bauer. FN 467032m, Landesgericht für ZRS Graz, UID ATU72022857. Mitglied der Wirtschaftskammer Österreich.
+    <br><br>
+    Diese Seite ist eine unverbindliche Demo, erstellt von Seitfix. Sie ist kein Auftritt der Markus Bauer Schuhmanufaktur GmbH. Logo und alle Angaben stammen von der Website des Betriebs, Stand August 2026. Das 3D-Modell ist eine schematische Darstellung. Bildrechte liegen beim Betrieb.
+  </p>
+</div></footer>
+<nav class="handyleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316674010">Anrufen</a>
+  <a class="stark" href="massschuh.html">Schuh finden</a>
+</nav>
+<div class="schatten" id="schatten" hidden></div>
+<aside class="lade" id="lade" role="dialog" aria-modal="true" aria-labelledby="ladeTitel" aria-hidden="true">
+  <div class="lade-kopf"><h2 id="ladeTitel">Warenkorb</h2>
+    <button class="zu" type="button" id="ladeZu" aria-label="Warenkorb schließen">&times;</button></div>
+  <ul class="lade-liste" id="ladeListe"></ul>
+  <div class="lade-fuss">
+    <div class="zeile"><span>Zwischensumme</span><span id="ladeZwischen">0,00 Euro</span></div>
+    <p class="klein-caps" style="margin:0 0 .5rem;text-transform:none;letter-spacing:0;color:var(--grau)">Versand wird an der Kasse berechnet, ab 100 Euro kostenlos in AT und DE.</p>
+    <a class="knopf knopf-dunkel" href="kasse.html" style="width:100%">Zur Kasse</a>
+  </div>
+</aside>
+<script src="assets/three.min.js"></script>
+<script src="assets/schuh3d.js"></script>
+<script src="assets/shop.js"></script>
+</body>
+</html>

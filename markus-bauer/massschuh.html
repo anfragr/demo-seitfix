@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maßschuh und Beratung | Markus Bauer Schuhmanufaktur</title>
+<meta name="description" content="Finden Sie in zwei Fragen Ihr Modell und stellen Sie Ihren Maßschuh im 3D-Konfigurator zusammen. Rund 200 Lederarten.">
+<meta name="theme-color" content="#fbfaf6">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Maßschuh und Beratung | Markus Bauer Schuhmanufaktur">
+<meta property="og:description" content="Finden Sie in zwei Fragen Ihr Modell und stellen Sie Ihren Maßschuh im 3D-Konfigurator zusammen. Rund 200 Lederarten.">
+<meta property="og:image" content="assets/img/logo.png">
+<meta property="og:locale" content="de_AT">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfaf6'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%2323211e' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="demoleiste"><div class="mitte">
+  <span>Unverbindliche Demo für die Markus Bauer Schuhmanufaktur. Erstellt von Seitfix.</span>
+  <a href="https://seitfix.at" target="_blank" rel="noopener">seitfix.at</a>
+</div></div>
+<header class="kopf"><div class="mitte kopf-zeile">
+  <a class="marke" href="index.html" aria-label="Markus Bauer Schuhmanufaktur, Startseite">
+    <img src="assets/img/logo.png" alt="Markus Bauer Schuhmanufaktur" width="200" height="120"></a>
+  <nav class="hauptnav" aria-label="Hauptnavigation">
+    <a href="shop.html">Shop</a><a href="massschuh.html" aria-current="page">Maßschuh</a><a href="handwerk.html">Handwerk</a><a href="ueber-uns.html">Über uns</a><a href="geschaefte.html">Geschäfte</a>
+  </nav>
+  <div class="kopf-cta">
+    <button class="korbknopf" type="button" id="korbOeffnen" aria-haspopup="dialog">Warenkorb <span class="korbzahl" id="korbZahl">0</span></button>
+  </div>
+</div></header>
+<main>
+<section class="abschnitt" id="berater"><div class="mitte">
+  <div class="kopfzeile"><p class="ueber">Schuh-Berater</p><h2>Zwei Fragen zu Ihrem Schuh</h2>
+  <p>Sagen Sie uns, wofür und wann Sie ihn tragen. Wir schlagen Ihnen drei passende Modelle vor, danach stellen Sie Ihres im Detail zusammen.</p></div>
+  <div class="berater-frage"><div class="frage-kopf"><span class="nr">01</span><h3>Zu welchem Anlass?</h3></div>
+    <div class="optionen" data-name="anlass">
+      <button class="opt" type="button" data-wert="Business" aria-pressed="true"><span class="t">Business</span><span class="b">Büro, Termine, Alltag im Anzug</span></button>
+      <button class="opt" type="button" data-wert="Fest" aria-pressed="false"><span class="t">Fest und Anlass</span><span class="b">Hochzeit, Abend, festliche Tage</span></button>
+      <button class="opt" type="button" data-wert="Freizeit" aria-pressed="false"><span class="t">Freizeit</span><span class="b">Leger, für jeden Tag</span></button>
+    </div></div>
+  <div class="berater-frage"><div class="frage-kopf"><span class="nr">02</span><h3>Für welche Jahreszeit?</h3></div>
+    <div class="optionen" data-name="saison">
+      <button class="opt" type="button" data-wert="Sommer" aria-pressed="true"><span class="t">Sommer</span><span class="b">Leicht, offen, helle Töne</span></button>
+      <button class="opt" type="button" data-wert="Winter" aria-pressed="false"><span class="t">Winter</span><span class="b">Warm, kräftig, geschützt</span></button>
+      <button class="opt" type="button" data-wert="Ganzjahr" aria-pressed="false"><span class="t">Das ganze Jahr</span><span class="b">Ein Schuh für jede Zeit</span></button>
+    </div></div>
+  <div class="berater-aktion"><button class="knopf knopf-dunkel" type="button" id="vorschlagKnopf">Passende Modelle zeigen</button>
+    <span class="klein-caps" id="beraterStatus"></span></div>
+  <div class="vorschlaege" id="vorschlaege" hidden></div>
+  <p class="berater-hint" id="beraterHint" hidden>Ein Modell gewählt, weiter geht es unten im Konfigurator. Alles lässt sich dort noch ändern.</p>
+</div></section><section class="abschnitt abschnitt-creme" id="konfigurator"><div class="mitte">
+  <div class="kopfzeile"><p class="ueber">Konfigurator</p><h2>Ihr Modell im Detail</h2>
+  <p>Drehen Sie den Schuh mit der Maus und stellen Sie Leder, Farbe, Sohle und Futter zusammen. Am Ende schicken Sie uns Ihre Wahl, Preis und Passform klären wir beim Maßnehmen.</p></div>
+  <div class="konfig">
+    <div>
+      <div class="k-schritt"><div class="k-frage"><span class="nr">01</span><h3>Modell</h3></div>
+        <div class="wahl" data-name="modell">
+          <button type="button" data-wert="Oxford" data-form="oxford" aria-pressed="true"><span class="w-t">Oxford</span><span class="w-u">Geschlossene Schnürung</span></button>
+          <button type="button" data-wert="Derby" data-form="derby" aria-pressed="false"><span class="w-t">Derby</span><span class="w-u">Offene Schnürung</span></button>
+          <button type="button" data-wert="Budapester" data-form="budapester" aria-pressed="false"><span class="w-t">Budapester</span><span class="w-u">Kräftig, Lyralochung</span></button>
+          <button type="button" data-wert="Loafer" data-form="loafer" aria-pressed="false"><span class="w-t">Loafer</span><span class="w-u">Schlupfschuh</span></button>
+          <button type="button" data-wert="Schnürboot" data-form="boot" aria-pressed="false"><span class="w-t">Schnürboot</span><span class="w-u">Knöchelhoch</span></button>
+        </div></div>
+      <div class="k-schritt"><div class="k-frage"><span class="nr">02</span><h3>Leder</h3></div>
+        <div class="wahl" data-name="leder">
+          <button type="button" data-wert="Kalbsleder" data-finish="glatt" aria-pressed="true"><span class="w-t">Kalbsleder</span><span class="w-u">Boxcalf, glatt und fein</span></button>
+          <button type="button" data-wert="Veloursleder" data-finish="velours" aria-pressed="false"><span class="w-t">Veloursleder</span><span class="w-u">Weich, matt</span></button>
+          <button type="button" data-wert="Hirschleder" data-finish="genarbt" aria-pressed="false"><span class="w-t">Hirschleder</span><span class="w-u">Genarbt, robust</span></button>
+          <button type="button" data-wert="Büffelleder" data-finish="genarbt" aria-pressed="false"><span class="w-t">Büffelleder</span><span class="w-u">Kräftige Struktur</span></button>
+          <button type="button" data-wert="Lackleder" data-finish="lack" aria-pressed="false"><span class="w-t">Lackleder</span><span class="w-u">Glänzend, festlich</span></button>
+        </div></div>
+      <div class="k-schritt"><div class="k-frage"><span class="nr">03</span><h3>Farbe</h3></div>
+        <div class="farbwahl" data-name="farbe">
+          <button type="button" class="farbe" data-wert="Schwarz" aria-pressed="true"><span class="kreis" style="background:#1c1a17"></span><span class="n">Schwarz</span></button>
+          <button type="button" class="farbe" data-wert="Cognac" aria-pressed="false"><span class="kreis" style="background:#7a4423"></span><span class="n">Cognac</span></button>
+          <button type="button" class="farbe" data-wert="Mahagoni" aria-pressed="false"><span class="kreis" style="background:#5e2a1a"></span><span class="n">Mahagoni</span></button>
+          <button type="button" class="farbe" data-wert="Marineblau" aria-pressed="false"><span class="kreis" style="background:#28324c"></span><span class="n">Marineblau</span></button>
+          <button type="button" class="farbe" data-wert="Rot" aria-pressed="false"><span class="kreis" style="background:#7c2320"></span><span class="n">Rot</span></button>
+          <button type="button" class="farbe" data-wert="Beige" aria-pressed="false"><span class="kreis" style="background:#c1a074"></span><span class="n">Beige</span></button>
+        </div>
+        <p class="mehr-note">Rund 200 Lederarten und Farben liegen in Graz und Salzburg zur Auswahl. Diese sechs stehen stellvertretend, den Rest sehen Sie bei der Beratung.</p></div>
+      <div class="k-schritt"><div class="k-frage"><span class="nr">04</span><h3>Sohle</h3></div>
+        <div class="wahl" data-name="sohle">
+          <button type="button" data-wert="Ledersohle, rahmengenäht" aria-pressed="true"><span class="w-t">Ledersohle</span><span class="w-u">Rahmengenäht, klassisch</span></button>
+          <button type="button" data-wert="Nach Beratung" aria-pressed="false"><span class="w-t">Weitere Sohlen</span><span class="w-u">In der Beratung</span></button>
+        </div></div>
+      <div class="k-schritt"><div class="k-frage"><span class="nr">05</span><h3>Futter</h3></div>
+        <div class="wahl" data-name="futter">
+          <button type="button" data-wert="Lederfutter" aria-pressed="true"><span class="w-t">Lederfutter</span><span class="w-u">Ganzjahr, atmungsaktiv</span></button>
+          <button type="button" data-wert="Lodenfutter" aria-pressed="false"><span class="w-t">Lodenfutter</span><span class="w-u">Wärmend</span></button>
+          <button type="button" data-wert="Lammfell" aria-pressed="false"><span class="w-t">Lammfell</span><span class="w-u">Für kalte Tage</span></button>
+        </div></div>
+    </div>
+    <aside class="k-3d">
+      <div class="k-buehne"><canvas id="konfigCanvas" aria-label="Drehbares 3D-Modell Ihres Schuhs"></canvas>
+        <p class="dreh-hinweis">Zum Drehen ziehen</p></div>
+      <div class="k-zus" aria-live="polite">
+        <p class="ueber" style="margin-bottom:var(--a-s)">Ihre Zusammenstellung</p>
+        <h3 data-zus="modell">Oxford</h3>
+        <ul>
+          <li><span class="kk">Leder</span><span class="vv" data-zus="leder">Kalbsleder</span></li>
+          <li><span class="kk">Farbe</span><span class="vv" data-zus="farbe">Schwarz</span></li>
+          <li><span class="kk">Sohle</span><span class="vv" data-zus="sohle">Ledersohle, rahmengenäht</span></li>
+          <li><span class="kk">Futter</span><span class="vv" data-zus="futter">Lederfutter</span></li>
+        </ul>
+        <form class="anfrage-form" id="massschuhForm" name="mb-massschuh" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="mb-massschuh">
+          <p style="display:none"><label>Bitte leer lassen <input name="bot-field"></label></p>
+          <input type="hidden" name="konfiguration" id="massKonfig" value="">
+          <label class="feldlabel" for="massMail">Ihre E-Mail für die Rückmeldung</label>
+          <input class="feld" type="email" id="massMail" name="email" required placeholder="name@beispiel.at" autocomplete="email">
+          <input class="feld" type="text" name="name" placeholder="Name, optional" autocomplete="name">
+          <button class="knopf knopf-dunkel" type="submit" style="width:100%;margin-top:var(--a-s)">Zusammenstellung anfragen</button>
+          <p class="note" id="massHinweis" role="status" style="font-size:12.5px;color:var(--grau);margin-top:1rem">Unverbindlich. Preis und Passform besprechen wir beim Maßnehmen. Ihre Anfrage geht direkt an die Manufaktur.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div></section><section class="abschnitt"><div class="mitte fliess eng">
+  <p class="ueber">Beratung und Service</p>
+  <h2 style="margin-top:.6rem">Echte Beratung statt schnellem Verkauf</h2>
+  <p class="lead">Sie müssen nicht wissen, dass Sie aus 15 Passformen, verschiedensten Designs und 250 Lederarten wählen könnten. Auch nicht, dass es verschiedene Sohlen oder Innenfutter gibt. Unsere Mitarbeiter sind Kenner der Produktionsschritte und wissen, was möglich ist.</p>
+  <p>Im persönlichen Beratungsgespräch geht es darum, das Eine herauszufinden: welcher Schuh Ihrem Fuß künftig Haltung und Stil verleiht. Als Produzent können wir flexibel auf Ihre individuellen Wünsche eingehen. Sie wählen aus etwa 200 Lederarten in unterschiedlichsten Farben, verschiedenen Sohlen, Innenfutter sowie Modellen und Leisten. Ihr Schuh wird eigens für Sie hergestellt, so erhalten Sie in wenigen Wochen Ihr persönliches Unikat. Selbstverständlich gibt es zu jedem Schuh auch den passenden Gürtel, farbig abgestimmt.</p>
+</div></section>
+</main>
+<footer class="fuss"><div class="mitte">
+  <div class="fuss-raster">
+    <div>
+      <img src="assets/img/logo-hell.png" alt="Markus Bauer Schuhmanufaktur" width="200" height="120">
+      <p style="margin:0;max-width:40ch">Rahmengenähte Maßschuhe aus Graz. Aus rund 200 Lederarten entsteht Ihr Unikat.</p>
+    </div>
+    <div><h2>Schuhe</h2><ul><li><a href="oxford.html">Oxford</a></li><li><a href="derby.html">Derby</a></li><li><a href="loafer.html">Loafer</a></li><li><a href="boots.html">Boots</a></li><li><a href="guertel.html">Gürtel</a></li></ul></div>
+    <div><h2>Service</h2><ul>
+      <li><a href="massschuh.html">Maßschuh und Beratung</a></li>
+      <li><a href="zahlung-versand.html">Zahlung und Versand</a></li>
+      <li><a href="groessen.html">Größen und Fragen</a></li>
+      <li><a href="geschaefte.html">Geschäfte</a></li>
+    </ul></div>
+    <div><h2>Kontakt</h2><ul>
+      <li><a href="tel:+43316674010">+43 316 67 40 10</a></li>
+      <li><a href="mailto:office@markusbauer-schuhmanufaktur.at">E-Mail schreiben</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="agb.html">AGB</a></li>
+      <li><a href="widerruf.html">Widerruf</a></li>
+    </ul></div>
+  </div>
+  <p class="klein">
+    Markus Bauer Schuhmanufaktur GmbH, Hofgasse 10, 8010 Graz. Geschäftsführer Mag. Markus Bauer. FN 467032m, Landesgericht für ZRS Graz, UID ATU72022857. Mitglied der Wirtschaftskammer Österreich.
+    <br><br>
+    Diese Seite ist eine unverbindliche Demo, erstellt von Seitfix. Sie ist kein Auftritt der Markus Bauer Schuhmanufaktur GmbH. Logo und alle Angaben stammen von der Website des Betriebs, Stand August 2026. Das 3D-Modell ist eine schematische Darstellung. Bildrechte liegen beim Betrieb.
+  </p>
+</div></footer>
+<nav class="handyleiste" aria-label="Schnellzugriff">
+  <a href="tel:+43316674010">Anrufen</a>
+  <a class="stark" href="massschuh.html">Schuh finden</a>
+</nav>
+<div class="schatten" id="schatten" hidden></div>
+<aside class="lade" id="lade" role="dialog" aria-modal="true" aria-labelledby="ladeTitel" aria-hidden="true">
+  <div class="lade-kopf"><h2 id="ladeTitel">Warenkorb</h2>
+    <button class="zu" type="button" id="ladeZu" aria-label="Warenkorb schließen">&times;</button></div>
+  <ul class="lade-liste" id="ladeListe"></ul>
+  <div class="lade-fuss">
+    <div class="zeile"><span>Zwischensumme</span><span id="ladeZwischen">0,00 Euro</span></div>
+    <p class="klein-caps" style="margin:0 0 .5rem;text-transform:none;letter-spacing:0;color:var(--grau)">Versand wird an der Kasse berechnet, ab 100 Euro kostenlos in AT und DE.</p>
+    <a class="knopf knopf-dunkel" href="kasse.html" style="width:100%">Zur Kasse</a>
+  </div>
+</aside>
+<script src="assets/three.min.js"></script>
+<script src="assets/schuh3d.js"></script>
+<script src="assets/shop.js"></script>
+</body>
+</html>
