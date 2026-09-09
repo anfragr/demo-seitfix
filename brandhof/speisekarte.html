@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speisekarte · Restaurant Brandhof Graz</title>
+<meta name="description" content="Tageskarte, Wochenplan, Speisekarte und Kürbiszeit des Restaurant Brandhof in Graz als PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="sr-only" href="#main">Zum Inhalt springen</a>
+<div class="announce">Heute geöffnet <strong>&nbsp;11:00 bis 24:00 Uhr</strong><span class="hide-m">&nbsp;· Küche bis 23:00 · Tageskarte aktualisiert</span></div>
+<header class="header header--over">
+  <div class="container">
+    <a class="brand" href="index.html">Brandhof <small>Graz</small></a>
+    <nav class="nav" aria-label="Hauptnavigation"><a href="index.html">Start</a><a href="ueber-uns.html">Über uns</a><a href="speisekarte.html" aria-current="page">Speisekarte</a><a href="gutscheine.html">Gutscheine</a><a href="reservierung.html">Reservierung</a></nav>
+    <div class="header__actions">
+      <a class="cart-btn" href="gutscheine.html" aria-label="Warenkorb"><span>Warenkorb</span><span class="cart-btn__count">0</span></a>
+      <a class="btn btn--primary header__cta" href="reservierung.html">Tisch reservieren</a>
+      <button class="burger" aria-expanded="false" aria-controls="drawer" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="drawer" id="drawer">
+  <a class="big" href="index.html">Start</a><a class="big" href="ueber-uns.html">Über uns</a><a class="big" href="speisekarte.html">Speisekarte</a><a class="big" href="gutscheine.html">Gutscheine</a><a class="big" href="reservierung.html">Reservierung</a>
+  <div class="drawer__meta"><span>Gleisdorfergasse 10, 8010 Graz</span><span>+43 316 82 42 55</span><span>Di bis Sa 11:00 bis 24:00 Uhr</span></div>
+</div>
+<main id="main">
+
+<section class="page-hero">
+  <div class="page-hero__media" data-parallax="10"><img src="bilder/brandhof-aussen.jpg" alt=""></div>
+  <div class="container">
+    <p class="eyebrow" data-reveal>Durchgehend warme Küche</p>
+    <h1 class="words">Unsere <em class="serif-i ochre">Karten.</em></h1>
+    <p class="lead" data-reveal style="--d:.2s">Tageskarte, Wochenplan, Speisekarte und Saisonkarte. Täglich aktuell als PDF, gleich hier zum Lesen oder Herunterladen.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="tabs" role="tablist" aria-label="Speisekarten" data-reveal>
+      <button class="tab" role="tab" aria-selected="true" aria-controls="p1" id="t1">Tageskarte</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2" tabindex="-1">Wochenplan</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p3" id="t3" tabindex="-1">Speisekarte</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="p4" id="t4" tabindex="-1">Kürbiszeit</button>
+    </div>
+    <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1" data-active>
+      <div class="panel__head"><div><h2>Tageskarte</h2><p class="muted" style="margin:0">Stand: Mittwoch, 9. September 2026</p></div><a class="btn btn--dark" href="https://www.brandhof.co.at/downloads/TAGESKARTE.pdf" target="_blank" rel="noopener">PDF öffnen <span class="arrow">→</span></a></div>
+      <iframe class="pdf-frame" src="https://www.brandhof.co.at/downloads/TAGESKARTE.pdf#toolbar=0&navpanes=0" title="Tageskarte" loading="lazy"></iframe>
+    </div>
+    <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
+      <div class="panel__head"><div><h2>Wochenplan</h2><p class="muted" style="margin:0">8. bis 12. September · Mittagsmenüs 11:00 bis 14:30</p></div><a class="btn btn--dark" href="#" onclick="return false">PDF öffnen <span class="arrow">→</span></a></div>
+      <ul class="menu-list" style="max-width:860px">
+        <li><span class="day">Dienstag</span><span class="dish">Spinatknödel auf Paradeissauce mit Parmesan<span class="alt">Gebackenes Schweinsschnitzel mit Erdäpfel-Rahmgurkensalat</span></span></li>
+        <li><span class="day">Mittwoch</span><span class="dish">Spaghetti Carbonara mit Parmesan<span class="alt">Gefüllter Paprika mit Paradeissauce und Salzerdäpfeln</span></span></li>
+        <li><span class="day">Donnerstag</span><span class="dish">Gebackener Karfiol mit Sauce Tartare<span class="alt">Zwiebelrostbraten mit Butternudeln</span></span></li>
+        <li><span class="day">Fr &amp; Sa</span><span class="dish">Erdäpfelgulasch mit Braunschweiger und Sauerrahm<span class="alt">Gebackene Fischfiletstücke auf grünem Erdäpfelsalat</span></span></li>
+      </ul>
+    </div>
+    <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+      <div class="panel__head"><div><h2>Speisekarte</h2><p class="muted" style="margin:0">Unsere Klassiker, das ganze Jahr</p></div><a class="btn btn--dark" href="#" onclick="return false">PDF öffnen <span class="arrow">→</span></a></div>
+      <div class="pdf-placeholder"><strong>Speisekarte.pdf</strong><span>Hier wird das im Shopify-Admin hochgeladene PDF eingebettet.</span></div>
+    </div>
+    <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4">
+      <div class="panel__head"><div><h2>Kürbiszeit</h2><p class="muted" style="margin:0">Saisonkarte September bis November</p></div><a class="btn btn--dark" href="#" onclick="return false">PDF öffnen <span class="arrow">→</span></a></div>
+      <div class="pdf-placeholder"><strong>Kürbiszeit 2026.pdf</strong><span>Hier wird das im Shopify-Admin hochgeladene PDF eingebettet.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark">
+  <div class="container steps">
+    <div class="step" data-reveal><h3>Durchgehend warm</h3><p>Von 11:00 bis 23:00 Uhr kommt alles aus der Küche, auch um halb vier am Nachmittag.</p></div>
+    <div class="step" data-reveal style="--d:.1s"><h3>Lieferung nach Hause</h3><p>Über <a href="https://www.foodora.at" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor">Foodora</a> und <a href="https://www.velofood.at/restaurant/brandhof" target="_blank" rel="noopener" style="border-bottom:1px solid currentColor">Velofood</a> in ganz Graz.</p></div>
+    <div class="step" data-reveal style="--d:.2s"><h3>Allergene und Wünsche</h3><p>Allergene stehen auf jeder Karte. Sagen Sie uns Bescheid, die Küche findet fast immer eine Lösung.</p></div>
+  </div>
+</section>
+
+<section class="section dark cta-section">
+  <div class="container cta">
+    <div>
+      <p class="eyebrow" data-reveal>Wir freuen uns auf Sie</p>
+      <h2 class="words">Ihr Tisch <em class="serif-i ochre">wartet</em> schon.</h2>
+      <p class="lead" data-reveal style="margin-top:1.2rem">Reservieren Sie online in einer Minute oder rufen Sie uns an. Für Gruppen ab zwölf Personen gerne telefonisch.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem" data-reveal><a class="btn btn--primary" href="reservierung.html">Tisch reservieren <span class="arrow">→</span></a><a class="btn btn--ghost" href="tel:+43316824255">+43 316 82 42 55</a></div>
+    </div>
+    <ul class="cta__hours" data-reveal="mask">
+      <li><span>Dienstag bis Samstag</span><span>11:00 bis 24:00 Uhr</span></li>
+      <li><span>Küche</span><span>durchgehend bis 23:00 Uhr</span></li>
+      <li><span>Sonntag, Montag, Feiertage</span><span>Ruhetag</span></li>
+      <li><span>Adresse</span><span>Gleisdorfergasse 10, 8010 Graz</span></li>
+    </ul>
+  </div>
+</section></main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">Brandhof</div>
+        <p class="muted" style="max-width:34ch">Steirische Wirtshausküche, durchgehend warm, mitten in Graz. Seit Generationen.</p>
+        <a class="link-arrow" href="reservierung.html">Tisch reservieren <span class="arrow">→</span></a>
+      </div>
+      <div>
+        <h4>Seiten</h4>
+        <ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="speisekarte.html">Speisekarte</a></li><li><a href="gutscheine.html">Gutscheine</a></li><li><a href="reservierung.html">Reservierung</a></li></ul>
+      </div>
+      <div>
+        <h4>Öffnungszeiten</h4>
+        <ul><li>Di bis Sa 11:00 bis 24:00</li><li>Küche bis 23:00</li><li>So, Mo, Feiertag Ruhetag</li></ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul><li>Gleisdorfergasse 10<br>8010 Graz</li><li><a href="tel:+43316824255">+43 316 82 42 55</a></li><li><a href="mailto:restaurant@brandhof.co.at">restaurant@brandhof.co.at</a></li><li><a href="https://www.facebook.com/BrandhofGraz" target="_blank" rel="noopener">Facebook</a></li></ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Restaurant Brandhof · Lieferung über Foodora und Velofood</span>
+      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="#">AGB</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
