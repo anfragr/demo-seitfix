@@ -2,9 +2,6 @@
 <html lang="de-AT">
 <head>
 <meta charset="utf-8">
-  <!-- Demoseite. Darf nicht in Suchmaschinen landen, sonst konkurriert sie mit der
-       echten Seite des Betriebs. Beim Livegang des Kunden diese Zeile entfernen. -->
-  <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gasthof Dorrer | Steirisches Wirtshaus mit Eichenbar in Graz</title>
 <meta name="description" content="Gasthof Dorrer in der Steinbergstraße 41, 8052 Graz. Seit 1898 in Familienhand, steirische Küche, acht Meter lange Eichenbar. Freitag bis Dienstag geöffnet.">
@@ -39,8 +36,6 @@
   --abstand-xl:5.5rem;
   --schrift-titel:'Bitter',Georgia,'Times New Roman',serif;
   --schrift-text:'Source Sans 3',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  /* Der eine typografische Höhepunkt der Seite. */
-  --schrift-riesig:clamp(2.9rem,8.5vw,8rem);
   --breite:1180px;
 }
 
@@ -58,7 +53,7 @@ body{
 }
 img{max-width:100%;height:auto;display:block}
 h1,h2,h3{font-family:var(--schrift-titel);font-weight:700;line-height:1.15;margin:0 0 var(--abstand-m);letter-spacing:-.01em}
-h1{font-size:var(--schrift-riesig);line-height:.95;letter-spacing:-.025em}
+h1{font-size:clamp(2.1rem,6.4vw,3.6rem)}
 h2{font-size:clamp(1.6rem,4vw,2.35rem)}
 h3{font-size:1.2rem;font-weight:600}
 p{margin:0 0 var(--abstand-m)}
@@ -194,12 +189,20 @@ figcaption{font-size:.9rem;color:var(--farbe-gedaempft);padding-top:.5rem}
 .sachliste li{display:flex;justify-content:space-between;gap:1rem;padding:.5rem 0;border-bottom:1px solid var(--farbe-linie)}
 .sachliste li span:last-child{text-align:right;color:var(--farbe-gedaempft)}
 
+/* Zeitleiste */
+.zeitleiste{list-style:none;margin:0;padding:0;border-left:2px solid var(--farbe-linie)}
+.zeitleiste li{position:relative;padding:0 0 var(--abstand-l) 1.6rem}
+.zeitleiste li::before{
   content:'';position:absolute;left:-7px;top:.55rem;
   width:12px;height:12px;border-radius:50%;background:var(--farbe-akzent);
 }
 .zeitleiste li:last-child{padding-bottom:0}
 .jahr{font-family:var(--schrift-titel);font-weight:700;font-size:1.5rem;color:var(--farbe-primaer);display:block;line-height:1.1;margin-bottom:.35rem}
 .zeitleiste p{margin:0}
+@media (prefers-reduced-motion:no-preference){
+  .js .zeitleiste li{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+  .js .zeitleiste li.sichtbar{opacity:1;transform:none}
+}
 
 /* Öffnungszeiten */
 .zeittabelle{width:100%;border-collapse:collapse;text-align:left}
@@ -288,7 +291,10 @@ body{padding-bottom:56px}
   .hauptnav ul{padding:0;gap:1.35rem}
   .tel-knopf{display:inline-flex}
   .nav-hinweis{position:absolute;left:1.25rem;right:1.25rem;bottom:0}
-  .hero-text{padding-top:var(--abstand-xl)}
+  .hero-raster{grid-template-columns:1fr 1fr;align-items:stretch}
+  .hero-text{padding:var(--abstand-xl) 3.5rem var(--abstand-xl) 0;display:flex;flex-direction:column;justify-content:center}
+  /* Der Hero läuft rechts bis an den Bildschirmrand, der Text bleibt im Raster. */
+  .hero .rand{max-width:none;padding-left:max(1.25rem,calc((100% - var(--breite)) / 2 + 1.25rem));padding-right:0}
   .zweispalt{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl)}
   .speisen-raster{grid-template-columns:1fr 1fr;gap:0 var(--abstand-xl)}
   .listen-paar{grid-template-columns:1fr 1fr;gap:var(--abstand-xl)}
@@ -303,120 +309,7 @@ body{padding-bottom:56px}
 }
 @media (min-width:1200px){
   :root{--abstand-xl:7rem}
-}
-
-/* Signature eins: die Bar randlos, mit der Maßangabe als Bemaßungslinie */
-.hero{position:relative;background:var(--farbe-dunkel);color:#f6f1e8;padding:0;
-      min-height:88vh;display:flex;align-items:flex-end;border-bottom:0}
-.hero-bild{position:absolute;inset:0;margin:0}
-.hero-bild img{width:100%;height:100%;object-fit:cover;min-height:0}
-.hero-bild::after{content:'';position:absolute;inset:0;background:rgba(20,12,10,.6)}
-.hero-text{position:relative;z-index:1;width:100%;padding:var(--abstand-l) 0 0;display:block}
-.hero-text .augenmass,.hero p.leit{max-width:40ch}
-.hero .hero-vor{color:#e8c489}
-.hero h1{color:#fff}
-.hero p.leit{color:#e6dccd;font-size:1.2rem}
-.hero .status{border-left-color:var(--farbe-akzent);border-top:0}
-.hero .status b{color:#fff;font-size:1.15rem}
-.hero .status .zusatz{color:#d3c7b6}
-.knopf-hell{background:transparent;color:#f6f1e8;border-color:rgba(246,241,232,.5)}
-.knopf-hell:hover{border-color:#f6f1e8}
-.bemassung{
-  position:relative;z-index:1;margin:var(--abstand-l) 0 0;padding:0 0 2.2rem;
-  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:.9rem;
-  color:#e6dccd;
-}
-.bemassung::before,.bemassung::after{content:'';width:1px;height:1.5rem;background:var(--farbe-akzent)}
-.bemassung .linie{height:1px;background:var(--farbe-akzent);position:relative}
-.bemassung .mass{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  background:var(--farbe-dunkel);padding:0 1rem;white-space:nowrap;
-  font-family:var(--schrift-titel);font-weight:700;font-size:clamp(1rem,2.2vw,1.5rem);
-  color:var(--farbe-akzent);letter-spacing:.02em;
-}
-
-/* Signature zwei: fünf Generationen als waagrechte Zeitleiste */
-.generationen{list-style:none;margin:0;padding:0;display:grid;gap:var(--abstand-l)}
-.generationen li{border-top:2px solid var(--farbe-akzent);padding-top:1.1rem}
-.generationen .jahr{display:block;font-family:var(--schrift-titel);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--farbe-primaer);line-height:1;margin-bottom:.6rem}
-.generationen img{width:100%;aspect-ratio:3 / 2;object-fit:cover;margin-bottom:.9rem}
-.generationen p{margin:0;font-size:.98rem}
-@media (min-width:640px){.generationen{grid-template-columns:repeat(5,1fr);gap:1.6rem}}
-
-/* ------------------------------------------------------------------
-   Ausbau: Verkaufswerkzeug und Wow-Hebel
-   ------------------------------------------------------------------ */
-.hauptnav ul{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.hauptnav ul::-webkit-scrollbar{display:none}
-.hauptnav li{flex:0 0 auto}
-.nav-inaktiv::before{content:'';width:.4rem;height:.4rem;border:1px solid currentColor;border-radius:50%;margin-right:.5rem;flex:none}
-.nav-hinweis{line-height:1.5;max-height:0}
-.nav-hinweis.sichtbar{max-height:9rem;padding-bottom:.8rem}
-.nav-hinweis b{font-weight:700}
-
-/* Randloses Band über die volle Fensterbreite */
-.band{position:relative;overflow:hidden;background:#111;padding:0}
-.band img{width:100%;height:74vh;min-height:20rem;object-fit:cover}
-.band::after{content:'';position:absolute;inset:0;background:rgba(12,12,12,.55)}
-.band-inhalt{position:absolute;inset:0;z-index:1;display:flex;align-items:flex-end}
-.band-inhalt .rand{padding-bottom:3rem}
-.band-inhalt p{color:#fff;font-family:var(--schrift-titel);font-size:clamp(1.4rem,3.4vw,2.6rem);line-height:1.25;max-width:20ch;margin:0}
-.band-inhalt .marke{color:#fff}
-
-/* Seitfix: Seitenliste und Angebot */
-.seitfix-raster{display:grid;gap:var(--abstand-l)}
-.seitenliste{list-style:none;margin:0 0 var(--abstand-m);padding:0;max-width:44rem;counter-reset:s}
-.seitenliste li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:0 .8rem;padding:.75rem 0;border-bottom:1px solid #333}
-.seitenliste li::before{content:counter(s,decimal-leading-zero);color:#9fd0c4;font-weight:700;font-size:.85rem;padding-top:.2rem}
-.seitenliste b{display:block;color:#fff}
-.seitenliste span{color:#b6b6b8;font-size:.95rem}
-.angebot{border:1px solid #3a3a3c;padding:1.5rem 1.6rem;margin:var(--abstand-m) 0;max-width:44rem}
-.angebot .zahl{font-family:var(--schrift-titel);font-size:clamp(2.4rem,5vw,3.4rem);color:#fff;line-height:1;display:block;margin-bottom:.3rem}
-.angebot ul{list-style:none;margin:1.1rem 0 0;padding:0}
-.angebot li{padding:.4rem 0;border-top:1px solid #333;font-size:.98rem;color:#c9c9cb}
-.seitfix h3{color:#fff}
-@media (min-width:900px){
-  .seitfix-raster{grid-template-columns:1.05fr .95fr;gap:var(--abstand-xl);align-items:start}
-}
-
-/* Sammelkorrektur, zentral angehaengt. */
-.seitenliste li>b,.seitenliste li>span{grid-column:2}
-@media (min-width:640px){.hauptnav ul{flex-wrap:wrap;overflow-x:visible}}
-
-/* Handy-Feinschliff, zentral angehaengt. */
-h1,h2,h3{overflow-wrap:break-word}
-@media (max-width:639px){
-  a[href^="tel:"]{display:inline-flex;align-items:center;min-height:44px}
-  a[href^="mailto:"]{display:inline-flex;align-items:center;min-height:44px}
-  .wortmarke span{font-size:.72rem}
-  table td:last-child{white-space:normal}
-}
-
-/* Handy-Feinschliff, zweiter Durchgang. */
-@media (max-width:639px){
-  .preise td:last-child,.preise th:last-child{white-space:normal}
-  a[href*="maps"],a[href*="openstreetmap"],a[href*="google.com/maps"]{display:inline-flex;align-items:center;min-height:44px}
-}
-.hero-foto>.rand,.hero>.rand{min-width:0;max-width:100%}
-.hero-foto{min-width:0}
-
-/* Sehr kleine Geraete unter 360 Pixel: Ueberschrift verkleinern, sonst laeuft
-   ein langer Betriebsname ueber den Rand. */
-@media (max-width:359px){
-  h1{font-size:clamp(1.75rem,8.6vw,2.2rem)}
-}
-
-/* Handy-Feinschliff, dritter Durchgang: Tippziele und Mindestschriftgroesse. */
-@media (max-width:639px){
-  .bereiche a,.seitfix a,.wege a,.kachel a{display:inline-flex;align-items:center;min-height:44px}
-  .marke,.hero-vor,.ort,.vorzeile,.kicker,.klein{font-size:.75rem}
-}
-
-/* Handy-Feinschliff, vierter Durchgang.
-   Die Navigation scrollt am Handy waagrecht. Zentriert wuerde sie links
-   abgeschnitten und der erste Punkt waere nicht erreichbar. */
-@media (max-width:639px){
-  .hauptnav ul{justify-content:flex-start}
+  .hero-text{padding-right:5rem}
 }
 </style>
 </head>
@@ -435,16 +328,10 @@ h1,h2,h3{overflow-wrap:break-word}
         <li><a href="#woche">Die Woche</a></li>
         <li><a href="#eichenbar">Eichenbar</a></li>
         <li><a href="#kueche">Küche</a></li>
-        <li><a href="#zeiten">Zeiten</a></li>
+        <li><a href="#zeiten">Öffnungszeiten</a></li>
         <li><a href="#reservierung">Reservieren</a></li>
-        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
-                 data-hinweis="Eigene Seite mit der vollständigen Karte, dem Wochenplan und den Preisen.">Speisekarte</span></li>
-        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
-                 data-hinweis="Eigene Seite mit der Eichenbar, der Gaststube und dem Stammtisch.">Räume</span></li>
-        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
-                 data-hinweis="Eigene Seite mit allen fünf Generationen seit 1898 und den alten Fotos.">Geschichte</span></li>
-        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv
-                 data-hinweis="Eigene Seite mit Anfahrt, Parken und allen Kontaktdaten.">Kontakt</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv>Speisekarte</span></li>
+        <li><span class="nav-inaktiv" role="link" aria-disabled="true" tabindex="0" data-inaktiv>Galerie</span></li>
       </ul>
       <p class="nav-hinweis" id="navHinweis" role="status"></p>
     </nav>
@@ -454,29 +341,25 @@ h1,h2,h3{overflow-wrap:break-word}
 
 <main id="oben">
 
-  <section class="hero" aria-labelledby="titel">
-    <figure class="hero-bild">
-      <img src="assets/img/eichenbar.webp" width="1900" height="1266" loading="eager" fetchpriority="high"
-           alt="Die acht Meter lange Bar aus Eichenholz mit Flaschenregal und Kupferlampen darüber">
-    </figure>
-    <div class="hero-text">
-      <div class="rand">
-        <p class="hero-vor">Acht Meter Eichenholz, zwanzig Weinfässer</p>
+  <section class="hero" aria-labelledby="titel" style="padding:0">
+    <div class="rand hero-raster">
+      <div class="hero-text">
+        <p class="hero-vor">Seit 1898 in Familienhand</p>
         <h1 id="titel">Gasthof Dorrer</h1>
-        <p class="leit">Wirtshaus am Stadtrand von Graz, geführt von Martin Dorrer. Steirische Küche, und seit dem Umbau 2023 eine Bar, für die man Platz braucht.</p>
+        <p class="leit">Wirtshaus am Stadtrand von Graz, geführt von Martin Dorrer in fünfter Generation. Steirische Küche, dazu eine acht Meter lange Bar aus Eichenholz.</p>
         <p class="status" id="statusHero">
           <b id="statusText">Öffnungszeiten werden geladen</b>
           <span class="zusatz" id="statusZusatz"></span>
         </p>
         <div class="hero-knoepfe">
           <a class="knopf knopf-voll" href="#reservierung">Tisch reservieren</a>
-          <a class="knopf knopf-hell" href="tel:+43316582647">+43 316 582647</a>
+          <a class="knopf knopf-linie" href="tel:+43316582647">+43 316 582647</a>
         </div>
-        <p class="bemassung" aria-hidden="true">
-          <span class="linie"><span class="mass">8 Meter</span></span>
-        </p>
-        <p class="nurlesbar">Die Bar misst acht Meter in der Länge.</p>
       </div>
+      <figure class="hero-bild">
+        <img src="assets/img/eichenbar.webp" width="1760" height="1173" loading="eager" fetchpriority="high"
+             alt="Die acht Meter lange Bar aus Eichenholz mit Flaschenregal und Kupferlampen darüber">
+      </figure>
     </div>
   </section>
 
@@ -653,44 +536,49 @@ h1,h2,h3{overflow-wrap:break-word}
   </section>
 
   <section id="geschichte" class="gedeckt" aria-labelledby="geschichteTitel">
-    <div class="rand">
-      <div class="sektion-kopf augenmass">
+    <div class="rand zweispalt">
+      <div>
         <p class="marke">Seit 1898</p>
-        <h2 id="geschichteTitel">Fünf Generationen</h2>
-        <p>Aus dem Gasthaus Gollupp wurde 1959 der Gasthof Dorrer. Die sechste Generation wächst bereits heran.</p>
+        <h2 id="geschichteTitel">Die Generationen</h2>
+        <ul class="zeitleiste" id="zeitleiste">
+          <li>
+            <span class="jahr">1898</span>
+            <p>Martin Gollupp eröffnet am 31. Mai gemeinsam mit seiner Frau Theresia das Gasthaus Gollupp. Es hat einen Salon, zwei Gastzimmer und ein Verkaufsgewölbe, im ersten Stock fünf Wohnzimmer und einen Empfangssalon. Hinter dem Haus stehen eine Ziegelbrennerei und eine Schmiede.</p>
+          </li>
+          <li>
+            <span class="jahr">1937</span>
+            <p>Sohn Ferdinand Gollupp übernimmt mit seiner Frau Elisabeth Zotter und führt den Betrieb bis zum 16. Dezember 1954.</p>
+          </li>
+          <li>
+            <span class="jahr">1959</span>
+            <p>Am 4. September wird aus dem Gasthaus Gollupp der Gasthof Dorrer. Dora und Emmerich Dorrer führen ihn bis zur Übergabe am 14. November 1981.</p>
+          </li>
+          <li>
+            <span class="jahr">1981</span>
+            <p>Ferdinand und Renate Dorrer leiten das Haus bis zum 30. August 2004.</p>
+          </li>
+          <li>
+            <span class="jahr">2004</span>
+            <p>Martin Dorrer übernimmt in fünfter Generation. Die sechste wächst bereits heran.</p>
+          </li>
+        </ul>
       </div>
-      <ol class="generationen">
-        <li>
+      <div class="bilderpaar" style="margin-top:0;grid-template-columns:1fr">
+        <figure>
+          <img src="assets/img/gasthaus-gollupp.webp" width="760" height="507" loading="lazy"
+               alt="Historische Schwarzweißaufnahme: Gruppe von Männern vor dem Gasthaus mit der Aufschrift Ferdinand Gollupp">
+          <figcaption>Das Haus zur Zeit von Ferdinand Gollupp.</figcaption>
+        </figure>
+        <figure>
           <img src="assets/img/hof-historisch.webp" width="760" height="507" loading="lazy"
                alt="Schwarzweißaufnahme des Gasthauses mit Nebengebäuden vor bewaldeten Hügeln">
-          <span class="jahr">1898</span>
-          <p>Martin und Theresia Gollupp eröffnen am 31. Mai das Gasthaus Gollupp. Dahinter stehen eine Ziegelbrennerei und eine Schmiede.</p>
-        </li>
-        <li>
-          <img src="assets/img/gasthaus-gollupp.webp" width="760" height="507" loading="lazy"
-               alt="Historische Aufnahme: Gruppe von Männern vor dem Gasthaus mit der Aufschrift Ferdinand Gollupp">
-          <span class="jahr">1937</span>
-          <p>Sohn Ferdinand Gollupp übernimmt mit Elisabeth Zotter und führt den Betrieb bis zum 16. Dezember 1954.</p>
-        </li>
-        <li>
-          <img src="assets/img/gasthof-frueher.webp" width="760" height="507" loading="lazy"
-               alt="Farbaufnahme des langgestreckten Gasthauses mit violetten Fensterläden aus früheren Jahren">
-          <span class="jahr">1959</span>
-          <p>Am 4. September wird aus dem Gasthaus Gollupp der Gasthof Dorrer, geführt von Dora und Emmerich Dorrer.</p>
-        </li>
-        <li>
+        </figure>
+        <figure>
           <img src="assets/img/hausfassade.webp" width="1100" height="736" loading="lazy"
                alt="Ockerfarbene Hausfassade mit dem Schriftzug Gasthof Dorrer über den Fenstern">
-          <span class="jahr">1981</span>
-          <p>Ferdinand und Renate Dorrer leiten das Haus vom 14. November 1981 bis zum 30. August 2004.</p>
-        </li>
-        <li>
-          <img src="assets/img/martin-dorrer.webp" width="1100" height="733" loading="lazy"
-               alt="Martin Dorrer und eine Mitarbeiterin stehen vor dem Flaschenregal der Eichenbar">
-          <span class="jahr">2004</span>
-          <p>Martin Dorrer übernimmt in fünfter Generation und baut 2023 die Eichenbar.</p>
-        </li>
-      </ol>
+          <figcaption>Die Fassade an der Steinbergstraße heute.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -823,37 +711,17 @@ h1,h2,h3{overflow-wrap:break-word}
     <div class="rand">
       <p class="marke">In eigener Sache</p>
       <h2 id="seitfixTitel">Diese Seite wurde als Vorschlag für den Gasthof Dorrer gebaut.</h2>
-      <div class="seitfix-raster">
-        <div>
-          <div style="max-width:56ch">
-            <p>Auf Ihrer jetzigen Seite stehen die täglichen Highlights ganz unten, zwischen Lieferanten und Saisonkalender. Wer wissen will, ob es heute Backhendl gibt, muss durch die halbe Seite scrollen. Hier steht der Wochenplan direkt unter der Bar, und oben sieht man sofort, ob gerade offen ist.</p>
-            <p>Die Eichenbar ist das Beste, was Sie haben, und sie steht im Original als eines von vielen Fotos in einer Galerie. Hier füllt sie den ganzen ersten Bildschirm, mit der Maßangabe als Teil der Gestaltung.</p>
-          </div>
-
-          <h3 style="margin-top:var(--abstand-l)">Was Sie hier sehen, ist die Startseite. Zur fertigen Website gehören außerdem:</h3>
-          <ul class="seitenliste">
-            <li><b>Speisekarte</b><span>Die vollständige Karte, der Wochenplan und die Preise.</span></li>
-            <li><b>Räume</b><span>Eichenbar, Gaststube und Stammtisch, mit mehr Bildern.</span></li>
-            <li><b>Geschichte</b><span>Alle fünf Generationen seit 1898, mit den alten Fotos.</span></li>
-            <li><b>Kontakt</b><span>Anfahrt, Parken und alle Kontaktdaten auf einen Blick.</span></li>
-          </ul>
-          <p class="klein" style="color:#b6b6b8">Mit dieser Startseite sind das fünf Seiten, fertig aufgesetzt.</p>
-        </div>
-
-        <div>
-          <div class="angebot">
-            <span class="zahl">1000 Euro</span>
-            <p style="margin:0;color:#c9c9cb">einmalig für die komplette Website mit allen fünf Seiten, Texten, Bildbearbeitung und Reservierungsformular.</p>
-            <ul>
-              <li>Erstes Jahr Hosting inklusive, danach 30 Euro im Monat, monatlich kündbar.</li>
-              <li>Eine Korrekturrunde ist enthalten.</li>
-              <li>Die Website gehört Ihnen.</li>
-              <li>Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</li>
-            </ul>
-          </div>
-          <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
-        </div>
+      <div class="augenmass">
+        <p>Auf Ihrer jetzigen Seite stehen die täglichen Highlights ganz unten, zwischen Lieferanten und Saisonkalender. Wer wissen will, ob es heute Backhendl gibt, muss durch die halbe Seite scrollen. Hier steht der Wochenplan direkt unter dem ersten Bild, und oben rechts sieht man sofort, ob gerade offen ist.</p>
+        <p>Dazu kommt eine Reservierung, die direkt auf der Seite funktioniert, statt nur einer Telefonnummer. Kein Cookie-Banner, weil die Seite nichts mitschreibt.</p>
       </div>
+      <ul class="preisliste">
+        <li><span>Onepager wie dieser, einmalig</span><span class="betrag">599 Euro</span></li>
+        <li><span>Jede weitere Unterseite</span><span class="betrag">50 Euro</span></li>
+        <li><span>Hosting, monatlich kündbar</span><span class="betrag">30 Euro im Monat</span></li>
+      </ul>
+      <p class="klein" style="color:#a9a9ac">Kleinunternehmer nach österreichischem Recht, es wird keine Umsatzsteuer ausgewiesen.</p>
+      <p><a class="knopf knopf-seitfix" id="seitfixAnfrage" href="#">Unverbindlich anfragen</a></p>
     </div>
   </section>
 
@@ -918,51 +786,8 @@ h1,h2,h3{overflow-wrap:break-word}
   var KONTAKT_SEITFIX         = 'hallo@seitfix.at';
   var SEITFIX_TELEFON         = '';                  // leer lassen, wenn keine Nummer gezeigt wird
 
-  /* Preis des Gesamtpakets. Steht im Seitfix-Block und in den Navigationshinweisen. */
-  var PAKETPREIS = '1000 Euro';
-
   var BETRIEB = 'Gasthof Dorrer';
   var TAGNAMEN = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-
-
-  /* ------------------------------------------------------------------
-     Feiertage. Einmal setzen, danach nie wieder anfassen. Die
-     beweglichen Feiertage werden aus dem Osterdatum berechnet und
-     stimmen damit für jedes Jahr, ohne Liste und ohne Pflege.
-     FEIERTAG_REGEL: 'geschlossen' | 'wie sonntag' | 'offen' | 'unbekannt'
-     ------------------------------------------------------------------ */
-  var FEIERTAG_REGEL = 'offen';
-  var FEIERTAG_TELEFON = '+43 316 582647';
-
-  function ostersonntag(j) {
-    var a = j % 19, b = Math.floor(j / 100), c = j % 100;
-    var d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
-    var g = Math.floor((b - f + 1) / 3), h = (19 * a + b - d - g + 15) % 30;
-    var i = Math.floor(c / 4), k = c % 4;
-    var l = (32 + 2 * e + 2 * i - h - k) % 7;
-    var m = Math.floor((a + 11 * h + 22 * l) / 451);
-    var monat = Math.floor((h + l - 7 * m + 114) / 31);
-    var tg = ((h + l - 7 * m + 114) % 31) + 1;
-    return new Date(j, monat - 1, tg);
-  }
-  function ftPlus(d, n) { var x = new Date(d.getTime()); x.setDate(x.getDate() + n); return x; }
-  function ftKey(d) { return (d.getMonth() + 1) + '-' + d.getDate(); }
-  function feiertagName(datum) {
-    var j = datum.getFullYear();
-    var fest = {
-      '1-1': 'Neujahr', '1-6': 'Heilige Drei Könige', '5-1': 'Staatsfeiertag',
-      '8-15': 'Mariä Himmelfahrt', '10-26': 'Nationalfeiertag', '11-1': 'Allerheiligen',
-      '12-8': 'Mariä Empfängnis', '12-25': 'Christtag', '12-26': 'Stefanitag',
-      '12-24': 'Heiliger Abend', '12-31': 'Silvester'
-    };
-    var k = ftKey(datum);
-    if (fest[k]) { return fest[k]; }
-    var o = ostersonntag(j);
-    var bew = [[ftPlus(o,1),'Ostermontag'],[ftPlus(o,39),'Christi Himmelfahrt'],
-               [ftPlus(o,50),'Pfingstmontag'],[ftPlus(o,60),'Fronleichnam']];
-    for (var i = 0; i < bew.length; i++) { if (ftKey(bew[i][0]) === k) { return bew[i][1]; } }
-    return null;
-  }
 
   document.documentElement.classList.add('js');
 
@@ -1021,29 +846,6 @@ h1,h2,h3{overflow-wrap:break-word}
     var wochenPunkt = document.querySelector('#wocheListe li[data-tag="' + tag + '"]');
     if (wochenPunkt) { wochenPunkt.classList.add('heute'); }
 
-    var ftName = feiertagName(jetzt);
-    if (ftName) {
-      if (FEIERTAG_REGEL === 'geschlossen') {
-        text.textContent = 'Heute ist ' + ftName + ', wir haben geschlossen';
-        var ftNext = null;
-        for (var ftI = 1; ftI <= 9 && ftNext === null; ftI++) {
-          var ftT = (tag + ftI) % 7;
-          if (zeiten[ftT] && zeiten[ftT].offen && !feiertagName(ftPlus(jetzt, ftI))) { ftNext = ftT; }
-        }
-        if (zusatz) {
-          zusatz.textContent = ftNext === null ? '' :
-            'Wieder geöffnet am ' + TAGNAMEN[ftNext] + ' ab ' + zeiten[ftNext].offen.vonText + ' Uhr';
-        }
-        return;
-      }
-      if (FEIERTAG_REGEL === 'unbekannt') {
-        text.textContent = 'Heute ist ' + ftName;
-        if (zusatz) { zusatz.textContent = 'An Feiertagen gelten eigene Zeiten. Rufen Sie kurz an: ' + FEIERTAG_TELEFON; }
-        return;
-      }
-      if (FEIERTAG_REGEL === 'wie sonntag' && zeiten[0]) { heute = zeiten[0]; }
-    }
-
     var folgt = naechsterOffenerTag(tag);
     var folgtText = folgt === null ? '' : TAGNAMEN[folgt] + ' ab ' + zeiten[folgt].offen.vonText + ' Uhr';
 
@@ -1071,28 +873,23 @@ h1,h2,h3{overflow-wrap:break-word}
   }
   statusSetzen();
 
-  /* ---------- Inaktive Navigationspunkte: das Verkaufswerkzeug ----------
-     Jeder Punkt trägt seinen eigenen Hinweistext im data-hinweis-Attribut. */
+  /* ---------- Inaktive Navigationspunkte ---------- */
   var hinweis = document.getElementById('navHinweis');
   var hinweisUhr = null;
-  function hinweisZeigen(el) {
-    hinweis.innerHTML = '';
-    hinweis.appendChild(document.createTextNode(el.getAttribute('data-hinweis') + ' '));
-    var b = document.createElement('b');
-    b.textContent = 'Teil der Website um ' + PAKETPREIS + '.';
-    hinweis.appendChild(b);
+  function hinweisZeigen() {
+    hinweis.textContent = 'Unterseite im Gesamtpaket enthalten.';
     hinweis.classList.add('sichtbar');
     window.clearTimeout(hinweisUhr);
     hinweisUhr = window.setTimeout(function () {
       hinweis.classList.remove('sichtbar');
       hinweis.textContent = '';
-    }, 6000);
+    }, 4000);
   }
   Array.prototype.forEach.call(document.querySelectorAll('[data-inaktiv]'), function (el) {
-    el.addEventListener('click', function () { hinweisZeigen(el); });
-    el.addEventListener('focus', function () { hinweisZeigen(el); });
+    el.addEventListener('click', hinweisZeigen);
+    el.addEventListener('focus', hinweisZeigen);
     el.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(el); }
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hinweisZeigen(); }
     });
   });
 
@@ -1241,6 +1038,24 @@ h1,h2,h3{overflow-wrap:break-word}
     bestaetigung.hidden = false;
   });
 
+  /* ---------- Ein zurückhaltender Effekt: Zeitleiste blendet ein ---------- */
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && 'IntersectionObserver' in window) {
+    var beobachter = new IntersectionObserver(function (eintraege) {
+      eintraege.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('sichtbar');
+          beobachter.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px' });
+    Array.prototype.forEach.call(document.querySelectorAll('#zeitleiste li'), function (li) {
+      beobachter.observe(li);
+    });
+  } else {
+    Array.prototype.forEach.call(document.querySelectorAll('#zeitleiste li'), function (li) {
+      li.classList.add('sichtbar');
+    });
+  }
 }());
 </script>
 </body>
