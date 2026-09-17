@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Werkstatt & Beratung — Waffen Paar Graz</title>
+<meta name="description" content="Beratungstermin, Reservierung oder Werkstattauftrag anfragen.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">Unverbindliches <b>Designkonzept</b> für Waffen Paar GmbH · gestaltet von Seitfix · nicht die offizielle Website · Beispielpreise</div>
+
+<header class="site">
+  <div class="wrap site-in">
+    <a href="index.html" class="logo" aria-label="Waffen Paar Startseite">
+      <span class="logo-mark">P</span>
+      <span class="logo-word"><b>WAFFEN PAAR</b><span>Aus Leidenschaft · Graz</span></span>
+    </a>
+    <nav class="nav">
+      <a href="sortiment.html">Langwaffen</a>
+      <a href="sortiment.html">Kurzwaffen</a>
+      <a href="sortiment.html">Optik</a>
+      <a href="sortiment.html">Munition</a>
+      <a href="waffenrecht.html">Waffenrecht</a>
+      <a href="kontakt.html" class="on">Werkstatt</a>
+    </nav>
+    <div class="site-act">
+      <a href="sortiment.html" class="ibtn" aria-label="Suche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></a>
+      <a href="sortiment.html" class="ibtn" aria-label="Merkliste"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></a>
+      <a href="kontakt.html" class="btn btn-brass">Beratung vereinbaren</a>
+      <button class="burger" id="burger" aria-label="Menü"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mnav" id="mnav">
+  <div class="mnav-top"><span class="logo"><span class="logo-mark">P</span><span class="logo-word"><b>WAFFEN PAAR</b></span></span><button class="burger" id="mclose" style="display:grid" aria-label="Schließen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav><a href="sortiment.html">Langwaffen</a><a href="sortiment.html">Kurzwaffen</a><a href="sortiment.html">Optik</a><a href="sortiment.html">Munition</a><a href="waffenrecht.html">Waffenrecht</a><a href="kontakt.html">Werkstatt &amp; Beratung</a></nav>
+  <div class="mcta"><a href="kontakt.html" class="btn btn-brass">Beratung vereinbaren</a><a href="tel:+436763148315" class="btn btn-outline-light">+43 676 314 83 15</a></div>
+</div>
+
+<section class="phead">
+  <div class="bg" style="background-image:url('https://images.pexels.com/photos/4609266/pexels-photo-4609266.jpeg?auto=compress&cs=tinysrgb&w=1920')"></div><div class="ov"></div>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Start</a><span>/</span><span>Werkstatt &amp; Beratung</span></div>
+    <span class="eyebrow">Kontakt</span>
+    <h1>Beratung, Werkstatt, Termin.</h1>
+    <p class="lead">Reservierung, Beratungstermin oder Werkstattauftrag — schreiben Sie uns oder rufen Sie an. Wir melden uns innerhalb eines Werktags.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact">
+    <div data-rev>
+      <span class="eyebrow">Anfrage</span>
+      <h2 style="font-size:2rem;margin:14px 0 24px">Wobei können wir helfen?</h2>
+      <form class="form" id="kform">
+        <div class="row"><div><label>Vorname</label><input type="text" placeholder="Max"></div><div><label>Nachname</label><input type="text" placeholder="Mustermann"></div></div>
+        <div class="row"><div><label>E-Mail</label><input type="email" placeholder="max@beispiel.at"></div><div><label>Telefon</label><input type="tel" placeholder="+43 …"></div></div>
+        <div><label>Anliegen</label><select><option>Reservierung / Kaufanfrage</option><option>Beratungstermin im Geschäft</option><option>Werkstatt: Montage, Einschießen, Reparatur</option><option>Ankauf / Kommission</option><option>Frage zum Waffenrecht</option><option>Sonstiges</option></select></div>
+        <div><label>Ihre Berechtigung (optional)</label><select><option>Keine Angabe</option><option>Jagdkarte</option><option>Waffenbesitzkarte (WBK)</option><option>Waffenpass</option><option>Noch keine — bitte beraten</option></select></div>
+        <div><label>Nachricht</label><textarea placeholder="Modell, Kaliber, Wunschtermin …"></textarea></div>
+        <label class="chk"><input type="checkbox" required> Ich habe die Datenschutzerklärung gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung der Anfrage einverstanden.</label>
+        <button type="submit" class="btn btn-brass" style="justify-self:start">Anfrage senden</button>
+      </form>
+    </div>
+    <div data-rev>
+      <div class="info-card"><h3>Waffen Paar</h3><p>Trappengasse 37 · 8054 Graz</p><p><a href="tel:+436763148315" style="color:var(--loden);font-weight:600">+43 676 314 83 15</a></p><p style="margin-top:12px;font-size:.84rem;color:var(--muted)">Parkplätze direkt vor dem Geschäft · Werkstatt-Annahme zu den Öffnungszeiten</p></div>
+      <div class="info-card"><h3>Öffnungszeiten</h3><div class="hrs"><span>Mo</span><span>geschlossen</span><span>Di–Fr</span><span>9:00–12:00 · 14:00–18:00</span><span>Sa</span><span>9:00–12:00</span></div></div>
+      <div class="photo wide" style="margin-top:4px"><img loading="lazy" alt="Werkstatt" src="https://images.pexels.com/photos/29244011/pexels-photo-29244011.jpeg?auto=compress&cs=tinysrgb&w=1000"><span class="cap">Büchsenmacherwerkstatt · Termine nach Vereinbarung</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol fbrand"><span class="logo"><span class="logo-mark">P</span><span class="logo-word"><b>WAFFEN PAAR</b><span>Waffenhändler aus Leidenschaft</span></span></span><p>Waffenhändler aus Leidenschaft. Kurz- und Langwaffen, Munition, Komponenten und Optik — ehrlich beraten von Rudolf &amp; Michael Paar.</p></div>
+      <div class="fcol"><h4>Sortiment</h4><a href="sortiment.html">Langwaffen</a><a href="sortiment.html">Kurzwaffen</a><a href="sortiment.html">Optik</a><a href="sortiment.html">Munition</a><a href="sortiment.html">Zubehör &amp; Pflege</a></div>
+      <div class="fcol"><h4>Service</h4><a href="waffenrecht.html">Waffenrecht &amp; Kaufablauf</a><a href="kontakt.html">Werkstatt</a><a href="kontakt.html">Beratung &amp; Termin</a><a href="sortiment.html">Gebraucht &amp; Kommission</a></div>
+      <div class="fcol"><h4>Kontakt</h4><p>Trappengasse 37 · 8054 Graz</p><a href="tel:+436763148315">+43 676 314 83 15</a><a href="kontakt.html">Anfrage per Formular</a><p>Di–Fr 9–12 &amp; 14–18 · Sa 9–12 · Mo geschlossen</p></div>
+    </div>
+    <div class="fbot"><span>© 2026 Waffen Paar · Design-Demo von <a href="https://seitfix.at" style="color:var(--brass-2)">Seitfix</a></span><span class="links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
