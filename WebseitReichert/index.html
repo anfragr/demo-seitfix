@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reichert Rudolfstraße Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,sans-serif;font-size:15px;color:#666;background:#fff;line-height:1.6}
+.top{background:#e3c262;height:30px}
+.top div{max-width:1312px;margin:0 auto;padding:0 20px;display:flex;justify-content:flex-end;gap:16px;align-items:center;height:30px;color:#fff;font-size:13px;font-weight:600}
+header{border-bottom:3px solid #e3c262}
+.bar{max-width:1312px;margin:0 auto;padding:0 20px;height:147px;display:flex;align-items:flex-end;justify-content:space-between}
+.bar img{height:147px;display:block}
+nav{display:flex;gap:40px;padding-bottom:16px}
+nav a{font-size:16px;font-weight:700;color:#666}
+nav a::after{content:"";display:inline-block;margin-left:6px;border:4px solid transparent;border-top-color:#666;vertical-align:middle}
+main{max-width:1312px;margin:0 auto;padding:56px 20px 80px}
+h1{color:#e3c262;font-size:21px;font-weight:700;line-height:1.3}
+.sub{margin-top:14px;font-weight:700;color:#444}
+.grid{display:grid;grid-template-columns:1fr 308px;gap:26px;margin-top:36px;align-items:start}
+.label{font-size:13px;font-weight:700;color:#e3c262;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.video{background:#000;aspect-ratio:16/9;margin-bottom:34px}
+.video video{width:100%;height:100%;display:block;object-fit:cover}
+.stage{position:relative;background:#f4f5f7;aspect-ratio:3/2;overflow:hidden}
+.stage img{width:100%;height:100%;object-fit:contain;display:block}
+.nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;border-radius:6px;background:rgba(227,194,98,.95);color:#fff;font-size:22px;font-weight:700;cursor:pointer}
+.prev{left:14px}.next{right:14px}
+.count{position:absolute;right:14px;bottom:12px;background:rgba(255,255,255,.92);border-radius:6px;font-size:12px;font-weight:600;padding:4px 10px;color:#444}
+.thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:8px}
+.thumbs img{width:100%;aspect-ratio:3/2;object-fit:cover;cursor:pointer;opacity:.7;border:2px solid transparent;display:block}
+.thumbs img.on,.thumbs img:hover{opacity:1;border-color:#e3c262}
+.box{background:#eef0f4;border-radius:6px;padding:24px;text-align:center;margin-bottom:12px;color:#444;font-weight:700}
+.box small{display:block;font-size:13px;font-weight:600}
+.box h3{color:#e3c262;font-size:18px;margin-bottom:10px}
+.btn{display:block;text-align:center;border-radius:6px;padding:9px;font-weight:600;font-size:16px;margin-bottom:10px}
+.gold{background:#ebc259;color:#fff}.light{background:#f8f9fa;color:#000}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.bar{height:90px}.bar img{height:90px}nav{display:none}.thumbs{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="top"><div><span>Anmelden</span><span>Registrieren</span></div></div>
+<header><div class="bar"><img src="bilder/logo-reichert.png" alt="Reichert Immobilien"><nav><a>Immobilien</a><a>Leistungen</a><a>Über uns</a></nav></div></header>
+<main>
+<h1>Eine Wohnung mit Garten? Hier gehört ein Stück Grün zum Leben.</h1>
+<p class="sub">Wohnung zu kaufen: Rudolfstraße 13, 8010 Graz</p>
+<div class="grid">
+<div>
+<p class="label">Rundgang</p>
+<div class="video">
+<video controls muted autoplay loop playsinline poster="bilder/01.jpg">
+<source src="Reichert_Rudolfstrasse_Rundgang.mp4" type="video/mp4">
+</video>
+</div>
+<p class="label">Fotos</p>
+<div class="stage"><img id="big" src="bilder/01.jpg" alt=""><button class="nav prev" onclick="go(-1)">‹</button><button class="nav next" onclick="go(1)">›</button><span class="count" id="count">1 / 32</span></div>
+<div class="thumbs" id="thumbs"></div>
+</div>
+<aside>
+<div class="box">Verfügbar<small>nach Vereinbarung</small><br>Objektnummer O2100169708</div>
+<div class="box"><h3>Kaufpreis</h3>238.000,- €</div>
+<a class="btn gold">Finanzierungsanfrage</a>
+<a class="btn light">Exposé</a>
+</aside>
+</div>
+</main>
+<script>
+const N=32,big=document.getElementById('big'),count=document.getElementById('count'),th=document.getElementById('thumbs');let cur=0;
+const src=i=>'bilder/'+String(i+1).padStart(2,'0')+'.jpg';
+for(let i=0;i<N;i++){const t=document.createElement('img');t.src=src(i);t.loading='lazy';t.onclick=()=>show(i);th.appendChild(t);}
+function show(i){cur=(i+N)%N;big.src=src(cur);count.textContent=(cur+1)+' / '+N;[...th.children].forEach((t,k)=>t.classList.toggle('on',k===cur));}
+function go(d){show(cur+d)}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+show(0);
+</script>
+</body>
+</html>
