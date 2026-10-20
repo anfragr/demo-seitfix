@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
+<title>Tischplan</title>
+<style>
+:root{
+  --bg:#f3f4f6; --panel:#ffffff; --panel2:#f7f8fa; --floor:#ffffff; --line:#e2e5e9; --line2:#d0d5db;
+  --text:#16191d; --muted:#646d76; --dim:#9aa1a8;
+  --free-bg:#e7f6ed; --free-bd:#2e9b5d; --free-tx:#135630;
+  --soon-bg:#fff2d9; --soon-bd:#e09d1c; --soon-tx:#764a00;
+  --due-bg:#e5efff; --due-bd:#3b7fe6; --due-tx:#123f86;
+  --occ-bg:#fde6e5; --occ-bd:#e0453f; --occ-tx:#861b17;
+  --long-bg:#f8c6c2; --long-bd:#cc261f;
+  --sel:#16191d; --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{overflow:hidden;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-action:manipulation}
+
+.app{display:grid;grid-template-rows:auto 1fr;height:100vh;height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+
+/* Kopfzeile */
+.top{display:flex;align-items:center;gap:10px;min-width:0;overflow-x:auto;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+.brand{font-weight:650;font-size:17px;white-space:nowrap}
+.clock{font-variant-numeric:tabular-nums;font-size:22px;font-weight:600;margin-left:4px}
+.tabs{display:flex;gap:4px;background:var(--bg);padding:4px;border-radius:12px;margin-left:8px}
+.tab{padding:9px 14px;border-radius:9px;font-size:15px;color:var(--muted);font-weight:550;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.tab.on{background:var(--panel);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.tab .tc{font-size:12px;font-weight:650;padding:1px 7px;border-radius:7px;background:var(--free-bg);color:var(--free-tx)}
+.tab .dot{width:9px;height:9px;border-radius:50%;background:var(--due-bd)}
+.stats{display:flex;gap:14px;margin-left:auto;font-size:14px;color:var(--muted);white-space:nowrap}
+.stats b{color:var(--text);font-size:17px;font-variant-numeric:tabular-nums;margin-right:3px}
+.btn{padding:10px 16px;border-radius:11px;background:var(--panel2);border:1px solid var(--line2);font-size:15px;font-weight:550;white-space:nowrap}
+.btn.primary{background:#16191d;color:#fff;border-color:#16191d}
+.btn.on{background:var(--due-bg);border-color:var(--due-bd);color:var(--due-tx)}
+
+/* Hauptbereich */
+.main{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;min-height:0}
+.floorwrap{position:relative;padding:10px 14px;min-height:0;display:flex;flex-direction:column}
+.modebar{display:none;align-items:center;gap:10px;margin-bottom:10px;padding:10px 12px;border-radius:12px;background:var(--due-bg);border:1px solid var(--due-bd);color:var(--due-tx);font-size:15px}
+.modebar.show{display:flex}
+.modebar .sp{flex:1}
+.floorbox{flex:1;min-height:0;position:relative;overflow:hidden}
+.floor{position:absolute;background:transparent;container-type:inline-size;overflow:visible}
+.plan{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.area-label{display:none;position:absolute;z-index:3;left:4%;top:4.5%;font-size:clamp(11px,1.3cqw,15px);color:var(--dim);letter-spacing:.04em}
+
+/* Tische */
+.t{position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:.15em;
+  border:2px solid;border-radius:var(--r);line-height:1.1;cursor:pointer;transition:transform .08s ease,box-shadow .15s ease;overflow:hidden;padding:2px}
+.t.round{border-radius:999px}
+.t.press{transform:scale(.95)}
+.t .lb{font-weight:700;font-size:clamp(13px,1.75cqw,24px);line-height:1.05;overflow-wrap:anywhere;max-width:100%;font-variant-numeric:tabular-nums}
+.t .sb{font-size:clamp(10px,1.05cqw,15px);font-weight:550;opacity:.92;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.t .tm{font-size:clamp(13px,1.8cqw,24px);font-weight:700;font-variant-numeric:tabular-nums}
+.t .bd{position:absolute;top:5%;right:6%;font-size:clamp(10px,1.1cqw,13px);font-weight:650;padding:.15em .5em;border-radius:6px;background:var(--soon-bd);color:#1d1404}
+.t .inner{position:absolute;border:1.5px dashed currentColor;opacity:.35;border-radius:10px;pointer-events:none}
+.free{background:var(--free-bg);border-color:var(--free-bd);color:var(--free-tx)}
+.soon{background:var(--soon-bg);border-color:var(--soon-bd);color:var(--soon-tx)}
+.due{background:var(--due-bg);border-color:var(--due-bd);color:var(--due-tx)}
+.occ{background:var(--occ-bg);border-color:var(--occ-bd);color:var(--occ-tx)}
+.late{background:var(--due-bg);border:2.5px dashed var(--occ-bd);color:var(--due-tx)}
+.late .tm{color:var(--occ-bd);font-size:clamp(13px,1.8cqw,22px);white-space:nowrap}
+.due .tm{color:var(--due-bd)}
+.long{background:var(--long-bg);border-color:var(--long-bd);color:var(--occ-tx);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 5px rgba(204,38,31,.22)}}
+.t.grp{border-style:solid;border-width:2.5px}
+.t.sel{box-shadow:0 0 0 4px var(--sel)}
+.t.hl{box-shadow:0 0 0 4px var(--sel),0 0 22px 6px rgba(22,25,29,.25)}
+.t.dim{opacity:.35}
+.timebar{display:flex;align-items:center;gap:8px;margin-bottom:8px;user-select:none}
+.timebar .day{font-weight:650;font-size:15px;min-width:118px;text-align:center;white-space:nowrap}
+.timebar .nav{padding:7px 11px;border-radius:9px;border:1px solid var(--line2);background:var(--panel);font-weight:700}
+.timectl{display:flex;align-items:center;gap:6px;margin-left:8px}
+.timectl input{font:inherit;font-size:19px;font-weight:700;padding:7px 10px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--text);min-width:112px;text-align:center}
+.tinfo{flex:1;font-size:14px;color:var(--muted);padding-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{position:relative;flex:1;height:44px;background:var(--panel);border:1px solid var(--line2);border-radius:11px;cursor:pointer;touch-action:none;overflow:hidden}
+.track .hr{position:absolute;top:0;bottom:0;border-left:1px solid #edf0f2}
+.track .hr span{position:absolute;top:3px;left:4px;font-size:11px;color:var(--dim)}
+.track .dens{position:absolute;bottom:4px;height:8px;border-radius:3px;background:var(--due-bd);opacity:.35}
+.track .nowl{position:absolute;top:0;bottom:0;width:2px;background:var(--occ-bd)}
+.track .sel{position:absolute;top:50%;transform:translate(-50%,-50%);background:#16191d;color:#fff;font-weight:700;font-size:14px;padding:5px 9px;border-radius:8px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.livebtn{padding:9px 14px;border-radius:10px;border:1px solid var(--line2);background:var(--panel);font-weight:650;white-space:nowrap}
+.livebtn.on{background:var(--occ-bd);border-color:var(--occ-bd);color:#fff}
+.livebtn.on::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#fff;margin-right:7px;vertical-align:1px}
+.preview-note{font-size:13px;color:var(--due-tx);background:var(--due-bg);border:1px solid #bcd3f7;border-radius:9px;padding:6px 10px;margin-bottom:8px}
+.booked{background:var(--due-bg);border-color:var(--due-bd);color:var(--due-tx)}
+.occpre{background:#fdeeed;border-color:#e9a29f;color:var(--occ-tx);border-style:dashed}
+.qform .ed-row input{width:220px}
+.t.editable{background:#fff;border:2px solid #16191d;color:#16191d;cursor:grab;touch-action:none}
+.t.editable.dragging{cursor:grabbing;box-shadow:0 8px 22px rgba(0,0,0,.22);z-index:5;transition:none}
+.ed-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.ed-row label{width:70px;color:var(--muted);font-size:14px}
+.ed-row input{font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--line2);border-radius:10px;width:110px;background:#fff;color:var(--text)}
+.chipbtn{padding:10px 14px;border-radius:10px;border:1px solid var(--line2);background:var(--panel2);font-size:15px;font-weight:600}
+.chipbtn.on{background:#16191d;color:#fff;border-color:#16191d}
+.num{font-size:20px;font-weight:700;min-width:36px;text-align:center}
+.t.shake{animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.later{opacity:.75;font-size:clamp(10px,1.15cqw,14px)!important}
+
+/* Seitenleiste */
+.side{border-top:1px solid var(--line);background:var(--panel);padding:10px 14px 12px;display:grid;grid-template-columns:1fr 1fr;gap:16px;max-height:30vh;min-height:150px}
+.side .col{min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.side .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+.side .item{margin-bottom:0}
+.sec{display:flex;align-items:baseline;justify-content:space-between;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.03em;margin:4px 4px 8px}
+.sec+.list{margin-bottom:18px}
+.item{display:block;width:100%;text-align:left;padding:11px 12px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);margin-bottom:7px;border-left:4px solid var(--line2)}
+.item:active{transform:scale(.985)}
+.item .r1{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-weight:650;font-size:16px;font-variant-numeric:tabular-nums}
+.item .r2{display:flex;justify-content:space-between;gap:8px;font-size:13.5px;color:var(--muted);margin-top:3px}
+.item .note{font-size:13px;color:var(--soon-tx);margin-top:4px}
+.item.k-late,.item.k-blocked{border-left-color:var(--occ-bd);background:#fff5f5}
+.chip.red{background:var(--occ-bd)}
+.note.red{color:var(--occ-tx);font-weight:600}
+.item.k-occ{border-left-color:var(--occ-bd)} .item.k-long{border-left-color:var(--long-bd)}
+.item.k-due{border-left-color:var(--due-bd)} .item.k-soon{border-left-color:var(--soon-bd)} .item.k-later{border-left-color:var(--line2)}
+.timer-occ{color:var(--occ-tx)}
+.chip{font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:6px;background:var(--due-bd);color:#fff}
+.empty{font-size:14px;color:var(--dim);padding:6px 4px 14px}
+.reset{font-size:12px;color:var(--dim);text-decoration:underline;margin:10px 4px}
+
+/* Langes Drücken: Menü */
+.sheet-bg{position:fixed;inset:0;background:rgba(15,18,22,.35);display:none;align-items:flex-end;justify-content:center;z-index:20}
+.sheet-bg.show{display:flex}
+.sheet{width:min(520px,100%);background:var(--panel);border:1px solid var(--line2);border-radius:20px 20px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom))}
+.sheet h3{font-size:20px;font-weight:700}
+.sheet .meta{color:var(--muted);font-size:14px;margin:4px 0 14px}
+.acts{display:grid;gap:8px}
+.act{padding:16px;border-radius:13px;background:var(--panel2);border:1px solid var(--line2);font-size:16.5px;font-weight:600;text-align:left;display:flex;justify-content:space-between}
+.act.main{background:#16191d;color:#fff;border-color:#16191d}
+.act.main small{color:#c9ced3}
+.act.warn{color:var(--occ-tx)}
+.act small{color:var(--muted);font-weight:500}
+
+/* Hinweis unten */
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));transform:translate(-50%,140%);background:#16191d;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18);border-radius:14px;padding:12px 12px 12px 18px;display:flex;align-items:center;gap:14px;font-size:15.5px;font-weight:550;transition:transform .18s ease;z-index:30;max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0)}
+.toast .warn{color:#ffc95c}
+.toast button{background:#fff;color:#16191d;border-radius:10px;padding:9px 14px;font-weight:650;font-size:14.5px;white-space:nowrap}
+
+@media (max-width:1420px){ .stats{display:none} .top .btn{padding:10px 12px} }
+@media (max-width:1100px){ .brand{display:none} .tab .tc{display:none} }
+body.embed .side{grid-template-columns:1fr 1fr!important;max-height:26vh!important;min-height:120px}
+body.embed .side .list{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+body.embed .reset{display:none}
+body.embed .item .r1{font-size:14px} body.embed .item{padding:8px 10px}
+body.embed .tinfo{display:none}
+@media (max-width:860px){
+  .side{grid-template-columns:1fr;max-height:none}
+  .stats{display:none}
+  body{overflow:auto}
+}
+@media (max-width:560px){ .brand{display:none} .tab{padding:8px 11px} }
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand" id="brand">Brandhof</div>
+    <div class="clock" id="clock">--:--</div>
+    <div class="tabs" id="tabs"></div>
+    <div class="stats" id="stats"></div>
+    <button class="btn" id="editBtn">Tische verschieben</button>
+    <button class="btn" id="joinBtn">Tische verbinden</button>
+    <button class="btn" id="splitBtn">Tische trennen</button>
+  </header>
+
+  <div class="main">
+    <section class="floorwrap">
+      <div class="timebar" id="timebar"></div>
+      <div class="modebar" id="modebar">
+        <span id="modetext"></span><span class="sp"></span>
+        <button class="btn primary" id="modeOk">Verbinden</button>
+        <button class="btn" id="modeCancel">Abbrechen</button>
+      </div>
+      <div class="floorbox"><div class="floor" id="floor"></div></div>
+    </section>
+
+    <aside class="side">
+      <div class="col">
+        <div class="sec"><span>JETZT BESETZT</span><span id="occCount"></span></div>
+        <div class="list" id="occList"></div>
+      </div>
+      <div class="col">
+        <div class="sec"><span id="resTitle">KOMMEND HEUTE</span><span id="resCount"></span></div>
+        <div class="list" id="resList"></div>
+        <button class="reset" id="resetBtn">Alles zurücksetzen</button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="sheet-bg" id="sheetBg"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"><span id="toastText"></span><button id="undoBtn">Rückgängig</button></div>
+
+<script>
+/* ================================================================
+   Einstellungen (kommen später pro Restaurant aus der Datenbank)
+   ================================================================ */
+const CFG = {
+  name: 'Brandhof',
+  dueBeforeMin: 15,     // Reservierung gilt als "gleich da" (blau)
+  warnBeforeMin: 60,    // freier Tisch wird orange, wenn Reservierung naht
+  conflictMin: 30,      // besetzter Tisch bekommt Hinweis auf nächste Reservierung
+  graceMin: 15,         // so lange wird auf reservierte Gäste gewartet (Countdown)
+  mistakeMin: 10,       // Freigabe kurz nach dem Platzieren gilt als Fehltipp, Reservierung bleibt
+  longMin: 150,         // ab hier "sitzt lange" (kräftiges Rot)
+  longPressMs: 420,
+  minTablePx: 50,       // Tische werden nie kleiner als eine Fingerkuppe gezeichnet
+  snapCm: 5,            // beim Verschieben auf 5 cm einrasten
+  undoMs: 6000,
+  storeKey: 'ressystem-demo-v10'
+};
+const MIN = 60000;
+
+/* ================================================================
+   Demodaten (relativ zur aktuellen Uhrzeit, damit immer was los ist)
+   ================================================================ */
+/* ================================================================
+   Gesamtgrundriss Brandhof in Zentimetern, eine große Ansicht.
+   Nach Ivos Skizze und den Fotos vom 20.10.2026 geschätzt:
+   links Stüberl, Mitte Gewölbe mit Eingang, rechts Schankstube mit Schank.
+   ================================================================ */
+const PLANS = {
+  'Lokal': { sub:'Gesamtplan', w:2580, h:950, items:[
+    // Böden
+    ['zone',0,508,1620,442,'#f5ede1'],
+    ['zone',1620,0,960,950,'#f3e9da'],
+    // Stüberl (links)
+    ['bench',0,508,815,40],['bench',0,508,40,300],
+    // Gewölbe (Mitte)
+    ['bench',870,508,640,40],
+    ['counter',830,860,60,90,'','#c9b8a3','#4a3b2c'],
+    ['counter',1560,780,55,110,'','#c9b8a3','#4a3b2c'],
+    ['mat',1400,880,130,62],
+    // Schankstube (rechts)
+    ['counter',1660,80,410,85,'Schank','#5b4636','#ffffff'],
+    ['counter',1660,20,410,40,'','#8a6f57','#ffffff'],
+    ['bench',2535,60,45,840],['bench',1620,200,50,230],
+    ['counter',2150,905,220,40,'Heizung','#ddd6cb','#6b625a'],
+    // Außenwände
+    ['wall',0,508,1620,508],['wall',0,508,0,950],['wall',0,950,2580,950],
+    ['wall',1620,0,2580,0],['wall',2580,0,2580,950],['wall',1620,0,1620,640],['wall',1620,820,1620,950],
+    // Trennung Stüberl / Gewölbe: Holzgitter mit Durchgang
+    ['part',815,508,815,760],['wall',815,900,815,950],
+    // Fenster
+    ['win',2580,120,2580,260],['win',2580,330,2580,470],['win',2580,540,2580,680],['win',2580,750,2580,890],
+    ['win',920,950,1060,950],['win',1140,950,1280,950],
+    // Türen
+    ['door',815,760,815,900,''],
+    ['door',1620,640,1620,820,''],
+    ['door',1400,950,1530,950,'Eingang'],
+    ['door',120,950,250,950,'Gang, WC'],
+    // Raumnamen
+    ['label',400,700,'Stüberl'],['label',1250,700,'Gewölbe'],['label',2050,860,'Schankstube'],
+  ]},
+};
+const AREA_ORDER = ['Lokal'];
+
+function demoData(){
+  const now = Date.now();
+  const T = (id,label,seats,room,x,y,w,h,shape='rect') => ({id,label,seats,area:'Lokal',room,x,y,w,h,shape,since:null,resId:null,group:null});
+  const tables = [
+    // Stüberl
+    T('t19','19',4,'Stüberl',300,565,110, 85),
+    T('t18','18',4,'Stüberl',520,565,130, 85),
+    T('t20','20',4,'Stüberl', 60,650,130, 90),
+    T('t17','17',4,'Stüberl',520,760,130, 90),
+    // Gewölbe
+    T('t16','16',6,'Gewölbe', 880,560,150, 90),
+    T('t15','15',4,'Gewölbe',1090,560,120, 90),
+    T('t13','13',4,'Gewölbe',1280,560,120, 90),
+    T('t14','14',4,'Gewölbe', 930,730,120, 90),
+    T('t12','12',6,'Gewölbe',1140,730,160, 90),
+    T('t10','10',2,'Gewölbe',1450,580,100, 85),
+    T('t11','11',2,'Gewölbe',1440,730,100, 85),
+    // Schankstube
+    T('t1','1',4,'Schankstube',2410,120, 85,140),
+    T('t2','2',2,'Schankstube',2410,345, 80,100),
+    T('t3','3',4,'Schankstube',2410,540, 85,140),
+    T('t4','4',4,'Schankstube',2410,750, 85,140),
+    T('t5','5',4,'Schankstube',2060,330, 90,150),
+    T('t6','6',6,'Schankstube',2060,510, 90,180),
+    T('t7','7',6,'Schankstube',2060,720, 90,180),
+    T('t8','8',4,'Schankstube',1700,250, 90,130),
+    T('t9','9',3,'Schankstube',2200,780,100, 85),
+  ];
+  const res = [];
+  return {tables,res,savedAt:now};
+}
+
+function planSVG(area){
+  const P = PLANS[area]; if(!P) return '';
+  const W=P.w, H=P.h, k=Math.max(W,H*1.6)/1000;     // Strichstärken und Schrift mit der Raumgröße skalieren
+  let s = '<svg class="plan" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" aria-hidden="true">';
+  const tx = (x,y,t,size=15,fill='#8a9097',anchor='middle',w=500) => '<text x="'+x+'" y="'+y+'" font-size="'+(size*k)+'" fill="'+fill+'" text-anchor="'+anchor+'" font-weight="'+w+'">'+esc(t)+'</text>';
+  for(const it of P.items){
+    const [kind,...a] = it;
+    if(kind==='zone') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" fill="'+a[4]+'"/>';
+    else if(kind==='street') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" fill="#d9dce0"/>'+tx(a[0]+a[2]/2,a[1]+a[3]/2+5*k,a[4],14,'#7a8088');
+    else if(kind==='bench') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+6*k+'" fill="#dcc7a6" stroke="#bfa37c" stroke-width="'+1.5*k+'"/>';
+    else if(kind==='counter') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+6*k+'" fill="'+a[5]+'"/>'+tx(a[0]+a[2]/2,a[1]+a[3]/2+5*k,a[4],13,a[6],'middle',650);
+    else if(kind==='hedge') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+14*k+'" fill="#c4e3b8" stroke="#86bf78" stroke-width="'+1.5*k+'"/>';
+    else if(kind==='plant') s+='<circle cx="'+a[0]+'" cy="'+a[1]+'" r="'+a[2]+'" fill="#bfe0b3" stroke="#7fb873" stroke-width="'+1.5*k+'"/>';
+    else if(kind==='mat') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+3*k+'" fill="#6f777f" opacity=".35"/>';
+    else if(kind==='part') s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#a6845f" stroke-width="'+8*k+'" stroke-dasharray="'+4*k+' '+7*k+'"/>';
+    else if(kind==='wall') s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#3a4047" stroke-width="'+10*k+'" stroke-linecap="square"/>';
+    else if(kind==='win') s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#9fd0ff" stroke-width="'+10*k+'"/><line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#ffffff" stroke-width="'+2*k+'"/>';
+    else if(kind==='door'){
+      const [x1,y1,x2,y2,lab]=a, vert = x1===x2;
+      s+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#ffffff" stroke-width="'+13*k+'"/>';
+      s+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#c2c7cc" stroke-width="'+2*k+'" stroke-dasharray="'+6*k+' '+5*k+'"/>';
+      if(vert){ const ly=(y1+y2)/2, left = x1 < W/2, lx = left ? x1+14*k : x1-14*k; s+=tx(lx,ly+5*k,lab,13,'#6c737a',left?'start':'end',600); }
+      else { const lx=(x1+x2)/2, top = y1 < H/2, ly = top ? y1+26*k : y1-12*k; s+=tx(lx,ly,lab,13,'#6c737a','middle',600); }
+    }
+    else if(kind==='label') s+=tx(a[0],a[1],a[2],16,'#b3a58f','middle',600);
+  }
+  return s+'</svg>';
+}
+
+/* ================================================================
+   Zustand
+   ================================================================ */
+let S = load() || demoData();
+const UI = { at:null, area:'Lokal', mode:null, sel:[], moveFrom:null, hl:null, undo:null };
+
+function load(){
+  try{ const raw = localStorage.getItem(CFG.storeKey); if(!raw) return null;
+    const d = JSON.parse(raw); if(!d || !d.tables) return null; return d;
+  }catch(e){ return null; }
+}
+function save(){ try{ S.savedAt = Date.now(); localStorage.setItem(CFG.storeKey, JSON.stringify(S)); }catch(e){} }
+function snapshot(){ return JSON.stringify({tables:S.tables,res:S.res}); }
+
+/* ================================================================
+   Hilfsfunktionen
+   ================================================================ */
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2,'0');
+const hhmm = ms => { const d=new Date(ms); return pad(d.getHours())+':'+pad(d.getMinutes()); };
+const dur = ms => { const t=Math.max(0,Math.floor(ms/MIN)); return Math.floor(t/60)+':'+pad(t%60); };
+const tById = id => S.tables.find(t=>t.id===id);
+const rById = id => S.res.find(r=>r.id===id);
+const unitOf = t => t.group ? S.tables.filter(x=>x.group===t.group) : [t];
+const keyOf = t => t.group || t.id;
+const label = ts => ts.map(t=>t.label).join('+');
+const seats = ts => ts.reduce((s,t)=>s+t.seats,0);
+/* Verbundene Tische rücken im Plan zusammen; beim Trennen gehen sie an ihren Platz zurück */
+function packTables(ts){
+  if(ts.length<2) return;
+  ts.forEach(t=>{ if(!t.home) t.home={x:t.x,y:t.y}; });
+  const P = PLANS[ts[0].area] || {w:1e5,h:1e5};
+  const cx = ts.map(t=>t.x+t.w/2), cy = ts.map(t=>t.y+t.h/2);
+  const horiz = (Math.max(...cx)-Math.min(...cx)) >= (Math.max(...cy)-Math.min(...cy));
+  const sorted = [...ts].sort((a,b)=> horiz ? (a.x-b.x) : (a.y-b.y));
+  const total = sorted.reduce((s,t)=>s+(horiz?t.w:t.h),0);
+  const a = sorted[0];
+  let cur = horiz ? a.x : a.y;
+  const lim = horiz ? P.w : P.h;
+  if(cur+total > lim) cur = Math.max(0, lim-total);
+  const mid = horiz ? a.y+a.h/2 : a.x+a.w/2;
+  sorted.forEach(t=>{
+    if(horiz){ t.x=Math.round(cur); t.y=Math.round(mid-t.h/2); cur+=t.w; }
+    else     { t.y=Math.round(cur); t.x=Math.round(mid-t.w/2); cur+=t.h; }
+  });
+}
+function unpackTables(ts){ ts.forEach(t=>{ if(t.home){ t.x=t.home.x; t.y=t.home.y; delete t.home; } t.group=null; }); }
+const unitByKey = k => { const t = S.tables.find(x=>x.group===k) || tById(k); return t ? unitOf(t) : []; };
+
+function units(area){
+  const seen=new Set(), out=[];
+  for(const t of S.tables){ if(area && t.area!==area) continue; const k=keyOf(t); if(seen.has(k)) continue; seen.add(k); out.push(unitOf(t)); }
+  return out;
+}
+function nextRes(ts, now){
+  const ids = new Set(ts.map(t=>t.id));
+  return S.res.filter(r=>r.status==='confirmed' && r.end>now && r.tables.some(id=>ids.has(id))).sort((a,b)=>a.start-b.start)[0] || null;
+}
+const graceEnd = r => r.start + (((S.settings&&S.settings.graceMin)||CFG.graceMin) + (r.extra||0))*MIN;
+const endOfToday = () => { const d=new Date(); d.setHours(23,59,59,999); return d.getTime(); };
+const mmss = ms => { const t=Math.max(0,Math.ceil(ms/1000)); return Math.floor(t/60)+':'+pad(t%60); };
+const SET = () => Object.assign({durSmall:120,durLarge:180,largeFrom:6,open:null}, S.settings||{});
+const durFor = n => n>=SET().largeFrom ? SET().durLarge : SET().durSmall;
+const dayStartOf = ms => { const d=new Date(ms); d.setHours(0,0,0,0); return d.getTime(); };
+function previewState(ts, T){
+  const ids = new Set(ts.map(t=>t.id));
+  const cover = S.res.find(r=>['confirmed','seated'].includes(r.status) && r.tables.some(id=>ids.has(id)) && r.start<=T && T<r.end);
+  if(cover) return {k:'booked', res:cover};
+  const occ = ts.filter(t=>t.since && !t.resId);
+  if(occ.length){ const since=Math.min(...occ.map(t=>t.since)), until=since+durFor(seats(ts))*MIN; if(T>=Date.now()-60000 && T<until) return {k:'occpre', since, until}; }
+  const next = S.res.filter(r=>r.status==='confirmed' && r.tables.some(id=>ids.has(id)) && r.start>T).sort((a,b)=>a.start-b.start)[0];
+  if(next && next.start-T <= CFG.warnBeforeMin*MIN) return {k:'soon', res:next};
+  return {k:'free', later: next && dayStartOf(next.start)===dayStartOf(T) ? next : null};
+}
+function busyAt(ts, start, end){ const ids=new Set(ts.map(t=>t.id)); return S.res.some(r=>['confirmed','seated'].includes(r.status) && r.tables.some(id=>ids.has(id)) && r.start<end && start<r.end) || ts.some(t=>t.since && start < t.since+durFor(t.seats)*MIN && end > Date.now()); }
+function stateOf(ts, now=Date.now()){
+  const occ = ts.filter(t=>t.since);
+  const r = nextRes(ts, now);
+  if(occ.length){
+    const since = Math.min(...occ.map(t=>t.since));
+    const resId = (occ.find(t=>t.resId)||{}).resId || null;
+    return { k: now-since > CFG.longMin*MIN ? 'long' : 'occ', since, sitting: resId?rById(resId):null,
+             next: r, conflict: r && r.start-now <= CFG.conflictMin*MIN };
+  }
+  if(r){
+    const d = r.start-now;
+    const grace = graceEnd(r);
+    if(d <= 0 && now > grace) return {k:'late', res:r, over:grace};
+    if(d <= CFG.dueBeforeMin*MIN) return {k:'due', res:r, until: d<=0 ? grace : null};
+    if(d <= CFG.warnBeforeMin*MIN) return {k:'soon', res:r};
+    return r.start<=endOfToday() ? {k:'free', later:r} : {k:'free'};
+  }
+  return {k:'free'};
+}
+
+/* ================================================================
+   Aktionen (alle sofort sichtbar, mit Rückgängig)
+   ================================================================ */
+function act(fn, msg, warn){
+  const before = snapshot();
+  fn();
+  save(); render();
+  showToast(msg, warn, before);
+  if(navigator.vibrate) try{ navigator.vibrate(12); }catch(e){}
+}
+function occupy(ts, opts={}){
+  const since = opts.since || Date.now();
+  act(()=>{ ts.forEach(t=>{ t.since=since; t.resId=null; }); },
+      'Tisch '+label(ts)+' besetzt', opts.warn);
+}
+function seatReservation(ts, r){
+  act(()=>{
+    let all = r.tables.map(tById).filter(Boolean);
+    const same = all.length>1 && all[0].group && all.every(t=>t.group===all[0].group);
+    if(all.length>1 && !same){ const g='auto-'+r.id; all.forEach(t=>t.group=g); packTables(all); }
+    const unit = all.length ? unitOf(all[0]) : ts;
+    unit.forEach(t=>{ t.since=Date.now(); t.resId=r.id; });
+    r.status='seated'; r.seatedAt=Date.now();
+  }, r.name+' platziert auf '+label(r.tables.map(tById).filter(Boolean)));
+}
+function free(ts){
+  const st = stateOf(ts);
+  const resId = (ts.find(t=>t.resId)||{}).resId;
+  const r0 = resId ? rById(resId) : null;
+  const mistake = r0 && Date.now()-(r0.seatedAt||0) < CFG.mistakeMin*MIN;
+  act(()=>{
+    if(r0){ if(mistake){ r0.status='confirmed'; delete r0.seatedAt; } else r0.status='done'; }
+    if(mistake){ const g=ts[0].group; if(g && g.startsWith('auto-')) unpackTables(ts); ts.forEach(t=>{t.since=null;t.resId=null;}); return; }
+    const auto = ts[0].group && ts[0].group.startsWith('auto-');
+    ts.forEach(t=>{ t.since=null; t.resId=null; });   // verbundene Tische bleiben stehen
+  }, 'Tisch '+label(ts)+' frei'+(mistake ? ' · Reservierung '+r0.name+' bleibt bestehen' : ' · '+dur(Date.now()-st.since)+' gesessen'));
+}
+function noShow(r){ act(()=>{ r.status='no_show'; }, r.name+' nicht erschienen, Tisch ist frei'); }
+function extendWait(r){ act(()=>{ r.extra=(r.extra||0)+15; }, 'Wartezeit für '+r.name+' um 15 Min. verlängert'); }
+function moveRes(r, ts){
+  const st = stateOf(ts);
+  act(()=>{ r.tables = ts.map(t=>t.id); }, 'Reservierung '+r.name+' liegt jetzt auf Tisch '+label(ts),
+      st.res && st.res.id!==r.id ? 'dort ist auch '+st.res.name+' um '+hhmm(st.res.start)+' reserviert' : null);
+  endMode();
+}
+function shiftStart(ts, mins){
+  act(()=>{ ts.forEach(t=>{ if(t.since) t.since = Math.min(Date.now(), t.since + mins*MIN); }); },
+      'Startzeit '+label(ts)+' jetzt '+hhmm(Math.min(Date.now(), Math.min(...ts.filter(t=>t.since).map(t=>t.since))+mins*MIN)));
+}
+function joinSelected(){
+  const ts = [...new Set(UI.sel)].flatMap(k=>unitByKey(k));
+  if(UI.sel.length<2){ showToast('Mindestens zwei Tische antippen'); return; }
+  act(()=>{
+    const g = 'grp-'+Date.now().toString(36);
+    const occ = ts.filter(t=>t.since);
+    const since = occ.length ? Math.min(...occ.map(t=>t.since)) : null;
+    const resId = (ts.find(t=>t.resId)||{}).resId || null;
+    ts.forEach(t=>{ t.group=g; if(since){ t.since=since; t.resId=resId; } });
+    packTables(ts);
+  }, 'Tische '+label(ts)+' verbunden · '+seats(ts)+' Plätze');
+  endMode();
+}
+function split(ts){
+  act(()=>{ unpackTables(ts); }, 'Tische '+label(ts)+' getrennt, wieder an ihrem Platz');
+}
+function moveTo(fromTs, toTs){
+  act(()=>{
+    const since = Math.min(...fromTs.filter(t=>t.since).map(t=>t.since));
+    const resId = (fromTs.find(t=>t.resId)||{}).resId || null;
+    const auto = fromTs[0].group && fromTs[0].group.startsWith('auto-');
+    fromTs.forEach(t=>{ t.since=null; t.resId=null; });
+    toTs.forEach(t=>{ t.since=since; t.resId=resId; });
+    if(resId){ const r=rById(resId); if(r) r.tables = toTs.map(t=>t.id); }
+  }, 'Umgesetzt von '+label(fromTs)+' auf '+label(toTs));
+  endMode();
+}
+
+/* Ein Tipp auf einen Tisch */
+function tap(key){
+  const ts = unitByKey(key); if(!ts.length) return;
+  touch();
+  if(UI.at && !UI.mode){
+    const ps = previewState(ts, UI.at);
+    if(ps.k==='booked') return openResInfo(ps.res);
+    if(ps.k==='occpre') return showToast('Tisch '+label(ts)+' ist gerade besetzt, voraussichtlich bis '+hhmm(ps.until));
+    return openQuickRes(ts, UI.at);
+  }
+  const st = stateOf(ts);
+
+  if(UI.mode==='join'){
+    const i = UI.sel.indexOf(key);
+    if(i>=0) UI.sel.splice(i,1); else UI.sel.push(key);
+    renderMode(); render(); return;
+  }
+  if(UI.mode==='split'){
+    if(ts.length<2){ shake(key); showToast('Tisch '+label(ts)+' ist nicht verbunden'); return; }
+    if(st.k==='occ'||st.k==='long'){ shake(key); showToast('Tische '+label(ts)+' sind besetzt, erst freigeben'); return; }
+    split(ts); if(!units(UI.area).some(u=>u.length>1)) endMode(); else { renderMode(); render(); } return;
+  }
+  if(UI.mode==='moveRes'){
+    if(st.k==='occ'||st.k==='long'){ shake(key); showToast('Tisch '+label(ts)+' ist besetzt'); return; }
+    const r=rById(UI.moveRes); if(r) moveRes(r, ts); return;
+  }
+  if(UI.mode==='move'){
+    if(key===UI.moveFrom){ endMode(); return; }
+    if(st.k==='occ'||st.k==='long'){ shake(key); showToast('Tisch '+label(ts)+' ist besetzt'); return; }
+    moveTo(unitByKey(UI.moveFrom), ts); return;
+  }
+
+  if(st.k==='occ'||st.k==='long') return free(ts);
+  if(st.k==='due') return seatReservation(ts, st.res);
+  if(st.k==='late') return openSheet(key);
+  if(st.k==='soon') return occupy(ts, {warn:'Reservierung '+st.res.name+' um '+hhmm(st.res.start)});
+  return occupy(ts);
+}
+
+/* Langes Drücken: alle weiteren Optionen */
+function openSheet(key){
+  const ts = unitByKey(key); const st = stateOf(ts); const now=Date.now();
+  const A = [];
+  let meta = seats(ts)+' Plätze';
+  if(st.k==='occ'||st.k==='long'){
+    meta += ' · besetzt seit '+hhmm(st.since)+' ('+dur(now-st.since)+')';
+    if(st.sitting) meta += ' · '+st.sitting.name;
+    if(st.next) meta += ' · nächste Reservierung '+st.next.name+' '+hhmm(st.next.start);
+    A.push(['Freigeben','',()=>free(ts),'main']);
+    if(st.conflict) A.push(['Reservierung '+st.next.name+' auf anderen Tisch legen',hhmm(st.next.start)+', '+st.next.size+' Pers.',()=>startMoveRes(st.next.id)]);
+    A.push(['Auf anderen Tisch umsetzen','',()=>startMove(key)]);
+    A.push(['Startzeit 15 Min. früher','kam früher',()=>shiftStart(ts,-15)]);
+    A.push(['Startzeit 15 Min. später','',()=>shiftStart(ts,15)]);
+  } else if(st.k==='late'){
+    const r=st.res;
+    meta += ' · '+r.name+', '+hhmm(r.start)+', '+r.size+' Pers. · seit '+Math.floor((now-r.start)/MIN)+' Min. nicht da';
+    A.push([r.name+' ist doch da','platzieren',()=>seatReservation(ts,r),'main']);
+    A.push(['Nicht erschienen','Tisch freigeben',()=>noShow(r),'warn']);
+    A.push(['15 Min. länger warten','',()=>extendWait(r)]);
+    A.push(['Reservierung auf anderen Tisch legen','',()=>startMoveRes(r.id)]);
+    A.push(['Ohne Reservierung besetzen','Reservierung bleibt',()=>occupy(ts,{warn:'Reservierung '+r.name+' ist noch offen'})]);
+  } else {
+    if(st.k==='due'){ const r=st.res; meta += ' · '+r.name+' '+hhmm(r.start)+', '+r.size+' Pers.';
+      A.push([r.name+' ist da','platzieren',()=>seatReservation(ts,r),'main']);
+      A.push(['Reservierung auf anderen Tisch legen','',()=>startMoveRes(r.id)]);
+      A.push(['Ohne Reservierung besetzen','Reservierung bleibt',()=>occupy(ts,{warn:'Reservierung '+r.name+' '+hhmm(r.start)+' ist noch offen'})]);
+    } else {
+      if(st.res) meta += ' · frei bis '+hhmm(st.res.start)+' ('+st.res.name+')';
+      else if(st.later) meta += ' · reserviert ab '+hhmm(st.later.start);
+      A.push(['Besetzen','',()=>occupy(ts),'main']);
+    }
+    A.push(['Besetzen, Gäste seit 15 Min. da','',()=>occupy(ts,{since:now-15*MIN})]);
+  }
+  A.push(['Mit anderen Tischen verbinden','',()=>startJoin(key)]);
+  if(ts.length>1) A.push(['Tische trennen','',()=>split(ts),'warn']);
+
+  const sh = $('sheet');
+  sh.innerHTML = '<h3>Tisch '+label(ts)+'</h3><div class="meta">'+esc(meta)+'</div><div class="acts"></div>';
+  const box = sh.querySelector('.acts');
+  A.forEach(([t,s,fn,cls])=>{
+    const b=document.createElement('button'); b.className='act'+(cls?' '+cls:'');
+    b.innerHTML='<span>'+esc(t)+'</span><small>'+esc(s)+'</small>';
+    b.onclick=()=>{ closeSheet(); fn(); }; box.appendChild(b);
+  });
+  const c=document.createElement('button'); c.className='act'; c.textContent='Schließen'; c.onclick=closeSheet; box.appendChild(c);
+  $('toast').classList.remove('show');
+  $('sheetBg').classList.add('show');
+}
+function closeSheet(){ $('sheetBg').classList.remove('show'); }
+$('sheetBg').addEventListener('click', e=>{ if(e.target.id==='sheetBg') closeSheet(); });
+
+/* Modi */
+function startJoin(key){ UI.mode='join'; UI.sel = key?[key]:[]; renderMode(); render(); }
+function startMove(key){ UI.mode='move'; UI.moveFrom=key; renderMode(); render(); }
+function startMoveRes(id){ UI.mode='moveRes'; UI.moveRes=id; renderMode(); render(); }
+function endMode(){ UI.mode=null; UI.sel=[]; UI.moveFrom=null; UI.moveRes=null; renderMode(); render(); }
+function renderMode(){
+  const bar=$('modebar'), txt=$('modetext'), ok=$('modeOk');
+  $('joinBtn').classList.toggle('on', UI.mode==='join');
+  $('editBtn').classList.toggle('on', UI.mode==='edit'); $('splitBtn').classList.toggle('on', UI.mode==='split'); $('modeCancel').textContent='Abbrechen';
+  if(!UI.mode){ bar.classList.remove('show'); return; }
+  bar.classList.add('show');
+  if(UI.mode==='join'){
+    const ts=UI.sel.flatMap(unitByKey);
+    txt.textContent = UI.sel.length ? 'Ausgewählt: '+label(ts)+' · '+seats(ts)+' Plätze' : 'Tische antippen, die zusammengeschoben werden';
+    ok.style.display=''; ok.textContent='Verbinden';
+  } else if(UI.mode==='split'){
+    txt.textContent='Verbundene Tische antippen, um sie zu trennen. Sie gehen wieder an ihren Platz.';
+    ok.style.display='none'; $('modeCancel').textContent='Fertig';
+  } else if(UI.mode==='edit'){
+    txt.textContent='Plan bearbeiten: Tische ziehen zum Verschieben, antippen für Nummer, Plätze und Größe';
+    ok.style.display=''; ok.textContent='+ Tisch'; $('modeCancel').textContent='Fertig';
+  } else if(UI.mode==='moveRes'){
+    const r=rById(UI.moveRes);
+    txt.textContent='Reservierung '+(r?r.name+' ('+r.size+' Pers.)':'')+' umlegen: freien Tisch antippen, auch in einem anderen Bereich';
+    ok.style.display='none';
+  } else {
+    txt.textContent='Tisch '+label(unitByKey(UI.moveFrom))+' umsetzen: freien Zieltisch antippen';
+    ok.style.display='none';
+  }
+}
+$('joinBtn').onclick=()=> UI.mode==='join' ? endMode() : startJoin(null);
+$('modeOk').onclick=()=> UI.mode==='join' ? joinSelected() : UI.mode==='edit' ? addTable() : null;
+$('splitBtn').onclick=()=> UI.mode==='split' ? endMode() : (endMode(), UI.mode='split', renderMode(), render());
+$('editBtn').onclick=()=> UI.mode==='edit' ? endMode() : (endMode(), UI.mode='edit', renderMode(), render());
+$('modeCancel').onclick=endMode;
+
+/* ================================================================
+   Plan bearbeiten: Tische verschieben, anlegen, ändern, löschen
+   (später nur für Admin/Chef freigeschaltet)
+   ================================================================ */
+const SIZES = [['60×60',60,60,2],['80×80',80,80,4],['120×80',120,80,4],['160×80',160,80,6],['200×90',200,90,8]];
+function addTable(){
+  const P = PLANS[UI.area] || {w:1000,h:620};
+  const n = Math.max(0,...S.tables.map(t=>parseInt(t.label.replace(/\D/g,''))||0))+1;
+  const pre = '';
+  const t = {id:'n'+Date.now().toString(36), label:pre+n, seats:4, area:UI.area, room:'', x:Math.round(P.w/2-40), y:Math.round(P.h/2-40), w:80, h:80, shape:'rect', since:null, resId:null, group:null};
+  act(()=>{ S.tables.push(t); }, 'Tisch '+t.label+' hinzugefügt, jetzt an die richtige Stelle ziehen');
+}
+function openTableEditor(id){
+  const t = tById(id); if(!t) return;
+  const sh=$('sheet');
+  const sizeBtns = SIZES.map(([lab,w,h])=>'<button class="chipbtn'+((t.w===w&&t.h===h)||(t.w===h&&t.h===w)?' on':'')+'" data-size="'+w+','+h+'">'+lab+'</button>').join('');
+  sh.innerHTML='<h3>Tisch '+esc(t.label)+' bearbeiten</h3><div class="meta">'+esc(t.room||t.area)+' · Position '+t.x+' / '+t.y+' cm</div>'
+    +'<div class="ed-row"><label>Nummer</label><input id="edLabel" value="'+esc(t.label)+'"></div>'
+    +'<div class="ed-row"><label>Plätze</label><button class="chipbtn" data-seat="-1">−</button><span class="num">'+t.seats+'</span><button class="chipbtn" data-seat="1">+</button></div>'
+    +'<div class="ed-row"><label>Form</label><button class="chipbtn'+(t.shape==='rect'?' on':'')+'" data-shape="rect">eckig</button><button class="chipbtn'+(t.shape==='round'?' on':'')+'" data-shape="round">rund</button><button class="chipbtn" data-rot="1">90° drehen</button></div>'
+    +'<div class="ed-row"><label>Größe</label>'+sizeBtns+'</div>'
+    +'<div class="ed-row"><label>cm</label><input id="edW" type="number" step="5" value="'+t.w+'"> × <input id="edH" type="number" step="5" value="'+t.h+'"></div>'
+    +'<div class="acts"><button class="act main" id="edDone"><span>Fertig</span><small></small></button><button class="act warn" id="edDel"><span>Tisch löschen</span><small>mit Rückgängig</small></button></div>';
+  const upd = fn => { fn(t); save(); render(); openTableEditor(id); };
+  sh.querySelectorAll('[data-seat]').forEach(b=>b.onclick=()=>upd(t=>t.seats=Math.max(1,Math.min(30,t.seats+ +b.dataset.seat))));
+  sh.querySelectorAll('[data-shape]').forEach(b=>b.onclick=()=>upd(t=>t.shape=b.dataset.shape));
+  sh.querySelector('[data-rot]').onclick=()=>upd(t=>{ const cx=t.x+t.w/2, cy=t.y+t.h/2; [t.w,t.h]=[t.h,t.w]; t.x=Math.round(cx-t.w/2); t.y=Math.round(cy-t.h/2); });
+  sh.querySelectorAll('[data-size]').forEach(b=>b.onclick=()=>upd(t=>{ const [w,h]=b.dataset.size.split(',').map(Number); const rot=t.h>t.w; t.w=rot?h:w; t.h=rot?w:h; const s=SIZES.find(x=>x[1]===w&&x[2]===h); if(s) t.seats=s[3]; }));
+  $('edLabel').onchange=e=>upd(t=>t.label=e.target.value.trim()||t.label);
+  $('edW').onchange=e=>upd(t=>t.w=Math.max(40,Math.min(600,Math.round(+e.target.value/5)*5||t.w)));
+  $('edH').onchange=e=>upd(t=>t.h=Math.max(40,Math.min(600,Math.round(+e.target.value/5)*5||t.h)));
+  $('edDone').onclick=closeSheet;
+  $('edDel').onclick=()=>{ closeSheet(); act(()=>{ S.tables=S.tables.filter(x=>x.id!==id); S.res.forEach(r=>r.tables=r.tables.filter(x=>x!==id)); }, 'Tisch '+t.label+' gelöscht'); };
+  $('toast').classList.remove('show');
+  $('sheetBg').classList.add('show');
+}
+
+/* Hinweis mit Rückgängig */
+let toastTimer=null;
+function showToast(msg, warn, before){
+  UI.undo = before || null;
+  $('toastText').innerHTML = esc(msg) + (warn ? '<br><span class="warn">Achtung: '+esc(warn)+'</span>' : '');
+  $('undoBtn').style.display = before ? '' : 'none';
+  $('toast').classList.add('show');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>{ $('toast').classList.remove('show'); UI.undo=null; }, warn?CFG.undoMs+2000:CFG.undoMs);
+}
+$('undoBtn').onclick=()=>{
+  if(!UI.undo) return;
+  const d=JSON.parse(UI.undo); S.tables=d.tables; S.res=d.res; UI.undo=null;
+  save(); render(); $('toast').classList.remove('show');
+};
+
+function shake(key){ const el=document.querySelector('[data-k="'+key+'"]'); if(!el) return; el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+/* ================================================================
+   Darstellung
+   ================================================================ */
+const AREAS = () => { const a=[...new Set(S.tables.map(t=>t.area))]; return AREA_ORDER.filter(x=>a.includes(x)).concat(a.filter(x=>!AREA_ORDER.includes(x))); };
+
+function render(){
+  const now = Date.now();
+  $('brand').textContent = CFG.name;
+  $('clock').textContent = hhmm(now);
+
+  // Bereiche
+  const tabs=$('tabs'); tabs.innerHTML=''; tabs.style.display = AREAS().length>1 ? '' : 'none';
+  AREAS().forEach(a=>{
+    const us=units(a).map(ts=>stateOf(ts,now));
+    const nf=us.filter(s=>s.k!=='occ'&&s.k!=='long').length;
+    const due=us.some(s=>s.k==='due');
+    const b=document.createElement('button'); b.className='tab'+(a===UI.area?' on':'');
+    b.innerHTML=esc(a)+'<span class="tc">'+nf+' frei</span>'+(due?'<span class="dot" title="Reservierung kommt gleich"></span>':'');
+    b.onclick=()=>{UI.area=a;render();}; tabs.appendChild(b);
+  });
+
+  renderTimebar(now);
+  // Grundriss im Maßstab (Zentimeter -> Pixel)
+  if(!AREAS().includes(UI.area)) UI.area=AREAS()[0];
+  const P = PLANS[UI.area] || {w:1000,h:620};
+  const floor=$('floor'), box=floor.parentElement;
+  const sc = Math.max(0.05, Math.min(box.clientWidth/P.w, box.clientHeight/P.h) || 0.3);
+  UI.sc = sc;
+  floor.style.width=(P.w*sc)+'px'; floor.style.height=(P.h*sc)+'px';
+  floor.style.left=Math.max(0,(box.clientWidth-P.w*sc)/2)+'px'; floor.style.top=Math.max(0,(box.clientHeight-P.h*sc)/2)+'px';
+  floor.innerHTML=planSVG(UI.area);
+  const disp = t => { const w=t.w*sc, h=t.h*sc, dw=Math.max(w,CFG.minTablePx), dh=Math.max(h,CFG.minTablePx); return {x:t.x*sc-(dw-w)/2, y:t.y*sc-(dh-h)/2, w:dw, h:dh}; };
+  const edit = UI.mode==='edit';
+  const list = edit ? S.tables.filter(t=>t.area===UI.area).map(t=>[t]) : units(UI.area);
+  for(const ts of list){
+    const key = edit ? ts[0].id : keyOf(ts[0]); const st = edit ? {k:'free'} : (UI.at ? previewState(ts,UI.at) : stateOf(ts,now));
+    const ds = ts.map(disp);
+    const x1=Math.min(...ds.map(d=>d.x)), y1=Math.min(...ds.map(d=>d.y));
+    const x2=Math.max(...ds.map(d=>d.x+d.w)), y2=Math.max(...ds.map(d=>d.y+d.h));
+    const el=document.createElement('div');
+    el.dataset.k=key;
+    el.className='t '+st.k+(ts.length>1?' grp':'')+(ts.length===1&&ts[0].shape==='round'?' round':'')+(edit?' editable':'')
+      +(UI.sel.includes(key)?' sel':'')+(UI.hl===key?' hl':'')
+      +(UI.mode==='move' && key===UI.moveFrom ? ' sel' : '');
+    Object.assign(el.style,{left:x1+'px',top:y1+'px',width:(x2-x1)+'px',height:(y2-y1)+'px'});
+    if(ts.length>1) ts.forEach((t,i)=>{ const d=ds[i]; const n=document.createElement('div'); n.className='inner';
+      Object.assign(n.style,{left:(d.x-x1+4)+'px',top:(d.y-y1+4)+'px',width:(d.w-8)+'px',height:(d.h-8)+'px'}); el.appendChild(n); });
+
+    // Zeilen mit Wichtigkeit: p=1 muss immer sichtbar sein (Uhrzeit), höhere Zahl fällt bei kleinen Tischen weg
+    const fw0=P.w*sc, fSb0=Math.max(10,Math.min(15,fw0*.0105)), narrow=(x2-x1) < fSb0*6.2;
+    const L=[];
+    const sb=(t,p,extra='')=>L.push({p, h:'<div class="sb"'+extra+'>'+t+'</div>', k:'sb'});
+    const tm=(t,p,extra='')=>L.push({p, h:'<div class="tm"'+extra+'>'+t+'</div>', k:'tm'});
+    let badge='';
+    if(st.k==='occ'||st.k==='long'){
+      tm(dur(now-st.since),1);
+      if(st.sitting) sb(esc(st.sitting.name),3);
+      if(st.conflict) badge='<div class="bd">Res. '+hhmm(st.next.start)+'</div>';
+    } else if(st.k==='due' && st.until){
+      tm(mmss(st.until-now),1,' data-cd="'+st.until+'"');
+      sb(esc(st.res.name)+' · '+st.res.size+' P.',2);
+    } else if(st.k==='due'){
+      sb(hhmm(st.res.start)+' · '+st.res.size+' P.',1);
+      sb(esc(st.res.name),2);
+    } else if(st.k==='late'){
+      tm('+'+Math.floor((now-st.over)/MIN)+' Min.',1,' data-over="'+st.over+'"');
+      sb(esc(st.res.name)+' nicht da',2);
+    } else if(st.k==='booked'){
+      sb('<b>'+hhmm(st.res.start)+'</b>',1);
+      sb(esc(st.res.name),2);
+      sb((narrow?'':'bis ')+hhmm(st.res.end),3);
+    } else if(st.k==='occpre'){
+      sb((narrow?'':'bis ca. ')+hhmm(st.until),1);
+      sb('besetzt',3);
+    } else if(st.k==='soon'){
+      sb((narrow?'':'bis ')+hhmm(st.res.start),1);
+    } else {
+      if(st.later) sb(hhmm(st.later.start),1,' title="Reserviert ab '+hhmm(st.later.start)+'"'); else sb(seats(ts)+' Pl.',1);
+    }
+    // Was passt in die Höhe? Schriftgrößen wie im CSS (cqw = 1 % der Planbreite)
+    const fw=P.w*sc, cl=(lo,v,hi)=>Math.max(lo,Math.min(hi,v));
+    const fLb=cl(13,fw*.0175,24), fSb=cl(10,fw*.0105,15), fTm=cl(13,fw*.018,24);
+    const W=x2-x1, H=y2-y1, labelTxt=label(ts);
+    const big = ts.length>2 && W < labelTxt.length*fLb*.62;          // lange Gruppen-Nummer: kleiner schreiben
+    const lbF = big ? Math.max(11,fLb*.72) : fLb;
+    const lbLines = Math.max(1, Math.ceil(labelTxt.length*lbF*.6/Math.max(20,W-8)));
+    let room = H - 6 - lbLines*lbF*1.08;
+    const keep = new Set();
+    [...L].sort((a,b)=>a.p-b.p).forEach(l=>{ const lh=(l.k==='tm'?fTm*1.12:fSb*1.22); if(l.p===1 || room>=lh){ room-=lh; keep.add(l); } });
+    let html='<div class="lb"'+(big?' style="font-size:'+lbF+'px"':'')+'>'+ts.map(t=>esc(t.label)).join('+<wbr>')+'</div>'+L.filter(l=>keep.has(l)).map(l=>l.h).join('')+badge;
+    if(edit) html='<div class="lb">'+esc(ts[0].label)+'</div><div class="sb">'+ts[0].seats+' Pl. · '+ts[0].w+'×'+ts[0].h+'</div>';
+    el.insertAdjacentHTML('beforeend',html);
+    floor.appendChild(el);
+  }
+  const al=document.createElement('div'); al.className='area-label'; al.textContent=(UI.area+(PLANS[UI.area]?' · '+PLANS[UI.area].sub:'')).toUpperCase(); floor.appendChild(al);
+
+  // Zahlen oben
+  const all=units(null).map(ts=>({ts,st:stateOf(ts,now)}));
+  const nOcc=all.filter(u=>u.st.k==='occ'||u.st.k==='long').length;
+  const nFree=all.length-nOcc;
+  const guests=S.res.filter(r=>r.status==='confirmed'&&r.start>now-30*MIN&&r.start<=endOfToday()).reduce((s,r)=>s+r.size,0);
+  $('stats').innerHTML='<span><b>'+nFree+'</b>frei</span><span><b>'+nOcc+'</b>besetzt</span><span><b>'+guests+'</b>Gäste erwartet</span>';
+
+  // Seitenleiste: besetzt
+  const occ=all.filter(u=>u.st.k==='occ'||u.st.k==='long').sort((a,b)=>a.st.since-b.st.since);
+  $('occCount').textContent=occ.length||'';
+  const ol=$('occList'); ol.innerHTML='';
+  if(!occ.length) ol.innerHTML='<div class="empty">Kein Tisch besetzt</div>';
+  occ.forEach(({ts,st})=>{
+    const b=document.createElement('button'); b.className='item k-'+st.k;
+    b.innerHTML='<div class="r1"><span>Tisch '+esc(label(ts))+'</span><span class="timer-occ">'+dur(now-st.since)+'</span></div>'
+      +'<div class="r2"><span>'+(st.sitting?esc(st.sitting.name)+' · ':'')+'seit '+hhmm(st.since)+'</span><span>'+esc(ts[0].room||ts[0].area)+'</span></div>'
+      +(st.conflict?'<div class="note">Nächste Reservierung '+hhmm(st.next.start)+' ('+esc(st.next.name)+')</div>':'');
+    b.onclick=()=>focusUnit(ts); ol.appendChild(b);
+  });
+
+  // Seitenleiste: kommende Reservierungen
+  const vd = dayStartOf(UI.at||now), isToday = vd===dayStartOf(now);
+  $('resTitle').textContent = isToday ? 'KOMMEND HEUTE' : 'RESERVIERUNGEN '+dayName(vd).toUpperCase();
+  const up=S.res.filter(r=>r.status==='confirmed' && (isToday ? (r.end>now&&r.start<=endOfToday()) : dayStartOf(r.start)===vd)).sort((a,b)=>a.start-b.start);
+  $('resCount').textContent=up.length||'';
+  const rl=$('resList'); rl.innerHTML='';
+  if(!up.length) rl.innerHTML='<div class="empty">Keine weiteren Reservierungen</div>';
+  up.forEach(r=>{
+    const ts=r.tables.map(tById).filter(Boolean);
+    const d=r.start-now, ge=graceEnd(r);
+    const k = (d<=0 && now>ge)?'late':d<=CFG.dueBeforeMin*MIN?'due':d<=CFG.warnBeforeMin*MIN?'soon':'later';
+    const blocked = d<=CFG.conflictMin*MIN && ts.some(t=>t.since && t.resId!==r.id);
+    const chip = k==='late' ? '<span class="chip red">ÜBERFÄLLIG</span> ' : (k==='due' && d<=0) ? '<span class="chip" data-cdchip="'+ge+'">'+mmss(ge-now)+'</span> ' : k==='due' ? '<span class="chip">GLEICH</span> ' : '';
+    const b=document.createElement('button'); b.className='item k-'+(blocked?'blocked':k);
+    b.innerHTML='<div class="r1"><span>'+hhmm(r.start)+' bis '+hhmm(r.end)+'</span><span>'+chip+'T '+esc(label(ts))+'</span></div>'
+      +'<div class="r2"><span>'+esc(r.name)+'</span><span>'+r.size+' Pers.</span></div>'
+      +(blocked?'<div class="note red">Tisch ist besetzt. Antippen zum Umlegen.</div>':'')
+      +(r.note?'<div class="note">'+esc(r.note)+'</div>':'');
+    b.onclick=()=> blocked ? startMoveRes(r.id) : focusUnit(ts); rl.appendChild(b);
+  });
+}
+
+/* ================================================================
+   Zeitleiste: Datum wählen, Uhrzeit ziehen, "Jetzt" = live
+   ================================================================ */
+const WDN=['So','Mo','Di','Mi','Do','Fr','Sa'];
+const dayName = d => { const t=dayStartOf(Date.now()); return d===t?'heute':d===t+86400000?'morgen':WDN[new Date(d).getDay()]+' '+new Date(d).getDate()+'.'+(new Date(d).getMonth()+1)+'.'; };
+function hoursFor(day){
+  const o = SET().open && SET().open[new Date(day).getDay()];
+  const m = s => { const [h,mi]=s.split(':').map(Number); return h*60+mi; };
+  return o ? [m(o[0]), m(o[1])] : [11*60, 23*60];
+}
+function renderTimebar(now){
+  const bar=$('timebar');
+  if(document.activeElement && document.activeElement.id==='tPick') return;   // nicht stören, während die Uhrzeit gewählt wird
+  const T = UI.at||now, day = dayStartOf(T), live=!UI.at;
+  bar.innerHTML='<button class="nav" id="dPrev" aria-label="Tag zurück">‹</button><div class="day">'+esc(dayName(day))+'</div><button class="nav" id="dNext" aria-label="Tag vor">›</button>'
+    +'<div class="timectl"><button class="nav" id="tMinus">− 15</button><input type="time" id="tPick" step="900" value="'+hhmm(T)+'" aria-label="Uhrzeit"><button class="nav" id="tPlus">+ 15</button></div>'
+    +'<div class="tinfo">'+(live?'Live, jetzt':'Plan zeigt '+esc(dayName(day))+' um '+hhmm(T)+' Uhr')+'</div>'
+    +'<button class="livebtn'+(live?' on':'')+'" id="liveBtn">'+(live?'Live':'Jetzt')+'</button>';
+  const today=dayStartOf(Date.now());
+  const setAt = t => { UI.at = (dayStartOf(t)===today && Math.abs(t-Date.now())<8*MIN) ? null : t; touch(); render(); };
+  const q = t => Math.round(t/(15*MIN))*15*MIN;
+  $('dPrev').onclick=()=>{ const d=dayStartOf(day-43200000); UI.at = d===today?null:d+18*60*MIN; touch(); render(); };
+  $('dNext').onclick=()=>{ const d=dayStartOf(day+129600000); UI.at = d===today?null:d+18*60*MIN; touch(); render(); };
+  $('tMinus').onclick=()=>setAt(q(T)-15*MIN);
+  $('tPlus').onclick=()=>setAt(q(T)+15*MIN);
+  $('tPick').onchange=e=>{ const v=e.target.value; if(!v) return; const [h,m]=v.split(':').map(Number); e.target.blur(); setAt(day+(h*60+m)*MIN); };
+  $('liveBtn').onclick=()=>{ UI.at=null; render(); };
+}
+let lastTouch=Date.now();
+function touch(){ lastTouch=Date.now(); }
+
+/* Schnelle Reservierung direkt im Plan (z. B. Telefonanruf an der Schank) */
+function openQuickRes(ts, T){
+  const f={name:'',size:Math.min(seats(ts),4),phone:''};
+  const draw=()=>{
+    const dur=durFor(f.size), end=T+dur*MIN;
+    const sh=$('sheet');
+    sh.innerHTML='<h3>Reservierung Tisch '+esc(label(ts))+'</h3><div class="meta">'+esc(dayName(dayStartOf(T)))+', '+hhmm(T)+' bis '+hhmm(end)+' Uhr · '+seats(ts)+' Plätze</div><div class="qform">'
+      +'<div class="ed-row"><label>Name</label><input id="qN" value="'+esc(f.name)+'" placeholder="Huber"></div>'
+      +'<div class="ed-row"><label>Personen</label><button class="chipbtn" data-q="-1">−</button><span class="num">'+f.size+'</span><button class="chipbtn" data-q="1">+</button></div>'
+      +'<div class="ed-row"><label>Telefon</label><input id="qP" value="'+esc(f.phone)+'" placeholder="0664 ..."></div></div>'
+      +'<div class="meta" id="qErr" style="color:var(--occ-tx)"></div>'
+      +'<div class="acts"><button class="act main" id="qOk"><span>Reservieren</span><small>'+hhmm(T)+' Uhr</small></button><button class="act" id="qX">Abbrechen</button></div>';
+    const keep=()=>{ f.name=$('qN').value; f.phone=$('qP').value; };
+    sh.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{ keep(); f.size=Math.max(1,Math.min(40,f.size+ +b.dataset.q)); draw(); });
+    $('qN').oninput=()=>{$('qErr').textContent='';};
+    $('qX').onclick=closeSheet;
+    $('qOk').onclick=()=>{ keep();
+      if(!f.name.trim()){ $('qErr').textContent='Bitte einen Namen eingeben.'; $('qN').focus(); return; }
+      if(T < Date.now()-10*MIN){ $('qErr').textContent='Die Uhrzeit liegt in der Vergangenheit.'; return; }
+      if(busyAt(ts,T,end)){ $('qErr').textContent='Der Tisch ist in dieser Zeit schon belegt. Andere Uhrzeit oder anderen Tisch wählen.'; return; }
+      if(f.size>seats(ts) && !$('qOk').dataset.sure){ $('qErr').textContent='Nur '+seats(ts)+' Plätze für '+f.size+' Personen. Nochmal tippen, um trotzdem zu reservieren.'; $('qOk').dataset.sure='1'; return; }
+      closeSheet();
+      act(()=>{ S.res.push({id:'r'+Date.now().toString(36),start:T,end,size:f.size,name:f.name.trim(),phone:f.phone.trim(),email:'',note:'',tables:ts.map(t=>t.id),status:'confirmed',source:'staff',created:Date.now()}); }, f.name.trim()+' reserviert: Tisch '+label(ts)+', '+hhmm(T)+' Uhr');
+    };
+    $('toast').classList.remove('show'); $('sheetBg').classList.add('show'); setTimeout(()=>{ const n=$('qN'); if(n && !f.name) n.focus(); },50);
+  };
+  draw();
+}
+function openResInfo(r){
+  const sh=$('sheet');
+  sh.innerHTML='<h3>'+esc(r.name)+'</h3><div class="meta">'+esc(dayName(dayStartOf(r.start)))+', '+hhmm(r.start)+' bis '+hhmm(r.end)+' Uhr · '+r.size+' Pers. · Tisch '+esc(label(r.tables.map(tById).filter(Boolean)))+(r.phone?' · '+esc(r.phone):'')+(r.note?'<br>'+esc(r.note):'')+'</div>'
+    +'<div class="acts"><button class="act" id="iMove"><span>Auf anderen Tisch legen</span><small></small></button><button class="act main" id="iX"><span>Schließen</span><small></small></button></div>';
+  $('iX').onclick=closeSheet; $('iMove').onclick=()=>{ closeSheet(); startMoveRes(r.id); };
+  $('toast').classList.remove('show'); $('sheetBg').classList.add('show');
+}
+
+function focusUnit(ts){
+  if(!ts.length) return;
+  UI.area=ts[0].area; UI.hl=keyOf(ts[0]); render();
+  clearTimeout(focusUnit.t); focusUnit.t=setTimeout(()=>{ UI.hl=null; render(); },2200);
+}
+
+/* ================================================================
+   Eingabe: Tippen sofort, langes Drücken für Optionen
+   ================================================================ */
+const PRESS={on:false};
+(function(){
+  const floor=$('floor'); let timer=null, key=null, sx=0, sy=0, long=false, el=null;
+  const clear=()=>{ clearTimeout(timer); timer=null; PRESS.on=false; if(el) el.classList.remove('press'); };
+  let drag=null;
+  floor.addEventListener('pointerdown',e=>{
+    if(UI.mode==='edit'){
+      const d=e.target.closest('.t'); if(!d) return;
+      const t=tById(d.dataset.k); if(!t) return;
+      try{ d.setPointerCapture(e.pointerId); }catch(_){}
+      const mates = (t.group ? S.tables.filter(x=>x.group===t.group && x!==t) : []).map(m=>{ const me=floor.querySelector('[data-k="'+m.id+'"]'); return {t:m, el:me, x:m.x, y:m.y, left:me?parseFloat(me.style.left):0, top:me?parseFloat(me.style.top):0}; });
+      drag={el:d, t, mates, sx:e.clientX, sy:e.clientY, x:t.x, y:t.y, nx:t.x, ny:t.y, left:parseFloat(d.style.left), top:parseFloat(d.style.top), moved:false, before:snapshot()};
+      PRESS.on=true; return;
+    }
+    el=e.target.closest('.t'); if(!el) return;
+    key=el.dataset.k; sx=e.clientX; sy=e.clientY; long=false; PRESS.on=true; el.classList.add('press');
+    timer=setTimeout(()=>{ long=true; clear(); if(!UI.mode && UI.at){ tap(key); return; } if(!UI.mode){ if(navigator.vibrate) try{navigator.vibrate(25);}catch(_){} openSheet(key); } }, CFG.longPressMs);
+  });
+  floor.addEventListener('pointermove',e=>{
+    if(drag){
+      const dx=e.clientX-drag.sx, dy=e.clientY-drag.sy;
+      if(!drag.moved && Math.hypot(dx,dy)<6) return;
+      drag.moved=true; drag.el.classList.add('dragging');
+      const P=PLANS[UI.area]||{w:1000,h:620}, sn=CFG.snapCm;
+      drag.nx=Math.max(0,Math.min(P.w-drag.t.w, Math.round((drag.x+dx/UI.sc)/sn)*sn));
+      drag.ny=Math.max(0,Math.min(P.h-drag.t.h, Math.round((drag.y+dy/UI.sc)/sn)*sn));
+      drag.el.style.left=(drag.left+(drag.nx-drag.x)*UI.sc)+'px';
+      drag.el.style.top=(drag.top+(drag.ny-drag.y)*UI.sc)+'px';
+      drag.mates.forEach(m=>{ if(!m.el) return; m.el.classList.add('dragging'); m.el.style.left=(m.left+(drag.nx-drag.x)*UI.sc)+'px'; m.el.style.top=(m.top+(drag.ny-drag.y)*UI.sc)+'px'; });
+      return;
+    }
+    if(timer && Math.hypot(e.clientX-sx,e.clientY-sy)>12){ clear(); key=null; } });
+  floor.addEventListener('pointerup',()=>{
+    if(drag){
+      const d=drag; drag=null; PRESS.on=false;
+      if(d.moved){ const dx=d.nx-d.x, dy=d.ny-d.y; d.t.x=d.nx; d.t.y=d.ny; d.mates.forEach(m=>{ m.t.x=m.x+dx; m.t.y=m.y+dy; if(m.t.home) delete m.t.home; }); if(d.t.home) delete d.t.home; save(); render(); showToast('Tisch '+d.t.label+' verschoben', null, d.before); }
+      else openTableEditor(d.t.id);
+      return;
+    }
+    if(!timer){ return; } clear(); if(!long && key) tap(key); key=null; });
+  floor.addEventListener('pointercancel',()=>{ if(drag){ drag=null; PRESS.on=false; render(); } clear(); key=null; });
+  floor.addEventListener('contextmenu',e=>e.preventDefault());
+})();
+
+window.addEventListener('storage',e=>{ if(e.key===CFG.storeKey){ const d=load(); if(d){ S=d; render(); } } });
+$('resetBtn').onclick=()=>{ try{localStorage.removeItem(CFG.storeKey);}catch(e){} S=demoData(); endMode(); render(); showToast('Alle Tische frei, keine Reservierungen'); };
+
+if(/embed/.test(location.search)){ document.getElementById('brand').style.display='none'; document.body.classList.add('embed'); }
+window.addEventListener('resize',()=>{ clearTimeout(window.__rz); window.__rz=setTimeout(render,120); });
+/* Plan immer neu einpassen, sobald sich der Platz ändert (Liste wächst, iPad dreht, Admin-Fenster) */
+if(window.ResizeObserver){ let lw=0,lh=0; new ResizeObserver(es=>{ const r=es[0].contentRect; if(Math.abs(r.width-lw)<2 && Math.abs(r.height-lh)<2) return; lw=r.width; lh=r.height; clearTimeout(window.__ro); window.__ro=setTimeout(()=>{ if(!PRESS.on) render(); },60); }).observe(document.querySelector('.floorbox')); }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSheet(); });
+render();
+/* Countdown jede Sekunde nur als Text aktualisieren (schnell, stört kein Antippen) */
+let lastFull=Date.now();
+setInterval(()=>{
+  const now=Date.now(); let flip=false;
+  $('clock').textContent=hhmm(now);
+  document.querySelectorAll('[data-cd]').forEach(el=>{ const left=+el.dataset.cd-now; el.textContent=mmss(left); if(left<=0) flip=true; });
+  document.querySelectorAll('[data-cdchip]').forEach(el=>{ el.textContent=mmss(+el.dataset.cdchip-now); });
+  document.querySelectorAll('[data-over]').forEach(el=>{ el.textContent='+'+Math.floor((now-+el.dataset.over)/MIN)+' Min.'; });
+  const sheetOpen=$('sheetBg').classList.contains('show');
+  if(UI.at && !PRESS.on && !sheetOpen && !UI.mode && now-lastTouch>120000){ UI.at=null; lastFull=now; render(); return; }
+  if(!PRESS.on && !sheetOpen && (flip || now-lastFull>15000)){ lastFull=now; render(); }
+}, 1000);
+</script>
+</body>
+</html>
