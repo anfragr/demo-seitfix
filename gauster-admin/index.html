@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Inhalte verwalten · Gauster Gastronomie (Demo)</title>
+<meta name="description" content="Demo des zentralen Pflege-Bereichs für Gauster Gastronomie – alle drei Häuser an einem Ort, erstellt von Seitfix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papier:#f4efe6; --papier-2:#ece5d7; --weiss:#ffffff;
+    --tinte:#1b1b19; --gedaempft:#6f6a60; --linie:rgba(27,27,25,.14);
+    --gruen:#16211d; --gruen-2:#20302a; --creme:#f3eee3;
+    --ok:#1d5a32; --bad:#8e2b2b;
+    --kreuzwirt:#6e2317; --dreizehn:#7d5d42; --francis:#126b55;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;font-family:"IBM Plex Sans",system-ui,sans-serif;background:var(--papier);color:var(--tinte);line-height:1.5;-webkit-font-smoothing:antialiased}
+  button,input,textarea,select{font:inherit;color:inherit}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;letter-spacing:-.01em;margin:0}
+  a{color:inherit}
+
+  .demoband{background:var(--gruen);color:var(--creme);font-size:13px;text-align:center;padding:.5rem 1rem}
+  .demoband b{font-weight:600}
+
+  .top{background:var(--weiss);border-bottom:1px solid var(--linie);padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  .brand{font-family:"Fraunces",serif;font-size:1.25rem}
+  .brand small{display:block;font-family:"IBM Plex Sans";font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gedaempft);margin-top:2px}
+  .top .rechts{font-size:.85rem;color:var(--gedaempft)}
+
+  .wrap{max-width:800px;margin:0 auto;padding:1.6rem 1.25rem 7rem}
+
+  label{display:block;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;font-weight:600;color:var(--gedaempft);margin:1.1rem 0 .4rem}
+  input[type=text],textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--linie);border-radius:12px;background:var(--papier);color:var(--tinte)}
+  input:focus,textarea:focus,input[type=time]:focus{outline:0;border-color:var(--gruen-2);box-shadow:0 0 0 3px rgba(32,48,42,.14)}
+
+  .btn{padding:.9rem 1.5rem;border:0;border-radius:999px;background:var(--gruen);color:var(--creme);font-weight:600;cursor:pointer;font-size:.95rem}
+  .btn:hover{background:var(--gruen-2)}
+
+  h1.titel{font-size:clamp(1.9rem,5vw,2.6rem);margin:.4rem 0 .2rem}
+  .sub{color:var(--gedaempft);margin:0 0 1.4rem}
+
+  .haeuser{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+  .haus-tab{display:inline-flex;align-items:center;gap:.55rem;padding:.7rem 1.1rem;border:1px solid var(--linie);border-radius:999px;background:var(--weiss);cursor:pointer;font-weight:500}
+  .haus-tab .dot{width:12px;height:12px;border-radius:50%;background:var(--c)}
+  .haus-tab[aria-selected=true]{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+  .haus-tab:hover{background:var(--papier-2)}
+
+  .block{background:var(--weiss);border:1px solid var(--linie);border-radius:18px;padding:1.4rem;margin-bottom:1.1rem}
+  .block .kante{height:4px;border-radius:4px;background:var(--c);width:48px;margin-bottom:.9rem}
+  .block h2{font-size:1.45rem;margin-bottom:.15rem}
+  .block .k{color:var(--gedaempft);font-size:.86rem;margin:0 0 .4rem}
+
+  /* Öffnungszeiten-Tabelle */
+  .zeiten-edit{width:100%;border-collapse:collapse;margin-top:.3rem}
+  .zeiten-edit th{text-align:left;font-family:"Fraunces",serif;font-weight:500;font-size:1.02rem;padding:.6rem .6rem .6rem 0;white-space:nowrap;vertical-align:middle;width:108px}
+  .zeiten-edit td{padding:.45rem .2rem;border-top:1px solid var(--linie);vertical-align:middle}
+  .zeiten-edit tr:first-child td,.zeiten-edit tr:first-child th{border-top:0}
+  .td-schalter{width:122px}
+  input[type=time]{padding:.5rem .55rem;border:1px solid var(--linie);border-radius:9px;background:var(--papier);color:var(--tinte)}
+  .zeiten-felder{display:inline-flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+  .zeiten-felder .kl{color:var(--gedaempft);font-size:.82rem}
+  tr.zu .zeiten-felder{display:none}
+  .ruhetag{display:none;color:var(--gedaempft);font-style:italic}
+  tr.zu .ruhetag{display:inline}
+  .mini{display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;cursor:pointer;color:var(--gedaempft);user-select:none}
+  .mini input{width:17px;height:17px;accent-color:var(--gruen-2)}
+
+  /* Umschalter PDF / Text */
+  .seg{display:inline-flex;border:1px solid var(--linie);border-radius:999px;overflow:hidden;margin:.2rem 0 1rem;background:var(--papier)}
+  .seg-btn{padding:.6rem 1.15rem;border:0;background:transparent;cursor:pointer;font-weight:500;font-size:.9rem;color:var(--gedaempft)}
+  .seg-btn[aria-pressed=true]{background:var(--gruen);color:var(--creme)}
+
+  .file{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:.1rem}
+  .file input[type=file]{position:absolute;width:1px;height:1px;opacity:0}
+  .pick{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.1rem;border-radius:999px;background:var(--gruen);color:var(--creme);cursor:pointer;font-weight:500;font-size:.9rem}
+  .pick:hover{background:var(--gruen-2)}
+  .fname{font-size:.88rem;color:var(--gedaempft)}
+  .fname.set{color:var(--ok);font-weight:600}
+  .curfile{position:relative;display:inline-flex;align-items:center;gap:.6rem;margin-top:.9rem;padding:.7rem .95rem;border:1px solid var(--linie);border-radius:12px;background:var(--papier)}
+  .curfile .doc{font-size:.9rem}
+  .curfile .doc b{font-weight:600}
+  .curfile .x{position:absolute;top:-9px;left:-9px;width:24px;height:24px;padding:0;border:0;border-radius:50%;background:var(--bad);color:#fff;cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+  .curfile .x:hover{background:#731f1f}
+  .rmnote{margin-top:.7rem;font-size:.86rem;color:var(--bad);display:none;align-items:center;gap:.5rem}
+  .rmnote.show{display:flex}
+  .rmnote button{background:none;border:0;color:var(--gruen);text-decoration:underline;cursor:pointer;font-size:.86rem;padding:0}
+
+  /* Speisekarte selbst schreiben: Kategorien + Gerichte */
+  .kat{border:1px solid var(--linie);border-radius:14px;padding:.9rem 1rem;margin-bottom:.8rem;background:var(--papier)}
+  .kat-kopf{display:flex;align-items:center;gap:.5rem;margin-bottom:.6rem}
+  .kat-name{flex:1;font-family:"Fraunces",serif;font-weight:500;font-size:1.05rem;padding:.55rem .7rem;border:1px solid var(--linie);border-radius:10px;background:var(--weiss)}
+  .gericht{display:grid;grid-template-columns:1fr 96px 34px;gap:.45rem;margin-bottom:.4rem}
+  .gericht input{padding:.6rem .7rem;border:1px solid var(--linie);border-radius:10px;background:var(--weiss)}
+  .g-p{text-align:right}
+  .g-x,.kat-x{border:1px solid var(--linie);border-radius:10px;background:var(--weiss);color:var(--bad);cursor:pointer;font-size:1.1rem;line-height:1;display:flex;align-items:center;justify-content:center;padding:0}
+  .g-x{height:40px}
+  .kat-x{height:42px;width:42px;flex:none}
+  .g-x:hover,.kat-x:hover{background:#f6e4e4;border-color:var(--bad)}
+  .btn-lite{margin-top:.25rem;padding:.5rem .95rem;border:1px dashed var(--linie);border-radius:999px;background:transparent;color:var(--gedaempft);cursor:pointer;font-weight:500;font-size:.85rem}
+  .btn-lite:hover{border-color:var(--gruen-2);color:var(--tinte)}
+  #addKat{margin-top:.4rem}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;background:rgba(244,239,230,.94);backdrop-filter:blur(10px);border-top:1px solid var(--linie);padding:.9rem 1.25rem}
+  .bar .in{max-width:800px;margin:0 auto;display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .status{font-size:.9rem;color:var(--gedaempft)}
+  .status.ok{color:var(--ok);font-weight:600}
+
+  .toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%) translateY(20px);background:var(--gruen);color:var(--creme);padding:.85rem 1.2rem;border-radius:12px;font-size:.9rem;opacity:0;pointer-events:none;transition:all .25s;max-width:92vw;text-align:center;box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="demoband">Unverbindliche <b>Demo</b> des Pflege-Bereichs für die Gauster Gastronomie · erstellt von <b>Seitfix</b> · hier wird nichts dauerhaft gespeichert</div>
+
+<div class="top">
+  <span class="brand">Gauster Gastronomie <small>Inhalte verwalten</small></span>
+  <span class="rechts">Drei Häuser · ein Ort</span>
+</div>
+
+<section class="wrap" id="panel">
+  <h1 class="titel">Alle drei Häuser an einem Ort</h1>
+  <p class="sub">Haus oben wählen, Felder anklicken und ändern, dann veröffentlichen. Keine monatliche Agenturgebühr.</p>
+
+  <div class="haeuser" role="tablist" aria-label="Haus wählen">
+    <button class="haus-tab" role="tab" data-haus="kreuzwirt" style="--c:var(--kreuzwirt)"><span class="dot"></span>Kreuzwirt am Rosenberg</button>
+    <button class="haus-tab" role="tab" data-haus="dreizehn" style="--c:var(--dreizehn)"><span class="dot"></span>Dreizehn</button>
+    <button class="haus-tab" role="tab" data-haus="francis" style="--c:var(--francis)"><span class="dot"></span>Francis</button>
+  </div>
+
+  <div class="block" id="blockWrap" style="--c:var(--kreuzwirt)">
+    <div class="kante"></div>
+    <h2 id="hausName">Kreuzwirt am Rosenberg</h2>
+    <p class="k" id="hausAdresse"></p>
+
+    <label for="zitat">Begrüßung / Zitat auf der Seite</label>
+    <input type="text" id="zitat">
+
+    <label>Öffnungszeiten</label>
+    <table class="zeiten-edit"><tbody id="zeitenBody"></tbody></table>
+
+    <label>Speisekarte</label>
+    <div class="seg" id="segKarte">
+      <button type="button" class="seg-btn" data-modus="pdf">Als PDF</button>
+      <button type="button" class="seg-btn" data-modus="text">Selbst schreiben</button>
+    </div>
+
+    <div id="modusPdf">
+      <div class="file">
+        <input type="file" id="fpdf" accept="application/pdf">
+        <label class="pick" for="fpdf" style="margin:0">PDF auswählen</label>
+        <span class="fname" id="fname">Keine neue Datei gewählt</span>
+      </div>
+      <div class="curfile" id="curpdf" hidden>
+        <button type="button" class="x" id="rmpdf" aria-label="Speisekarte entfernen" title="Speisekarte entfernen">&times;</button>
+        <span class="doc">📄 <b id="pdfname">speisekarte.pdf</b></span>
+      </div>
+      <p class="rmnote" id="rmnote">Die Speisekarte wird beim Veröffentlichen entfernt.<button type="button" id="undopdf">Rückgängig</button></p>
+    </div>
+
+    <div id="modusText" hidden>
+      <div id="karteBuilder"></div>
+      <button type="button" class="btn-lite" id="addKat">+ Kategorie hinzufügen</button>
+    </div>
+  </div>
+
+  <div class="block" style="--c:var(--gruen)">
+    <div class="kante"></div>
+    <h2>Gut zu wissen</h2>
+    <p class="k" style="margin:0">Jede Änderung geht nach dem Veröffentlichen in etwa einer Minute online. So pflegen Sie alle drei Häuser selbst – ohne laufende Kosten außer dem Hosting.</p>
+  </div>
+</section>
+
+<div class="bar" id="bar">
+  <div class="in">
+    <span class="status" id="status">Bereit.</span>
+    <button class="btn" type="button" id="save">Veröffentlichen</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id);};
+  var TAGE=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
+
+  function z(offen,von,bis,kueche){return {offen:offen,von:von||'',bis:bis||'',kueche:kueche||''};}
+  function g(t,p){return {t:t,p:p};}
+  var HAEUSER={
+    kreuzwirt:{name:"Kreuzwirt am Rosenberg",farbe:"var(--kreuzwirt)",adresse:"Saumgasse 39, 8010 Graz",
+      zitat:"Bei uns erleben Sie die Region pur.",
+      modus:"pdf", pdf:"kreuzwirt.pdf",
+      karte:[{name:"Vorspeisen",items:[g("Rindsuppe mit Frittaten","5,90"),g("Beef Tatar, Toast","14,50")]},
+             {name:"Hauptgerichte",items:[g("Gulasch mit Spätzle","16,90"),g("Backhendl","18,50"),g("Zwiebelrostbraten","23,90")]}],
+      zeiten:[z(false),z(false),z(true,'12:00','22:00','21:00'),z(true,'12:00','22:00','21:00'),z(true,'12:00','22:00','21:00'),z(true,'12:00','22:00','21:00'),z(true,'12:00','18:00','17:00')]},
+    dreizehn:{name:"Dreizehn by Gauster",farbe:"var(--dreizehn)",adresse:"Franziskanerplatz 13, 8010 Graz",
+      zitat:"Wir leben die Werte Ästhetik, Genuss und Qualität.",
+      modus:"pdf", pdf:"dreizehn.pdf",
+      karte:[{name:"Mittag",items:[g("Dreizehn Lunch (Mo–Fr)","19,00")]},
+             {name:"Abendkarte",items:[g("Saibling, Fenchel, Zitrone","24,00"),g("Reh, Rotkraut, Maroni","29,00"),g("Topfenknödel, Marille","12,00")]}],
+      zeiten:[z(true,'11:30','23:00',''),z(true,'11:30','23:00',''),z(true,'11:30','23:00',''),z(true,'11:30','23:00',''),z(true,'11:30','23:00',''),z(true,'11:30','23:00',''),z(false)]},
+    francis:{name:"Francis",farbe:"var(--francis)",adresse:"Franziskanerplatz 13, 8010 Graz",
+      zitat:"Hier trifft Steiermark auf die Welt.",
+      modus:"pdf", pdf:"francis.pdf",
+      karte:[{name:"Zum Teilen",items:[g("Burrata, Tomate, Basilikum","13,50"),g("Vitello Tonnato","14,00")]},
+             {name:"Hauptgerichte",items:[g("Francis Burger, Pommes","17,50"),g("Risotto, Pilze, Parmesan","16,50")]},
+             {name:"Menü",items:[g("Menu du Chef, 3 Gänge","52,00")]}],
+      zeiten:[z(true,'11:30','23:59',''),z(true,'11:30','23:59',''),z(true,'11:30','23:59',''),z(true,'11:30','23:59',''),z(true,'11:30','23:59',''),z(true,'11:30','23:59',''),z(false)]},
+  };
+  var daten=JSON.parse(JSON.stringify(HAEUSER));
+  var rm={};
+  var aktiv='kreuzwirt';
+
+  function toast(t){var el=$('toast');el.textContent=t;el.classList.add('show');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('show');},3400);}
+  function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+
+  /* ---- Öffnungszeiten-Tabelle ---- */
+  (function(){
+    var body=$('zeitenBody');
+    TAGE.forEach(function(tag,i){
+      var tr=document.createElement('tr'); tr.dataset.i=i;
+      tr.innerHTML='<th>'+tag+'</th>'+
+        '<td class="td-schalter"><label class="mini"><input type="checkbox" class="z-offen">geöffnet</label></td>'+
+        '<td><span class="zeiten-felder"><input type="time" class="z-von"> <span class="kl">bis</span> <input type="time" class="z-bis"> <span class="kl">· Küche bis</span> <input type="time" class="z-kueche"></span><span class="ruhetag">Ruhetag</span></td>';
+      body.appendChild(tr);
+      tr.querySelector('.z-offen').addEventListener('change',function(){ tr.classList.toggle('zu', !this.checked); });
+    });
+  })();
+  function rows(){return $('zeitenBody').querySelectorAll('tr');}
+
+  /* ---- Speisekarte selbst schreiben ---- */
+  function gerichtRow(t,p){
+    var row=el('div','gericht','<input type="text" class="g-t" placeholder="Gericht"> <input type="text" class="g-p" placeholder="Preis"> <button type="button" class="g-x" title="Gericht entfernen">&times;</button>');
+    row.querySelector('.g-t').value=t||''; row.querySelector('.g-p').value=p||'';
+    row.querySelector('.g-x').addEventListener('click',function(){row.remove();});
+    return row;
+  }
+  function katCard(name,items){
+    var card=el('div','kat');
+    var kopf=el('div','kat-kopf','<input type="text" class="kat-name" placeholder="Kategorie, z. B. Vorspeisen"> <button type="button" class="kat-x" title="Kategorie entfernen">&times;</button>');
+    kopf.querySelector('.kat-name').value=name||'';
+    kopf.querySelector('.kat-x').addEventListener('click',function(){card.remove();});
+    var ger=el('div','gerichte');
+    (items&&items.length?items:[g('','')]).forEach(function(it){ger.appendChild(gerichtRow(it.t,it.p));});
+    var add=el('button','btn-lite','+ Gericht'); add.type='button';
+    add.addEventListener('click',function(){ger.appendChild(gerichtRow('',''));});
+    card.appendChild(kopf);card.appendChild(ger);card.appendChild(add);
+    return card;
+  }
+  function renderKarte(){
+    var wrap=$('karteBuilder'); wrap.innerHTML='';
+    (daten[aktiv].karte||[]).forEach(function(k){wrap.appendChild(katCard(k.name,k.items));});
+  }
+  $('addKat').addEventListener('click',function(){ $('karteBuilder').appendChild(katCard('',[g('','')])); });
+
+  function ausFeldern(){
+    var d=daten[aktiv]; if(!d)return;
+    d.zitat=$('zitat').value;
+    rows().forEach(function(tr){
+      var i=+tr.dataset.i;
+      d.zeiten[i]={offen:tr.querySelector('.z-offen').checked,
+        von:tr.querySelector('.z-von').value, bis:tr.querySelector('.z-bis').value, kueche:tr.querySelector('.z-kueche').value};
+    });
+    var karte=[];
+    $('karteBuilder').querySelectorAll('.kat').forEach(function(card){
+      var items=[];
+      card.querySelectorAll('.gericht').forEach(function(gr){
+        var t=gr.querySelector('.g-t').value, p=gr.querySelector('.g-p').value;
+        if(t||p) items.push({t:t,p:p});
+      });
+      karte.push({name:card.querySelector('.kat-name').value, items:items});
+    });
+    d.karte=karte;
+  }
+
+  function setModus(m){
+    daten[aktiv].modus=m;
+    document.querySelectorAll('#segKarte .seg-btn').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.modus===m));});
+    $('modusPdf').hidden = m!=='pdf';
+    $('modusText').hidden = m!=='text';
+  }
+  function renderPdf(){
+    var d=daten[aktiv], box=$('curpdf'), note=$('rmnote');
+    note.classList.remove('show');
+    var neu=$('fpdf').files[0];
+    var hat=!!(d.pdf) && !rm[aktiv];
+    $('pdfname').textContent=d.pdf||'speisekarte.pdf';
+    box.hidden = !hat || !!neu;
+    if(rm[aktiv] && !neu) note.classList.add('show');
+  }
+
+  function laden(h){
+    aktiv=h; var d=daten[h];
+    document.querySelectorAll('.haus-tab').forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.haus===h));});
+    $('blockWrap').style.setProperty('--c', d.farbe);
+    $('hausName').textContent=d.name;
+    $('hausAdresse').textContent=d.adresse;
+    $('zitat').value=d.zitat;
+    rows().forEach(function(tr){
+      var i=+tr.dataset.i, zt=d.zeiten[i];
+      tr.querySelector('.z-offen').checked=zt.offen;
+      tr.querySelector('.z-von').value=zt.von;
+      tr.querySelector('.z-bis').value=zt.bis;
+      tr.querySelector('.z-kueche').value=zt.kueche;
+      tr.classList.toggle('zu', !zt.offen);
+    });
+    renderKarte();
+    $('fpdf').value=''; $('fname').textContent='Keine neue Datei gewählt'; $('fname').classList.remove('set');
+    setModus(d.modus||'pdf');
+    renderPdf();
+  }
+
+  document.querySelectorAll('.haus-tab').forEach(function(t){
+    t.addEventListener('click',function(){ ausFeldern(); laden(t.dataset.haus); });
+  });
+  document.querySelectorAll('#segKarte .seg-btn').forEach(function(b){
+    b.addEventListener('click',function(){ setModus(b.dataset.modus); });
+  });
+  $('fpdf').addEventListener('change',function(){
+    var f=this.files[0];
+    if(!f){$('fname').textContent='Keine neue Datei gewählt';$('fname').classList.remove('set');return;}
+    $('fname').textContent=f.name+' ('+(f.size/1024/1024).toFixed(1)+' MB)';$('fname').classList.add('set');
+    rm[aktiv]=false; daten[aktiv].pdf=f.name; renderPdf();
+  });
+  $('rmpdf').addEventListener('click',function(){ rm[aktiv]=true; $('curpdf').hidden=true; $('rmnote').classList.add('show'); });
+  $('undopdf').addEventListener('click',function(){ rm[aktiv]=false; renderPdf(); });
+
+  $('save').addEventListener('click',function(){
+    ausFeldern();
+    var st=$('status'); st.textContent='Gespeichert ✓'; st.className='status ok';
+    toast('Gespeichert – in der Live-Version ist die Änderung in ~1 Minute online. (Demo: wird nicht dauerhaft gespeichert.)');
+    setTimeout(function(){st.textContent='Bereit.';st.className='status';},3500);
+  });
+
+  laden('kreuzwirt');
+})();
+</script>
+</body>
+</html>
