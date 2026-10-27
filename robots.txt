@@ -1,5 +1,0 @@
-# Demoseiten von Seitfix. Unverbindliche Entwuerfe fuer Betriebe, die noch keine
-# Kunden sind. Sie duerfen nicht indexiert werden, weil sie sonst mit den echten
-# Seiten der Betriebe konkurrieren.
-User-agent: *
-Disallow: /
