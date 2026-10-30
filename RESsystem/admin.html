@@ -145,7 +145,7 @@ h2{font-size:21px;font-weight:700;margin-bottom:4px}
 /* Einstellungen */
 .settings{display:grid;gap:14px;max-width:820px}
 .hours{display:grid;grid-template-columns:110px 1fr 1fr 110px;gap:8px;align-items:center}
-.hours input[type=time]{padding:8px 10px;border:1px solid var(--line2);border-radius:9px}
+.hours input[type=time],.hours select{padding:8px 10px;border:1px solid var(--line2);border-radius:9px;background:#fff;font:inherit;font-size:15px}
 .toggle{display:flex;align-items:center;gap:6px;font-size:14px}
 .users{width:100%;border-collapse:collapse}
 .users td,.users th{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);font-size:14.5px}
@@ -159,6 +159,41 @@ h2{font-size:21px;font-weight:700;margin-bottom:4px}
 .modal .sub{margin-bottom:14px}
 .modal .foot{display:flex;gap:8px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
 .modal .foot .left{margin-right:auto}
+.modal.wide{width:min(1200px,100%)}
+.modal.wide .form{grid-template-columns:repeat(4,minmax(0,1fr))}
+.modal.wide .form .full{grid-column:span 2}
+@media (max-width:900px){ .modal.wide .form{grid-template-columns:1fr 1fr} }
+.mailedit{width:100%;min-height:230px;font:inherit;font-size:14px;line-height:1.5;padding:12px 14px;border:1px solid var(--line2);border-radius:10px;background:#fff;resize:vertical;color:#2b3036}
+.seatsum.hint{color:var(--muted)}
+/* Bestätigen mit Tischplan */
+.pp{position:relative;width:100%;border:1px solid var(--line);border-radius:12px;background:#f7f8fa;overflow:hidden}
+.pp .plan{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pt{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1.5px solid;border-radius:9px;font-weight:700;line-height:1.08;text-align:center;overflow:hidden;padding:1px 3px;cursor:pointer;font-size:14px;background:#fff;z-index:2}
+.pt small{display:block;font-size:10.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.pt.fit{background:var(--free-bg);border-color:var(--free-bd);color:var(--free-tx)}
+.pt.small{background:#fff;border-color:var(--line2);color:var(--muted)}
+.pt.res{background:var(--due-bg);border-color:#9db6ec;color:var(--due-tx);cursor:not-allowed}
+.pt.occ{background:var(--occ-bg);border-color:var(--occ-bd);color:var(--occ-tx);cursor:not-allowed}
+.pt.req{border-style:dashed}
+.pt.on{background:var(--dark);border-color:var(--dark);color:#fff;box-shadow:0 0 0 3px rgba(22,25,29,.2)}
+.pt:not(.res):not(.occ):hover{box-shadow:0 0 0 3px rgba(46,155,93,.25)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:8px 2px 0}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;border:1.5px solid;vertical-align:-2px;margin-right:5px}
+.cgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;margin-top:16px}
+.ovl{border:1px solid var(--line);border-radius:10px;max-height:250px;overflow:auto}
+.ovl .o{display:grid;grid-template-columns:96px 1fr auto;gap:10px;align-items:baseline;padding:8px 12px;border-bottom:1px solid var(--line);font-size:14px}
+.ovl .o:last-child{border-bottom:0}
+.ovl .o b{font-variant-numeric:tabular-nums}
+.ovl .o .tb{font-size:12.5px;font-weight:650;padding:1px 7px;border-radius:6px;border:1px solid var(--line2);white-space:nowrap}
+.ovl .o.rq{color:var(--soon-tx);background:#fffaf0}
+.ovl .o.oc b{color:var(--occ-tx)}
+.ovl .osec{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--muted);text-transform:uppercase;padding:7px 12px 5px;background:var(--panel2);border-bottom:1px solid var(--line)}
+.ovl .o{grid-template-columns:104px 1fr auto}
+.ovl .o.hit{background:#eef3fd}
+.cap{font-size:13.5px;color:var(--muted);margin:0 2px 8px}
+.cap b{color:var(--text)}
+details.mailbox summary{cursor:pointer;font-size:13px;color:var(--muted);font-weight:650;margin:14px 0 8px}
+@media (max-width:820px){ .cgrid{grid-template-columns:1fr} }
 
 .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140%);background:var(--dark);color:#fff;border-radius:12px;padding:12px 16px;font-size:15px;font-weight:550;transition:transform .18s;z-index:30;max-width:calc(100% - 32px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
 .toast.show{transform:translate(-50%,0)}
@@ -205,6 +240,42 @@ h2{font-size:21px;font-weight:700;margin-bottom:4px}
 const KEY = 'ressystem-demo-v11';
 const MIN = 60000, DAY = 86400000;
 const ROOMS = ['Stüberl','Gewölbe','Schankstube'];
+/* Grundriss (gleich wie im Tischplan der Mitarbeiter) */
+const PLANS = {
+  'Lokal': { sub:'Gesamtplan', w:2580, h:950, items:[
+    // Böden
+    ['zone',0,508,1620,442,'#f5ede1'],
+    ['zone',1620,0,960,950,'#f3e9da'],
+    // Stüberl (links)
+    ['bench',0,508,815,40],['bench',0,508,40,300],
+    // Gewölbe (Mitte)
+    ['bench',870,508,640,40],
+    ['counter',830,860,60,90,'','#c9b8a3','#4a3b2c'],
+    ['counter',1560,780,55,110,'','#c9b8a3','#4a3b2c'],
+    ['mat',1400,880,130,62],
+    // Schankstube (rechts)
+    ['counter',1660,80,410,85,'Schank','#5b4636','#ffffff'],
+    ['counter',1660,20,410,40,'','#8a6f57','#ffffff'],
+    ['bench',2535,60,45,840],['bench',1620,200,50,230],
+    ['counter',2150,905,220,40,'Heizung','#ddd6cb','#6b625a'],
+    // Außenwände
+    ['wall',0,508,1620,508],['wall',0,508,0,950],['wall',0,950,2580,950],
+    ['wall',1620,0,2580,0],['wall',2580,0,2580,950],['wall',1620,0,1620,640],['wall',1620,820,1620,950],
+    // Trennung Stüberl / Gewölbe: Holzgitter mit Durchgang
+    ['part',815,508,815,760],['wall',815,900,815,950],
+    // Fenster
+    ['win',2580,120,2580,260],['win',2580,330,2580,470],['win',2580,540,2580,680],['win',2580,750,2580,890],
+    ['win',920,950,1060,950],['win',1140,950,1280,950],
+    // Türen
+    ['door',815,760,815,900,''],
+    ['door',1620,640,1620,820,''],
+    ['door',1400,950,1530,950,'Eingang'],
+    ['door',120,950,250,950,'Gang, WC'],
+    // Raumnamen
+    ['label',400,700,'Stüberl'],['label',1250,700,'Gewölbe'],['label',2050,860,'Schankstube'],
+  ]},
+};
+
 const ACTIVE = ['confirmed','seated'];
 const DEFAULT_SETTINGS = {
   open: {1:null,2:['11:00','23:00'],3:['11:00','23:00'],4:['11:00','23:00'],5:['11:00','23:00'],6:['11:00','23:00'],0:null},
@@ -303,6 +374,11 @@ window.addEventListener('storage',e=>{ if(e.key===KEY){ S=load(); render(); } })
    ================================================================ */
 const $ = id => document.getElementById(id);
 const pad = n => String(n).padStart(2,'0');
+/* Uhrzeit immer im 24-Stunden-Format (eigene Auswahl statt Browser-Uhr, die je nach Gerät AM/PM zeigt) */
+function timeSel(attrs, val, o){ o=o||{}; const L=[]; for(let m=(o.from||0); m<=(o.to===undefined?1425:o.to); m+=15) L.push(pad(Math.floor(m/60))+':'+pad(m%60));
+  if(val && !L.includes(val)){ L.push(val); L.sort(); }
+  return '<select '+attrs+'>'+L.map(t=>'<option'+(t===val?' selected':'')+'>'+t+'</option>').join('')+'</select>'; }
+
 const hhmm = ms => { const d=new Date(ms); return pad(d.getHours())+':'+pad(d.getMinutes()); };
 const WD = ['So','Mo','Di','Mi','Do','Fr','Sa'];
 const WDL = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
@@ -319,10 +395,17 @@ const durFor = size => size>=S.settings.largeFrom ? S.settings.durLarge : S.sett
 const sortTables = list => [...list].sort((a,b)=> (ROOMS.indexOf(a.room)-ROOMS.indexOf(b.room)) || ((parseInt(a.label)||0)-(parseInt(b.label)||0)));
 const STATUS = {requested:'Anfrage',proposed:'Gegenvorschlag',confirmed:'Bestätigt',seated:'Sitzt',done:'Erledigt',declined:'Abgelehnt',cancelled:'Storniert',no_show:'Nicht erschienen'};
 
+/* Gerade besetzter Tisch: voraussichtlich belegt bis Ende der Sitzdauer (bzw. der Reservierung), mindestens noch 30 Min. */
+function occUntil(t){
+  if(!t || !t.since) return 0;
+  const now=Date.now(), rr = t.resId ? S.res.find(x=>x.id===t.resId) : null;
+  const planned = rr ? rr.end : t.since + durFor(t.seats)*MIN;
+  return Math.max(planned, now+30*MIN);
+}
 function busy(tableId, start, end, exceptId){
   if(S.res.some(r=>r.id!==exceptId && ACTIVE.includes(r.status) && r.tables.includes(tableId) && r.start<end && start<r.end)) return true;
   const t=tById(tableId), now=Date.now();
-  if(t && t.since && !t.resId && start < now+60*MIN && end > now) return true;   // Laufkundschaft sitzt gerade
+  if(t && t.since && start < occUntil(t) && end > now) return true;   // sitzt gerade jemand, voraussichtlich bis …
   return false;
 }
 function conflictsOf(r){ return r.tables.filter(id=>busy(id, r.start, r.end, r.id)); }
@@ -498,7 +581,7 @@ function viewSettings(v){
   let h='<h2>Einstellungen</h2><div class="sub">Gilt für das Buchungsformular auf der Website und für den Tischplan. Wird sofort gespeichert.</div><div class="settings">';
   h+='<div class="card"><h3 style="font-size:16px;margin-bottom:10px">Öffnungszeiten</h3>';
   [1,2,3,4,5,6,0].forEach(d=>{ const o=st.open[d];
-    h+='<div class="hours" style="margin-bottom:6px"><b>'+WDL[d]+'</b><input type="time" data-o="'+d+'" data-i="0" value="'+(o?o[0]:'11:00')+'"'+(o?'':' disabled')+'><input type="time" data-o="'+d+'" data-i="1" value="'+(o?o[1]:'23:00')+'"'+(o?'':' disabled')+'><label class="toggle"><input type="checkbox" data-closed="'+d+'"'+(o?'':' checked')+'> Ruhetag</label></div>'; });
+    h+='<div class="hours" style="margin-bottom:6px"><b>'+WDL[d]+'</b>'+timeSel('class="tsel" data-o="'+d+'" data-i="0"'+(o?'':' disabled'), o?o[0]:'11:00')+timeSel('class="tsel" data-o="'+d+'" data-i="1"'+(o?'':' disabled'), o?o[1]:'23:00', {to:1440})+'<label class="toggle"><input type="checkbox" data-closed="'+d+'"'+(o?'':' checked')+'> Ruhetag</label></div>'; });
   h+='</div>';
   h+='<div class="card"><h3 style="font-size:16px;margin-bottom:10px">Reservierungen</h3><div class="form">'
     +num('durSmall','Sitzdauer normal (Minuten)',st.durSmall,30,600,15)
@@ -538,10 +621,39 @@ function viewUsers(v){
 /* ================================================================
    Dialoge
    ================================================================ */
-function openModal(html){ $('modal').innerHTML=html; $('modalBg').classList.add('show'); }
+function openModal(html, wide){ $('modal').innerHTML=html; $('modal').classList.toggle('wide',!!wide); $('modalBg').classList.add('show'); }
 function closeModal(){ $('modalBg').classList.remove('show'); }
 $('modalBg').addEventListener('click',e=>{ if(e.target.id==='modalBg') closeModal(); });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+function planSVG(area){
+  const P = PLANS[area]; if(!P) return '';
+  const W=P.w, H=P.h, k=Math.max(W,H*1.6)/1000;     // Strichstärken und Schrift mit der Raumgröße skalieren
+  let s = '<svg class="plan" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none" aria-hidden="true">';
+  const tx = (x,y,t,size=15,fill='#8a9097',anchor='middle',w=500) => '<text x="'+x+'" y="'+y+'" font-size="'+(size*k)+'" fill="'+fill+'" text-anchor="'+anchor+'" font-weight="'+w+'">'+esc(t)+'</text>';
+  for(const it of P.items){
+    const [kind,...a] = it;
+    if(kind==='zone') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" fill="'+a[4]+'"/>';
+    else if(kind==='street') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" fill="#d9dce0"/>'+tx(a[0]+a[2]/2,a[1]+a[3]/2+5*k,a[4],14,'#7a8088');
+    else if(kind==='bench') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+6*k+'" fill="#dcc7a6" stroke="#bfa37c" stroke-width="'+1.5*k+'"/>';
+    else if(kind==='counter') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+6*k+'" fill="'+a[5]+'"/>'+tx(a[0]+a[2]/2,a[1]+a[3]/2+5*k,a[4],13,a[6],'middle',650);
+    else if(kind==='hedge') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+14*k+'" fill="#c4e3b8" stroke="#86bf78" stroke-width="'+1.5*k+'"/>';
+    else if(kind==='plant') s+='<circle cx="'+a[0]+'" cy="'+a[1]+'" r="'+a[2]+'" fill="#bfe0b3" stroke="#7fb873" stroke-width="'+1.5*k+'"/>';
+    else if(kind==='mat') s+='<rect x="'+a[0]+'" y="'+a[1]+'" width="'+a[2]+'" height="'+a[3]+'" rx="'+3*k+'" fill="#6f777f" opacity=".35"/>';
+    else if(kind==='part') s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#a6845f" stroke-width="'+8*k+'" stroke-dasharray="'+4*k+' '+7*k+'"/>';
+    else if(kind==='wall') s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#3a4047" stroke-width="'+10*k+'" stroke-linecap="square"/>';
+    else if(kind==='win') s+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#9fd0ff" stroke-width="'+10*k+'"/><line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+a[2]+'" y2="'+a[3]+'" stroke="#ffffff" stroke-width="'+2*k+'"/>';
+    else if(kind==='door'){
+      const [x1,y1,x2,y2,lab]=a, vert = x1===x2;
+      s+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#ffffff" stroke-width="'+13*k+'"/>';
+      s+='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#c2c7cc" stroke-width="'+2*k+'" stroke-dasharray="'+6*k+' '+5*k+'"/>';
+      if(vert){ const ly=(y1+y2)/2, left = x1 < W/2, lx = left ? x1+14*k : x1-14*k; s+=tx(lx,ly+5*k,lab,13,'#6c737a',left?'start':'end',600); }
+      else { const lx=(x1+x2)/2, top = y1 < H/2, ly = top ? y1+26*k : y1-12*k; s+=tx(lx,ly,lab,13,'#6c737a','middle',600); }
+    }
+    else if(kind==='label') s+=tx(a[0],a[1],a[2],16,'#b3a58f','middle',600);
+  }
+  return s+'</svg>';
+}
 
 /* Tischauswahl mit Verfügbarkeit */
 function tablePicker(sel, start, end, size, exceptId){
@@ -555,34 +667,83 @@ function tablePicker(sel, start, end, size, exceptId){
 }
 function seatSum(sel,size){
   const s=sel.reduce((a,id)=>a+((tById(id)||{}).seats||0),0);
-  return '<div class="seatsum'+(sel.length && s<size?' bad':'')+'" id="ss">Ausgewählt: <b>'+(sel.length?tLabel(sel)+' · '+s+' Plätze':'kein Tisch')+'</b> für '+size+' Personen. Grün = frei und passend, durchgestrichen = belegt.</div>';
+  return '<div class="seatsum'+(sel.length && s<size?' bad':'')+'" id="ss">Ausgewählt: <b>'+(sel.length?tLabel(sel)+' · '+s+' Plätze':'kein Tisch')+'</b> für '+size+' Personen.</div>';
 }
 function bindPicker(sel, getSize, onChange){
   $('tp').querySelectorAll('[data-t]').forEach(b=>b.onclick=e=>{ e.preventDefault(); const id=b.dataset.t; const i=sel.indexOf(id); if(i>=0) sel.splice(i,1); else sel.push(id); onChange(); });
 }
 
-/* Anfrage bestätigen */
+/* Anfrage bestätigen: zuerst sehen, was zu der Zeit schon reserviert ist, dann Tisch im Plan wählen */
+function tableAt(t, start, end, exId){
+  const now=Date.now();
+  if(t.since && !(exId && t.resId===exId)){ const until=occUntil(t); if(start < until && end > now) return {k:'occ', until}; }
+  const r = S.res.filter(x=>x.id!==exId && x.status==='confirmed' && x.tables.includes(t.id) && x.start<end && start<x.end).sort((a,b)=>a.start-b.start)[0];
+  if(r) return {k:'res', r};
+  const q = S.res.find(x=>x.id!==exId && x.status==='requested' && x.tables.includes(t.id) && x.start<end && start<x.end);
+  return {k:'free', q};
+}
+function drawPickPlan(box, sel, start, end, size, exId, onPick){
+  const P = PLANS['Lokal']; const W = box.clientWidth || 900, sc = W/P.w, H = Math.round(P.h*sc);
+  box.style.height = H+'px';
+  let h = planSVG('Lokal');
+  S.tables.forEach(t=>{
+    const st = tableAt(t,start,end,exId), on = sel.includes(t.id);
+    const w=t.w*sc, hh=t.h*sc, dw=Math.max(w,46), dh=Math.max(hh,40), x=t.x*sc-(dw-w)/2, y=t.y*sc-(dh-hh)/2;
+    let cls = on ? 'on' : st.k==='res' ? 'res' : st.k==='occ' ? 'occ' : (t.seats>=size ? 'fit' : 'small');
+    if(st.k==='free' && st.q && !on) cls+=' req';
+    const sub = st.k==='res' ? hhmm(st.r.start) : st.k==='occ' ? hhmm(st.until) : t.seats+' Pl.';
+    const tip = st.k==='res' ? st.r.name+', '+hhmm(st.r.start)+' bis '+hhmm(st.r.end)+', '+st.r.size+' Pers.' : st.k==='occ' ? 'gerade besetzt, voraussichtlich bis '+hhmm(st.until)+' Uhr' : t.seats+' Plätze'+(st.q?' · offene Anfrage '+st.q.name:'');
+    h+='<button class="pt '+cls+'" data-t="'+t.id+'" title="'+esc('Tisch '+t.label+': '+tip)+'" style="left:'+x.toFixed(1)+'px;top:'+y.toFixed(1)+'px;width:'+dw.toFixed(1)+'px;height:'+dh.toFixed(1)+'px">'+esc(t.label)+'<small>'+sub+'</small></button>';
+  });
+  box.innerHTML = h;
+  box.querySelectorAll('.pt').forEach(b=>b.onclick=()=>{ const t=tById(b.dataset.t), st=tableAt(t,start,end,exId);
+    if(st.k!=='free' && !sel.includes(t.id)){ toast('Tisch '+t.label+' ist zu der Zeit '+(st.k==='res'?'reserviert ('+st.r.name+' '+hhmm(st.r.start)+')':'noch besetzt, voraussichtlich bis '+hhmm(st.until)+' Uhr')); return; }
+    const i=sel.indexOf(t.id); if(i>=0) sel.splice(i,1); else sel.push(t.id); onPick(); });
+}
+const PICK_LEGEND = '<div class="legend"><span><i style="background:var(--free-bg);border-color:var(--free-bd)"></i>frei und groß genug</span><span><i style="background:#fff;border-color:var(--line2)"></i>frei, zu klein</span><span><i style="background:var(--due-bg);border-color:#9db6ec"></i>schon reserviert</span><span><i style="background:var(--occ-bg);border-color:var(--occ-bd)"></i>gerade besetzt, frei ca. um</span><span><i style="border-style:dashed;border-color:var(--muted)"></i>offene Anfrage</span><span><i style="background:var(--dark);border-color:var(--dark)"></i>ausgewählt</span></div>';
+function overlapBox(start, end, exId, sel){
+  const now=Date.now();
+  const over = S.res.filter(x=>x.id!==exId && (x.status==='confirmed'||x.status==='requested') && x.end>now && x.start<end && start<x.end).sort((a,b)=>a.start-b.start);
+  const booked = over.filter(x=>x.status==='confirmed');
+  const occNow = sortTables(S.tables).filter(t=>tableAt(t,start,end,exId).k==='occ');
+  const seatsAll = S.tables.reduce((a,t)=>a+t.seats,0);
+  const seatsBooked = S.tables.filter(t=>tableAt(t,start,end,exId).k!=='free').reduce((a,t)=>a+t.seats,0);
+  const occRows = occNow.map(t=>{ const rr=t.resId?S.res.find(x=>x.id===t.resId):null; return '<div class="o oc'+(sel.includes(t.id)?' hit':'')+'"><b>bis ca. '+hhmm(occUntil(t))+'</b><span>'+(rr?esc(rr.name)+' · ':'')+'sitzt seit '+hhmm(t.since)+'</span><span class="tb">T '+esc(t.label)+'</span></div>'; }).join('');
+  const rows = over.map(x=>'<div class="o'+(x.status==='requested'?' rq':'')+(x.tables.some(id=>sel.includes(id))?' hit':'')+'"><b>'+hhmm(x.start)+'–'+hhmm(x.end)+'</b><span>'+esc(x.name)+' · '+x.size+' P.'+(x.status==='requested'?' · <i>Anfrage</i>':'')+'</span><span class="tb">'+(x.tables.length?'T '+esc(tLabel(x.tables)):'kein Tisch')+'</span></div>').join('');
+  const list = (occRows?'<div class="osec">Gerade besetzt</div>'+occRows:'') + (rows?'<div class="osec">Reserviert</div>'+rows:'')
+    || '<div class="o"><span style="grid-column:1/-1;color:var(--muted)">Zu dieser Zeit ist noch nichts reserviert oder besetzt.</span></div>';
+  return '<div class="f"><label>Zu dieser Zeit belegt ('+(booked.length+occNow.length)+')</label></div>'
+    +'<div class="cap">Belegt: <b>'+seatsBooked+' von '+seatsAll+' Plätzen</b> zwischen '+hhmm(start)+' und '+hhmm(end)+' Uhr</div><div class="ovl">'+list+'</div>';
+}
 function openConfirm(r){
   const start = r.status==='proposed' && r.proposedStart ? r.proposedStart : r.start;
   const end = start + (r.end-r.start);
-  const sel = r.tables.filter(id=>!busy(id,start,end,r.id));
-  if(!sel.length){ // Vorschlag: kleinster passender freier Tisch
-    const best = sortTables(S.tables).filter(t=>!busy(t.id,start,end,r.id) && t.seats>=r.size).sort((a,b)=>a.seats-b.seats)[0];
-    if(best) sel.push(best.id);
-  }
+  const sel = r.tables.filter(id=>!busy(id,start,end,r.id));   // nichts automatisch auswählen, nur bereits gewünschte Tische
+  let mail = null, mailOpen = false;
   const draw = ()=>{
-    openModal('<h3>'+(r.status==='proposed'?'Gast hat zugesagt':'Anfrage bestätigen')+'</h3><div class="sub">'+esc(r.name)+' · '+esc(dayLabel(dayStart(start)))+' · '+hhmm(start)+' bis '+hhmm(end)+' · '+r.size+' Personen'+(r.note?'<br><span style="color:var(--soon-tx)">'+esc(r.note)+'</span>':'')+'</div>'
-      +'<div class="f"><label>Tisch zuweisen (auch mehrere für große Gruppen)</label></div>'+tablePicker(sel,start,end,r.size,r.id)+seatSum(sel,r.size)
+    const freeFit = sortTables(S.tables).filter(t=>!sel.includes(t.id) && tableAt(t,start,end,r.id).k==='free' && t.seats>=r.size).sort((a,b)=>a.seats-b.seats);
+    const seatsSel = sel.reduce((a,id)=>a+((tById(id)||{}).seats||0),0);
+    openModal('<h3>'+(r.status==='proposed'?'Gast hat zugesagt':'Anfrage bestätigen')+': '+esc(r.name)+'</h3>'
+      +'<div class="sub"><b>'+esc(dayLabel(dayStart(start)))+' · '+hhmm(start)+' bis '+hhmm(end)+' Uhr · '+r.size+' Personen</b>'+(r.note?' · <span style="color:var(--soon-tx)">'+esc(r.note)+'</span>':'')+'</div>'
+      +'<div class="pp" id="pp"></div>'
+      +PICK_LEGEND
+      +'<div class="cgrid"><div>'+overlapBox(start,end,r.id,sel)+'</div>'
+      +'<div><div class="f"><label>Tisch für '+esc(r.name)+'</label></div>'
+      +'<div class="seatsum'+(sel.length && seatsSel<r.size?' bad':'')+'">'+(sel.length?'Ausgewählt: <b>Tisch '+esc(tLabel(sel))+' · '+seatsSel+' Plätze</b> für '+r.size+' Personen':'Noch kein Tisch gewählt. Bitte im Plan einen grünen Tisch antippen, für große Gruppen auch mehrere.')+'</div>'
+      +(freeFit.length?'<div class="cap" style="margin-top:8px">'+(sel.length?'Weitere frei und passend: ':'Frei und passend: ')+freeFit.slice(0,8).map(t=>'<button class="chip fit" data-q="'+t.id+'" style="padding:3px 9px;margin:2px">'+esc(t.label)+'<small>'+t.seats+'</small></button>').join('')+'</div>':(sel.length?'':'<div class="cap" style="margin-top:8px;color:var(--occ-tx)">Kein einzelner Tisch für '+r.size+' Personen frei. Mehrere Tische wählen oder „Andere Zeit“ vorschlagen.</div>'))
       +'<div class="err" id="cErr"></div>'
-      +'<div class="f" style="margin-top:14px"><label>Diese Mail bekommt der Gast</label></div><div class="mail">'+esc(mailText('confirm',Object.assign({},r,{start,end})))+'</div>'
-      +'<div class="foot"><button class="btn" id="cX">Abbrechen</button><button class="btn primary" id="cOk">Bestätigen und Mail senden</button></div>');
-    bindPicker(sel, ()=>r.size, draw);
+      +'<div class="f" style="margin-top:14px"><label>Mail an den Gast (frei anpassbar)</label></div><textarea class="mailedit" id="cM">'+esc(mail!==null?mail:mailText('confirm',Object.assign({},r,{start,end})))+'</textarea></div></div>'
+      +'<div class="foot"><button class="btn" id="cX">Abbrechen</button><button class="btn primary" id="cOk"'+(sel.length?'':' disabled style="opacity:.45;cursor:not-allowed"')+'>'+(sel.length?'Bestätigen auf Tisch '+esc(tLabel(sel))+' und Mail senden':'Erst Tisch wählen')+'</button></div>', true);
+    const keepMail=()=>{ if($('cM') && $('cM').dataset.edited) mail=$('cM').value; };
+    $('cM').oninput=()=>{ $('cM').dataset.edited='1'; };
+    drawPickPlan($('pp'), sel, start, end, r.size, r.id, ()=>{ keepMail(); draw(); });
+    $('modal').querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{ keepMail(); const id=b.dataset.q; if(!sel.includes(id)) sel.push(id); draw(); });
     $('cX').onclick=closeModal;
     $('cOk').onclick=()=>{
-      if(!sel.length){ $('cErr').textContent='Bitte mindestens einen Tisch wählen.'; return; }
-      const seatsSel=sel.reduce((a,id)=>a+tById(id).seats,0);
+      if(!sel.length){ $('cErr').textContent='Bitte zuerst einen Tisch im Plan wählen.'; return; }
       if(seatsSel<r.size && !$('cOk').dataset.sure){ $('cErr').textContent='Die Tische haben nur '+seatsSel+' Plätze für '+r.size+' Personen. Nochmal drücken, um trotzdem zu bestätigen.'; $('cOk').dataset.sure='1'; return; }
-      r.tables=sel.slice(); r.start=start; r.end=end; r.status='confirmed'; delete r.proposedStart; save(); closeModal(); render();
+      r.tables=sel.slice(); r.start=start; r.end=end; r.status='confirmed'; delete r.proposedStart;
+      r.mails=(r.mails||[]).concat([{kind:'confirm',at:Date.now(),text:$('cM').value}]); save(); closeModal(); render();
       toast(r.name+' bestätigt auf Tisch '+tLabel(r.tables)+', Mail gesendet (Demo)');
     };
   };
@@ -591,28 +752,26 @@ function openConfirm(r){
 /* Ablehnen */
 function openDecline(r){
   openModal('<h3>Anfrage ablehnen</h3><div class="sub">'+esc(r.name)+' · '+esc(dayLabel(dayStart(r.start)))+' · '+hhmm(r.start)+' · '+r.size+' Personen</div>'
-    +'<div class="f"><label>Text an den Gast</label><textarea id="dT">leider sind wir zu dieser Zeit bereits ausgebucht.</textarea></div>'
-    +'<div class="f" style="margin-top:12px"><label>Vorschau</label></div><div class="mail" id="dP"></div>'
+    +'<div class="f"><label>Mail an den Gast (frei anpassbar)</label><textarea class="mailedit" id="dP">'+esc(mailText('decline',r))+'</textarea></div>'
     +'<div class="foot"><button class="btn" id="dX">Abbrechen</button><button class="btn danger" id="dOk">Ablehnen und Mail senden</button></div>');
-  const upd=()=>{ $('dP').textContent=mailText('decline',r,$('dT').value.trim()); }; upd(); $('dT').oninput=upd;
   $('dX').onclick=closeModal;
-  $('dOk').onclick=()=>{ r.status='declined'; r.tables=[]; save(); closeModal(); render(); toast('Abgelehnt, Mail an '+r.name+' gesendet (Demo)'); };
+  $('dOk').onclick=()=>{ r.status='declined'; r.tables=[]; r.mails=(r.mails||[]).concat([{kind:'decline',at:Date.now(),text:$('dP').value}]); save(); closeModal(); render(); toast('Abgelehnt, Mail an '+r.name+' gesendet (Demo)'); };
 }
 /* Andere Uhrzeit vorschlagen */
 function openPropose(r){
   const d=new Date(r.start);
   openModal('<h3>Andere Uhrzeit vorschlagen</h3><div class="sub">'+esc(r.name)+' wollte '+esc(dayLabel(dayStart(r.start)))+' um '+hhmm(r.start)+' Uhr, '+r.size+' Personen.</div>'
-    +'<div class="form"><div class="f"><label>Datum</label><input type="date" id="pD" value="'+dateInput(r.start)+'"></div><div class="f"><label>Uhrzeit</label><input type="time" id="pT" step="900" value="'+pad(d.getHours()+1)+':'+pad(d.getMinutes())+'"></div></div>'
+    +'<div class="form"><div class="f"><label>Datum</label><input type="date" id="pD" value="'+dateInput(r.start)+'"></div><div class="f"><label>Uhrzeit</label>'+timeSel('id="pT"', pad((d.getHours()+1)%24)+':'+pad(Math.round(d.getMinutes()/15)*15%60))+'</div></div>'
     +'<div class="seatsum" id="pFree"></div>'
-    +'<div class="f" style="margin-top:12px"><label>Vorschau</label></div><div class="mail" id="pP"></div>'
+    +'<div class="f" style="margin-top:12px"><label>Mail an den Gast (frei anpassbar)</label><textarea class="mailedit" id="pP"></textarea><div class="cap" style="margin-top:6px">Ändern Sie Datum oder Uhrzeit, wird der Text neu vorgeschlagen, solange Sie ihn noch nicht selbst geändert haben.</div></div>'
     +'<div class="foot"><button class="btn" id="pX">Abbrechen</button><button class="btn primary" id="pOk">Vorschlag senden</button></div>');
   const upd=()=>{ const s=fromInputs($('pD').value,$('pT').value), e=s+(r.end-r.start);
     const free=sortTables(S.tables).filter(t=>!busy(t.id,s,e,r.id)&&t.seats>=r.size);
     $('pFree').innerHTML= free.length ? 'Zu dieser Zeit frei und passend: <b>'+free.map(t=>t.label).join(', ')+'</b>' : '<span style="color:var(--occ-tx)">Zu dieser Zeit ist kein einzelner Tisch für '+r.size+' Personen frei.</span>';
-    $('pP').textContent=mailText('propose',r,s); };
-  upd(); $('pD').onchange=upd; $('pT').onchange=upd;
+    if(!$('pP').dataset.edited) $('pP').value=mailText('propose',r,s); };
+  upd(); $('pD').onchange=upd; $('pT').onchange=upd; $('pP').oninput=()=>{ $('pP').dataset.edited='1'; };
   $('pX').onclick=closeModal;
-  $('pOk').onclick=()=>{ r.proposedStart=fromInputs($('pD').value,$('pT').value); r.status='proposed'; save(); closeModal(); render(); toast('Vorschlag an '+r.name+' gesendet (Demo)'); };
+  $('pOk').onclick=()=>{ r.proposedStart=fromInputs($('pD').value,$('pT').value); r.status='proposed'; r.mails=(r.mails||[]).concat([{kind:'propose',at:Date.now(),text:$('pP').value}]); save(); closeModal(); render(); toast('Vorschlag an '+r.name+' gesendet (Demo)'); };
 }
 
 /* Reservierung anlegen oder bearbeiten */
@@ -630,21 +789,21 @@ function openResForm(r, preset){
       +'<div class="f"><label>Name</label><input id="fN" value="'+esc(f.name)+'" placeholder="Huber"><div class="err" id="eN"></div></div>'
       +'<div class="f"><label>Personen</label><input id="fS" type="number" min="1" max="60" value="'+f.size+'"></div>'
       +'<div class="f"><label>Datum</label><input id="fD" type="date" value="'+dateInput(start)+'"></div>'
-      +'<div class="f"><label>Uhrzeit</label><input id="fT" type="time" step="900" value="'+hhmm(start)+'"></div>'
+      +'<div class="f"><label>Uhrzeit</label>'+timeSel('id="fT"', hhmm(start))+'</div>'
       +'<div class="f"><label>Dauer (Minuten)</label><input id="fU" type="number" min="30" max="720" step="15" value="'+dur+'"></div>'
       +'<div class="f"><label>Telefon</label><input id="fP" value="'+esc(f.phone)+'" placeholder="0664 ..."></div>'
       +'<div class="f full"><label>Mail (für Bestätigung, optional)</label><input id="fE" value="'+esc(f.email)+'" placeholder="gast@example.at"><div class="err" id="eE"></div></div>'
       +'<div class="f full"><label>Notiz</label><input id="fO" value="'+esc(f.note)+'" placeholder="Geburtstag, Kinderhochstuhl, Allergie ..."></div>'
-      +'</div><div class="f" style="margin-top:14px"><label>Tisch</label></div>'+tablePicker(sel,start,end,f.size,r&&r.id)+seatSum(sel,f.size)
-      +'<div class="err" id="eT"></div>'
+      +'</div><div class="f" style="margin-top:14px"><label>Tisch im Plan wählen (für große Gruppen auch mehrere)</label></div><div class="pp" id="pp"></div>'+PICK_LEGEND
+      +'<div class="cgrid"><div>'+overlapBox(start,end,r&&r.id,sel)+'</div><div>'+seatSum(sel,f.size)+'<div class="err" id="eT"></div></div></div>'
       +'<div class="foot">'+(!isNew && ['confirmed','requested','proposed'].includes(r.status)?'<button class="btn danger left" id="fC">Stornieren</button>':'')
-      +'<button class="btn" id="fX">Abbrechen</button><button class="btn primary" id="fOk">Speichern</button></div>');
+      +'<button class="btn" id="fX">Abbrechen</button><button class="btn primary" id="fOk">Speichern</button></div>', true);
     const keep=()=>{ f.name=$('fN').value; f.phone=$('fP').value; f.email=$('fE').value; f.note=$('fO').value; f.size=Math.max(1,+$('fS').value||1); };
     const retime=()=>{ keep(); if($('fD').value && $('fT').value) start=fromInputs($('fD').value,$('fT').value); dur=Math.max(30,Math.round((+$('fU').value||dur)/15)*15); draw(); };
     $('fS').onchange=()=>{ const old=f.size; keep(); if(isNew && dur===durFor(old)) dur=durFor(f.size); draw(); };
     ['fD','fT','fU'].forEach(id=>$(id).onchange=retime);
     $('fN').oninput=()=>{$('eN').textContent='';}; $('fE').oninput=()=>{$('eE').textContent='';};
-    bindPicker(sel, ()=>f.size, ()=>{ keep(); draw(); });
+    drawPickPlan($('pp'), sel, start, end, f.size, r&&r.id, ()=>{ keep(); draw(); });
     $('fX').onclick=closeModal;
     if($('fC')) $('fC').onclick=()=>{ if(!$('fC').dataset.sure){ $('fC').dataset.sure='1'; $('fC').textContent='Wirklich stornieren?'; return; } r.status='cancelled'; save(); closeModal(); render(); toast('Reservierung '+r.name+' storniert'); };
     $('fOk').onclick=()=>{

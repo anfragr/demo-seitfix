@@ -84,7 +84,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touch-
 .timebar .day{font-weight:650;font-size:15px;min-width:118px;text-align:center;white-space:nowrap}
 .timebar .nav{padding:7px 11px;border-radius:9px;border:1px solid var(--line2);background:var(--panel);font-weight:700}
 .timectl{display:flex;align-items:center;gap:6px;margin-left:8px}
-.timectl input{font:inherit;font-size:19px;font-weight:700;padding:7px 10px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--text);min-width:112px;text-align:center}
+.timectl select{-webkit-appearance:none;appearance:none;cursor:pointer;font:inherit;font-size:19px;font-weight:700;padding:7px 10px;border:1px solid var(--line2);border-radius:10px;background:#fff;color:var(--text);min-width:112px;text-align:center}
 .tinfo{flex:1;font-size:14px;color:var(--muted);padding-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .track{position:relative;flex:1;height:44px;background:var(--panel);border:1px solid var(--line2);border-radius:11px;cursor:pointer;touch-action:none;overflow:hidden}
 .track .hr{position:absolute;top:0;bottom:0;border-left:1px solid #edf0f2}
@@ -179,6 +179,101 @@ body.embed .tinfo{display:none}
 @media (max-width:560px) and (orientation:portrait){ .rotate-hint{display:flex} .timebar{flex-wrap:wrap} }
 .fsbtn{display:none}
 .fs-ok .fsbtn{display:inline-flex}
+
+/* ---- Überarbeitung: ruhiger, mehr Luft, nichts läuft über ---- */
+.grow{flex:1;min-width:4px}
+.stats{margin-left:10px}
+.btn.add{background:var(--free-bd);border-color:var(--free-bd);color:#fff;font-weight:650}
+.top{gap:8px}
+.t{border-width:1.5px;box-shadow:0 1px 2px rgba(16,24,32,.06);gap:0;padding:3px 4px}
+.t .lb{font-size:20px;line-height:1.05}
+.t .sb,.t .tm{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;line-height:1.15}
+.t .sb{font-weight:550;opacity:.9}
+.t .tm{font-weight:700}
+.t .rs{background:var(--soon-bd);color:#1d1404;border-radius:5px;padding:0 .4em;margin-top:.15em;opacity:1;font-weight:650}
+.t .bd{display:none}
+.item .r1{font-size:15.5px}
+.item .r1 .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item .r1 .rt{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.tbl{font-size:12.5px;font-weight:650;padding:2px 7px;border-radius:6px;background:#fff;border:1px solid var(--line2);color:var(--text)}
+input,textarea,select{-webkit-user-select:text;user-select:text}
+.sheet{max-height:92vh;max-height:92dvh;overflow-y:auto;width:min(560px,100%)}
+.sheet.wide{width:min(980px,100%)}
+.fplan{position:relative;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--bg);overflow:hidden}
+.fplan .plan{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.fp{position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1.5px solid;border-radius:8px;font-weight:700;font-size:13px;line-height:1.05;overflow:hidden;padding:1px 2px;background:#fff}
+.fp small{display:block;font-size:9.5px;font-weight:600;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.fp.fit,.lg.fit{background:var(--free-bg);border-color:var(--free-bd);color:var(--free-tx)}
+.fp.small,.lg.small{background:#fff;border-color:var(--line2);color:var(--muted)}
+.fp.res,.lg.res{background:var(--due-bg);border-color:#9db6ec;color:var(--due-tx)}
+.fp.occ,.lg.occ{background:var(--occ-bg);border-color:var(--occ-bd);color:var(--occ-tx)}
+.fp.on,.lg.on{background:#16191d;border-color:#16191d;color:#fff}
+.fp.shake{animation:shake .3s}
+.flegend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin-top:4px}
+.lg{display:inline-block;width:11px;height:11px;border:1.5px solid;border-radius:3px;vertical-align:-1px;margin-right:4px}
+.f{display:grid;gap:12px;margin:4px 0 14px}
+.f .fl{display:grid;gap:6px;min-width:0}
+.f .fl>span{font-size:12.5px;color:var(--muted);font-weight:650;letter-spacing:.03em;text-transform:uppercase}
+.f input,.f select,.f textarea{font:inherit;font-size:17px;padding:11px 12px;border:1px solid var(--line2);border-radius:11px;background:#fff;color:var(--text);width:100%;min-width:0}
+.f textarea{resize:vertical;min-height:52px}
+.f .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips .chipbtn{padding:9px 13px}
+.chipbtn small{display:block;font-size:11.5px;font-weight:500;opacity:.75}
+.stepper{display:flex;align-items:center;gap:8px}
+.ferr{color:var(--occ-tx);font-size:14px;font-weight:600;min-height:0;margin:-4px 0 10px}
+.ferr:empty{display:none}
+.rinfo{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:15px;margin:2px 0 16px}
+.rinfo dt{color:var(--muted)}
+.rinfo dd{font-weight:600}
+.rinfo a{color:inherit;text-decoration:underline}
+@media (max-height:560px){
+  .top{padding:6px 10px}
+  .top .btn{padding:7px 11px;font-size:14px}
+  .clock{font-size:18px}
+  .floorwrap{padding:6px 10px}
+  .timebar{margin-bottom:4px;gap:6px}
+  .timebar .nav{padding:5px 9px}
+  .timebar .day{min-width:70px;font-size:14px}
+  .timectl select{font-size:15px;padding:5px 8px;min-width:76px}
+  .livebtn{padding:6px 11px}
+  .tinfo{display:none}
+}
+/* ---- Reservierungen rechts als Spalte (wie im Admin) ---- */
+.main{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:minmax(0,1fr)}
+.side{border-top:0;border-left:1px solid var(--line);display:flex;flex-direction:column;max-height:none;min-height:0;padding:12px 12px 8px}
+.side .col{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.side .list{display:flex;flex-direction:column;gap:7px}
+.side .item{margin:0}
+.item .r2{flex-wrap:wrap;row-gap:0;align-items:center}
+.item .r2 .chip{margin-right:6px;vertical-align:1px}
+.item .tt{font-variant-numeric:tabular-nums;margin-right:4px}
+body.embed #addResBtn,body.embed .fsbtn{display:none!important}
+@media (max-width:1100px){ .main{grid-template-columns:minmax(0,1fr) 260px} }
+/* Handy quer: alles auf einen Bildschirm, Liste rechts scrollt */
+@media (max-height:560px) and (orientation:landscape){
+  body{overflow:hidden}
+  .app{height:100vh;height:100dvh;grid-template-rows:auto minmax(0,1fr)}
+  .main{grid-template-rows:minmax(0,1fr);grid-template-columns:minmax(0,1fr) 220px}
+  .floorwrap{height:auto;min-height:0}
+  .side{padding:8px 8px 4px}
+  .side .item{padding:8px 10px}
+  .item .r1{font-size:14px} .item .r2{font-size:12.5px}
+  .sec{margin:0 2px 6px}
+}
+/* Hochformat (Handy, iPad hochkant): Plan oben, Reservierungen darunter */
+@media (orientation:portrait) and (max-width:1100px){
+  body{overflow:auto}
+  .app{height:auto;min-height:100dvh;grid-template-rows:auto auto}
+  .main{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto}
+  .floorwrap{height:min(62dvh,calc(100dvh - var(--toph,60px)));min-height:260px}
+  .side{border-left:0;border-top:1px solid var(--line)}
+  .side .list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+}
+/* Im Admin eingebettet: nur der Plan, die Liste braucht es dort nicht */
+body.embed .main{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr)!important}
+body.embed .side{display:none!important}
+@media (max-width:560px){ .btn.add{padding:9px 11px} #toolsBtn{padding:9px 11px} .top .fsbtn{font-size:0;padding:9px 12px} .top .fsbtn::before{content:'⤢';font-size:17px} .clock{font-size:19px} }
 </style>
 </head>
 <body>
@@ -188,9 +283,9 @@ body.embed .tinfo{display:none}
     <div class="clock" id="clock">--:--</div>
     <div class="tabs" id="tabs"></div>
     <div class="stats" id="stats"></div>
-    <button class="btn" id="editBtn">Tische verschieben</button>
-    <button class="btn" id="joinBtn">Tische verbinden</button>
-    <button class="btn" id="splitBtn">Tische trennen</button>
+    <span class="grow"></span>
+    <button class="btn add" id="addResBtn">+ Reservierung</button>
+    <button class="btn" id="toolsBtn">Tische ▾</button>
     <button class="btn fsbtn" id="fsBtn" aria-label="Vollbild">⤢ Vollbild</button>
   </header>
 
@@ -206,10 +301,6 @@ body.embed .tinfo{display:none}
     </section>
 
     <aside class="side">
-      <div class="col">
-        <div class="sec"><span>JETZT BESETZT</span><span id="occCount"></span></div>
-        <div class="list" id="occList"></div>
-      </div>
       <div class="col">
         <div class="sec"><span id="resTitle">KOMMEND HEUTE</span><span id="resCount"></span></div>
         <div class="list" id="resList"></div>
@@ -228,11 +319,10 @@ body.embed .tinfo{display:none}
    ================================================================ */
 const CFG = {
   name: 'Brandhof',
-  dueBeforeMin: 15,     // Reservierung gilt als "gleich da" (blau)
+  dueBeforeMin: 10,     // ab 10 Min. vorher: Tisch blau, "ist da" möglich
   warnBeforeMin: 60,    // freier Tisch wird orange, wenn Reservierung naht
   conflictMin: 30,      // besetzter Tisch bekommt Hinweis auf nächste Reservierung
   graceMin: 15,         // so lange wird auf reservierte Gäste gewartet (Countdown)
-  mistakeMin: 10,       // Freigabe kurz nach dem Platzieren gilt als Fehltipp, Reservierung bleibt
   longMin: 150,         // ab hier "sitzt lange" (kräftiges Rot)
   longPressMs: 420,
   minTablePx: 50,       // Tische werden nie kleiner als eine Fingerkuppe gezeichnet
@@ -420,6 +510,11 @@ function snapshot(){ return JSON.stringify({tables:S.tables,res:S.res}); }
    ================================================================ */
 const $ = id => document.getElementById(id);
 const pad = n => String(n).padStart(2,'0');
+/* Uhrzeit immer im 24-Stunden-Format (eigene Auswahl statt Browser-Uhr, die je nach Gerät AM/PM zeigt) */
+function timeSel(attrs, val, o){ o=o||{}; const L=[]; for(let m=(o.from||0); m<=(o.to===undefined?1425:o.to); m+=15) L.push(pad(Math.floor(m/60))+':'+pad(m%60));
+  if(val && !L.includes(val)){ L.push(val); L.sort(); }
+  return '<select '+attrs+'>'+L.map(t=>'<option'+(t===val?' selected':'')+'>'+t+'</option>').join('')+'</select>'; }
+
 const hhmm = ms => { const d=new Date(ms); return pad(d.getHours())+':'+pad(d.getMinutes()); };
 const dur = ms => { const t=Math.max(0,Math.floor(ms/MIN)); return Math.floor(t/60)+':'+pad(t%60); };
 const tById = id => S.tables.find(t=>t.id===id);
@@ -462,7 +557,8 @@ function nextRes(ts, now){
 const graceEnd = r => r.start + (((S.settings&&S.settings.graceMin)||CFG.graceMin) + (r.extra||0))*MIN;
 const endOfToday = () => { const d=new Date(); d.setHours(23,59,59,999); return d.getTime(); };
 const mmss = ms => { const t=Math.max(0,Math.ceil(ms/1000)); return Math.floor(t/60)+':'+pad(t%60); };
-const SET = () => Object.assign({durSmall:120,durLarge:180,largeFrom:6,open:null}, S.settings||{});
+const SET = () => Object.assign({durSmall:120,durLarge:180,largeFrom:6,open:{1:null,2:['11:00','23:00'],3:['11:00','23:00'],4:['11:00','23:00'],5:['11:00','23:00'],6:['11:00','23:00'],0:null}}, S.settings||{});
+const isOpenDay = d => { const o=SET().open; return !o || !!o[new Date(d).getDay()]; };
 const durFor = n => n>=SET().largeFrom ? SET().durLarge : SET().durSmall;
 const dayStartOf = ms => { const d=new Date(ms); d.setHours(0,0,0,0); return d.getTime(); };
 function previewState(ts, T){
@@ -525,15 +621,22 @@ function free(ts){
   const st = stateOf(ts);
   const resId = (ts.find(t=>t.resId)||{}).resId;
   const r0 = resId ? rById(resId) : null;
-  const mistake = r0 && Date.now()-(r0.seatedAt||0) < CFG.mistakeMin*MIN;
   act(()=>{
-    if(r0){ if(mistake){ r0.status='confirmed'; delete r0.seatedAt; } else r0.status='done'; }
-    if(mistake){ const g=ts[0].group; if(g && g.startsWith('auto-')) unpackTables(ts); ts.forEach(t=>{t.since=null;t.resId=null;}); return; }
-    const auto = ts[0].group && ts[0].group.startsWith('auto-');
+    if(r0){ r0.status='done'; r0.leftAt=Date.now(); if(r0.end>Date.now()){ r0.plannedEnd=r0.end; r0.end=Date.now(); } }
     ts.forEach(t=>{ t.since=null; t.resId=null; });   // verbundene Tische bleiben stehen
-  }, 'Tisch '+label(ts)+' frei'+(mistake ? ' · Reservierung '+r0.name+' bleibt bestehen' : ' · '+dur(Date.now()-st.since)+' gesessen'));
+  }, 'Tisch '+label(ts)+' frei'+(r0?' · '+r0.name+' erledigt':'')+' · '+dur(Date.now()-st.since)+' gesessen');
 }
 function noShow(r){ act(()=>{ r.status='no_show'; }, r.name+' nicht erschienen, Tisch ist frei'); }
+function startSeatOther(id){ UI.mode='seatOther'; UI.moveRes=id; renderMode(); render(); }
+function seatElsewhere(r, ts){
+  const old = label(r.tables.map(tById).filter(Boolean));
+  const st = stateOf(ts);
+  const warn = (st.res && st.res.id!==r.id) ? 'auf Tisch '+label(ts)+' ist '+st.res.name+' um '+hhmm(st.res.start)+' reserviert' : null;
+  act(()=>{ r.tables=ts.map(t=>t.id); ts.forEach(t=>{ t.since=Date.now(); t.resId=r.id; }); r.status='seated'; r.seatedAt=Date.now(); },
+      r.name+' platziert auf Tisch '+label(ts)+(old && old!==label(ts)?' (statt '+old+')':''), warn);
+  endMode();
+}
+function cancelRes(r){ act(()=>{ r.status='cancelled'; r.cancelledAt=Date.now(); }, 'Reservierung '+r.name+' storniert, Tisch ist frei'); }
 function extendWait(r){ act(()=>{ r.extra=(r.extra||0)+15; }, 'Wartezeit für '+r.name+' um 15 Min. verlängert'); }
 function moveRes(r, ts){
   const st = stateOf(ts);
@@ -595,6 +698,10 @@ function tap(key){
     if(st.k==='occ'||st.k==='long'){ shake(key); showToast('Tische '+label(ts)+' sind besetzt, erst freigeben'); return; }
     split(ts); if(!units(UI.area).some(u=>u.length>1)) endMode(); else { renderMode(); render(); } return;
   }
+  if(UI.mode==='seatOther'){
+    if(st.k==='occ'||st.k==='long'){ shake(key); showToast('Tisch '+label(ts)+' ist besetzt, bitte freien Tisch wählen'); return; }
+    const r=rById(UI.moveRes); if(r) seatElsewhere(r, ts); return;
+  }
   if(UI.mode==='moveRes'){
     if(st.k==='occ'||st.k==='long'){ shake(key); showToast('Tisch '+label(ts)+' ist besetzt'); return; }
     const r=rById(UI.moveRes); if(r) moveRes(r, ts); return;
@@ -606,8 +713,7 @@ function tap(key){
   }
 
   if(st.k==='occ'||st.k==='long') return free(ts);
-  if(st.k==='due') return seatReservation(ts, st.res);
-  if(st.k==='late') return openSheet(key);
+  if(st.k==='due' || st.k==='late') return openResSheet(st.res, ts);
   if(st.k==='soon') return occupy(ts, {warn:'Reservierung '+st.res.name+' um '+hhmm(st.res.start)});
   return occupy(ts);
 }
@@ -621,7 +727,7 @@ function openSheet(key){
     meta += ' · besetzt seit '+hhmm(st.since)+' ('+dur(now-st.since)+')';
     if(st.sitting) meta += ' · '+st.sitting.name;
     if(st.next) meta += ' · nächste Reservierung '+st.next.name+' '+hhmm(st.next.start);
-    A.push(['Freigeben','',()=>free(ts),'main']);
+    A.push(['Freigeben','Gäste sind gegangen',()=>free(ts),'main']);
     if(st.conflict) A.push(['Reservierung '+st.next.name+' auf anderen Tisch legen',hhmm(st.next.start)+', '+st.next.size+' Pers.',()=>startMoveRes(st.next.id)]);
     A.push(['Auf anderen Tisch umsetzen','',()=>startMove(key)]);
     A.push(['Startzeit 15 Min. früher','kam früher',()=>shiftStart(ts,-15)]);
@@ -630,19 +736,26 @@ function openSheet(key){
     const r=st.res;
     meta += ' · '+r.name+', '+hhmm(r.start)+', '+r.size+' Pers. · seit '+Math.floor((now-r.start)/MIN)+' Min. nicht da';
     A.push([r.name+' ist doch da','platzieren',()=>seatReservation(ts,r),'main']);
+    A.push([r.name+' ist da, anderer Tisch','',()=>startSeatOther(r.id)]);
     A.push(['Nicht erschienen','Tisch freigeben',()=>noShow(r),'warn']);
+    A.push(['Storniert','Gast hat abgesagt',()=>cancelRes(r),'warn']);
     A.push(['15 Min. länger warten','',()=>extendWait(r)]);
     A.push(['Reservierung auf anderen Tisch legen','',()=>startMoveRes(r.id)]);
     A.push(['Ohne Reservierung besetzen','Reservierung bleibt',()=>occupy(ts,{warn:'Reservierung '+r.name+' ist noch offen'})]);
   } else {
     if(st.k==='due'){ const r=st.res; meta += ' · '+r.name+' '+hhmm(r.start)+', '+r.size+' Pers.';
       A.push([r.name+' ist da','platzieren',()=>seatReservation(ts,r),'main']);
+      A.push([r.name+' ist da, anderer Tisch','',()=>startSeatOther(r.id)]);
+      A.push(['Nicht erschienen','Reservierung entfernen',()=>noShow(r),'warn']);
+      A.push(['Storniert','Gast hat abgesagt',()=>cancelRes(r),'warn']);
       A.push(['Reservierung auf anderen Tisch legen','',()=>startMoveRes(r.id)]);
       A.push(['Ohne Reservierung besetzen','Reservierung bleibt',()=>occupy(ts,{warn:'Reservierung '+r.name+' '+hhmm(r.start)+' ist noch offen'})]);
     } else {
       if(st.res) meta += ' · frei bis '+hhmm(st.res.start)+' ('+st.res.name+')';
       else if(st.later) meta += ' · reserviert ab '+hhmm(st.later.start);
       A.push(['Besetzen','',()=>occupy(ts),'main']);
+      const rr = st.res || st.later;
+      if(rr) A.push(['Reservierung '+rr.name+' '+hhmm(rr.start),'ansehen, stornieren',()=>openResSheet(rr)]);
     }
     A.push(['Besetzen, Gäste seit 15 Min. da','',()=>occupy(ts,{since:now-15*MIN})]);
   }
@@ -661,7 +774,7 @@ function openSheet(key){
   $('toast').classList.remove('show');
   $('sheetBg').classList.add('show');
 }
-function closeSheet(){ $('sheetBg').classList.remove('show'); }
+function closeSheet(){ $('sheetBg').classList.remove('show'); $('sheet').classList.remove('wide'); }
 $('sheetBg').addEventListener('click', e=>{ if(e.target.id==='sheetBg') closeSheet(); });
 
 /* Modi */
@@ -671,8 +784,9 @@ function startMoveRes(id){ UI.mode='moveRes'; UI.moveRes=id; renderMode(); rende
 function endMode(){ UI.mode=null; UI.sel=[]; UI.moveFrom=null; UI.moveRes=null; renderMode(); render(); }
 function renderMode(){
   const bar=$('modebar'), txt=$('modetext'), ok=$('modeOk');
-  $('joinBtn').classList.toggle('on', UI.mode==='join');
-  $('editBtn').classList.toggle('on', UI.mode==='edit'); $('splitBtn').classList.toggle('on', UI.mode==='split'); $('modeCancel').textContent='Abbrechen';
+  $('toolsBtn').classList.toggle('on', ['join','edit','split'].includes(UI.mode));
+  $('toolsBtn').textContent = UI.mode==='join' ? 'Verbinden …' : UI.mode==='edit' ? 'Verschieben …' : UI.mode==='split' ? 'Trennen …' : 'Tische ▾';
+  $('modeCancel').textContent='Abbrechen';
   if(!UI.mode){ bar.classList.remove('show'); return; }
   bar.classList.add('show');
   if(UI.mode==='join'){
@@ -685,6 +799,10 @@ function renderMode(){
   } else if(UI.mode==='edit'){
     txt.textContent='Plan bearbeiten: Tische ziehen zum Verschieben, antippen für Nummer, Plätze und Größe';
     ok.style.display=''; ok.textContent='+ Tisch'; $('modeCancel').textContent='Fertig';
+  } else if(UI.mode==='seatOther'){
+    const r=rById(UI.moveRes);
+    txt.textContent=(r?r.name+' ('+r.size+' Pers.)':'Gast')+' ist da: freien Tisch antippen, an den sie sich setzen';
+    ok.style.display='none';
   } else if(UI.mode==='moveRes'){
     const r=rById(UI.moveRes);
     txt.textContent='Reservierung '+(r?r.name+' ('+r.size+' Pers.)':'')+' umlegen: freien Tisch antippen, auch in einem anderen Bereich';
@@ -694,10 +812,19 @@ function renderMode(){
     ok.style.display='none';
   }
 }
-$('joinBtn').onclick=()=> UI.mode==='join' ? endMode() : startJoin(null);
+const startSplit=()=>{ endMode(); UI.mode='split'; renderMode(); render(); };
+const startEdit=()=>{ endMode(); UI.mode='edit'; renderMode(); render(); };
+$('toolsBtn').onclick=()=>{
+  if(['join','edit','split'].includes(UI.mode)){ endMode(); return; }
+  const sh=$('sheet');
+  sh.innerHTML='<h3>Tische</h3><div class="meta">Plan anpassen</div><div class="acts"></div>';
+  const box=sh.querySelector('.acts');
+  [['Tische verbinden','für größere Gruppen',()=>startJoin(null)],['Tische trennen','verbundene Tische wieder auseinander',startSplit],['Tische verschieben','Plan bearbeiten, Tisch hinzufügen',startEdit],['Schließen','',()=>{}]].forEach(([t,sub,fn])=>{
+    const b=document.createElement('button'); b.className='act'; b.innerHTML='<span>'+esc(t)+'</span><small>'+esc(sub)+'</small>'; b.onclick=()=>{ closeSheet(); fn(); }; box.appendChild(b); });
+  $('toast').classList.remove('show'); $('sheetBg').classList.add('show');
+};
+$('addResBtn').onclick=()=>openResForm(null);
 $('modeOk').onclick=()=> UI.mode==='join' ? joinSelected() : UI.mode==='edit' ? addTable() : null;
-$('splitBtn').onclick=()=> UI.mode==='split' ? endMode() : (endMode(), UI.mode='split', renderMode(), render());
-$('editBtn').onclick=()=> UI.mode==='edit' ? endMode() : (endMode(), UI.mode='edit', renderMode(), render());
 $('modeCancel').onclick=endMode;
 
 /* ================================================================
@@ -803,49 +930,61 @@ function render(){
     if(ts.length>1) ts.forEach((t,i)=>{ const d=ds[i]; const n=document.createElement('div'); n.className='inner';
       Object.assign(n.style,{left:(d.x-x1+4)+'px',top:(d.y-y1+4)+'px',width:(d.w-8)+'px',height:(d.h-8)+'px'}); el.appendChild(n); });
 
-    // Zeilen mit Wichtigkeit: p=1 muss immer sichtbar sein (Uhrzeit), höhere Zahl fällt bei kleinen Tischen weg
-    const fw0=P.w*sc, fSb0=Math.max(10,Math.min(15,fw0*.0105)), narrow=(x2-x1) < fSb0*6.2;
+    // Zeilen mit Wichtigkeit: p=1 bleibt immer stehen, der Rest nur wenn Platz ist.
+    // Schriftgrößen werden pro Tisch aus seiner Größe berechnet, damit nichts über den Rand läuft.
+    const W=x2-x1, H=y2-y1, labelTxt=label(ts);
     const L=[];
-    const sb=(t,p,extra='')=>L.push({p, h:'<div class="sb"'+extra+'>'+t+'</div>', k:'sb'});
-    const tm=(t,p,extra='')=>L.push({p, h:'<div class="tm"'+extra+'>'+t+'</div>', k:'tm'});
-    let badge='';
+    const strip=h=>String(h).replace(/<[^>]+>/g,'');
+    const sb=(h,p,extra='',short)=>L.push({p,h,k:'sb',extra,short});
+    const tm=(h,p,extra='')=>L.push({p,h,k:'tm',extra});
+    const rs=(h,p,short)=>L.push({p,h,k:'sb rs',extra:'',short});
     if(st.k==='occ'||st.k==='long'){
       tm(dur(now-st.since),1);
+      if(st.conflict) rs('Res. '+hhmm(st.next.start),2,hhmm(st.next.start));
       if(st.sitting) sb(esc(st.sitting.name),3);
-      if(st.conflict) badge='<div class="bd">Res. '+hhmm(st.next.start)+'</div>';
     } else if(st.k==='due' && st.until){
       tm(mmss(st.until-now),1,' data-cd="'+st.until+'"');
-      sb(esc(st.res.name)+' · '+st.res.size+' P.',2);
+      sb(esc(st.res.name),2);
+      sb(st.res.size+' Pers.',3);
     } else if(st.k==='due'){
-      sb(hhmm(st.res.start)+' · '+st.res.size+' P.',1);
+      sb(hhmm(st.res.start)+' · '+st.res.size+' P.',1,'',hhmm(st.res.start));
       sb(esc(st.res.name),2);
     } else if(st.k==='late'){
       tm('+'+Math.floor((now-st.over)/MIN)+' Min.',1,' data-over="'+st.over+'"');
-      sb(esc(st.res.name)+' nicht da',2);
+      sb(esc(st.res.name),2);
     } else if(st.k==='booked'){
       sb('<b>'+hhmm(st.res.start)+'</b>',1);
       sb(esc(st.res.name),2);
-      sb((narrow?'':'bis ')+hhmm(st.res.end),3);
+      sb('bis '+hhmm(st.res.end),3);
     } else if(st.k==='occpre'){
-      sb((narrow?'':'bis ca. ')+hhmm(st.until),1);
+      sb('bis ca. '+hhmm(st.until),1,'','bis '+hhmm(st.until));
       sb('besetzt',3);
     } else if(st.k==='soon'){
-      sb((narrow?'':'bis ')+hhmm(st.res.start),1);
+      sb('Res. '+hhmm(st.res.start),1,'',hhmm(st.res.start));
+      sb(esc(st.res.name),3);
     } else {
-      if(st.later) sb(hhmm(st.later.start),1,' title="Reserviert ab '+hhmm(st.later.start)+'"'); else sb(seats(ts)+' Pl.',1);
+      if(st.later) sb('Res. '+hhmm(st.later.start),1,' title="Reserviert ab '+hhmm(st.later.start)+'"',hhmm(st.later.start)); else sb(seats(ts)+' Pl.',1);
     }
-    // Was passt in die Höhe? Schriftgrößen wie im CSS (cqw = 1 % der Planbreite)
-    const fw=P.w*sc, cl=(lo,v,hi)=>Math.max(lo,Math.min(hi,v));
-    const fLb=cl(13,fw*.0175,24), fSb=cl(10,fw*.0105,15), fTm=cl(13,fw*.018,24);
-    const W=x2-x1, H=y2-y1, labelTxt=label(ts);
-    const big = ts.length>2 && W < labelTxt.length*fLb*.62;          // lange Gruppen-Nummer: kleiner schreiben
-    const lbF = big ? Math.max(11,fLb*.72) : fLb;
-    const lbLines = Math.max(1, Math.ceil(labelTxt.length*lbF*.6/Math.max(20,W-8)));
-    let room = H - 6 - lbLines*lbF*1.08;
-    const keep = new Set();
-    [...L].sort((a,b)=>a.p-b.p).forEach(l=>{ const lh=(l.k==='tm'?fTm*1.12:fSb*1.22); if(l.p===1 || room>=lh){ room-=lh; keep.add(l); } });
-    let html='<div class="lb"'+(big?' style="font-size:'+lbF+'px"':'')+'>'+ts.map(t=>esc(t.label)).join('+<wbr>')+'</div>'+L.filter(l=>keep.has(l)).map(l=>l.h).join('')+badge;
-    if(edit) html='<div class="lb">'+esc(ts[0].label)+'</div><div class="sb">'+ts[0].seats+' Pl. · '+ts[0].w+'×'+ts[0].h+'</div>';
+    const CW=.6, avail=Math.max(10,W-10);
+    const fitW=(txt,max,min)=>Math.max(min,Math.min(max,avail/Math.max(1,strip(txt).length*CW)));
+    const lbF=Math.max(11,Math.min(22,H*.34,avail/Math.max(2,labelTxt.length*CW)));
+    const subF=Math.max(9.5,Math.min(13.5,lbF*.62,H*.2));
+    let room=H-8-lbF*1.08;
+    const keep=new Set();
+    [...L].sort((a,b)=>a.p-b.p).forEach(l=>{
+      let f;
+      if(l.k==='tm') f=fitW(l.h,Math.min(21,lbF*.92),9);
+      else if(l.k.includes('rs')){ if((strip(l.h).length+1.5)*CW*subF>avail && l.short) l.h=l.short; f=Math.max(8,Math.min(subF,avail/((strip(l.h).length+1.5)*CW))); }
+      else if(l.p===1){
+        f=fitW(l.h,subF,9);
+        if(strip(l.h).length*CW*f>avail && l.short){ l.h=l.short; f=fitW(l.h,subF,9); }
+      } else { f=subF; if(l.short && (strip(l.h).length*CW+ (l.k.includes('rs')?.8:0))*f>avail) l.h=l.short; }
+      const lh=f*1.2;
+      if(l.p===1 || room>=lh){ room-=lh; l.f=f; keep.add(l); }
+    });
+    let html='<div class="lb" style="font-size:'+lbF.toFixed(1)+'px">'+ts.map(t=>esc(t.label)).join('+<wbr>')+'</div>'
+      +L.filter(l=>keep.has(l)).map(l=>'<div class="'+l.k+'" style="font-size:'+l.f.toFixed(1)+'px"'+l.extra+'>'+l.h+'</div>').join('');
+    if(edit) html='<div class="lb" style="font-size:'+lbF.toFixed(1)+'px">'+esc(ts[0].label)+'</div><div class="sb" style="font-size:'+subF.toFixed(1)+'px">'+ts[0].seats+' Pl.</div>';
     el.insertAdjacentHTML('beforeend',html);
     floor.appendChild(el);
   }
@@ -858,20 +997,7 @@ function render(){
   const guests=S.res.filter(r=>r.status==='confirmed'&&r.start>now-30*MIN&&r.start<=endOfToday()).reduce((s,r)=>s+r.size,0);
   $('stats').innerHTML='<span><b>'+nFree+'</b>frei</span><span><b>'+nOcc+'</b>besetzt</span><span><b>'+guests+'</b>Gäste erwartet</span>';
 
-  // Seitenleiste: besetzt
-  const occ=all.filter(u=>u.st.k==='occ'||u.st.k==='long').sort((a,b)=>a.st.since-b.st.since);
-  $('occCount').textContent=occ.length||'';
-  const ol=$('occList'); ol.innerHTML='';
-  if(!occ.length) ol.innerHTML='<div class="empty">Kein Tisch besetzt</div>';
-  occ.forEach(({ts,st})=>{
-    const b=document.createElement('button'); b.className='item k-'+st.k;
-    b.innerHTML='<div class="r1"><span>Tisch '+esc(label(ts))+'</span><span class="timer-occ">'+dur(now-st.since)+'</span></div>'
-      +'<div class="r2"><span>'+(st.sitting?esc(st.sitting.name)+' · ':'')+'seit '+hhmm(st.since)+'</span><span>'+esc(ts[0].room||ts[0].area)+'</span></div>'
-      +(st.conflict?'<div class="note">Nächste Reservierung '+hhmm(st.next.start)+' ('+esc(st.next.name)+')</div>':'');
-    b.onclick=()=>focusUnit(ts); ol.appendChild(b);
-  });
-
-  // Seitenleiste: kommende Reservierungen
+  // Reservierungen rechts, nach Uhrzeit von oben nach unten
   const vd = dayStartOf(UI.at||now), isToday = vd===dayStartOf(now);
   $('resTitle').textContent = isToday ? 'KOMMEND HEUTE' : 'RESERVIERUNGEN '+dayName(vd).toUpperCase();
   const up=S.res.filter(r=>r.status==='confirmed' && (isToday ? (r.end>now&&r.start<=endOfToday()) : dayStartOf(r.start)===vd)).sort((a,b)=>a.start-b.start);
@@ -885,11 +1011,11 @@ function render(){
     const blocked = d<=CFG.conflictMin*MIN && ts.some(t=>t.since && t.resId!==r.id);
     const chip = k==='late' ? '<span class="chip red">ÜBERFÄLLIG</span> ' : (k==='due' && d<=0) ? '<span class="chip" data-cdchip="'+ge+'">'+mmss(ge-now)+'</span> ' : k==='due' ? '<span class="chip">GLEICH</span> ' : '';
     const b=document.createElement('button'); b.className='item k-'+(blocked?'blocked':k);
-    b.innerHTML='<div class="r1"><span>'+hhmm(r.start)+' bis '+hhmm(r.end)+'</span><span>'+chip+'T '+esc(label(ts))+'</span></div>'
-      +'<div class="r2"><span>'+esc(r.name)+'</span><span>'+r.size+' Pers.</span></div>'
-      +(blocked?'<div class="note red">Tisch ist besetzt. Antippen zum Umlegen.</div>':'')
+    b.innerHTML='<div class="r1"><span class="nm"><span class="tt">'+hhmm(r.start)+'</span> '+esc(r.name)+'</span><span class="rt">'+(ts.length?'<span class="tbl">T '+esc(label(ts))+'</span>':'<span class="tbl">ohne Tisch</span>')+'</span></div>'
+      +'<div class="r2"><span>'+chip+r.size+' Pers. · bis '+hhmm(r.end)+'</span></div>'
+      +(blocked?'<div class="note red">Tisch ist noch besetzt. Antippen zum Umlegen.</div>':'')
       +(r.note?'<div class="note">'+esc(r.note)+'</div>':'');
-    b.onclick=()=> blocked ? startMoveRes(r.id) : focusUnit(ts); rl.appendChild(b);
+    b.onclick=()=>{ if(ts.length) focusUnit(ts); openResSheet(r); }; rl.appendChild(b);
   });
 }
 
@@ -908,7 +1034,7 @@ function renderTimebar(now){
   if(document.activeElement && document.activeElement.id==='tPick') return;   // nicht stören, während die Uhrzeit gewählt wird
   const T = UI.at||now, day = dayStartOf(T), live=!UI.at;
   bar.innerHTML='<button class="nav" id="dPrev" aria-label="Tag zurück">‹</button><div class="day">'+esc(dayName(day))+'</div><button class="nav" id="dNext" aria-label="Tag vor">›</button>'
-    +'<div class="timectl"><button class="nav" id="tMinus">− 15</button><input type="time" id="tPick" step="900" value="'+hhmm(T)+'" aria-label="Uhrzeit"><button class="nav" id="tPlus">+ 15</button></div>'
+    +'<div class="timectl"><button class="nav" id="tMinus">− 15</button>'+timeSel('id="tPick" aria-label="Uhrzeit"', hhmm(T))+'<button class="nav" id="tPlus">+ 15</button></div>'
     +'<div class="tinfo">'+(live?'Live, jetzt':'Plan zeigt '+esc(dayName(day))+' um '+hhmm(T)+' Uhr')+'</div>'
     +'<button class="livebtn'+(live?' on':'')+'" id="liveBtn">'+(live?'Live':'Jetzt')+'</button>';
   const today=dayStartOf(Date.now());
@@ -958,6 +1084,146 @@ function openResInfo(r){
     +'<div class="acts"><button class="act" id="iMove"><span>Auf anderen Tisch legen</span><small></small></button><button class="act main" id="iX"><span>Schließen</span><small></small></button></div>';
   $('iX').onclick=closeSheet; $('iMove').onclick=()=>{ closeSheet(); startMoveRes(r.id); };
   $('toast').classList.remove('show'); $('sheetBg').classList.add('show');
+}
+
+/* Reservierung ansehen: platzieren, stornieren, nicht erschienen, ändern */
+function openResSheet(r, tsHint){
+  if(!r) return;
+  const ts = r.tables.map(tById).filter(Boolean);
+  const now=Date.now(), today=dayStartOf(r.start)===dayStartOf(now);
+  const sh=$('sheet');
+  const when = esc(dayName(dayStartOf(r.start)))+', '+hhmm(r.start)+' bis '+hhmm(r.end)+' Uhr';
+  let late='';
+  if(r.status==='confirmed' && today && now>r.start) late=' · seit '+Math.floor((now-r.start)/MIN)+' Min. fällig';
+  else if(r.status==='confirmed' && today && r.start-now > CFG.dueBeforeMin*MIN) late=' · „ist da“ ab '+hhmm(r.start-CFG.dueBeforeMin*MIN)+' Uhr';
+  sh.innerHTML='<h3>'+esc(r.name)+'</h3><div class="meta">'+when+late+'</div>'
+    +'<dl class="rinfo"><dt>Personen</dt><dd>'+r.size+'</dd><dt>Tisch</dt><dd>'+(ts.length?esc(label(ts)):'noch keiner')+'</dd>'
+    +(r.phone?'<dt>Telefon</dt><dd><a href="tel:'+esc(r.phone.replace(/\s/g,''))+'">'+esc(r.phone)+'</a></dd>':'')
+    +(r.note?'<dt>Notiz</dt><dd>'+esc(r.note)+'</dd>':'')+'</dl><div class="acts"></div>';
+  const box=sh.querySelector('.acts'); const A=[];
+  if(r.status==='seated'){
+    const unit = ts.length ? unitOf(ts[0]) : [];
+    A.push(['Gäste sind gegangen','Tisch sofort frei',()=>free(unit),'main']);
+    A.push(['Auf anderen Tisch umsetzen','',()=>startMove(keyOf(unit[0]))]);
+  } else if(r.status==='confirmed'){
+    if(today && r.start-now <= CFG.dueBeforeMin*MIN){
+      const blocked = !ts.length || ts.some(t=>t.since && t.resId!==r.id);
+      if(!blocked) A.push([r.name+' ist da','auf Tisch '+label(ts),()=>seatReservation(ts,r),'main']);
+      A.push([r.name+' ist da, anderer Tisch', blocked ? (ts.length?'Tisch '+label(ts)+' ist noch besetzt':'noch kein Tisch') : 'z. B. lieber am Fenster',()=>startSeatOther(r.id), blocked?'main':'']);
+    }
+    A.push(['Storniert','Gast hat abgesagt, Tisch wird frei',()=>cancelRes(r),'warn']);
+    if(today && now > r.start-15*MIN) A.push(['Nicht erschienen','Tisch wird frei',()=>noShow(r),'warn']);
+    A.push(['Auf anderen Tisch legen','',()=>startMoveRes(r.id)]);
+    A.push(['Ändern','Zeit, Personen, Name',()=>openResForm(r)]);
+  }
+  A.push(['Schließen','',()=>{}]);
+  A.forEach(([t,sub,fn,cls])=>{ const b=document.createElement('button'); b.className='act'+(cls?' '+cls:''); b.innerHTML='<span>'+esc(t)+'</span><small>'+esc(sub)+'</small>'; b.onclick=()=>{ closeSheet(); fn(); }; box.appendChild(b); });
+  $('toast').classList.remove('show'); $('sheetBg').classList.add('show');
+}
+
+/* + Reservierung (oder bestehende ändern): Tag, Uhrzeit, Personen, Name, Tisch */
+function freeUnitsAt(start, end, size, exId){
+  const out=[];
+  for(const ts of units(null)){
+    const ids=new Set(ts.map(t=>t.id));
+    const clash = S.res.some(x=>x.id!==exId && ['confirmed','seated'].includes(x.status) && x.tables.some(id=>ids.has(id)) && x.start<end && start<x.end)
+      || ts.some(t=>t.since && !(exId && t.resId===exId) && start < t.since+durFor(seats(ts))*MIN && end > Date.now());
+    if(!clash) out.push(ts);
+  }
+  return out.filter(ts=>seats(ts)>=size).sort((a,b)=>seats(a)-seats(b) || a.length-b.length);
+}
+/* Kleiner Tischplan im Formular: zeigt zur gewählten Zeit reserviert / gerade besetzt (bis ca.) / frei */
+function unitAt(ts, start, end, exId){
+  const now=Date.now(), ids=new Set(ts.map(t=>t.id));
+  const occ = ts.filter(t=>t.since && !(exId && t.resId===exId));
+  if(occ.length){
+    const rr = occ[0].resId ? rById(occ[0].resId) : null;
+    const until = Math.max(rr ? rr.end : Math.min(...occ.map(t=>t.since))+durFor(seats(ts))*MIN, now+30*MIN);
+    if(start < until && end > now) return {k:'occ', until};
+  }
+  const res = S.res.filter(x=>x.id!==exId && x.status==='confirmed' && x.tables.some(id=>ids.has(id)) && x.start<end && start<x.end).sort((a,b)=>a.start-b.start)[0];
+  if(res) return {k:'res', r:res};
+  return {k:'free'};
+}
+function drawFormPlan(box, f, start, end, exId, onPick){
+  const P = PLANS['Lokal']; const W = box.clientWidth || 500, sc = W/P.w;
+  box.style.height = Math.round(P.h*sc)+'px';
+  let h = planSVG('Lokal');
+  const cur = new Set(f.tables||[]);
+  units('Lokal').forEach(ts=>{
+    const st = unitAt(ts,start,end,exId), on = ts.some(t=>cur.has(t.id));
+    const xs=ts.map(t=>{ const w=t.w*sc, hh=t.h*sc, dw=Math.max(w,36), dh=Math.max(hh,32); return {x:t.x*sc-(dw-w)/2, y:t.y*sc-(dh-hh)/2, w:dw, h:dh}; });
+    const x1=Math.min(...xs.map(d=>d.x)), y1=Math.min(...xs.map(d=>d.y)), x2=Math.max(...xs.map(d=>d.x+d.w)), y2=Math.max(...xs.map(d=>d.y+d.h));
+    const cls = on ? 'on' : st.k==='res' ? 'res' : st.k==='occ' ? 'occ' : (seats(ts)>=f.size ? 'fit' : 'small');
+    const sub = st.k==='res' ? hhmm(st.r.start) : st.k==='occ' ? hhmm(st.until) : seats(ts)+' Pl.';
+    h+='<button class="fp '+cls+'" data-u="'+ts.map(t=>t.id).join(',')+'" style="left:'+x1.toFixed(1)+'px;top:'+y1.toFixed(1)+'px;width:'+(x2-x1).toFixed(1)+'px;height:'+(y2-y1).toFixed(1)+'px">'+esc(label(ts))+'<small>'+sub+'</small></button>';
+  });
+  box.innerHTML = h;
+  box.querySelectorAll('.fp').forEach(b=>b.onclick=()=>{
+    const ids=b.dataset.u.split(','), ts=ids.map(tById), st=unitAt(ts,start,end,exId);
+    if(st.k!=='free' && !ids.some(id=>cur.has(id))){ shake2(b); $('rfE').textContent = 'Tisch '+label(ts)+(st.k==='res' ? ' ist um '+hhmm(st.r.start)+' für '+st.r.name+' reserviert.' : ' ist noch besetzt, voraussichtlich bis '+hhmm(st.until)+' Uhr.'); return; }
+    let sel=(f.tables||[]).slice();
+    if(ids.some(id=>cur.has(id))) sel=sel.filter(id=>!ids.includes(id)); else sel=sel.concat(ids);
+    f.tables=sel; f.auto=false; onPick();
+  });
+}
+function shake2(el){ el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake'); }
+function openResForm(ex){
+  const now=Date.now(), q15=15*MIN;
+  const base = ex ? ex.start : (UI.at && UI.at>now ? UI.at : Math.ceil((now+10*MIN)/q15)*q15);
+  const f = ex ? {day:dayStartOf(ex.start), min:Math.round((ex.start-dayStartOf(ex.start))/MIN), size:ex.size, name:ex.name, phone:ex.phone||'', note:ex.note||'', tables:ex.tables.slice(), auto:false}
+               : {day:dayStartOf(base), min:Math.round((base-dayStartOf(base))/MIN), size:2, name:'', phone:'', note:'', tables:null, auto:true};
+  const draw=()=>{
+    const today=dayStartOf(now);
+    if(!ex && !isOpenDay(f.day)){ let d=f.day; for(let i=0;i<14 && !isOpenDay(d);i++) d=dayStartOf(d+86400000+3600000); f.day=d; f.min=0; }
+    const [o,c]=hoursFor(f.day);
+    const slots=[]; for(let m=Math.ceil(o/15)*15; m<=c-60; m+=15){ if(f.day===today && f.day+m*MIN < now-10*MIN) continue; slots.push(m); }
+    if(!slots.includes(f.min) && slots.length && !ex) f.min = slots.find(m=>m>=f.min) || slots[0];
+    const start=f.day+f.min*MIN, end=start+durFor(f.size)*MIN;
+    const fu=freeUnitsAt(start,end,f.size,ex&&ex.id);
+    if(f.auto) f.tables = [];
+    const cur = f.tables && f.tables.length ? f.tables : [];
+    const curKey = cur.join(',');
+    const days=[]; for(let i=0;days.length<7 && i<30;i++){ const d=dayStartOf(today+i*86400000+3600000); if(isOpenDay(d)||d===f.day) days.push(d); }
+    const dayChips=days.map(d=>'<button class="chipbtn'+(d===f.day?' on':'')+'" data-day="'+d+'">'+esc(dayName(d))+'</button>').join('');
+    const tChips = fu.slice(0,12).map(ts=>{ const k=ts.map(t=>t.id).join(','); return '<button class="chipbtn'+(k===curKey?' on':'')+'" data-tb="'+k+'">'+esc(label(ts))+'<small>'+seats(ts)+' Pl. · '+esc(ts[0].room||'')+'</small></button>'; }).join('');
+    const curOk = !cur.length || cur.every(id=>{ const t=tById(id); return t && unitAt(unitOf(t),start,end,ex&&ex.id).k==='free'; });
+    const sh=$('sheet');
+    sh.innerHTML='<h3>'+(ex?'Reservierung ändern':'Neue Reservierung')+'</h3><div class="meta">'+esc(dayName(f.day))+', '+hhmm(start)+' bis '+hhmm(end)+' Uhr · Dauer '+durFor(f.size)/60+' Std.</div>'
+      +'<div class="f">'
+      +'<div class="fl"><span>Tag</span><div class="chips">'+dayChips+'</div></div>'
+      +'<div class="two"><label class="fl"><span>Uhrzeit</span><select id="rfT">'+(slots.length?slots.map(m=>'<option value="'+m+'"'+(m===f.min?' selected':'')+'>'+pad(Math.floor(m/60))+':'+pad(m%60)+'</option>').join(''):'<option>geschlossen</option>')+'</select></label>'
+      +'<div class="fl"><span>Personen</span><div class="stepper"><button class="chipbtn" data-sz="-1">−</button><span class="num">'+f.size+'</span><button class="chipbtn" data-sz="1">+</button></div></div></div>'
+      +'<div class="two"><label class="fl"><span>Name</span><input id="rfN" value="'+esc(f.name)+'" placeholder="z. B. Huber" autocomplete="off"></label>'
+      +'<label class="fl"><span>Telefon</span><input id="rfP" value="'+esc(f.phone)+'" placeholder="0664 …" inputmode="tel" autocomplete="off"></label></div>'
+      +'<label class="fl"><span>Notiz</span><input id="rfX" value="'+esc(f.note)+'" placeholder="Allergien, Kinderstuhl, Anlass …" autocomplete="off"></label>'
+      +'<div class="fl"><span>Tisch im Plan antippen'+(cur.length?' · gewählt: '+esc(label(cur.map(tById).filter(Boolean)))+' ('+seats(cur.map(tById).filter(Boolean))+' Pl.)':'')+'</span><div class="fplan" id="rfPlan"></div>'
+      +'<div class="flegend"><span><i class="lg fit"></i>frei</span><span><i class="lg small"></i>zu klein</span><span><i class="lg res"></i>reserviert</span><span><i class="lg occ"></i>besetzt, frei ca. um</span><span><i class="lg on"></i>gewählt</span></div></div>'
+      +'</div><div class="ferr" id="rfE">'+(!curOk?'Der bisherige Tisch '+esc(label(cur.map(tById).filter(Boolean)))+' ist zu dieser Zeit belegt, bitte neuen wählen.':'')+'</div>'
+      +'<div class="acts"><button class="act main" id="rfOk"><span>'+(ex?'Speichern':'Reservieren')+'</span><small>'+hhmm(start)+' Uhr'+(cur.length?' · Tisch '+esc(label(cur.map(tById).filter(Boolean))):'')+'</small></button><button class="act" id="rfX2">Abbrechen</button></div>';
+    const keep=()=>{ f.name=$('rfN').value; f.phone=$('rfP').value; f.note=$('rfX').value; };
+    sh.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{ keep(); f.day=+b.dataset.day; if(!ex) f.auto=true; draw(); });
+    sh.querySelectorAll('[data-sz]').forEach(b=>b.onclick=()=>{ keep(); f.size=Math.max(1,Math.min(60,f.size+ +b.dataset.sz)); f.auto=true; draw(); });
+    $('rfT').onchange=e=>{ keep(); f.min=+e.target.value; if(!curOk || f.auto) f.auto=true; draw(); };
+    $('rfX2').onclick=closeSheet;
+    $('rfOk').onclick=()=>{ keep();
+      const err=m=>{ $('rfE').textContent=m; };
+      if(!slots.length) return err('An diesem Tag ist geschlossen.');
+      if(!f.name.trim()){ err('Bitte einen Namen eingeben.'); $('rfN').focus(); return; }
+      if(!cur.length) return err('Bitte einen Tisch wählen.');
+      if(!curOk) return err('Dieser Tisch ist zu der Zeit belegt.');
+      if(seats(cur.map(tById).filter(Boolean))<f.size && !$('rfOk').dataset.sure){ $('rfOk').dataset.sure='1'; return err('Nur '+seats(cur.map(tById).filter(Boolean))+' Plätze für '+f.size+' Personen. Nochmal tippen, um trotzdem zu reservieren.'); }
+      closeSheet();
+      const data={start,end,size:f.size,name:f.name.trim(),phone:f.phone.trim(),note:f.note.trim(),tables:cur.slice()};
+      if(ex) act(()=>{ Object.assign(ex,data); }, 'Reservierung '+data.name+' geändert: '+dayName(f.day)+' '+hhmm(start)+' Uhr, Tisch '+label(cur.map(tById).filter(Boolean)));
+      else act(()=>{ S.res.push(Object.assign({id:'r'+Date.now().toString(36),email:'',status:'confirmed',source:'staff',created:Date.now()},data)); }, data.name+' reserviert: '+dayName(f.day)+' '+hhmm(start)+' Uhr, Tisch '+label(cur.map(tById).filter(Boolean)));
+      const t0=tById(cur[0]); if(t0 && f.day===dayStartOf(Date.now())) focusUnit(unitOf(t0));
+    };
+    $('toast').classList.remove('show'); $('sheet').classList.add('wide'); $('sheetBg').classList.add('show');
+    drawFormPlan($('rfPlan'), f, start, end, ex&&ex.id, ()=>{ keep(); draw(); });
+  };
+  draw();
+  setTimeout(()=>{ const n=$('rfN'); if(n && !f.name && window.innerWidth>700) n.focus(); },60);
 }
 
 function focusUnit(ts){
