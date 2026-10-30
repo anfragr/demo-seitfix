@@ -202,12 +202,12 @@ h2{font-size:21px;font-weight:700;margin-bottom:4px}
    Daten (Demo im Browser gespeichert, später Supabase).
    Gleicher Speicher wie mitarbeiter.html: Änderungen erscheinen dort live.
    ================================================================ */
-const KEY = 'ressystem-demo-v10';
+const KEY = 'ressystem-demo-v11';
 const MIN = 60000, DAY = 86400000;
 const ROOMS = ['Stüberl','Gewölbe','Schankstube'];
 const ACTIVE = ['confirmed','seated'];
 const DEFAULT_SETTINGS = {
-  open: {1:['11:00','23:00'],2:['11:00','23:00'],3:['11:00','23:00'],4:['11:00','23:00'],5:['11:00','23:00'],6:['11:00','23:00'],0:null},
+  open: {1:null,2:['11:00','23:00'],3:['11:00','23:00'],4:['11:00','23:00'],5:['11:00','23:00'],6:['11:00','23:00'],0:null},
   durSmall:120, durLarge:180, largeFrom:6, graceMin:15, onlineMax:8, leadHours:2, onlineShare:80,
   closedDates:[]
 };
@@ -244,22 +244,57 @@ function load(){
   return d;
 }
 function save(){ try{ S.savedAt=Date.now(); localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
-function seedDemo(d){
-  const has = id => d.tables.some(t=>t.id===id);
-  const at = (dayOff,h,m) => { const x=new Date(); x.setDate(x.getDate()+dayOff); x.setHours(h,m,0,0); return x.getTime(); };
-  const R = (status,dayOff,h,m,dur,size,name,tables,extra={}) => Object.assign({id:uid(),start:at(dayOff,h,m),end:at(dayOff,h,m)+dur*MIN,size,name,tables:tables.filter(has),status,source:'phone',phone:'',email:'',note:'',created:Date.now()-Math.random()*36e5*20},extra);
-  d.res.push(
-    R('requested',0,19,30,120,4,'Pichler',[], {source:'web',phone:'0664 123 45 67',email:'pichler@example.at',note:'Wenn möglich am Fenster'}),
-    R('requested',1,12,0,180,10,'Firma Steirer',[], {source:'web',phone:'0316 555 12',email:'office@steirer.example',note:'Weihnachtsfeier, Vorbesprechung Menü'}),
-    R('requested',2,18,30,120,2,'Novak',[], {source:'web',email:'novak@example.at'}),
-    R('confirmed',0,18,0,120,4,'Huber',['t15'],{phone:'0650 222 33 44'}),
-    R('confirmed',0,18,30,120,3,'Moser',['t19']),
-    R('confirmed',0,19,0,120,6,'Fink',['t16'],{note:'Kinderhochstuhl'}),
-    R('confirmed',0,19,30,180,12,'Geburtstag Lang',['t6','t7'],{note:'Torte um 20 Uhr'}),
-    R('confirmed',0,20,0,120,2,'Weber',['t2']),
-    R('confirmed',1,19,0,120,4,'Kern',['t3']),
-    R('confirmed',1,18,30,120,6,'Lechner',['t12'])
-  );
+function seedDemo(d){ seedDemoData(d); }
+/* Gemeinsame Demodaten (gleich in admin.html und mitarbeiter.html).
+   Alles relativ zur aktuellen Uhrzeit, damit beim Vorführen immer etwas los ist. */
+function seedDemoData(d){
+  const M=60000, N=Math.floor(Date.now()/(5*M))*5*M, rel=m=>N+m*M;
+  const at=(off,h,m)=>{ const x=new Date(); x.setDate(x.getDate()+off); x.setHours(h,m,0,0); return x.getTime(); };
+  // zukünftige Tage nur an Öffnungstagen (Di bis Sa)
+  const atOpen=(k,hh,mm)=>{ const x=new Date(); let c=0; while(c<k){ x.setDate(x.getDate()+1); const w=x.getDay(); if(w>=2&&w<=6) c++; } x.setHours(hh,mm,0,0); return x.getTime(); };
+  const tb=id=>d.tables.find(t=>t.id===id);
+  let n=0; const nid=()=>'demo'+(++n)+Math.random().toString(36).slice(2,6);
+  const R=(status,start,dur,size,name,tables,extra)=>{ const r=Object.assign({id:nid(),start,end:start+dur*M,size,name,tables:tables.filter(tb),status,source:'phone',phone:'',email:'',note:'',created:start-36e5*(26+((n*7)%40))},extra||{}); d.res.push(r); return r; };
+  const seat=(r,since)=>{ r.status='seated'; r.seatedAt=since; r.tables.forEach(i=>{ const t=tb(i); if(t){ t.since=since; t.resId=r.id; } }); };
+  const walk=(i,since)=>{ const t=tb(i); if(t){ t.since=since; t.resId=null; } };
+  // Heute: sitzen schon
+  seat(R('confirmed',rel(-45),120,4,'Huber',['t15'],{phone:'0650 222 33 44'}),rel(-40));
+  seat(R('confirmed',rel(-165),180,6,'Familie Gruber',['t16'],{phone:'0664 410 22 87',note:'Kinderhochstuhl'}),rel(-160));
+  seat(R('confirmed',rel(-25),120,2,'Weber',['t10']),rel(-22));
+  seat(R('confirmed',rel(-90),120,4,'Stammtisch Wolf',['t8'],{note:'Stammgäste'}),rel(-88));
+  // Heute: Laufkundschaft ohne Reservierung
+  walk('t3',rel(-35)); walk('t20',rel(-60)); walk('t5',rel(-15));
+  // Heute: gleich da / verspätet / Konflikt
+  R('confirmed',rel(-8),120,2,'Novak',['t2'],{phone:'0699 120 45 66'});
+  R('confirmed',rel(-22),120,3,'Eder',['t11'],{phone:'0676 330 18 02'});
+  R('confirmed',rel(10),120,3,'Moser',['t19'],{phone:'0664 873 11 09'});
+  R('confirmed',rel(25),120,4,'Brunner',['t5'],{phone:'0316 82 77 41'});
+  R('confirmed',rel(40),120,4,'Kern',['t1'],{phone:'0650 918 23 44',note:'Glutenfrei'});
+  // Heute: später
+  R('confirmed',rel(95),120,4,'Fink',['t13']);
+  R('confirmed',rel(125),120,2,'Bauer',['t11'],{source:'web',email:'bauer@example.at'});
+  R('confirmed',rel(150),180,10,'Geburtstag Lang',['t12','t14'],{phone:'0664 551 72 30',note:'Torte zum Dessert'});
+  R('confirmed',rel(180),180,6,'Lechner',['t7']);
+  R('confirmed',rel(205),120,4,'Schmid',['t4'],{source:'web',email:'schmid@example.at'});
+  // Heute: schon erledigt
+  R('done',rel(-300),120,4,'Kurz',['t13']);
+  R('done',rel(-260),120,2,'Ortner',['t2']);
+  R('no_show',rel(-200),120,2,'Zach',['t11']);
+  // Neue Anfragen von der Website
+  R('requested',rel(240),120,4,'Pichler',[],{source:'web',phone:'0664 123 45 67',email:'pichler@example.at',note:'Wenn möglich am Fenster'});
+  R('requested',atOpen(1,12,0),180,10,'Firma Steirer',[],{source:'web',phone:'0316 555 120',email:'office@steirer.example',note:'Weihnachtsfeier, Vorbesprechung Menü'});
+  R('requested',atOpen(1,18,0),120,5,'Familie Reiter',[],{source:'web',email:'reiter@example.at',note:'Mit Kinderwagen'});
+  R('requested',atOpen(2,18,30),120,2,'Hofer',[],{source:'web',email:'hofer@example.at'});
+  // Andere Uhrzeit vorgeschlagen, Gast hat noch nicht geantwortet
+  R('proposed',atOpen(1,19,0),180,6,'Wagner',[],{source:'web',email:'wagner@example.at',proposedStart:atOpen(1,19,30)});
+  // Morgen und übermorgen
+  R('confirmed',atOpen(1,12,0),120,2,'Maier',['t2']);
+  R('confirmed',atOpen(1,18,30),180,6,'Steiner',['t12'],{phone:'0650 712 90 01'});
+  R('confirmed',atOpen(1,19,0),120,4,'Pölzl',['t3']);
+  R('confirmed',atOpen(1,19,30),120,4,'Haas',['t15'],{source:'web',email:'haas@example.at'});
+  R('confirmed',atOpen(2,12,30),120,2,'Lang',['t10']);
+  R('confirmed',atOpen(2,19,0),180,8,'Verein Hart',['t6','t7'],{note:'Vereinsabend'});
+  d.adminSeeded=true;
 }
 window.addEventListener('storage',e=>{ if(e.key===KEY){ S=load(); render(); } });
 

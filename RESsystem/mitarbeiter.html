@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tischplan">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#ffffff">
 <title>Tischplan</title>
@@ -160,6 +165,20 @@ body.embed .tinfo{display:none}
   body{overflow:auto}
 }
 @media (max-width:560px){ .brand{display:none} .tab{padding:8px 11px} }
+
+/* Handy & Querformat: Tischplan auf volle Bildschirmhöhe, Listen darunter */
+@media (max-width:860px), (max-height:560px){
+  body{overflow:auto}
+  .app{height:auto;min-height:100dvh;grid-template-rows:auto auto}
+  .main{grid-template-rows:auto auto}
+  .floorwrap{height:calc(100dvh - var(--toph,60px) - env(safe-area-inset-top) - env(safe-area-inset-bottom));min-height:240px}
+  .side{max-height:none;grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){ .side{grid-template-columns:1fr} }
+.rotate-hint{display:none;position:absolute;left:50%;top:14px;transform:translateX(-50%);z-index:5;background:#16191d;color:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:600;white-space:nowrap;align-items:center;gap:8px;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+@media (max-width:560px) and (orientation:portrait){ .rotate-hint{display:flex} .timebar{flex-wrap:wrap} }
+.fsbtn{display:none}
+.fs-ok .fsbtn{display:inline-flex}
 </style>
 </head>
 <body>
@@ -172,6 +191,7 @@ body.embed .tinfo{display:none}
     <button class="btn" id="editBtn">Tische verschieben</button>
     <button class="btn" id="joinBtn">Tische verbinden</button>
     <button class="btn" id="splitBtn">Tische trennen</button>
+    <button class="btn fsbtn" id="fsBtn" aria-label="Vollbild">⤢ Vollbild</button>
   </header>
 
   <div class="main">
@@ -182,7 +202,7 @@ body.embed .tinfo{display:none}
         <button class="btn primary" id="modeOk">Verbinden</button>
         <button class="btn" id="modeCancel">Abbrechen</button>
       </div>
-      <div class="floorbox"><div class="floor" id="floor"></div></div>
+      <div class="floorbox"><div class="rotate-hint" aria-hidden="true">↻ Handy quer drehen für den ganzen Tischplan</div><div class="floor" id="floor"></div></div>
     </section>
 
     <aside class="side">
@@ -218,7 +238,7 @@ const CFG = {
   minTablePx: 50,       // Tische werden nie kleiner als eine Fingerkuppe gezeichnet
   snapCm: 5,            // beim Verschieben auf 5 cm einrasten
   undoMs: 6000,
-  storeKey: 'ressystem-demo-v10'
+  storeKey: 'ressystem-demo-v11'
 };
 const MIN = 60000;
 
@@ -294,9 +314,62 @@ function demoData(){
     T('t8','8',4,'Schankstube',1700,250, 90,130),
     T('t9','9',3,'Schankstube',2200,780,100, 85),
   ];
-  const res = [];
-  return {tables,res,savedAt:now};
+  const d = {tables,res:[],savedAt:now};
+  seedDemoData(d);
+  return d;
 }
+/* Gemeinsame Demodaten (gleich in admin.html und mitarbeiter.html).
+   Alles relativ zur aktuellen Uhrzeit, damit beim Vorführen immer etwas los ist. */
+function seedDemoData(d){
+  const M=60000, N=Math.floor(Date.now()/(5*M))*5*M, rel=m=>N+m*M;
+  const at=(off,h,m)=>{ const x=new Date(); x.setDate(x.getDate()+off); x.setHours(h,m,0,0); return x.getTime(); };
+  // zukünftige Tage nur an Öffnungstagen (Di bis Sa)
+  const atOpen=(k,hh,mm)=>{ const x=new Date(); let c=0; while(c<k){ x.setDate(x.getDate()+1); const w=x.getDay(); if(w>=2&&w<=6) c++; } x.setHours(hh,mm,0,0); return x.getTime(); };
+  const tb=id=>d.tables.find(t=>t.id===id);
+  let n=0; const nid=()=>'demo'+(++n)+Math.random().toString(36).slice(2,6);
+  const R=(status,start,dur,size,name,tables,extra)=>{ const r=Object.assign({id:nid(),start,end:start+dur*M,size,name,tables:tables.filter(tb),status,source:'phone',phone:'',email:'',note:'',created:start-36e5*(26+((n*7)%40))},extra||{}); d.res.push(r); return r; };
+  const seat=(r,since)=>{ r.status='seated'; r.seatedAt=since; r.tables.forEach(i=>{ const t=tb(i); if(t){ t.since=since; t.resId=r.id; } }); };
+  const walk=(i,since)=>{ const t=tb(i); if(t){ t.since=since; t.resId=null; } };
+  // Heute: sitzen schon
+  seat(R('confirmed',rel(-45),120,4,'Huber',['t15'],{phone:'0650 222 33 44'}),rel(-40));
+  seat(R('confirmed',rel(-165),180,6,'Familie Gruber',['t16'],{phone:'0664 410 22 87',note:'Kinderhochstuhl'}),rel(-160));
+  seat(R('confirmed',rel(-25),120,2,'Weber',['t10']),rel(-22));
+  seat(R('confirmed',rel(-90),120,4,'Stammtisch Wolf',['t8'],{note:'Stammgäste'}),rel(-88));
+  // Heute: Laufkundschaft ohne Reservierung
+  walk('t3',rel(-35)); walk('t20',rel(-60)); walk('t5',rel(-15));
+  // Heute: gleich da / verspätet / Konflikt
+  R('confirmed',rel(-8),120,2,'Novak',['t2'],{phone:'0699 120 45 66'});
+  R('confirmed',rel(-22),120,3,'Eder',['t11'],{phone:'0676 330 18 02'});
+  R('confirmed',rel(10),120,3,'Moser',['t19'],{phone:'0664 873 11 09'});
+  R('confirmed',rel(25),120,4,'Brunner',['t5'],{phone:'0316 82 77 41'});
+  R('confirmed',rel(40),120,4,'Kern',['t1'],{phone:'0650 918 23 44',note:'Glutenfrei'});
+  // Heute: später
+  R('confirmed',rel(95),120,4,'Fink',['t13']);
+  R('confirmed',rel(125),120,2,'Bauer',['t11'],{source:'web',email:'bauer@example.at'});
+  R('confirmed',rel(150),180,10,'Geburtstag Lang',['t12','t14'],{phone:'0664 551 72 30',note:'Torte zum Dessert'});
+  R('confirmed',rel(180),180,6,'Lechner',['t7']);
+  R('confirmed',rel(205),120,4,'Schmid',['t4'],{source:'web',email:'schmid@example.at'});
+  // Heute: schon erledigt
+  R('done',rel(-300),120,4,'Kurz',['t13']);
+  R('done',rel(-260),120,2,'Ortner',['t2']);
+  R('no_show',rel(-200),120,2,'Zach',['t11']);
+  // Neue Anfragen von der Website
+  R('requested',rel(240),120,4,'Pichler',[],{source:'web',phone:'0664 123 45 67',email:'pichler@example.at',note:'Wenn möglich am Fenster'});
+  R('requested',atOpen(1,12,0),180,10,'Firma Steirer',[],{source:'web',phone:'0316 555 120',email:'office@steirer.example',note:'Weihnachtsfeier, Vorbesprechung Menü'});
+  R('requested',atOpen(1,18,0),120,5,'Familie Reiter',[],{source:'web',email:'reiter@example.at',note:'Mit Kinderwagen'});
+  R('requested',atOpen(2,18,30),120,2,'Hofer',[],{source:'web',email:'hofer@example.at'});
+  // Andere Uhrzeit vorgeschlagen, Gast hat noch nicht geantwortet
+  R('proposed',atOpen(1,19,0),180,6,'Wagner',[],{source:'web',email:'wagner@example.at',proposedStart:atOpen(1,19,30)});
+  // Morgen und übermorgen
+  R('confirmed',atOpen(1,12,0),120,2,'Maier',['t2']);
+  R('confirmed',atOpen(1,18,30),180,6,'Steiner',['t12'],{phone:'0650 712 90 01'});
+  R('confirmed',atOpen(1,19,0),120,4,'Pölzl',['t3']);
+  R('confirmed',atOpen(1,19,30),120,4,'Haas',['t15'],{source:'web',email:'haas@example.at'});
+  R('confirmed',atOpen(2,12,30),120,2,'Lang',['t10']);
+  R('confirmed',atOpen(2,19,0),180,8,'Verein Hart',['t6','t7'],{note:'Vereinsabend'});
+  d.adminSeeded=true;
+}
+
 
 function planSVG(area){
   const P = PLANS[area]; if(!P) return '';
@@ -331,6 +404,7 @@ function planSVG(area){
    Zustand
    ================================================================ */
 let S = load() || demoData();
+if(!load()) save();   // Demo sofort speichern, damit Admin im selben Browser dieselben Daten sieht
 const UI = { at:null, area:'Lokal', mode:null, sel:[], moveFrom:null, hl:null, undo:null };
 
 function load(){
@@ -940,7 +1014,7 @@ const PRESS={on:false};
 })();
 
 window.addEventListener('storage',e=>{ if(e.key===CFG.storeKey){ const d=load(); if(d){ S=d; render(); } } });
-$('resetBtn').onclick=()=>{ try{localStorage.removeItem(CFG.storeKey);}catch(e){} S=demoData(); endMode(); render(); showToast('Alle Tische frei, keine Reservierungen'); };
+$('resetBtn').onclick=()=>{ try{localStorage.removeItem(CFG.storeKey);}catch(e){} S=demoData(); save(); endMode(); render(); showToast('Demo zurückgesetzt'); };
 
 if(/embed/.test(location.search)){ document.getElementById('brand').style.display='none'; document.body.classList.add('embed'); }
 window.addEventListener('resize',()=>{ clearTimeout(window.__rz); window.__rz=setTimeout(render,120); });
@@ -960,6 +1034,25 @@ setInterval(()=>{
   if(UI.at && !PRESS.on && !sheetOpen && !UI.mode && now-lastTouch>120000){ UI.at=null; lastFull=now; render(); return; }
   if(!PRESS.on && !sheetOpen && (flip || now-lastFull>15000)){ lastFull=now; render(); }
 }, 1000);
+</script>
+
+<script>
+(function(){
+  var top=document.querySelector('.top');
+  function setTopH(){ if(top) document.documentElement.style.setProperty('--toph', top.offsetHeight+'px'); }
+  setTopH(); window.addEventListener('resize',setTopH); window.addEventListener('orientationchange',function(){setTimeout(setTopH,200);});
+  var d=document, el=d.documentElement;
+  var can = d.fullscreenEnabled || d.webkitFullscreenEnabled;
+  if(can){ d.body.classList.add('fs-ok'); }
+  var b=d.getElementById('fsBtn');
+  function isFs(){ return d.fullscreenElement || d.webkitFullscreenElement; }
+  function upd(){ if(b) b.textContent = isFs() ? '⤡ Vollbild aus' : '⤢ Vollbild'; setTimeout(setTopH,150); }
+  if(b) b.addEventListener('click',function(){
+    if(isFs()){ (d.exitFullscreen||d.webkitExitFullscreen).call(d); }
+    else { var r=el.requestFullscreen||el.webkitRequestFullscreen; if(r){ var pr=r.call(el); if(pr&&pr.catch) pr.catch(function(){}); } }
+  });
+  d.addEventListener('fullscreenchange',upd); d.addEventListener('webkitfullscreenchange',upd);
+})();
 </script>
 </body>
 </html>
